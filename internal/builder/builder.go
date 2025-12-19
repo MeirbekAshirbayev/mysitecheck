@@ -7,6 +7,7 @@ import (
 	"math-app/internal/models"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 // RenderToFile renders a template to a file
@@ -56,6 +57,7 @@ func BuildSite(outputDir string, basePath string) error {
 			return template.HTML(s)
 		},
 		"path": func(p string) string {
+			p = strings.TrimSpace(p) // Remove leading/trailing spaces
 			if basePath == "/" {
 				return p
 			}
