@@ -1,15 +1,10 @@
+# Ignore everything
+*
 
-# Binaries
-*.exe
-*.dll
-
-# Database
-*.db
-
-# Helper files
-.gemini
-debug_output.txt
-
-# Editor
-.vscode
-.idea
+# But not these files/folders
+!docs/
+!docs/**
+!README.md
+!LICENSE
+!COPYRIGHT.md
+!.gitignore
