@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Теңдеулер Квесті | VisualMath</title>
+    <meta name="description" content="Бұл — теңдеулер тақырыбын бекітуге арналған 10 деңгейлі қызықты веб-ойын. Оқушылар &#34;жеңілден күрделіге&#34; қағидасы бойынша келесі тапсырмаларды орындайды:
+
+Терминдер: Математикалық ұғымдарды сәйкестендіру.
+
+Тест және Енгізу: Теңдеуді шешіп, дұрыс жауапты таңдау немесе жазу.
+
+Қатені тап: Дайын есептен қате кеткен жерді анықтау (сын тұрғысынан ойлау).
+
+Конструктор: Мәтінді есеп бойынша блоктардан теңдеу құрастыру.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Теңдеулер Квесті</span>
+            </div>
+            <a href="/lesson/12"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Теңдеулер Квесті&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .animate-shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes bounce-custom {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-bounce-custom {
+            animation: bounce-custom 1s infinite;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Hide scrollbar for clean UI */
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans text-gray-800 select-none&#34;&gt;
+
+    &lt;div id=&#34;app&#34; class=&#34;max-w-3xl mx-auto p-4 sm:p-6&#34;&gt;
+        &lt;!-- Header will be injected here --&gt;
+        &lt;div id=&#34;header-container&#34;&gt;&lt;/div&gt;
+
+        &lt;!-- Main Card --&gt;
+        &lt;div class=&#34;bg-white rounded-3xl shadow-2xl p-6 sm:p-8 min-h-[500px] flex flex-col justify-center relative overflow-hidden transition-all duration-300&#34;&gt;
+            &lt;div id=&#34;game-content&#34; class=&#34;w-full&#34;&gt;
+                &lt;!-- Dynamic Content Goes Here --&gt;
+            &lt;/div&gt;
+            
+            &lt;!-- Progress Bar --&gt;
+            &lt;div id=&#34;progress-container&#34; class=&#34;hidden absolute bottom-0 left-0 h-3 bg-gray-100 w-full mt-8&#34;&gt;
+                &lt;div id=&#34;progress-bar&#34; class=&#34;h-full bg-blue-600 transition-all duration-500 ease-out&#34; style=&#34;width: 0%&#34;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Icons (SVGs stored as strings for ease of use) --&gt;
+    &lt;script&gt;
+        const Icons = {
+            trophy: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;28&#34; height=&#34;28&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M6 9H4.5a2.5 2.5 0 0 1 0-5H6&#34;/&gt;&lt;path d=&#34;M18 9h1.5a2.5 2.5 0 0 0 0-5H18&#34;/&gt;&lt;path d=&#34;M4 22h16&#34;/&gt;&lt;path d=&#34;M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22&#34;/&gt;&lt;path d=&#34;M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22&#34;/&gt;&lt;path d=&#34;M18 2H6v7a6 6 0 0 0 12 0V2Z&#34;/&gt;&lt;/svg&gt;`,
+            brain: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;72&#34; height=&#34;72&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z&#34;/&gt;&lt;path d=&#34;M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z&#34;/&gt;&lt;/svg&gt;`,
+            play: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;32&#34; height=&#34;32&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;currentColor&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;polygon points=&#34;5 3 19 12 5 21 5 3&#34;/&gt;&lt;/svg&gt;`,
+            refresh: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8&#34;/&gt;&lt;path d=&#34;M21 3v5h-5&#34;/&gt;&lt;path d=&#34;M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16&#34;/&gt;&lt;path d=&#34;M8 16H3v5&#34;/&gt;&lt;/svg&gt;`,
+            check: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;3&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;polyline points=&#34;20 6 9 17 4 12&#34;/&gt;&lt;/svg&gt;`,
+            alert: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34;/&gt;&lt;line x1=&#34;12&#34; y1=&#34;8&#34; x2=&#34;12&#34; y2=&#34;12&#34;/&gt;&lt;line x1=&#34;12&#34; y1=&#34;16&#34; x2=&#34;12.01&#34; y2=&#34;16&#34;/&gt;&lt;/svg&gt;`,
+            star: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;64&#34; height=&#34;64&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;currentColor&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-yellow-400&#34;&gt;&lt;polygon points=&#34;12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2&#34;/&gt;&lt;/svg&gt;`,
+            trash: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;16&#34; height=&#34;16&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M3 6h18&#34;/&gt;&lt;path d=&#34;M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6&#34;/&gt;&lt;path d=&#34;M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2&#34;/&gt;&lt;/svg&gt;`,
+            help: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;20&#34; height=&#34;20&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34;/&gt;&lt;path d=&#34;M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3&#34;/&gt;&lt;path d=&#34;M12 17h.01&#34;/&gt;&lt;/svg&gt;`,
+            chevronDown: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;20&#34; height=&#34;20&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;polyline points=&#34;6 9 12 15 18 9&#34;/&gt;&lt;/svg&gt;`,
+            chevronUp: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;20&#34; height=&#34;20&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;polyline points=&#34;18 15 12 9 6 15&#34;/&gt;&lt;/svg&gt;`
+        };
+
+        // Game State
+        let gameState = &#39;welcome&#39;; // welcome, playing, finished
+        let currentLevel = 1;
+        const totalLevels = 10;
+        let isTransitioning = false;
+
+        // --- Render Functions ---
+
+        function renderHeader() {
+            const container = document.getElementById(&#39;header-container&#39;);
+            const levelBadge = gameState === &#39;playing&#39; 
+                ? `&lt;div class=&#34;bg-white px-4 py-2 rounded-full shadow-sm text-blue-600 font-bold border-2 border-blue-100 text-lg&#34;&gt;
+                     ${currentLevel} / ${totalLevels}
+                   &lt;/div&gt;`
+                : &#39;&#39;;
+
+            container.innerHTML = `
+                &lt;div class=&#34;flex justify-between items-center mb-6&#34;&gt;
+                    &lt;div class=&#34;flex items-center gap-3 text-blue-900 font-bold text-2xl sm:text-3xl&#34;&gt;
+                        &lt;div class=&#34;bg-blue-600 text-white p-2.5 rounded-xl shadow-md&#34;&gt;
+                            ${Icons.trophy}
+                        &lt;/div&gt;
+                        &lt;span&gt;Теңдеулер Квесті&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&#34;flex items-center gap-2&#34;&gt;
+                        ${gameState === &#39;playing&#39; ? &#39;&lt;span class=&#34;text-lg font-bold text-gray-500 hidden sm:inline&#34;&gt;Деңгей:&lt;/span&gt;&#39; : &#39;&#39;}
+                        ${levelBadge}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        function renderWelcome() {
+            const content = document.getElementById(&#39;game-content&#39;);
+            document.getElementById(&#39;progress-container&#39;).classList.add(&#39;hidden&#39;);
+            
+            content.innerHTML = `
+                &lt;div class=&#34;text-center space-y-8 py-8 fade-in&#34;&gt;
+                    &lt;div class=&#34;bg-blue-100 w-36 h-36 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner text-blue-600&#34;&gt;
+                        ${Icons.brain}
+                    &lt;/div&gt;
+                    &lt;h1 class=&#34;text-5xl font-extrabold text-gray-900 tracking-tight leading-tight&#34;&gt;
+                        Математикалық&lt;br/&gt;&lt;span class=&#34;text-blue-600&#34;&gt;Шытырман&lt;/span&gt;
+                    &lt;/h1&gt;
+                    &lt;p class=&#34;text-gray-600 max-w-lg mx-auto text-xl leading-relaxed font-medium&#34;&gt;
+                        10 қызықты деңгейден өтіп, теңдеулердің хас шебері бол! Логикаңды сынап, қателерді тап.
+                    &lt;/p&gt;
+                    &lt;div class=&#34;pt-6&#34;&gt;
+                        &lt;button onclick=&#34;startGame()&#34; class=&#34;w-full sm:w-auto text-2xl px-12 py-5 bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200 shadow-xl rounded-2xl font-bold transition-all transform active:scale-95 flex items-center justify-center gap-3 mx-auto&#34;&gt;
+                            ${Icons.play}
+                            Бастау
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        function renderFinished() {
+            const content = document.getElementById(&#39;game-content&#39;);
+            document.getElementById(&#39;progress-container&#39;).classList.add(&#39;hidden&#39;);
+
+            content.innerHTML = `
+                &lt;div class=&#34;text-center space-y-8 py-10 fade-in&#34;&gt;
+                    &lt;div class=&#34;flex justify-center gap-4 mb-8&#34;&gt;
+                        &lt;div class=&#34;animate-bounce-custom&#34; style=&#34;animation-delay: 0s&#34;&gt;${Icons.star}&lt;/div&gt;
+                        &lt;div class=&#34;animate-bounce-custom&#34; style=&#34;animation-delay: 0.1s; transform: scale(1.2);&#34;&gt;${Icons.star}&lt;/div&gt;
+                        &lt;div class=&#34;animate-bounce-custom&#34; style=&#34;animation-delay: 0.2s&#34;&gt;${Icons.star}&lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;h1 class=&#34;text-5xl font-extrabold text-green-600 mb-4&#34;&gt;
+                        ЖЕҢІС!
+                    &lt;/h1&gt;
+                    &lt;div class=&#34;bg-green-50 p-8 rounded-3xl border-2 border-green-100 max-w-lg mx-auto shadow-sm&#34;&gt;
+                        &lt;p class=&#34;text-gray-800 text-2xl font-semibold&#34;&gt;
+                            Сен барлық 10 деңгейді сәтті аяқтадың. &lt;br/&gt;Теңдеулер тақырыбын өте жақсы меңгердің!
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&#34;pt-8&#34;&gt;
+                        &lt;button onclick=&#34;resetGame()&#34; class=&#34;w-full sm:w-auto px-10 py-4 border-4 border-gray-200 text-gray-600 hover:border-blue-500 hover:text-blue-600 rounded-2xl font-bold text-xl transition-all flex items-center justify-center gap-3 mx-auto&#34;&gt;
+                            ${Icons.refresh}
+                            Басынан бастау
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        // --- Logic Control ---
+
+        function startGame() {
+            gameState = &#39;playing&#39;;
+            currentLevel = 1;
+            renderHeader();
+            renderLevel();
+        }
+
+        function resetGame() {
+            gameState = &#39;welcome&#39;;
+            currentLevel = 1;
+            renderHeader();
+            renderWelcome();
+        }
+
+        function nextLevel() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            if (currentLevel &lt; totalLevels) {
+                currentLevel&#43;&#43;;
+                renderHeader();
+                renderLevel();
+            } else {
+                gameState = &#39;finished&#39;;
+                renderHeader();
+                renderFinished();
+            }
+            setTimeout(() =&gt; { isTransitioning = false; }, 300);
+        }
+
+        function updateProgress() {
+            const bar = document.getElementById(&#39;progress-bar&#39;);
+            const container = document.getElementById(&#39;progress-container&#39;);
+            container.classList.remove(&#39;hidden&#39;);
+            const pct = Math.min(((currentLevel - 0.5) / totalLevels) * 100, 100);
+            bar.style.width = `${pct}%`;
+        }
+
+        // --- Level Renderers ---
+
+        function renderLevel() {
+            const content = document.getElementById(&#39;game-content&#39;);
+            content.innerHTML = &#39;&#39;; // Clear previous content
+            updateProgress();
+
+            // Simple router for levels
+            switch(currentLevel) {
+                case 1: renderLevelMatching(content); break;
+                case 2: renderLevelMultipleChoice(content, &#34;2-деңгей: Түбірді тап&#34;, &#34;x &#43; 12 = 18 теңдеуінің түбірі нешеге тең?&#34;, [&#39;6&#39;, &#39;5&#39;, &#39;30&#39;, &#39;18&#39;], 0); break;
+                case 3: renderLevelInput(content, &#34;3-деңгей: Қарапайым теңдеу&#34;, &#34;5x &#43; 7 = 22&#34;, 3); break;
+                case 4: renderLevelMistake(content); break;
+                case 5: renderLevelMultipleChoice(content, &#34;5-деңгей: Дұрыс теңдеуді таңда&#34;, &#34;«Белгісіз санды 5-ке арттырғанда 20 шықты». Қай теңдеу дұрыс?&#34;, [&#39;5x = 20&#39;, &#39;x - 5 = 20&#39;, &#39;x &#43; 5 = 20&#39;, &#39;20 : x = 5&#39;], 2); break;
+                case 6: renderLevelInput(content, &#34;6-деңгей: Жақшаны ашу&#34;, &#34;5 · (x &#43; 2) = 30&#34;, 4); break;
+                case 7: renderLevelBuilder(content); break;
+                case 8: renderLevelMultipleChoice(content, &#34;8-деңгей: Логика&#34;, &#34;(45 - x) · 3 = 93 теңдеуін шешудің ең бірінші қадамы қандай?&#34;, [&#39;93-ті 3-ке бөлу&#39;, &#39;45-тен 3-ті азайту&#39;, &#39;93-ті 3-ке көбейту&#39;, &#39;Жақшаны ашу&#39;], 0, &#34;Мұнда белгісіз көбейткішті (жақшаны) табу керек...&#34;); break;
+                case 9: renderLevelInput(content, &#34;9-деңгей: Бөлу амалы&#34;, &#34;(x - 13) : 7 = 2&#34;, 27); break;
+                case 10: renderLevelInput(content, &#34;10-деңгей: ФИНАЛ (Күрделі)&#34;, &#34;(200 - x) : 5 = 25&#34;, 75, true); break;
+                default: renderFinished();
+            }
+        }
+
+        // --- Level 1: Matching ---
+        function renderLevelMatching(container) {
+            let selectedTerm = null;
+            let matched = [];
+            let pairs = [
+                { id: 1, type: &#39;term&#39;, text: &#39;Теңдеу&#39;, matchId: 1 },
+                { id: 2, type: &#39;def&#39;, text: &#39;Құрамында белгісіз саны бар теңдік&#39;, matchId: 1 },
+                { id: 3, type: &#39;term&#39;, text: &#39;Түбір&#39;, matchId: 2 },
+                { id: 4, type: &#39;def&#39;, text: &#39;Теңдеуді тура теңдікке айналдыратын сан&#39;, matchId: 2 },
+                { id: 5, type: &#39;term&#39;, text: &#39;Теңдеуді шешу&#39;, matchId: 3 },
+                { id: 6, type: &#39;def&#39;, text: &#39;Түбірлерін табу немесе түбірі жоқ екенін дәлелдеу&#39;, matchId: 3 },
+            ].sort(() =&gt; Math.random() - 0.5);
+
+            const wrapper = document.createElement(&#39;div&#39;);
+            wrapper.className = &#34;space-y-8 fade-in&#34;;
+            wrapper.innerHTML = `
+                &lt;div class=&#34;text-center mb-8&#34;&gt;
+                    &lt;h2 class=&#34;text-3xl font-extrabold text-blue-900 mb-3&#34;&gt;1-деңгей: Ұғымдар&lt;/h2&gt;
+                    &lt;p class=&#34;text-xl text-gray-600 font-medium&#34;&gt;Сөзді оның мағынасымен сәйкестендір.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div id=&#34;grid-container&#34; class=&#34;grid grid-cols-1 sm:grid-cols-2 gap-5&#34;&gt;&lt;/div&gt;
+            `;
+            container.appendChild(wrapper);
+
+            const grid = wrapper.querySelector(&#39;#grid-container&#39;);
+
+            function renderGrid() {
+                grid.innerHTML = &#39;&#39;;
+                pairs.forEach(item =&gt; {
+                    const el = document.createElement(&#39;div&#39;);
+                    const isMatched = matched.includes(item.id);
+                    const isSelected = selectedTerm &amp;&amp; selectedTerm.id === item.id;
+                    
+                    let classes = &#34;p-6 rounded-2xl cursor-pointer text-center font-bold text-xl transition-all border-4 min-h-[100px] flex items-center justify-center select-none shadow-sm &#34;;
+                    if (isMatched) classes &#43;= &#34;border-green-500 bg-green-50 text-green-700 opacity-60 scale-95 pointer-events-none&#34;;
+                    else if (isSelected) classes &#43;= &#34;border-blue-500 bg-blue-50 text-blue-800 scale-105 shadow-md&#34;;
+                    else classes &#43;= &#34;border-gray-200 bg-white hover:border-blue-400 hover:bg-blue-50 text-gray-700&#34;;
+
+                    el.className = classes;
+                    el.innerText = item.text;
+                    
+                    el.onclick = () =&gt; {
+                        if (isMatched) return;
+                        if (!selectedTerm) {
+                            selectedTerm = item;
+                            renderGrid();
+                        } else {
+                            if (selectedTerm.id === item.id) return; // same card
+                            
+                            if (selectedTerm.matchId === item.matchId) {
+                                matched.push(selectedTerm.id, item.id);
+                                selectedTerm = null;
+                                renderGrid();
+                                if (matched.length === pairs.length) setTimeout(nextLevel, 1000);
+                            } else {
+                                el.classList.add(&#39;border-red-500&#39;, &#39;bg-red-50&#39;, &#39;animate-shake&#39;);
+                                const prevEl = Array.from(grid.children).find(c =&gt; c.innerText === selectedTerm.text);
+                                if(prevEl) prevEl.classList.add(&#39;border-red-500&#39;, &#39;bg-red-50&#39;, &#39;animate-shake&#39;);
+                                
+                                setTimeout(() =&gt; {
+                                    selectedTerm = null;
+                                    renderGrid();
+                                }, 800);
+                            }
+                        }
+                    };
+                    grid.appendChild(el);
+                });
+            }
+            renderGrid();
+        }
+
+        // --- Level: Multiple Choice ---
+        function renderLevelMultipleChoice(container, title, question, options, correctIndex, hint = &#34;&#34;) {
+            const wrapper = document.createElement(&#39;div&#39;);
+            wrapper.className = &#34;space-y-8 fade-in&#34;;
+            wrapper.innerHTML = `
+                &lt;div class=&#34;text-center mb-8&#34;&gt;
+                    &lt;h2 class=&#34;text-3xl font-extrabold text-blue-900 mb-4&#34;&gt;${title}&lt;/h2&gt;
+                    &lt;div class=&#34;bg-blue-50 p-6 rounded-2xl border-2 border-blue-100 inline-block w-full&#34;&gt;
+                        &lt;p class=&#34;text-3xl font-bold text-blue-900 leading-snug&#34;&gt;${question}&lt;/p&gt;
+                    &lt;/div&gt;
+                    ${hint ? `&lt;p class=&#34;text-lg text-gray-500 mt-3 italic font-medium&#34;&gt;${hint}&lt;/p&gt;` : &#39;&#39;}
+                &lt;/div&gt;
+                &lt;div id=&#34;options-grid&#34; class=&#34;grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto&#34;&gt;&lt;/div&gt;
+                &lt;div id=&#34;feedback-area&#34; class=&#34;h-10 text-center font-bold text-2xl&#34;&gt;&lt;/div&gt;
+            `;
+            container.appendChild(wrapper);
+
+            const grid = wrapper.querySelector(&#39;#options-grid&#39;);
+            const feedback = wrapper.querySelector(&#39;#feedback-area&#39;);
+            let isLocked = false;
+
+            options.forEach((opt, idx) =&gt; {
+                const btn = document.createElement(&#39;button&#39;);
+                btn.className = &#34;p-6 rounded-2xl text-2xl font-bold transition-all border-4 bg-white border-gray-200 hover:border-blue-400 text-gray-700 hover:bg-blue-50 w-full shadow-sm active:scale-95&#34;;
+                btn.innerText = opt;
+                btn.onclick = () =&gt; {
+                    if (isLocked) return;
+                    isLocked = true;
+                    if (idx === correctIndex) {
+                        btn.className = &#34;p-6 rounded-2xl text-2xl font-bold transition-all border-4 bg-green-100 border-green-500 text-green-700 w-full shadow-md&#34;;
+                        feedback.innerHTML = &#39;&lt;span class=&#34;text-green-600&#34;&gt;Жарайсың!&lt;/span&gt;&#39;;
+                        setTimeout(nextLevel, 1200);
+                    } else {
+                        btn.className = &#34;p-6 rounded-2xl text-2xl font-bold transition-all border-4 bg-red-100 border-red-500 text-red-700 w-full animate-shake&#34;;
+                        feedback.innerHTML = &#39;&lt;span class=&#34;text-red-500&#34;&gt;Қате жауап!&lt;/span&gt;&#39;;
+                        setTimeout(() =&gt; {
+                            isLocked = false;
+                            btn.className = &#34;p-6 rounded-2xl text-2xl font-bold transition-all border-4 bg-white border-gray-200 hover:border-blue-400 text-gray-700 hover:bg-blue-50 w-full shadow-sm&#34;;
+                            feedback.innerHTML = &#39;&#39;;
+                        }, 1500);
+                    }
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        // --- Level: Input ---
+        function renderLevelInput(container, title, question, correctAnswer, isBoss = false) {
+            const wrapper = document.createElement(&#39;div&#39;);
+            wrapper.className = &#34;space-y-10 text-center fade-in&#34;;
+            const bgClass = isBoss ? &#39;bg-indigo-900 border-indigo-700&#39; : &#39;bg-white border-gray-200&#39;;
+            const textClass = isBoss ? &#39;text-white&#39; : &#39;text-blue-900&#39;;
+            
+            wrapper.innerHTML = `
+                &lt;div&gt;
+                    &lt;h2 class=&#34;text-3xl font-extrabold text-blue-900 mb-3&#34;&gt;${title}&lt;/h2&gt;
+                    &lt;p class=&#34;text-xl text-gray-600 font-medium&#34;&gt;Теңдеуді шешіп, x-ті тап.&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;p-10 rounded-3xl shadow-inner border-4 inline-block mx-auto transition-colors ${bgClass}&#34;&gt;
+                    &lt;span class=&#34;text-5xl sm:text-6xl font-mono font-bold ${textClass} tracking-wider&#34;&gt;
+                        ${question}
+                    &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;max-w-sm mx-auto space-y-5&#34;&gt;
+                    &lt;div&gt;
+                        &lt;label class=&#34;block text-gray-600 mb-3 font-bold text-2xl&#34;&gt;x = ?&lt;/label&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;input-answer&#34; class=&#34;w-full p-5 text-center text-4xl font-bold border-4 border-gray-300 rounded-2xl focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-100 transition-all text-gray-800&#34; placeholder=&#34;?&#34;&gt;
+                    &lt;/div&gt;
+                    &lt;div id=&#34;input-feedback&#34; class=&#34;h-14 flex items-center justify-center text-xl font-bold&#34;&gt;&lt;/div&gt;
+                    &lt;button id=&#34;check-btn&#34; class=&#34;w-full px-8 py-5 bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200 shadow-xl rounded-2xl font-bold text-2xl transition-all transform active:scale-95&#34;&gt;Тексеру&lt;/button&gt;
+                &lt;/div&gt;
+            `;
+            container.appendChild(wrapper);
+
+            const input = wrapper.querySelector(&#39;#input-answer&#39;);
+            const btn = wrapper.querySelector(&#39;#check-btn&#39;);
+            const feedbackBox = wrapper.querySelector(&#39;#input-feedback&#39;);
+
+            // Focus input
+            setTimeout(() =&gt; input.focus(), 100);
+
+            const check = () =&gt; {
+                const val = parseInt(input.value.trim());
+                if (isNaN(val)) return;
+
+                if (val === correctAnswer) {
+                    feedbackBox.innerHTML = &#39;&lt;div class=&#34;text-green-700 bg-green-100 border-2 border-green-200 p-3 rounded-xl w-full&#34;&gt;Дұрыс жауап!&lt;/div&gt;&#39;;
+                    input.disabled = true;
+                    btn.disabled = true;
+                    setTimeout(nextLevel, 1500);
+                } else {
+                    feedbackBox.innerHTML = `&lt;div class=&#34;text-red-600 bg-red-100 border-2 border-red-200 p-3 rounded-xl flex items-center justify-center gap-2 animate-shake w-full&#34;&gt;${Icons.alert} Қате! Қайта есептеп көр.&lt;/div&gt;`;
+                    setTimeout(() =&gt; {
+                        feedbackBox.innerHTML = &#39;&#39;;
+                    }, 2000);
+                }
+            };
+
+            btn.onclick = check;
+            input.onkeydown = (e) =&gt; {
+                feedbackBox.innerHTML = &#39;&#39;;
+                if (e.key === &#39;Enter&#39;) check();
+            };
+        }
+
+        // --- Level 4: Mistake ---
+        function renderLevelMistake(container) {
+            const wrapper = document.createElement(&#39;div&#39;);
+            wrapper.className = &#34;space-y-8 fade-in&#34;;
+            wrapper.innerHTML = `
+                &lt;div class=&#34;text-center mb-8&#34;&gt;
+                    &lt;h2 class=&#34;text-3xl font-extrabold text-blue-900 mb-3&#34;&gt;4-деңгей: Қатесін тап!&lt;/h2&gt;
+                    &lt;p class=&#34;text-xl text-gray-600 font-medium&#34;&gt;Оқушы есеп шығаруда қай жерден қате жіберді?&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div id=&#34;steps-container&#34; class=&#34;space-y-4 max-w-2xl mx-auto&#34;&gt;&lt;/div&gt;
+                &lt;div class=&#34;flex justify-center mt-6&#34;&gt;
+                    &lt;button id=&#34;mistake-check-btn&#34; class=&#34;px-10 py-4 bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200 shadow-lg rounded-2xl font-bold text-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed&#34; disabled&gt;Тексеру&lt;/button&gt;
+                &lt;/div&gt;
+            `;
+            container.appendChild(wrapper);
+
+            const stepsContainer = wrapper.querySelector(&#39;#steps-container&#39;);
+            const btn = wrapper.querySelector(&#39;#mistake-check-btn&#39;);
+            const steps = [
+                { text: &#34;(45 - x) · 3 = 93&#34;, label: &#34;Берілгені&#34; },
+                { text: &#34;45 - x = 93 : 3&#34;, label: &#34;1-қадам: Көбейтуге кері амал&#34; },
+                { text: &#34;45 - x = 30&#34;, label: &#34;2-қадам: Бөлуді орындау&#34; }, // Mistake
+                { text: &#34;x = 45 - 30&#34;, label: &#34;3-қадам: Азайтқышты табу&#34; },
+                { text: &#34;x = 15&#34;, label: &#34;Жауабы&#34; }
+            ];
+            const correctIndex = 2;
+            let selectedIndex = null;
+            let isDone = false;
+
+            steps.forEach((step, index) =&gt; {
+                const btnStep = document.createElement(&#39;button&#39;);
+                btnStep.className = &#34;w-full p-5 rounded-2xl text-left transition-all border-4 relative border-gray-100 bg-white hover:border-blue-200 shadow-sm group&#34;;
+                btnStep.innerHTML = `
+                    &lt;span class=&#34;text-sm font-extrabold text-gray-400 uppercase mb-1 block tracking-wider&#34;&gt;${step.label}&lt;/span&gt;
+                    &lt;span class=&#34;text-2xl font-mono font-bold text-gray-800 group-hover:text-blue-700 transition-colors&#34;&gt;${step.text}&lt;/span&gt;
+                    &lt;div class=&#34;feedback-icon absolute right-5 top-1/2 -translate-y-1/2&#34;&gt;&lt;/div&gt;
+                `;
+                btnStep.onclick = () =&gt; {
+                    if (isDone) return;
+                    // Reset all
+                    Array.from(stepsContainer.children).forEach(c =&gt; c.className = &#34;w-full p-5 rounded-2xl text-left transition-all border-4 relative border-gray-100 bg-white hover:border-blue-200 shadow-sm group&#34;);
+                    // Select this
+                    btnStep.className = &#34;w-full p-5 rounded-2xl text-left transition-all border-4 relative border-blue-500 bg-blue-50 shadow-md ring-2 ring-blue-200&#34;;
+                    selectedIndex = index;
+                    btn.disabled = false;
+                    btn.innerText = &#34;Тексеру&#34;;
+                };
+                stepsContainer.appendChild(btnStep);
+            });
+
+            btn.onclick = () =&gt; {
+                if (isDone) return;
+                const childs = stepsContainer.children;
+                if (selectedIndex === correctIndex) {
+                    isDone = true;
+                    childs[selectedIndex].className = &#34;w-full p-5 rounded-2xl text-left transition-all border-4 relative border-green-500 bg-green-50 shadow-md&#34;;
+                    childs[selectedIndex].querySelector(&#39;.feedback-icon&#39;).innerHTML = `&lt;span class=&#34;text-green-700 bg-white px-3 py-2 rounded-xl shadow-sm text-lg font-bold flex items-center gap-2 border border-green-200&#34;&gt;${Icons.check} 93:3=31 !&lt;/span&gt;`;
+                    btn.innerText = &#34;Тамаша!&#34;;
+                    setTimeout(nextLevel, 2000);
+                } else {
+                    childs[selectedIndex].className = &#34;w-full p-5 rounded-2xl text-left transition-all border-4 relative border-red-500 bg-red-50 animate-shake shadow-md&#34;;
+                    setTimeout(() =&gt; {
+                        if (!isDone) childs[selectedIndex].className = &#34;w-full p-5 rounded-2xl text-left transition-all border-4 relative border-blue-500 bg-blue-50 shadow-md&#34;;
+                    }, 500);
+                }
+            };
+        }
+
+        // --- Level 7: Builder ---
+        function renderLevelBuilder(container) {
+            const wrapper = document.createElement(&#39;div&#39;);
+            wrapper.className = &#34;space-y-8 fade-in&#34;;
+            
+            // Logic state
+            let slots = [null, null, null, null, null];
+            let options = [
+                { id: &#39;2x&#39;, val: &#39;2x&#39; }, { id: &#39;plus&#39;, val: &#39;&#43;&#39; }, { id: &#39;7&#39;, val: &#39;7&#39; },
+                { id: &#39;eq&#39;, val: &#39;=&#39; }, { id: &#39;15&#39;, val: &#39;15&#39; }, { id: &#39;x&#39;, val: &#39;x&#39; },
+                { id: &#39;3&#39;, val: &#39;3&#39; }, { id: &#39;5&#39;, val: &#39;5&#39; }
+            ].sort(() =&gt; Math.random() - 0.5);
+
+            wrapper.innerHTML = `
+                &lt;div class=&#34;bg-blue-50 p-6 rounded-3xl border-2 border-blue-100 shadow-sm&#34;&gt;
+                    &lt;h3 class=&#34;text-2xl font-extrabold text-blue-900 mb-3&#34;&gt;7-деңгей: Теңдеу құр&lt;/h3&gt;
+                    &lt;p class=&#34;text-blue-900 text-xl mb-5 leading-relaxed font-semibold&#34;&gt;
+                        &#34;Әпкесі сіңлісінен 3 жас үлкен. 2 жылдан кейін олардың жастарының қосындысы 15 жас болады.&#34;
+                    &lt;/p&gt;
+                    &lt;div class=&#34;border-2 border-blue-200 rounded-xl bg-white overflow-hidden shadow-sm&#34;&gt;
+                        &lt;button id=&#34;hint-btn&#34; class=&#34;w-full flex items-center justify-between p-4 bg-blue-50 hover:bg-blue-100 transition-colors text-blue-700 text-lg font-bold&#34;&gt;
+                            &lt;span class=&#34;flex items-center gap-2&#34;&gt;${Icons.help} Көмек керек пе?&lt;/span&gt;
+                            &lt;span id=&#34;hint-icon&#34;&gt;${Icons.chevronDown}&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;div id=&#34;hint-content&#34; class=&#34;hidden p-5 text-base text-gray-700 bg-white border-t-2 border-blue-100&#34;&gt;
+                             &lt;p class=&#34;mb-2&#34;&gt;&lt;strong&gt;Нұсқау:&lt;/strong&gt; Есептің &lt;span class=&#34;font-bold text-blue-600&#34;&gt;ықшамдалған теңдеуін&lt;/span&gt; құрастыр.&lt;/p&gt;
+                             &lt;p class=&#34;italic text-gray-500 font-medium&#34;&gt;(Көмек: Сіңлісі=x, Әпкесі=x&#43;3. 2 жылдан кейін: x&#43;2 және x&#43;5).&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&#34;flex flex-col items-center gap-4&#34;&gt;
+                    &lt;div id=&#34;slots-area&#34; class=&#34;flex flex-wrap justify-center gap-3 min-h-[80px] items-center bg-gray-100 rounded-2xl p-4 border-4 border-dashed border-gray-300 transition-transform w-full&#34;&gt;&lt;/div&gt;
+                    &lt;button id=&#34;clear-btn&#34; class=&#34;hidden text-base text-red-500 hover:text-red-700 flex items-center gap-2 font-bold px-4 py-2 rounded-lg hover:bg-red-50 transition-colors&#34;&gt;
+                        ${Icons.trash} Барлығын өшіру
+                    &lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;div id=&#34;builder-feedback&#34; class=&#34;min-h-[40px] flex items-center justify-center&#34;&gt;&lt;/div&gt;
+
+                &lt;div id=&#34;options-area&#34; class=&#34;flex flex-wrap justify-center gap-3&#34;&gt;&lt;/div&gt;
+                
+                &lt;div class=&#34;flex justify-center pt-4&#34;&gt;
+                    &lt;button id=&#34;builder-check-btn&#34; class=&#34;px-10 py-4 bg-blue-600 text-white hover:bg-blue-700 shadow-blue-200 shadow-xl rounded-2xl font-bold text-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed&#34; disabled&gt;Тексеру&lt;/button&gt;
+                &lt;/div&gt;
+            `;
+            container.appendChild(wrapper);
+
+            // Elements
+            const hintBtn = wrapper.querySelector(&#39;#hint-btn&#39;);
+            const hintContent = wrapper.querySelector(&#39;#hint-content&#39;);
+            const hintIcon = wrapper.querySelector(&#39;#hint-icon&#39;);
+            const slotsArea = wrapper.querySelector(&#39;#slots-area&#39;);
+            const clearBtn = wrapper.querySelector(&#39;#clear-btn&#39;);
+            const optionsArea = wrapper.querySelector(&#39;#options-area&#39;);
+            const checkBtn = wrapper.querySelector(&#39;#builder-check-btn&#39;);
+            const feedbackEl = wrapper.querySelector(&#39;#builder-feedback&#39;);
+
+            // Hint Toggle
+            hintBtn.onclick = () =&gt; {
+                const isHidden = hintContent.classList.contains(&#39;hidden&#39;);
+                if (isHidden) {
+                    hintContent.classList.remove(&#39;hidden&#39;);
+                    hintIcon.innerHTML = Icons.chevronUp;
+                } else {
+                    hintContent.classList.add(&#39;hidden&#39;);
+                    hintIcon.innerHTML = Icons.chevronDown;
+                }
+            };
+
+            function render() {
+                // Render Slots
+                slotsArea.innerHTML = &#39;&#39;;
+                let hasFilled = false;
+                slots.forEach((slot, idx) =&gt; {
+                    const el = document.createElement(&#39;div&#39;);
+                    let cls = &#34;w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-xl font-bold text-2xl cursor-pointer bg-white border-4 select-none hover:border-red-300 relative shadow-sm transition-all &#34;;
+                    if (slot) {
+                        cls &#43;= &#34;border-blue-500 text-blue-600 shadow-md scale-105&#34;;
+                        el.innerText = slot.val;
+                        hasFilled = true;
+                    } else {
+                        cls &#43;= &#34;border-gray-200&#34;;
+                    }
+                    el.className = cls;
+                    
+                    // Pulse animation for next empty slot
+                    if (!slot &amp;&amp; idx === slots.findIndex(s =&gt; s === null)) {
+                        el.innerHTML = &#39;&lt;div class=&#34;absolute inset-0 bg-blue-50 opacity-50 animate-pulse rounded-lg&#34;&gt;&lt;/div&gt;&#39;;
+                    }
+
+                    el.onclick = () =&gt; {
+                        if (slot) {
+                            slots[idx] = null;
+                            feedbackEl.innerHTML = &#39;&#39;;
+                            render();
+                        }
+                    };
+                    slotsArea.appendChild(el);
+                });
+
+                // Clear btn visibility
+                clearBtn.classList.toggle(&#39;hidden&#39;, !hasFilled);
+
+                // Check btn state
+                checkBtn.disabled = slots.some(s =&gt; s === null);
+
+                // Options
+                optionsArea.innerHTML = &#39;&#39;;
+                options.forEach(opt =&gt; {
+                    const btn = document.createElement(&#39;button&#39;);
+                    btn.className = &#34;px-6 py-4 bg-white border-2 border-gray-200 shadow-sm rounded-xl font-bold text-2xl text-gray-700 hover:bg-blue-50 hover:border-blue-400 hover:text-blue-700 active:scale-95 transition-all min-w-[70px]&#34;;
+                    btn.innerText = opt.val;
+                    btn.onclick = () =&gt; {
+                        const emptyIdx = slots.findIndex(s =&gt; s === null);
+                        if (emptyIdx !== -1) {
+                            slots[emptyIdx] = opt;
+                            feedbackEl.innerHTML = &#39;&#39;;
+                            render();
+                        } else {
+                            // Shake slots
+                            slotsArea.classList.add(&#39;animate-shake&#39;, &#39;border-red-400&#39;);
+                            setTimeout(() =&gt; slotsArea.classList.remove(&#39;animate-shake&#39;, &#39;border-red-400&#39;), 500);
+                        }
+                    };
+                    optionsArea.appendChild(btn);
+                });
+            }
+
+            clearBtn.onclick = () =&gt; {
+                slots = [null, null, null, null, null];
+                feedbackEl.innerHTML = &#39;&#39;;
+                render();
+            };
+
+            checkBtn.onclick = () =&gt; {
+                const values = slots.map(s =&gt; s ? s.val : &#39;&#39;).join(&#39;&#39;);
+                if (values === &#39;2x&#43;7=15&#39; || values === &#39;15=2x&#43;7&#39;) {
+                    feedbackEl.innerHTML = &#39;&lt;p class=&#34;text-center text-green-600 font-bold text-2xl animate-bounce-custom&#34;&gt;Тамаша! 2x &#43; 7 = 15&lt;/p&gt;&#39;;
+                    // Disable interactions
+                    optionsArea.style.pointerEvents = &#39;none&#39;;
+                    slotsArea.style.pointerEvents = &#39;none&#39;;
+                    checkBtn.disabled = true;
+                    setTimeout(nextLevel, 2000);
+                } else {
+                    feedbackEl.innerHTML = &#39;&lt;div class=&#34;bg-red-50 text-red-600 p-4 rounded-xl text-lg text-center font-bold animate-shake border border-red-200&#34;&gt;Қате! Есіңде болсын: (x&#43;2) &#43; (x&#43;5) = 2x &#43; 7.&lt;/div&gt;&#39;;
+                }
+            };
+
+            render();
+        }
+
+        // Initialize
+        renderHeader();
+        renderWelcome();
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Бұл — теңдеулер тақырыбын бекітуге арналған 10 деңгейлі қызықты веб-ойын. Оқушылар "жеңілден күрделіге" қағидасы бойынша келесі тапсырмаларды орындайды:
+
+Терминдер: Математикалық ұғымдарды сәйкестендіру.
+
+Тест және Енгізу: Теңдеуді шешіп, дұрыс жауапты таңдау немесе жазу.
+
+Қатені тап: Дайын есептен қате кеткен жерді анықтау (сын тұрғысынан ойлау).
+
+Конструктор: Мәтінді есеп бойынша блоктардан теңдеу құрастыру.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Арифметикалық амалдардың қасиеттері: Интерактивті логикалық жаттықтырғыш | VisualMath</title>
+    <meta name="description" content="Бұл қосымша оқушыларға қосу және көбейтудің ауыстырымдылық, терімділік және үлестірімділік қасиеттерін іс жүзінде меңгеруге көмектеседі. Ойын түріндегі тапсырмалар арқылы оқушылар сандарды тиімді есептеу үшін топтастыруды (&#34;Тиімді есептеу&#34;), есептердің шешімінен логикалық қателерді табуды (&#34;Қате іздеуші&#34;) және теңдеулерді визуалды түрде теңестіруді (&#34;Логикалық таразы&#34;) үйренеді. Қосымша сыни ойлауды дамытуға және математикалық заңдылықтарды терең түсінуге бағытталған.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Арифметикалық амалдардың қасиеттері: Интерактивті логикалық жаттықтырғыш</span>
+            </div>
+            <a href="/lesson/7"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Арифметикалық амалдардың қасиеттері: Интерактивті логикалық жаттықтырғыш&lt;/title&gt;
+    &lt;!-- Tailwind CSS for styling --&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;!-- Lucide Icons --&gt;
+    &lt;script src=&#34;https://unpkg.com/lucide@latest&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        .animate-fadeIn { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 font-sans text-slate-800 p-4&#34;&gt;
+
+    &lt;!-- Main Container --&gt;
+    &lt;div id=&#34;app-container&#34; class=&#34;max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden min-h-[600px] flex flex-col relative&#34;&gt;
+        &lt;!-- Header --&gt;
+        &lt;header class=&#34;bg-indigo-600 p-4 text-white flex justify-between items-center shadow-md z-10&#34;&gt;
+            &lt;div class=&#34;flex items-center gap-2&#34;&gt;
+                &lt;i data-lucide=&#34;brain&#34; class=&#34;w-8 h-8&#34;&gt;&lt;/i&gt;
+                &lt;h1 class=&#34;text-xl md:text-2xl font-bold&#34;&gt;Арифметикалық амалдардың қасиеттері&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;button id=&#34;menu-btn&#34; class=&#34;hidden text-sm bg-indigo-500 hover:bg-indigo-400 px-3 py-1 rounded transition&#34;&gt;
+                Басты мәзір
+            &lt;/button&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Dynamic Content Area --&gt;
+        &lt;main id=&#34;main-content&#34; class=&#34;flex-grow p-4 md:p-6 overflow-y-auto&#34;&gt;
+            &lt;!-- Content rendered by JS --&gt;
+        &lt;/main&gt;
+        
+        &lt;!-- Footer --&gt;
+        &lt;footer class=&#34;bg-slate-50 p-3 text-center text-slate-500 text-sm border-t&#34;&gt;
+            Сыни ойлау мен арифметикалық амалдардың қасиеттерін дамыту құралы
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JavaScript Logic --&gt;
+    &lt;script&gt;
+        // --- State Management ---
+        const state = {
+            currentSection: &#39;menu&#39;,
+            
+            // Smart Grouping State
+            grouping: {
+                level: 0,
+                selectedIds: [],
+                matchedGroups: [], // {ids: [], color: &#39;&#39;}
+                message: null,
+                completed: false
+            },
+
+            // Error Hunt State
+            errorHunt: {
+                problemIndex: 0,
+                feedback: null
+            },
+
+            // Logic Balance State
+            balance: {
+                level: 0,
+                boxes: [],
+                feedback: null,
+                completed: false
+            },
+
+            // Quiz State
+            quiz: {
+                questionIndex: 0,
+                score: 0,
+                selectedOption: null,
+                isAnswered: false,
+                completed: false
+            }
+        };
+
+        // --- Data ---
+        const groupingLevels = [
+            { target: 100, numbers: [{id:1, val:44}, {id:2, val:78}, {id:3, val:56}, {id:4, val:22}], hint: &#34;Қосындысы 100 болатын сандарды жұпта! (4&#43;6=10, 8&#43;2=10)&#34; },
+            { target: 1000, isPartialSum: true, numbers: [{id:1, val:145}, {id:2, val:280}, {id:3, val:55}, {id:4, val:20}], hint: &#34;Қосудың ауыстырымдылық қасиеті: Қолайлы сандарды ізде (5-пен аяқталатын, 0-мен аяқталатын)&#34; },
+            { target: 100, isMult: true, numbers: [{id:1, val:5}, {id:2, val:25}, {id:3, val:20}, {id:4, val:4}], hint: &#34;Көбейтіндісі 100 болатын жұптарды тап!&#34; },
+            { target: 100, isDistributive: true, numbers: [{id:1, val:28}, {id:2, val:72}, {id:3, val:35}, {id:4, val:65}], hint: &#34;Жақша ішінде қосындысы 100 болатын сандарды жұпта (Ортақ көбейткіш сыртта тұр деп елестет)&#34; }
+        ];
+
+        const errorHuntProblems = [
+            { title: &#34;Асқардың есебі&#34;, expression: &#34;25 &#43; 18 &#43; 75&#34;, steps: [ { id: 1, text: &#34;25 &#43; 18 &#43; 75&#34;, status: &#39;correct&#39; }, { id: 2, text: &#34;= (25 &#43; 75) &#43; 18&#34;, status: &#39;correct&#39;, reason: &#34;Дұрыс! Қосудың ауыстырымдылық қасиеті қолданылды.&#34; }, { id: 3, text: &#34;= 100 &#43; 18&#34;, status: &#39;correct&#39; }, { id: 4, text: &#34;= 118&#34;, status: &#39;correct&#39; } ], question: &#34;Бұл есеп дұрыс па?&#34;, options: [&#34;Иә, бәрі дұрыс&#34;, &#34;Жоқ, қате бар&#34;], correctAnswer: &#34;Иә, бәрі дұрыс&#34; },
+            { title: &#34;Гүлназдың қатесін тап&#34;, expression: &#34;8 • (10 &#43; 2)&#34;, steps: [ { id: 1, text: &#34;8 • (10 &#43; 2)&#34;, status: &#39;correct&#39; }, { id: 2, text: &#34;= 8 • 10 &#43; 2&#34;, status: &#39;error&#39;, reason: &#34;Қате! Үлестірімділік қасиеті бойынша 8 саны жақша ішіндегі ӘРБІР санға көбейтілуі керек: 8•10 &#43; 8•2&#34; }, { id: 3, text: &#34;= 80 &#43; 2&#34;, status: &#39;neutral&#39; }, { id: 4, text: &#34;= 82&#34;, status: &#39;neutral&#39; } ], isInteractiveSteps: true, instruction: &#34;Қай қатарда қасиет дұрыс қолданылмаған? Қате қатарды басыңыз.&#34; },
+            { title: &#34;Мұраттың есебі&#34;, expression: &#34;(18 - 9) • 2&#34;, steps: [ { id: 1, text: &#34;(18 - 9) • 2&#34;, status: &#39;correct&#39; }, { id: 2, text: &#34;= 18 • 2 - 9 • 2&#34;, status: &#39;correct&#39;, reason: &#34;Дұрыс! Көбейтудің азайтуға қатысты үлестірімділік қасиеті.&#34; }, { id: 3, text: &#34;= 36 - 18&#34;, status: &#39;correct&#39; }, { id: 4, text: &#34;= 28&#34;, status: &#39;error&#39;, reason: &#34;Қате! Арифметикалық қате: 36 - 18 = 18 болуы керек.&#34; } ], isInteractiveSteps: true, instruction: &#34;Қай қатарда қате бар? (Назар аудар: қате қасиетте ме, әлде есептеуде ме?)&#34; }
+        ];
+
+        const balanceLevels = [
+            { id: 0, title: &#34;1-деңгей: Оңай бастама&#34;, desc: &#34;Екі қораптағы алма санын теңестір.&#34;, initial: [15, 5], target: [10, 10], boxCount: 2 },
+            { id: 1, title: &#34;2-деңгей: Ірі сандар&#34;, desc: &#34;Бұл жолы сандар сәл үлкенірек. Қай жақтан қанша алу керек?&#34;, initial: [28, 12], target: [20, 20], boxCount: 2 },
+            { id: 2, title: &#34;3-деңгей: Үш ыдыс&#34;, desc: &#34;Оқулықтағы есепке ұқсас: Үш ыдыстағы алма санын тең қыл.&#34;, initial: [10, 25, 10], target: [15, 15, 15], boxCount: 3 }
+        ];
+
+        const quizQuestions = [
+            {
+                question: &#34;(25 • 4) • 5 = 25 • (4 • 5) теңдігінде көбейтудің қандай қасиеті қолданылған?&#34;,
+                options: [&#34;Ауыстырымдылық&#34;, &#34;Терімділік&#34;, &#34;Үлестірімділік&#34;, &#34;Азайту&#34;],
+                correct: 1
+            },
+            {
+                question: &#34;18 • 5 &#43; 2 • 5 өрнегін тиімді есептеу жолы қандай?&#34;,
+                options: [&#34;(18 &#43; 2) • 5&#34;, &#34;18 • 5 &#43; 10&#34;, &#34;18 • (5 &#43; 5)&#34;, &#34;20 • 10&#34;],
+                correct: 0
+            },
+            {
+                question: &#34;Көбейтудің азайтуға қатысты үлестірімділік қасиетін тап:&#34;,
+                options: [&#34;(a &#43; b) • c = ac &#43; bc&#34;, &#34;(a • b) • c = a • (b • c)&#34;, &#34;(a - b) • c = ac - bc&#34;, &#34;a • b = b • a&#34;],
+                correct: 2
+            },
+            {
+                question: &#34;36 &#43; 89 &#43; 64 қосындысын ең тиімді есептеу үшін сандарды қалай топтастырамыз?&#34;,
+                options: [&#34;(36 &#43; 89) &#43; 64&#34;, &#34;(36 &#43; 64) &#43; 89&#34;, &#34;(89 &#43; 64) &#43; 36&#34;, &#34;Реті маңызды емес&#34;],
+                correct: 1
+            },
+            {
+                question: &#34;Жаяу адам 5 км/сағ, ал велосипедші одан 3 есе жылдам жүрсе, велосипедшінің жылдамдығы қандай?&#34;,
+                options: [&#34;8 км/сағ&#34;, &#34;15 км/сағ&#34;, &#34;12 км/сағ&#34;, &#34;20 км/сағ&#34;],
+                correct: 1
+            },
+            // Жаңа сұрақтар
+            {
+                question: &#34;Қосудың ауыстырымдылық қасиетінің формуласы қандай?&#34;,
+                options: [&#34;(a &#43; b) &#43; c = a &#43; (b &#43; c)&#34;, &#34;a &#43; b = b &#43; a&#34;, &#34;a(b &#43; c) = ab &#43; ac&#34;, &#34;a • b = b • a&#34;],
+                correct: 1
+            },
+            {
+                question: &#34;4(x &#43; 5) өрнегін жақшаны ашып жаз:&#34;,
+                options: [&#34;4x &#43; 5&#34;, &#34;4x &#43; 9&#34;, &#34;4x &#43; 20&#34;, &#34;x &#43; 20&#34;],
+                correct: 2
+            },
+            {
+                question: &#34;Егер 3 қорапта барлығы 30 алма болса және олар тең бөлінген болса, әр қорапта қанша алма бар?&#34;,
+                options: [&#34;5&#34;, &#34;15&#34;, &#34;10&#34;, &#34;3&#34;],
+                correct: 2
+            },
+            {
+                question: &#34;25 • 13 • 4 өрнегін ең тиімді тәсілмен қалай есептейміз?&#34;,
+                options: [&#34;(25 • 4) • 13&#34;, &#34;25 • (13 • 4)&#34;, &#34;(25 • 13) • 4&#34;, &#34;Ретімен көбейтеміз&#34;],
+                correct: 0
+            },
+            {
+                question: &#34;5 • 34 өрнегін үлестірімділік қасиетін қолданып қалай жазуға болады?&#34;,
+                options: [&#34;5 • (30 &#43; 4)&#34;, &#34;5 • 30 &#43; 4&#34;, &#34;5 &#43; 34&#34;, &#34;30 • (5 &#43; 4)&#34;],
+                correct: 0
+            }
+        ];
+
+        const pairColors = [
+            &#39;bg-emerald-100 border-emerald-500 text-emerald-800&#39;, 
+            &#39;bg-sky-100 border-sky-500 text-sky-800&#39;,             
+            &#39;bg-amber-100 border-amber-500 text-amber-800&#39;,       
+            &#39;bg-purple-100 border-purple-500 text-purple-800&#39;     
+        ];
+
+        // --- Core Functions ---
+
+        function render() {
+            const mainContent = document.getElementById(&#39;main-content&#39;);
+            const menuBtn = document.getElementById(&#39;menu-btn&#39;);
+            
+            // Toggle Menu Button
+            if (state.currentSection === &#39;menu&#39;) {
+                menuBtn.classList.add(&#39;hidden&#39;);
+            } else {
+                menuBtn.classList.remove(&#39;hidden&#39;);
+                menuBtn.onclick = () =&gt; { state.currentSection = &#39;menu&#39;; render(); };
+            }
+
+            mainContent.innerHTML = &#39;&#39;; // Clear content
+
+            switch (state.currentSection) {
+                case &#39;menu&#39;: renderMenu(mainContent); break;
+                case &#39;grouping&#39;: renderGrouping(mainContent); break;
+                case &#39;error-hunt&#39;: renderErrorHunt(mainContent); break;
+                case &#39;logic-balance&#39;: renderLogicBalance(mainContent); break;
+                case &#39;quiz&#39;: renderQuiz(mainContent); break;
+            }
+            
+            // Re-initialize icons
+            lucide.createIcons();
+        }
+
+        // --- Menu Section ---
+        function renderMenu(container) {
+            const menuHtml = `
+                &lt;div class=&#34;flex flex-col items-center justify-center h-full gap-8 animate-fadeIn&#34;&gt;
+                    &lt;div class=&#34;text-center max-w-lg&#34;&gt;
+                        &lt;h2 class=&#34;text-3xl font-bold text-indigo-800 mb-4&#34;&gt;Сәлем, жас математик!&lt;/h2&gt;
+                        &lt;p class=&#34;text-slate-600 text-lg&#34;&gt;Арифметикалық амалдардың қасиеттерін жай жаттап қана қоймай, оларды қалай ақылмен қолдану керектігін үйренейік.&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&#34;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-5xl&#34;&gt;
+                        ${createMenuCard(&#39;Тиімді Есептеу&#39;, &#39;calculator&#39;, &#39;Сандарды тиімді жұптап боя.&#39;, &#39;emerald&#39;, &#39;grouping&#39;)}
+                        ${createMenuCard(&#39;Қате Іздеуші&#39;, &#39;check&#39;, &#39;Есептің шығарылуынан қате тап.&#39;, &#39;rose&#39;, &#39;error-hunt&#39;)}
+                        ${createMenuCard(&#39;Логикалық Таразы&#39;, &#39;scale&#39;, &#39;Теңдікті сақтау үшін сандарды өзгерт.&#39;, &#39;amber&#39;, &#39;logic-balance&#39;)}
+                        ${createMenuCard(&#39;Білімді Тексеру&#39;, &#39;clipboard-list&#39;, &#39;Тақырып бойынша тест тапсыр.&#39;, &#39;indigo&#39;, &#39;quiz&#39;)}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+            container.innerHTML = menuHtml;
+
+            // Add Click Listeners
+            container.querySelectorAll(&#39;.menu-card&#39;).forEach(btn =&gt; {
+                btn.addEventListener(&#39;click&#39;, () =&gt; {
+                    const section = btn.dataset.section;
+                    // Reset sub-state
+                    if(section === &#39;grouping&#39;) resetGrouping();
+                    if(section === &#39;error-hunt&#39;) resetErrorHunt();
+                    if(section === &#39;logic-balance&#39;) resetBalance();
+                    if(section === &#39;quiz&#39;) resetQuiz();
+                    
+                    state.currentSection = section;
+                    render();
+                });
+            });
+        }
+
+        function createMenuCard(title, icon, desc, colorName, section) {
+            const colors = {
+                emerald: &#39;hover:border-emerald-400 hover:shadow-emerald-100 text-emerald-500&#39;,
+                rose: &#39;hover:border-rose-400 hover:shadow-rose-100 text-rose-500&#39;,
+                amber: &#39;hover:border-amber-400 hover:shadow-amber-100 text-amber-500&#39;,
+                indigo: &#39;hover:border-indigo-400 hover:shadow-indigo-100 text-indigo-500&#39;
+            };
+            return `
+                &lt;button data-section=&#34;${section}&#34; class=&#34;menu-card bg-white border-2 border-slate-100 p-6 rounded-xl shadow-sm text-left transition-all duration-300 transform hover:-translate-y-1 ${colors[colorName]} group&#34;&gt;
+                    &lt;div class=&#34;mb-4 bg-slate-50 p-3 rounded-full w-fit group-hover:scale-110 transition-transform&#34;&gt;
+                        &lt;i data-lucide=&#34;${icon}&#34; class=&#34;w-10 h-10&#34;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class=&#34;text-xl font-bold text-slate-800 mb-2&#34;&gt;${title}&lt;/h3&gt;
+                    &lt;p class=&#34;text-slate-500 text-sm leading-relaxed&#34;&gt;${desc}&lt;/p&gt;
+                &lt;/button&gt;
+            `;
+        }
+
+        // --- Smart Grouping Section ---
+        function resetGrouping() {
+            state.grouping = { level: 0, selectedIds: [], matchedGroups: [], message: null, completed: false };
+        }
+
+        function renderGrouping(container) {
+            if (state.grouping.completed) {
+                container.innerHTML = createCompletionScreen(&#39;Тамаша!&#39;, &#39;Сен сандарды қасиеттеріне қарай топтастыруды меңгердің.&#39;, &#39;error-hunt&#39;);
+                attachCompletionListeners();
+                return;
+            }
+
+            const currentLevel = groupingLevels[state.grouping.level];
+            
+            let html = `
+                &lt;div class=&#34;max-w-3xl mx-auto h-full flex flex-col&#34;&gt;
+                    &lt;div class=&#34;flex justify-between items-center mb-4&#34;&gt;
+                        &lt;h2 class=&#34;text-xl font-bold text-slate-700&#34;&gt;Деңгей ${state.grouping.level &#43; 1}/4&lt;/h2&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&#34;bg-indigo-50 border-2 border-indigo-100 rounded-2xl p-6 mb-8 text-center shadow-sm&#34;&gt;
+                        &lt;p class=&#34;text-2xl md:text-3xl font-bold text-indigo-900 leading-tight&#34;&gt;${currentLevel.hint}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&#34;grid grid-cols-2 gap-6 mb-auto&#34;&gt;
+                        ${currentLevel.numbers.map(num =&gt; {
+                            const matched = state.grouping.matchedGroups.find(g =&gt; g.ids.includes(num.id));
+                            const solvedColor = matched ? matched.color : &#39;&#39;;
+                            const isSelected = state.grouping.selectedIds.includes(num.id);
+                            
+                            let classes = &#39;h-32 md:h-40 text-5xl md:text-6xl font-bold rounded-2xl border-4 transition-all duration-300 flex items-center justify-center &#39;;
+                            if (solvedColor) classes &#43;= `${solvedColor} opacity-90 scale-95 shadow-inner`;
+                            else if (isSelected) classes &#43;= &#39;bg-indigo-600 text-white border-indigo-700 scale-105 shadow-xl&#39;;
+                            else classes &#43;= &#39;bg-white border-slate-200 text-slate-700 hover:border-indigo-300 hover:shadow-lg hover:-translate-y-1&#39;;
+
+                            return `&lt;button onclick=&#34;handleGroupingSelect(${num.id}, ${num.val})&#34; class=&#34;${classes}&#34; ${solvedColor ? &#39;disabled&#39; : &#39;&#39;}&gt;${num.val}&lt;/button&gt;`;
+                        }).join(&#39;&#39;)}
+                    &lt;/div&gt;
+                    ${state.grouping.message ? `&lt;div class=&#34;mt-4 text-center text-xl font-bold p-4 rounded-xl animate-pulse ${state.grouping.message.includes(&#39;!&#39;) ? &#39;bg-green-100 text-green-800&#39; : &#39;bg-red-100 text-red-800&#39;}&#34;&gt;${state.grouping.message}&lt;/div&gt;` : &#39;&#39;}
+                &lt;/div&gt;
+            `;
+            container.innerHTML = html;
+        }
+
+        window.handleGroupingSelect = (id, val) =&gt; {
+            const gState = state.grouping;
+            if (gState.selectedIds.includes(id)) {
+                gState.selectedIds = gState.selectedIds.filter(i =&gt; i !== id);
+            } else {
+                gState.selectedIds.push(id);
+                if (gState.selectedIds.length === 2) {
+                    checkGroupingPair();
+                }
+            }
+            render();
+        };
+
+        function checkGroupingPair() {
+            const gState = state.grouping;
+            const level = groupingLevels[gState.level];
+            const ids = gState.selectedIds;
+            const item1 = level.numbers.find(n =&gt; n.id === ids[0]);
+            const item2 = level.numbers.find(n =&gt; n.id === ids[1]);
+
+            let isMatch = false;
+            if (level.isDistributive) isMatch = (item1.val &#43; item2.val === level.target);
+            else if (level.isPartialSum) {
+                if ((item1.val === 145 &amp;&amp; item2.val === 55) || (item1.val === 55 &amp;&amp; item2.val === 145)) isMatch = true;
+                if ((item1.val === 280 &amp;&amp; item2.val === 20) || (item1.val === 20 &amp;&amp; item2.val === 280)) isMatch = true;
+            }
+            else if (level.isMult) isMatch = (item1.val * item2.val === level.target);
+            else isMatch = (item1.val &#43; item2.val === level.target);
+
+            if (isMatch) {
+                const color = pairColors[gState.matchedGroups.length % pairColors.length];
+                gState.matchedGroups.push({ ids: [...ids], color });
+                gState.message = &#34;Жарайсың! Өте тиімді жұп.&#34;;
+                
+                // Check level completion
+                if (gState.matchedGroups.length * 2 === level.numbers.length) {
+                    setTimeout(() =&gt; {
+                        if (gState.level &lt; groupingLevels.length - 1) {
+                            gState.level&#43;&#43;;
+                            gState.selectedIds = [];
+                            gState.matchedGroups = [];
+                            gState.message = &#34;Керемет! Келесі деңгейге өттік.&#34;;
+                        } else {
+                            gState.completed = true;
+                        }
+                        render();
+                    }, 1000);
+                }
+            } else {
+                gState.message = &#34;Бұл жұп тиімсіз. Қайта ойлан!&#34;;
+            }
+
+            setTimeout(() =&gt; {
+                gState.message = null;
+                if(!isMatch) gState.selectedIds = [];
+                else gState.selectedIds = []; // Clear selection visually but keep in matched
+                render();
+            }, 1000);
+        }
+
+        // --- Error Hunt Section ---
+        function resetErrorHunt() {
+            state.errorHunt = { problemIndex: 0, feedback: null };
+        }
+
+        function renderErrorHunt(container) {
+            if (state.errorHunt.feedback === &#34;COMPLETED_ALL&#34;) {
+                container.innerHTML = createCompletionScreen(&#39;Жарайсың!&#39;, &#39;Сен қателерді анықтап, ережелерді жақсы түсінетініңді дәлелдедің.&#39;, &#39;logic-balance&#39;);
+                attachCompletionListeners();
+                return;
+            }
+
+            const problem = errorHuntProblems[state.errorHunt.problemIndex];
+            
+            let html = `
+                &lt;div class=&#34;max-w-2xl mx-auto bg-slate-50 p-6 rounded-xl border border-slate-200&#34;&gt;
+                    &lt;div class=&#34;flex items-center gap-3 mb-4&#34;&gt;
+                        &lt;span class=&#34;bg-rose-100 text-rose-600 p-2 rounded-lg font-bold&#34;&gt;#${state.errorHunt.problemIndex &#43; 1}&lt;/span&gt;
+                        &lt;h3 class=&#34;text-xl font-bold text-slate-800&#34;&gt;${problem.title}&lt;/h3&gt;
+                    &lt;/div&gt;
+                    &lt;p class=&#34;text-slate-800 mb-6 font-bold text-lg&#34;&gt;${problem.instruction || problem.question}&lt;/p&gt;
+                    
+                    &lt;div class=&#34;bg-white p-4 rounded-lg shadow-sm border border-slate-200 space-y-2 font-mono text-xl&#34;&gt;
+                        ${problem.steps.map(step =&gt; {
+                            let stepClass = &#34;p-4 rounded border transition-colors flex justify-between items-center &#34;;
+                            if (problem.isInteractiveSteps) stepClass &#43;= &#34;cursor-pointer hover:bg-indigo-50 hover:border-indigo-300 &#34;;
+                            else stepClass &#43;= &#34;border-transparent &#34;;
+                            
+                            // Visual Feedback logic
+                            if (state.errorHunt.feedback &amp;&amp; step.status === &#39;error&#39; &amp;&amp; state.errorHunt.feedback.includes(&#39;Дұрыс таптың&#39;)) {
+                                stepClass &#43;= &#34;bg-red-50 border-red-300 &#34;;
+                            }
+
+                            return `
+                                &lt;div onclick=&#34;handleErrorStepClick(${step.id})&#34; class=&#34;${stepClass}&#34;&gt;
+                                    &lt;span&gt;${step.text}&lt;/span&gt;
+                                    ${problem.isInteractiveSteps ? &#39;&lt;span class=&#34;text-slate-400 text-sm italic&#34;&gt;Тексеру&lt;/span&gt;&#39; : &#39;&#39;}
+                                &lt;/div&gt;
+                            `;
+                        }).join(&#39;&#39;)}
+                    &lt;/div&gt;
+
+                    ${!problem.isInteractiveSteps ? `
+                        &lt;div class=&#34;mt-6 flex gap-4&#34;&gt;
+                            ${problem.options.map(opt =&gt; `
+                                &lt;button onclick=&#34;handleErrorOption(&#39;${opt}&#39;)&#34; class=&#34;flex-1 px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-lg font-medium&#34;&gt;${opt}&lt;/button&gt;
+                            `).join(&#39;&#39;)}
+                        &lt;/div&gt;
+                    ` : &#39;&#39;}
+
+                    ${state.errorHunt.feedback ? `
+                        &lt;div class=&#34;mt-6 p-4 rounded-lg border ${state.errorHunt.feedback.includes(&#39;Дұрыс&#39;) || state.errorHunt.feedback.includes(&#39;Жарайсың&#39;) ? &#39;bg-emerald-50 border-emerald-200 text-emerald-800&#39; : &#39;bg-amber-50 border-amber-200 text-amber-800&#39;}&#34;&gt;
+                            &lt;div class=&#34;flex gap-2 items-center text-lg&#34;&gt;
+                                &lt;i data-lucide=&#34;${state.errorHunt.feedback.includes(&#39;Дұрыс&#39;) ? &#39;check&#39; : &#39;brain&#39;}&#34;&gt;&lt;/i&gt;
+                                &lt;p class=&#34;font-medium&#34;&gt;${state.errorHunt.feedback}&lt;/p&gt;
+                            &lt;/div&gt;
+                            ${(state.errorHunt.feedback.includes(&#39;Дұрыс&#39;) || state.errorHunt.feedback.includes(&#39;Жарайсың&#39;)) ? `
+                                &lt;button onclick=&#34;nextErrorProblem()&#34; class=&#34;mt-4 w-full py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-bold flex justify-center items-center gap-2&#34;&gt;
+                                    ${state.errorHunt.problemIndex &lt; errorHuntProblems.length - 1 ? &#39;Келесі есепке өту&#39; : &#39;Аяқтау&#39;} &lt;i data-lucide=&#34;chevron-right&#34;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                            ` : &#39;&#39;}
+                        &lt;/div&gt;
+                    ` : &#39;&#39;}
+                &lt;/div&gt;
+            `;
+            container.innerHTML = html;
+        }
+
+        window.handleErrorStepClick = (stepId) =&gt; {
+            const problem = errorHuntProblems[state.errorHunt.problemIndex];
+            if (!problem.isInteractiveSteps) return;
+            
+            const step = problem.steps.find(s =&gt; s.id === stepId);
+            if (step.status === &#39;error&#39;) {
+                state.errorHunt.feedback = `Дұрыс таптың! ${step.reason}`;
+            } else if (step.status === &#39;correct&#39; &amp;&amp; step.reason) {
+                state.errorHunt.feedback = `Бұл қадам дұрыс. ${step.reason}`;
+            } else {
+                state.errorHunt.feedback = &#34;Бұл қадамда қате жоқ. Басқасын тексеріп көр.&#34;;
+            }
+            render();
+        };
+
+        window.handleErrorOption = (opt) =&gt; {
+            const problem = errorHuntProblems[state.errorHunt.problemIndex];
+            if (opt === problem.correctAnswer) {
+                state.errorHunt.feedback = &#34;Жарайсың! Бұл есепте қасиеттер дұрыс қолданылған.&#34;;
+            } else {
+                state.errorHunt.feedback = &#34;Қателестің. Мұқият қарап шықшы.&#34;;
+            }
+            render();
+        };
+
+        window.nextErrorProblem = () =&gt; {
+            state.errorHunt.feedback = null;
+            if (state.errorHunt.problemIndex &lt; errorHuntProblems.length - 1) {
+                state.errorHunt.problemIndex&#43;&#43;;
+            } else {
+                state.errorHunt.feedback = &#34;COMPLETED_ALL&#34;;
+            }
+            render();
+        };
+
+        // --- Logic Balance Section ---
+        function resetBalance() {
+            const firstLevel = balanceLevels[0];
+            state.balance = { level: 0, boxes: [...firstLevel.initial], feedback: null, completed: false };
+        }
+
+        function renderLogicBalance(container) {
+            if (state.balance.completed) {
+                container.innerHTML = createCompletionScreen(&#39;Құттықтаймыз!&#39;, &#39;Сен барлық логикалық тапсырмаларды орындадың!&#39;, &#39;menu&#39;);
+                attachCompletionListeners();
+                return;
+            }
+
+            const currentLevel = balanceLevels[state.balance.level];
+
+            let html = `
+                &lt;div class=&#34;max-w-4xl mx-auto&#34;&gt;
+                    &lt;div class=&#34;mb-6 bg-amber-50 p-6 rounded-xl border border-amber-100 flex justify-between items-start&#34;&gt;
+                        &lt;div&gt;
+                            &lt;h2 class=&#34;text-2xl font-bold text-slate-800 mb-2&#34;&gt;${currentLevel.title}&lt;/h2&gt;
+                            &lt;p class=&#34;text-slate-700 text-lg&#34;&gt;${currentLevel.desc}&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;span class=&#34;bg-amber-200 text-amber-800 px-3 py-1 rounded-full font-bold&#34;&gt;${state.balance.level &#43; 1} / ${balanceLevels.length}&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;flex flex-wrap justify-center items-end gap-4 md:gap-8 my-8 min-h-[300px]&#34;&gt;
+                        ${state.balance.boxes.map((count, index) =&gt; `
+                            &lt;div class=&#34;flex flex-col items-center gap-4&#34;&gt;
+                                &lt;div class=&#34;w-32 md:w-40 h-40 md:h-48 bg-white border-4 border-amber-300 rounded-b-3xl relative flex flex-wrap content-end justify-center p-2 gap-1 transition-all duration-300 shadow-inner&#34;&gt;
+                                    &lt;span class=&#34;absolute -top-12 font-bold text-3xl text-amber-800 bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center border-2 border-amber-200 shadow&#34;&gt;${count}&lt;/span&gt;
+                                    ${Array(count).fill(0).map(() =&gt; &#39;&lt;div class=&#34;w-5 h-5 md:w-6 md:h-6 rounded-full bg-red-500 shadow-sm border border-red-600&#34;&gt;&lt;/div&gt;&#39;).join(&#39;&#39;)}
+                                &lt;/div&gt;
+                                &lt;div class=&#34;flex gap-2&#34;&gt;
+                                    ${index &gt; 0 ? `&lt;button onclick=&#34;moveBalanceItem(${index}, ${index - 1})&#34; ${count === 0 ? &#39;disabled&#39; : &#39;&#39;} class=&#34;p-2 bg-indigo-100 hover:bg-indigo-500 hover:text-white text-indigo-700 rounded-full transition shadow-md disabled:opacity-30&#34;&gt;&lt;i data-lucide=&#34;arrow-left&#34; class=&#34;w-5 h-5&#34;&gt;&lt;/i&gt;&lt;/button&gt;` : &#39;&#39;}
+                                    &lt;span class=&#34;font-bold text-slate-400&#34;&gt;${index &#43; 1}-қорап&lt;/span&gt;
+                                    ${index &lt; state.balance.boxes.length - 1 ? `&lt;button onclick=&#34;moveBalanceItem(${index}, ${index &#43; 1})&#34; ${count === 0 ? &#39;disabled&#39; : &#39;&#39;} class=&#34;p-2 bg-indigo-100 hover:bg-indigo-500 hover:text-white text-indigo-700 rounded-full transition shadow-md disabled:opacity-30&#34;&gt;&lt;i data-lucide=&#34;arrow-right&#34; class=&#34;w-5 h-5&#34;&gt;&lt;/i&gt;&lt;/button&gt;` : &#39;&#39;}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        `).join(&#39;&#39;)}
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;bg-white p-6 rounded-xl shadow-lg border border-slate-100 min-h-[100px] flex items-center justify-center&#34;&gt;
+                        ${state.balance.feedback ? `
+                            &lt;div class=&#34;text-emerald-600 font-bold text-2xl flex flex-col items-center gap-2 animate-bounce&#34;&gt;
+                                &lt;div class=&#34;flex items-center gap-2&#34;&gt;&lt;i data-lucide=&#34;check&#34; class=&#34;w-8 h-8&#34;&gt;&lt;/i&gt; ${state.balance.feedback}&lt;/div&gt;
+                                &lt;button onclick=&#34;nextBalanceLevel()&#34; class=&#34;mt-2 text-base bg-emerald-100 px-6 py-2 rounded-lg hover:bg-emerald-200 text-emerald-800 transition shadow flex items-center gap-2&#34;&gt;
+                                    ${state.balance.level &lt; balanceLevels.length - 1 ? &#34;Келесі деңгей &gt;&#34; : &#34;Аяқтау&#34;}
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        ` : &#39;&lt;p class=&#34;text-slate-400 italic text-xl text-center&#34;&gt;Алмаларды ауыстыру үшін бағдаршаларды бас...&lt;/p&gt;&#39;}
+                    &lt;/div&gt;
+
+                     &lt;div class=&#34;mt-8 p-6 bg-indigo-50 rounded-xl text-indigo-900 border border-indigo-100&#34;&gt;
+                        &lt;h4 className=&#34;font-bold mb-2 text-lg flex items-center gap-2&#34;&gt;&lt;i data-lucide=&#34;lightbulb&#34;&gt;&lt;/i&gt; Ойлан:&lt;/h4&gt;
+                        &lt;p class=&#34;text-lg&#34;&gt;${state.balance.level === 2 ? &#34;Үш қорапты теңестіру үшін жалпы алма санын 3-ке бөлу керек екенін байқадың ба?&#34; : &#34;Бір жақтан алсаң, екінші жаққа қосылады. Жалпы қосынды өзгермейді.&#34;}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+            container.innerHTML = html;
+        }
+
+        window.moveBalanceItem = (from, to) =&gt; {
+            const boxes = state.balance.boxes;
+            if (boxes[from] &gt; 0) {
+                boxes[from]--;
+                boxes[to]&#43;&#43;;
+            }
+            
+            // Check win
+            const allEqual = boxes.every(val =&gt; val === boxes[0]);
+            if (allEqual &amp;&amp; boxes[0] &gt; 0) {
+                state.balance.feedback = `Керемет! Барлық қорапта ${boxes[0]} алмадан болды.`;
+            } else {
+                state.balance.feedback = null;
+            }
+            render();
+        };
+
+        window.nextBalanceLevel = () =&gt; {
+            if (state.balance.level &lt; balanceLevels.length - 1) {
+                state.balance.level&#43;&#43;;
+                state.balance.boxes = [...balanceLevels[state.balance.level].initial];
+                state.balance.feedback = null;
+            } else {
+                state.balance.completed = true;
+            }
+            render();
+        };
+
+        // --- Quiz Section ---
+        function resetQuiz() {
+            state.quiz = {
+                questionIndex: 0,
+                score: 0,
+                selectedOption: null,
+                isAnswered: false,
+                completed: false
+            };
+        }
+
+        function renderQuiz(container) {
+            if (state.quiz.completed) {
+                container.innerHTML = createCompletionScreen(
+                    &#39;Тест аяқталды!&#39;, 
+                    `Сіздің нәтижеңіз: ${state.quiz.score} / ${quizQuestions.length}. ${state.quiz.score === quizQuestions.length ? &#39;Өте жақсы!&#39; : state.quiz.score &gt;= 5 ? &#39;Жақсы, бірақ әлі де қайталау керек.&#39; : &#39;Тақырыпты қайталап оқып шығу керек.&#39;}`, 
+                    &#39;menu&#39;
+                );
+                attachCompletionListeners();
+                return;
+            }
+
+            const currentQ = quizQuestions[state.quiz.questionIndex];
+            
+            let html = `
+                &lt;div class=&#34;max-w-2xl mx-auto bg-white p-6 rounded-xl border border-slate-200 shadow-sm h-full flex flex-col&#34;&gt;
+                    &lt;div class=&#34;flex justify-between items-center mb-6&#34;&gt;
+                        &lt;h2 class=&#34;text-xl font-bold text-slate-800&#34;&gt;Сұрақ ${state.quiz.questionIndex &#43; 1} / ${quizQuestions.length}&lt;/h2&gt;
+                        &lt;span class=&#34;bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-bold&#34;&gt;Ұпай: ${state.quiz.score}&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;mb-8&#34;&gt;
+                        &lt;p class=&#34;text-2xl font-bold text-slate-900 leading-snug&#34;&gt;${currentQ.question}&lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;flex flex-col gap-3 flex-grow&#34;&gt;
+                        ${currentQ.options.map((opt, idx) =&gt; {
+                            let btnClass = &#34;w-full p-4 text-left border-2 rounded-xl transition-all font-medium text-lg &#34;;
+                            
+                            if (state.quiz.isAnswered) {
+                                if (idx === currentQ.correct) btnClass &#43;= &#34;bg-emerald-100 border-emerald-500 text-emerald-800 &#34;;
+                                else if (idx === state.quiz.selectedOption) btnClass &#43;= &#34;bg-rose-100 border-rose-500 text-rose-800 &#34;;
+                                else btnClass &#43;= &#34;bg-slate-50 border-slate-200 text-slate-400 &#34;;
+                            } else {
+                                btnClass &#43;= &#34;bg-white border-slate-200 text-slate-700 hover:border-indigo-400 hover:bg-indigo-50 &#34;;
+                            }
+
+                            return `&lt;button onclick=&#34;handleQuizOption(${idx})&#34; ${state.quiz.isAnswered ? &#39;disabled&#39; : &#39;&#39;} class=&#34;${btnClass}&#34;&gt;${opt}&lt;/button&gt;`;
+                        }).join(&#39;&#39;)}
+                    &lt;/div&gt;
+
+                    ${state.quiz.isAnswered ? `
+                        &lt;div class=&#34;mt-6 flex justify-end&#34;&gt;
+                            &lt;button onclick=&#34;nextQuizQuestion()&#34; class=&#34;px-8 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 shadow-lg font-bold flex items-center gap-2 text-lg animate-pulse&#34;&gt;
+                                ${state.quiz.questionIndex &lt; quizQuestions.length - 1 ? &#39;Келесі сұрақ&#39; : &#39;Нәтижені көру&#39;} &lt;i data-lucide=&#34;arrow-right&#34;&gt;&lt;/i&gt;
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                    ` : &#39;&#39;}
+                &lt;/div&gt;
+            `;
+            container.innerHTML = html;
+        }
+
+        window.handleQuizOption = (idx) =&gt; {
+            if (state.quiz.isAnswered) return;
+            
+            state.quiz.selectedOption = idx;
+            state.quiz.isAnswered = true;
+            
+            if (idx === quizQuestions[state.quiz.questionIndex].correct) {
+                state.quiz.score&#43;&#43;;
+            }
+            render();
+        };
+
+        window.nextQuizQuestion = () =&gt; {
+            if (state.quiz.questionIndex &lt; quizQuestions.length - 1) {
+                state.quiz.questionIndex&#43;&#43;;
+                state.quiz.selectedOption = null;
+                state.quiz.isAnswered = false;
+            } else {
+                state.quiz.completed = true;
+            }
+            render();
+        };
+
+        // --- Helpers ---
+        function createCompletionScreen(title, desc, nextSection) {
+            const btnText = nextSection === &#39;menu&#39; ? &#39;Мәзірге оралу&#39; : &#39;Келесі тапсырма&#39;;
+            const icon = nextSection === &#39;menu&#39; ? &#39;&#39; : &#39;&lt;i data-lucide=&#34;arrow-right&#34;&gt;&lt;/i&gt;&#39;;
+            return `
+                &lt;div class=&#34;flex flex-col items-center justify-center h-full text-center p-6&#34;&gt;
+                    &lt;i data-lucide=&#34;sparkles&#34; class=&#34;w-20 h-20 text-yellow-500 mb-6 animate-bounce&#34;&gt;&lt;/i&gt;
+                    &lt;h2 class=&#34;text-4xl font-bold text-indigo-800 mb-4&#34;&gt;${title}&lt;/h2&gt;
+                    &lt;p class=&#34;text-slate-600 text-xl mb-8 max-w-md&#34;&gt;${desc}&lt;/p&gt;
+                    &lt;div class=&#34;flex gap-4&#34;&gt;
+                        &lt;button onclick=&#34;state.currentSection=&#39;menu&#39;; render()&#34; class=&#34;px-6 py-3 border-2 border-indigo-200 text-indigo-700 rounded-xl hover:bg-indigo-50 font-bold&#34;&gt;Мәзірге оралу&lt;/button&gt;
+                        ${nextSection !== &#39;menu&#39; ? `
+                            &lt;button id=&#34;next-task-btn&#34; data-next=&#34;${nextSection}&#34; class=&#34;px-8 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 shadow-lg font-bold flex items-center gap-2 text-lg animate-pulse&#34;&gt;
+                                ${btnText} ${icon}
+                            &lt;/button&gt;
+                        ` : &#39;&#39;}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        function attachCompletionListeners() {
+            const btn = document.getElementById(&#39;next-task-btn&#39;);
+            if(btn) {
+                btn.onclick = () =&gt; {
+                    const next = btn.dataset.next;
+                    if(next === &#39;error-hunt&#39;) resetErrorHunt();
+                    if(next === &#39;logic-balance&#39;) resetBalance();
+                    if(next === &#39;quiz&#39;) resetQuiz();
+                    state.currentSection = next;
+                    render();
+                }
+            }
+            lucide.createIcons();
+        }
+
+        // --- Init ---
+        render();
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Бұл қосымша оқушыларға қосу және көбейтудің ауыстырымдылық, терімділік және үлестірімділік қасиеттерін іс жүзінде меңгеруге көмектеседі. Ойын түріндегі тапсырмалар арқылы оқушылар сандарды тиімді есептеу үшін топтастыруды ("Тиімді есептеу"), есептердің шешімінен логикалық қателерді табуды ("Қате іздеуші") және теңдеулерді визуалды түрде теңестіруді ("Логикалық таразы") үйренеді. Қосымша сыни ойлауды дамытуға және математикалық заңдылықтарды терең түсінуге бағытталған.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Витуалды Өзен Зертханасы | VisualMath</title>
+    <meta name="description" content="Бұл HTML файлда «Өзендегі қозғалыс» тақырыбына арналған виртуалды зертхананың коды берілген. Ол оқушыларға меншікті және ағыс жылдамдықтарының өзара әрекетін түсінуге көмектеседі.
+
+Бағдарлама екі бөлімнен тұрады:
+1. Симуляция: Оқушы жылдамдықтарды өзгертіп, қайықтың қозғалысын және векторлардың (қосылу немесе азайту) өзгеруін визуалды түрде бақылайды.
+2. Тапсырмалар: Тақырыпты бекітуге арналған 5 деңгейлі интерактивті есептер жинағы. Қате жауапқа түсініктеме беріледі.
+
+Файл Tailwind CSS арқылы әрленген, анимацияланған және браузерде бірден іске қосылады.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Витуалды Өзен Зертханасы</span>
+            </div>
+            <a href="/lesson/23"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Өзендегі Қозғалыс: Виртуалды Зертхана&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;link href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;style&gt;
+        body {
+            font-family: &#39;Segoe UI&#39;, Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f9ff;
+        }
+        
+        /* Sky Background */
+        .sky-bg {
+            background: linear-gradient(to bottom, #bae6fd 0%, #e0f2fe 100%);
+        }
+
+        /* Water Surface */
+        .river-surface {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45%; /* Water takes bottom 45% */
+            background: repeating-linear-gradient(
+                90deg,
+                #3b82f6 0px,
+                #60a5fa 50px,
+                #3b82f6 100px
+            );
+            background-size: 200% 100%;
+            animation: flow 3s linear infinite;
+            border-top: 3px solid rgba(255,255,255,0.5); /* Water line */
+            z-index: 10;
+        }
+
+        @keyframes flow {
+            0% { background-position: 100% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        /* Boat Container - Moves Left/Right */
+        .boat-mover {
+            position: absolute;
+            bottom: 35%; /* Sits slightly submerged in water */
+            z-index: 20;
+            transition: left 0.1s linear; /* Smooth movement */
+        }
+
+        /* Boat Bobbing Animation - Moves Up/Down */
+        .boat-bob {
+            animation: bob 2s ease-in-out infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Boat Icon Rotation */
+        .boat-icon {
+            transform: scaleX(-1); /* Flip to face right */
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+        }
+
+        /* Water Splash Effect */
+        .water-splash {
+            position: absolute;
+            bottom: -5px;
+            width: 60px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: splash 1s infinite alternate;
+        }
+        @keyframes splash {
+            0% { transform: scale(0.9); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* --- VECTOR ARROWS STYLING --- */
+        .vector-arrow {
+            position: relative;
+            height: 14px; 
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            transition: width 0.3s ease, background-color 0.3s;
+            font-size: 10px;
+            color: white;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Right pointing arrow head (Default) */
+        .vector-arrow::after {
+            content: &#39;&#39;;
+            position: absolute;
+            right: -8px; /* Outside the bar on the right */
+            top: 0; 
+            width: 0; 
+            height: 0; 
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 8px solid; /* The color comes from inline style or class */
+            border-left-color: inherit; /* Matches background color */
+        }
+
+        /* Left pointing arrow modifier */
+        .vector-arrow.left {
+            flex-direction: row-reverse; /* Flips text inside */
+        }
+
+        /* Left pointing arrow head */
+        .vector-arrow.left::after {
+            right: auto;
+            left: -8px; /* Outside the bar on the left */
+            border-left: none;
+            border-right: 8px solid;
+            border-right-color: inherit;
+        }
+        
+        /* Ensure Colors pass to pseudo-elements correctly */
+        .bg-blue-500::after { border-left-color: #3b82f6; }
+        .bg-green-500::after { border-left-color: #22c55e; }
+        
+        /* Red Arrow Support */
+        .bg-red-500::after { border-left-color: #ef4444; }
+        
+        .vector-arrow.left.bg-blue-500::after { border-right-color: #3b82f6; border-left-color: transparent; }
+        .vector-arrow.left.bg-red-500::after { border-right-color: #ef4444; border-left-color: transparent; }
+        
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen flex flex-col&#34;&gt;
+
+    &lt;!-- Header --&gt;
+    &lt;header class=&#34;bg-blue-600 text-white p-4 shadow-md&#34;&gt;
+        &lt;div class=&#34;container mx-auto flex justify-between items-center&#34;&gt;
+            &lt;h1 class=&#34;text-2xl font-bold&#34;&gt;&lt;i class=&#34;fas fa-water mr-2&#34;&gt;&lt;/i&gt;Өзендегі Қозғалыс Зертханасы&lt;/h1&gt;
+            &lt;div class=&#34;space-x-4&#34;&gt;
+                &lt;button onclick=&#34;switchTab(&#39;simulation&#39;)&#34; id=&#34;btn-sim&#34; class=&#34;px-4 py-2 bg-white text-blue-600 rounded-lg font-bold shadow transition hover:bg-blue-50&#34;&gt;Симуляция&lt;/button&gt;
+                &lt;button onclick=&#34;switchTab(&#39;tasks&#39;)&#34; id=&#34;btn-tasks&#34; class=&#34;px-4 py-2 bg-blue-500 text-white rounded-lg font-bold shadow transition hover:bg-blue-400&#34;&gt;Тапсырмалар&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Main Content --&gt;
+    &lt;main class=&#34;flex-grow container mx-auto p-4 flex flex-col items-center&#34;&gt;
+
+        &lt;!-- SIMULATION SECTION --&gt;
+        &lt;div id=&#34;simulation-panel&#34; class=&#34;w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 space-y-6&#34;&gt;
+            &lt;div class=&#34;text-center mb-4&#34;&gt;
+                &lt;h2 class=&#34;text-xl font-bold text-gray-800&#34;&gt;Визуалды Зертхана&lt;/h2&gt;
+                &lt;p class=&#34;text-gray-600&#34;&gt;Жылдамдықтарды өзгертіп, векторлардың өзгеруін бақылаңыз&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Visualization Area (Sky/Water Split) --&gt;
+            &lt;div class=&#34;relative w-full h-80 border-4 border-blue-300 rounded-xl overflow-hidden sky-bg shadow-inner&#34;&gt;
+                
+                &lt;!-- Clouds (Static decorations) --&gt;
+                &lt;i class=&#34;fas fa-cloud text-white text-4xl absolute top-4 left-10 opacity-80&#34;&gt;&lt;/i&gt;
+                &lt;i class=&#34;fas fa-cloud text-white text-3xl absolute top-10 right-20 opacity-60&#34;&gt;&lt;/i&gt;
+                &lt;i class=&#34;fas fa-sun text-yellow-400 text-5xl absolute top-4 right-4 animate-pulse&#34;&gt;&lt;/i&gt;
+
+                &lt;!-- River Surface (Bottom Half) --&gt;
+                &lt;div id=&#34;river&#34; class=&#34;river-surface&#34;&gt;&lt;/div&gt;
+                
+                &lt;!-- Distance Markers (On the water line) --&gt;
+                &lt;div class=&#34;absolute bottom-2 w-full flex justify-between px-4 text-xs text-white font-mono font-bold z-30 drop-shadow-md&#34;&gt;
+                    &lt;span&gt;0 км&lt;/span&gt;
+                    &lt;span&gt;25 км&lt;/span&gt;
+                    &lt;span&gt;50 км&lt;/span&gt;
+                    &lt;span&gt;75 км&lt;/span&gt;
+                    &lt;span&gt;100 км&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Boat (Moves Left/Right) --&gt;
+                &lt;div id=&#34;boat&#34; class=&#34;boat-mover flex flex-col items-center&#34; style=&#34;left: 10%; width: 100px;&#34;&gt;
+                    
+                    &lt;!-- Bobbing Animation Wrapper --&gt;
+                    &lt;div class=&#34;boat-bob relative&#34;&gt;
+                        
+                        &lt;!-- Vectors Stack (Floating above boat) --&gt;
+                        &lt;div class=&#34;absolute -top-16 w-80 flex flex-col items-center pointer-events-none&#34;&gt;
+                            
+                            &lt;!-- V_menshikti (Green) - Always Points Right --&gt;
+                            &lt;div class=&#34;w-full flex justify-center relative h-6 mb-1&#34;&gt;
+                                &lt;div id=&#34;vec-vm&#34; class=&#34;vector-arrow bg-green-500 text-white&#34; title=&#34;Меншікті жылдамдық&#34;&gt;
+                                    &lt;span class=&#34;drop-shadow-md&#34;&gt;Vm&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;!-- V_agys (Blue/Red) - Changes Direction &amp; Color --&gt;
+                            &lt;div class=&#34;w-full flex justify-center relative h-6 mb-1&#34;&gt;
+                                &lt;div id=&#34;vec-va&#34; class=&#34;vector-arrow bg-blue-500 text-white&#34; title=&#34;Ағыс жылдамдығы&#34;&gt;
+                                    &lt;span class=&#34;drop-shadow-md&#34;&gt;Va&lt;/span&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;span id=&#34;speed-label&#34; class=&#34;text-xs font-bold bg-white px-3 py-1 rounded shadow mt-2 text-gray-800 border border-blue-200&#34;&gt;0 км/сағ&lt;/span&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Side View Boat Icon (SVG) --&gt;
+                        &lt;svg viewBox=&#34;0 0 200 100&#34; class=&#34;w-24 h-12 text-gray-700 relative z-20 boat-icon mt-4 fill-current&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+                            &lt;!-- Hull --&gt;
+                            &lt;path d=&#34;M10,60 Q10,90 60,90 H180 L190,60 Z&#34; /&gt;
+                            &lt;!-- Cabin --&gt;
+                            &lt;path d=&#34;M50,60 L70,30 H140 L140,60 Z&#34; /&gt;
+                            &lt;!-- Motor --&gt;
+                            &lt;rect x=&#34;185&#34; y=&#34;50&#34; width=&#34;10&#34; height=&#34;30&#34; rx=&#34;2&#34; /&gt;
+                            &lt;!-- Stripe details --&gt;
+                            &lt;path d=&#34;M20,65 L180,65&#34; stroke=&#34;white&#34; stroke-width=&#34;3&#34; fill=&#34;none&#34;/&gt;
+                        &lt;/svg&gt;
+                        
+                        &lt;div class=&#34;text-xs font-bold text-gray-700 mt-1 bg-white/70 px-2 rounded backdrop-blur-sm&#34;&gt;Біздің Қайық&lt;/div&gt;
+                        
+                        &lt;!-- Splash Effect --&gt;
+                        &lt;div class=&#34;water-splash z-10&#34;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Finish Line --&gt;
+                &lt;div class=&#34;absolute right-0 top-0 bottom-0 w-2 bg-red-500 opacity-50 dashed border-l-2 border-white flex items-center justify-center z-20&#34;&gt;
+                    &lt;span class=&#34;transform -rotate-90 text-white font-bold whitespace-nowrap drop-shadow-md&#34;&gt;МАРЕ (100 км)&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Controls --&gt;
+            &lt;div class=&#34;grid grid-cols-1 md:grid-cols-2 gap-8 bg-gray-50 p-4 rounded-lg&#34;&gt;
+                &lt;!-- Inputs --&gt;
+                &lt;div class=&#34;space-y-4&#34;&gt;
+                    &lt;div&gt;
+                        &lt;label class=&#34;block text-sm font-bold text-gray-700 mb-1&#34;&gt;
+                            &lt;span class=&#34;text-green-600&#34;&gt;●&lt;/span&gt; Қайықтың меншікті жылдамдығы ($V_m$): 
+                            &lt;span id=&#34;val-vm&#34; class=&#34;text-green-600 font-bold text-lg&#34;&gt;15&lt;/span&gt; км/сағ
+                        &lt;/label&gt;
+                        &lt;input type=&#34;range&#34; id=&#34;input-vm&#34; min=&#34;0&#34; max=&#34;40&#34; value=&#34;15&#34; class=&#34;w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600&#34;&gt;
+                    &lt;/div&gt;
+
+                    &lt;div&gt;
+                        &lt;label class=&#34;block text-sm font-bold text-gray-700 mb-1&#34;&gt;
+                            &lt;span class=&#34;text-blue-500&#34;&gt;●&lt;/span&gt; Ағыс жылдамдығы ($V_a$): 
+                            &lt;span id=&#34;val-va&#34; class=&#34;text-blue-500 font-bold text-lg&#34;&gt;5&lt;/span&gt; км/сағ
+                        &lt;/label&gt;
+                        &lt;input type=&#34;range&#34; id=&#34;input-va&#34; min=&#34;0&#34; max=&#34;20&#34; value=&#34;5&#34; class=&#34;w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500&#34;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Direction &amp; Action --&gt;
+                &lt;div class=&#34;flex flex-col justify-between space-y-4&#34;&gt;
+                    &lt;div class=&#34;flex items-center justify-center space-x-4 bg-white p-2 rounded shadow&#34;&gt;
+                        &lt;label class=&#34;flex items-center cursor-pointer&#34;&gt;
+                            &lt;input type=&#34;radio&#34; name=&#34;direction&#34; value=&#34;downstream&#34; checked class=&#34;form-radio h-5 w-5 text-blue-600&#34; onchange=&#34;updateSimulation()&#34;&gt;
+                            &lt;span class=&#34;ml-2 font-medium&#34;&gt;Ағыспен &lt;i class=&#34;fas fa-long-arrow-alt-right text-blue-500&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+                        &lt;/label&gt;
+                        &lt;div class=&#34;w-px h-6 bg-gray-300&#34;&gt;&lt;/div&gt;
+                        &lt;label class=&#34;flex items-center cursor-pointer&#34;&gt;
+                            &lt;input type=&#34;radio&#34; name=&#34;direction&#34; value=&#34;upstream&#34; class=&#34;form-radio h-5 w-5 text-red-600&#34; onchange=&#34;updateSimulation()&#34;&gt;
+                            &lt;span class=&#34;ml-2 font-medium&#34;&gt;Ағысқа қарсы &lt;i class=&#34;fas fa-long-arrow-alt-left text-red-500&#34;&gt;&lt;/i&gt;&lt;/span&gt;
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;flex space-x-2&#34;&gt;
+                        &lt;button onclick=&#34;startAnimation()&#34; id=&#34;btn-start&#34; class=&#34;flex-1 bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-bold shadow-lg transition transform hover:-translate-y-1&#34;&gt;
+                            &lt;i class=&#34;fas fa-play mr-2&#34;&gt;&lt;/i&gt; Жүзуді Бастау
+                        &lt;/button&gt;
+                        &lt;button onclick=&#34;resetSimulation()&#34; class=&#34;bg-gray-500 hover:bg-gray-600 text-white px-4 py-3 rounded-lg font-bold shadow transition&#34;&gt;
+                            &lt;i class=&#34;fas fa-undo&#34;&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Info Box --&gt;
+            &lt;div id=&#34;info-box&#34; class=&#34;bg-blue-50 border-l-4 border-blue-500 p-4 rounded text-sm text-blue-800&#34;&gt;
+                &lt;h4 class=&#34;font-bold mb-1&#34;&gt;&lt;i class=&#34;fas fa-lightbulb text-yellow-500 mr-2&#34;&gt;&lt;/i&gt;Ереже:&lt;/h4&gt;
+                &lt;p id=&#34;rule-text&#34;&gt;Ағыспен жүзгенде жылдамдықтар қосылады.&lt;/p&gt;
+                &lt;div id=&#34;warning-msg&#34; class=&#34;hidden mt-2 text-red-600 font-bold bg-red-100 p-2 rounded border border-red-200&#34;&gt;
+                    &lt;i class=&#34;fas fa-exclamation-triangle mr-1&#34;&gt;&lt;/i&gt; Назар аударыңыз: Ағыс жылдамдығы қайық жылдамдығынан көп! Қайық артқа кетеді!
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- TASKS SECTION (Hidden by default) --&gt;
+        &lt;div id=&#34;tasks-panel&#34; class=&#34;hidden w-full max-w-2xl bg-white rounded-xl shadow-lg p-6&#34;&gt;
+            &lt;div class=&#34;flex justify-between items-center mb-6&#34;&gt;
+                &lt;h2 class=&#34;text-xl font-bold text-gray-800&#34;&gt;Интерактивті Есептер&lt;/h2&gt;
+                &lt;span class=&#34;bg-blue-100 text-blue-800 text-xs font-bold px-2.5 py-0.5 rounded-full&#34;&gt;Деңгей: &lt;span id=&#34;level-indicator&#34;&gt;1&lt;/span&gt;/5&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Task Display --&gt;
+            &lt;div class=&#34;bg-gray-50 p-6 rounded-xl border-2 border-dashed border-gray-300 mb-6 text-center&#34;&gt;
+                &lt;div id=&#34;task-visual&#34; class=&#34;mb-4 h-32 relative flex items-center justify-center overflow-hidden rounded bg-blue-100&#34;&gt;
+                    &lt;!-- Task Visuals will be injected here via JS --&gt;
+                &lt;/div&gt;
+                &lt;p id=&#34;task-question&#34; class=&#34;text-lg font-medium text-gray-800 mb-4&#34;&gt;Есеп жүктелуде...&lt;/p&gt;
+                
+                &lt;div class=&#34;flex justify-center items-center space-x-2 mb-4&#34;&gt;
+                    &lt;input type=&#34;number&#34; id=&#34;task-answer&#34; placeholder=&#34;?&#34; class=&#34;w-24 text-center text-xl font-bold p-2 border-2 border-blue-300 rounded-lg focus:outline-none focus:border-blue-500&#34;&gt;
+                    &lt;span class=&#34;text-xl font-bold text-gray-600&#34;&gt;км/сағ&lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;button onclick=&#34;checkAnswer()&#34; class=&#34;bg-blue-600 text-white px-8 py-2 rounded-full font-bold shadow hover:bg-blue-700 transition&#34;&gt;
+                    Тексеру
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Feedback --&gt;
+            &lt;div id=&#34;feedback-area&#34; class=&#34;hidden p-4 rounded-lg text-center font-bold mb-4&#34;&gt;&lt;/div&gt;
+
+            &lt;div class=&#34;flex justify-between&#34;&gt;
+                 &lt;button onclick=&#34;prevLevel()&#34; class=&#34;text-gray-500 hover:text-gray-700 font-medium text-sm&#34;&gt;Алдыңғы есеп&lt;/button&gt;
+                 &lt;button onclick=&#34;nextLevel()&#34; id=&#34;next-btn&#34; class=&#34;hidden text-blue-600 hover:text-blue-800 font-bold text-sm&#34;&gt;Келесі есеп &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/main&gt;
+
+    &lt;footer class=&#34;bg-gray-800 text-white text-center p-4 mt-auto&#34;&gt;
+        &lt;p class=&#34;text-sm opacity-70&#34;&gt;© 2025 Өзендегі Қозғалыс. Интерактивті оқыту құралы.&lt;/p&gt;
+    &lt;/footer&gt;
+
+    &lt;script&gt;
+        // --- LOGIC FOR SIMULATION ---
+        const boat = document.getElementById(&#39;boat&#39;);
+        const river = document.getElementById(&#39;river&#39;);
+        const inputVm = document.getElementById(&#39;input-vm&#39;);
+        const inputVa = document.getElementById(&#39;input-va&#39;);
+        const valVm = document.getElementById(&#39;val-vm&#39;);
+        const valVa = document.getElementById(&#39;val-va&#39;);
+        const vecVm = document.getElementById(&#39;vec-vm&#39;);
+        const vecVa = document.getElementById(&#39;vec-va&#39;);
+        const speedLabel = document.getElementById(&#39;speed-label&#39;);
+        const ruleText = document.getElementById(&#39;rule-text&#39;);
+        const warningMsg = document.getElementById(&#39;warning-msg&#39;);
+        const btnStart = document.getElementById(&#39;btn-start&#39;);
+
+        let isAnimating = false;
+        let animationId;
+        let boatPositionX = 10; 
+        let riverOffset = 0;
+
+        function updateSimulation() {
+            const vm = parseInt(inputVm.value);
+            const va = parseInt(inputVa.value);
+            const direction = document.querySelector(&#39;input[name=&#34;direction&#34;]:checked&#39;).value;
+            
+            valVm.textContent = vm;
+            valVa.textContent = va;
+
+            let totalSpeed = 0;
+            const pxPerKm = 5; // Scale factor for vector length
+            
+            // --- VECTOR LOGIC ---
+            
+            // 1. Boat Vector (Vm): Always points RIGHT (towards finish)
+            vecVm.style.width = `${vm * pxPerKm}px`;
+            
+            // 2. Current Vector (Va)
+            warningMsg.classList.add(&#39;hidden&#39;);
+
+            if (direction === &#39;downstream&#39;) {
+                // DOWNSTREAM: Current points RIGHT (With boat), Blue Color
+                totalSpeed = vm &#43; va;
+                ruleText.innerHTML = `Ағыспен жүзгенде (Векторлар бір бағытта): &lt;br&gt; &lt;strong&gt;${vm} &#43; ${va} = ${totalSpeed} км/сағ&lt;/strong&gt;`;
+                
+                // Set to Blue and Right
+                vecVa.className = &#34;vector-arrow bg-blue-500 text-white&#34;;
+                vecVa.style.width = `${va * pxPerKm}px`;
+                
+                river.style.animationDirection = &#39;normal&#39;; 
+                
+            } else { 
+                // UPSTREAM: Current points LEFT (Against boat), Red Color
+                totalSpeed = vm - va;
+                ruleText.innerHTML = `Ағысқа қарсы жүзгенде (Векторлар қарама-қарсы): &lt;br&gt; &lt;strong&gt;${vm} - ${va} = ${totalSpeed} км/сағ&lt;/strong&gt;`;
+
+                // Set to Red and Left
+                vecVa.className = &#34;vector-arrow bg-red-500 text-white left&#34;;
+                vecVa.style.width = `${va * pxPerKm}px`;
+                
+                if (totalSpeed &lt; 0) {
+                    // Result moves backward (Left)
+                    warningMsg.classList.remove(&#39;hidden&#39;);
+                }
+                
+                river.style.animationDirection = &#39;reverse&#39;;
+            }
+
+            speedLabel.textContent = `Жылдамдық: ${Math.abs(totalSpeed)} км/сағ`;
+            return totalSpeed;
+        }
+
+        function startAnimation() {
+            if (isAnimating) return;
+            isAnimating = true;
+            btnStart.disabled = true;
+            btnStart.classList.add(&#39;opacity-50&#39;);
+
+            boatPositionX = 10; // Start at 10%
+            let lastTime = performance.now();
+
+            function step(time) {
+                if (!isAnimating) return;
+                const dt = (time - lastTime) / 1000;
+                lastTime = time;
+
+                const speed = updateSimulation(); 
+                
+                // If speed is negative, boat moves left
+                const moveFactor = 1.5; 
+                boatPositionX &#43;= (speed * dt * moveFactor);
+
+                if (boatPositionX &gt; 90) {
+                    boatPositionX = 90;
+                    isAnimating = false;
+                    btnStart.disabled = false;
+                    btnStart.classList.remove(&#39;opacity-50&#39;);
+                    alert(&#34;Мәреге жеттіңіз!&#34;);
+                } else if (boatPositionX &lt; 5) {
+                    boatPositionX = 5; // Hit left wall
+                }
+
+                boat.style.left = `${boatPositionX}%`;
+                animationId = requestAnimationFrame(step);
+            }
+
+            animationId = requestAnimationFrame(step);
+        }
+
+        function resetSimulation() {
+            isAnimating = false;
+            cancelAnimationFrame(animationId);
+            boatPositionX = 10;
+            boat.style.left = &#39;10%&#39;;
+            btnStart.disabled = false;
+            btnStart.classList.remove(&#39;opacity-50&#39;);
+            updateSimulation();
+        }
+
+        // Event Listeners
+        inputVm.addEventListener(&#39;input&#39;, updateSimulation);
+        inputVa.addEventListener(&#39;input&#39;, updateSimulation);
+
+        // --- LOGIC FOR TASKS ---
+        let currentLevel = 0;
+        
+        const levels = [
+            {
+                type: &#39;direct&#39;,
+                text: &#34;Қайықтың меншікті жылдамдығы 12 км/сағ. Ағыс жылдамдығы 3 км/сағ. Қайық ағыспен жүзгендегі жылдамдығы қанша?&#34;,
+                vm: 12, va: 3, dir: &#39;down&#39;,
+                calc: (vm, va) =&gt; vm &#43; va,
+                hint: &#34;Формула: Қайық (12) &#43; Ағыс (3)&#34;
+            },
+            {
+                type: &#39;direct&#39;,
+                text: &#34;Катер көлде (тыныш суда) 20 км/сағ жылдамдықпен жүзеді. Ағыс 4 км/сағ. Катер ағысқа қарсы жүзсе, жылдамдығы неше болады?&#34;,
+                vm: 20, va: 4, dir: &#39;up&#39;,
+                calc: (vm, va) =&gt; vm - va,
+                hint: &#34;Формула: Қайық (20) - Ағыс (4)&#34;
+            },
+            {
+                type: &#39;reverse&#39;,
+                text: &#34;Қайық ағыспен 18 км/сағ жылдамдықпен жүзді. Ағыс жылдамдығы 3 км/сағ. Қайықтың меншікті жылдамдығын тап.&#34;,
+                val: 18, va: 3, dir: &#39;down&#39;,
+                target: &#39;vm&#39;,
+                correct: 15,
+                hint: &#34;18 = Vm &#43; 3. Олай болса Vm = 18 - 3&#34;
+            },
+            {
+                type: &#39;reverse&#39;,
+                text: &#34;Қайық ағысқа қарсы 10 км/сағ жылдамдықпен жүзді. Оның меншікті жылдамдығы 14 км/сағ болса, өзен ағысының жылдамдығы қанша?&#34;,
+                val: 10, vm: 14, dir: &#39;up&#39;,
+                target: &#39;va&#39;,
+                correct: 4,
+                hint: &#34;10 = 14 - Va. Олай болса Va = 14 - 10&#34;
+            },
+            {
+                type: &#39;super&#39;,
+                text: &#34;Қайық ағыспен 20 км/сағ, ал ағысқа қарсы 16 км/сағ жылдамдықпен жүзді. Өзен ағысының жылдамдығын табыңыз.&#34;,
+                v_down: 20, v_up: 16,
+                target: &#39;va_avg&#39;,
+                correct: 2,
+                hint: &#34;Формула: (20 - 16) : 2&#34;
+            }
+        ];
+
+        function loadLevel(index) {
+            currentLevel = index;
+            const level = levels[index];
+            document.getElementById(&#39;level-indicator&#39;).textContent = index &#43; 1;
+            document.getElementById(&#39;task-question&#39;).textContent = level.text;
+            document.getElementById(&#39;task-answer&#39;).value = &#39;&#39;;
+            document.getElementById(&#39;feedback-area&#39;).className = &#34;hidden p-4 rounded-lg text-center font-bold mb-4&#34;;
+            document.getElementById(&#39;next-btn&#39;).classList.add(&#39;hidden&#39;);
+
+            const visualDiv = document.getElementById(&#39;task-visual&#39;);
+            visualDiv.innerHTML = `
+                &lt;svg viewBox=&#34;0 0 200 100&#34; class=&#34;w-32 h-16 text-gray-700 z-10 boat-icon fill-current&#34;&gt;
+                    &lt;path d=&#34;M10,60 Q10,90 60,90 H180 L190,60 Z&#34; /&gt;
+                    &lt;path d=&#34;M50,60 L70,30 H140 L140,60 Z&#34; /&gt;
+                    &lt;rect x=&#34;185&#34; y=&#34;50&#34; width=&#34;10&#34; height=&#34;30&#34; rx=&#34;2&#34; /&gt;
+                    &lt;path d=&#34;M20,65 L180,65&#34; stroke=&#34;white&#34; stroke-width=&#34;3&#34; fill=&#34;none&#34;/&gt;
+                &lt;/svg&gt;
+            `;
+        }
+
+        function checkAnswer() {
+            const userVal = parseFloat(document.getElementById(&#39;task-answer&#39;).value);
+            const level = levels[currentLevel];
+            let correctVal;
+
+            if (level.type === &#39;direct&#39;) {
+                correctVal = level.calc(level.vm, level.va);
+            } else if (level.correct !== undefined) {
+                correctVal = level.correct;
+            }
+
+            const feedback = document.getElementById(&#39;feedback-area&#39;);
+            
+            if (userVal === correctVal) {
+                feedback.textContent = &#34;Тамаша! Жауабыңыз дұрыс!&#34;;
+                feedback.className = &#34;block bg-green-100 text-green-700 p-4 rounded-lg text-center font-bold mb-4 border border-green-300&#34;;
+                
+                if (currentLevel &lt; levels.length - 1) {
+                    document.getElementById(&#39;next-btn&#39;).classList.remove(&#39;hidden&#39;);
+                } else {
+                    feedback.textContent &#43;= &#34; Сіз барлық тапсырманы орындадыңыз!&#34;;
+                }
+            } else {
+                feedback.innerHTML = `Қате! &lt;br&gt; &lt;span class=&#34;text-sm font-normal text-gray-700&#34;&gt;${level.hint}&lt;/span&gt;`;
+                feedback.className = &#34;block bg-red-100 text-red-700 p-4 rounded-lg text-center font-bold mb-4 border border-red-300&#34;;
+            }
+        }
+
+        function nextLevel() {
+            if (currentLevel &lt; levels.length - 1) {
+                loadLevel(currentLevel &#43; 1);
+            }
+        }
+        
+        function prevLevel() {
+             if (currentLevel &gt; 0) {
+                loadLevel(currentLevel - 1);
+            }
+        }
+
+        function switchTab(tabId) {
+            const simPanel = document.getElementById(&#39;simulation-panel&#39;);
+            const tasksPanel = document.getElementById(&#39;tasks-panel&#39;);
+            const btnSim = document.getElementById(&#39;btn-sim&#39;);
+            const btnTasks = document.getElementById(&#39;btn-tasks&#39;);
+
+            if (tabId === &#39;simulation&#39;) {
+                simPanel.classList.remove(&#39;hidden&#39;);
+                tasksPanel.classList.add(&#39;hidden&#39;);
+                btnSim.className = &#34;px-4 py-2 bg-white text-blue-600 rounded-lg font-bold shadow transition&#34;;
+                btnTasks.className = &#34;px-4 py-2 bg-blue-500 text-white rounded-lg font-bold shadow transition hover:bg-blue-400&#34;;
+            } else {
+                simPanel.classList.add(&#39;hidden&#39;);
+                tasksPanel.classList.remove(&#39;hidden&#39;);
+                btnTasks.className = &#34;px-4 py-2 bg-white text-blue-600 rounded-lg font-bold shadow transition&#34;;
+                btnSim.className = &#34;px-4 py-2 bg-blue-500 text-white rounded-lg font-bold shadow transition hover:bg-blue-400&#34;;
+                loadLevel(currentLevel); 
+            }
+        }
+
+        updateSimulation();
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Бұл HTML файлда «Өзендегі қозғалыс» тақырыбына арналған виртуалды зертхананың коды берілген. Ол оқушыларға меншікті және ағыс жылдамдықтарының өзара әрекетін түсінуге көмектеседі.
+
+Бағдарлама екі бөлімнен тұрады:
+1. Симуляция: Оқушы жылдамдықтарды өзгертіп, қайықтың қозғалысын және векторлардың (қосылу немесе азайту) өзгеруін визуалды түрде бақылайды.
+2. Тапсырмалар: Тақырыпты бекітуге арналған 5 деңгейлі интерактивті есептер жинағы. Қате жауапқа түсініктеме беріледі.
+
+Файл Tailwind CSS арқылы әрленген, анимацияланған және браузерде бірден іске қосылады.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

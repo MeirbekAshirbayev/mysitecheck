@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бұрыштап бөлу                       | VisualMath</title>
+    <meta name="description" content="Оқушыларға арналған интерактивті құрал: екі таңбалы сандарды бұрыштап бөлу алгоритмін қадам бойынша үйрететін, торкөз дәптер стиліндегі қызықты жаттығу.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Бұрыштап бөлу                      </span>
+            </div>
+            <a href="/lesson/6"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+&lt;meta charset=&#34;utf-8&#34;&gt;
+&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+&lt;script src=&#34;/_sdk/element_sdk.js&#34;&gt;&lt;/script&gt;
+&lt;style&gt;
+  /* --- Modern CSS Design --- */
+  :root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --success: #10b981;
+    --error: #ef4444;
+    --bg-gradient: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+    --surface: #ffffff;
+    --grid-line: #bfdbfe; /* Soft blue grid lines */
+  }
+
+  * { box-sizing: border-box; }
+  
+  body { 
+    margin: 0; padding: 0; 
+    font-family: &#39;Segoe UI&#39;, system-ui, -apple-system, sans-serif; 
+    background: var(--bg-gradient); 
+    display: flex; justify-content: center; align-items: center; 
+    min-height: 100vh; 
+    color: #1f2937;
+  }
+
+  .game-box { 
+    background: var(--surface); 
+    border-radius: 24px; 
+    padding: 32px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05); 
+    max-width: 900px; width: 95%; 
+    display: flex; flex-direction: column; align-items: center; 
+    border: 1px solid rgba(255,255,255,0.8);
+  }
+  
+  /* Header Area */
+  .header { 
+    width: 100%; display: flex; justify-content: space-between; align-items: center; 
+    margin-bottom: 24px; padding-bottom: 16px; 
+    border-bottom: 2px dashed #e5e7eb; 
+  }
+  
+  .title { 
+    font-size: 28px; font-weight: 800; color: var(--primary); 
+    display: flex; align-items: center; gap: 12px; 
+    text-shadow: 0 2px 4px rgba(99, 102, 241, 0.1);
+  }
+  
+  .icon-box {
+    background: #eef2ff; color: var(--primary);
+    padding: 8px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .score { 
+    font-size: 20px; font-weight: 700; color: #059669; 
+    background: #d1fae5; padding: 8px 20px; border-radius: 16px; 
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.15);
+    display: flex; gap: 8px; align-items: center;
+  }
+  
+  /* Feedback Bar */
+  .feedback { 
+    width: 100%; padding: 16px; border-radius: 16px; 
+    background: #f8fafc; border: 2px solid #e2e8f0; 
+    color: #475569; font-weight: 600; font-size: 18px;
+    margin-bottom: 24px; text-align: center; 
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  
+  .feedback.success { 
+    background: #f0fdf4; border-color: var(--success); color: #166534; 
+    transform: scale(1.02); box-shadow: 0 8px 16px rgba(16, 185, 129, 0.1);
+  }
+  
+  .feedback.error { 
+    background: #fef2f2; border-color: var(--error); color: #991b1b; 
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  /* Board - Notebook Style */
+  .board-container { 
+    /* Graph paper pattern */
+    background-color: #ffffff;
+    background-image: 
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+    
+    border: 2px solid #93c5fd;
+    padding: 40px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 420px;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.03);
+  }
+
+  .structure { display: flex; align-items: flex-start; gap: 4px; }
+  .col { display: flex; flex-direction: column; }
+  .row { display: flex; position: relative; height: 40px; align-items: center; } 
+  
+  /* Cells &amp; Inputs */
+  .c { 
+    width: 40px; height: 40px; 
+    display: flex; align-items: center; justify-content: center; 
+    font-size: 24px; font-weight: 700; color: #1e293b; 
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  }
+  .c.sp { width: 40px; height: 40px; flex-shrink: 0; }
+  
+  input { 
+    width: 36px; height: 36px; 
+    text-align: center; font-size: 22px; font-weight: 700; 
+    border: 2px solid #c7d2fe; border-radius: 8px; 
+    outline: none; background: #fff; color: var(--primary); 
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  input:focus { 
+    border-color: var(--primary); 
+    transform: translateY(-2px) scale(1.1); 
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2); 
+    z-index: 10;
+  }
+  
+  input.ok { 
+    background: #dcfce7; border-color: var(--success); color: #15803d; 
+    box-shadow: none; transform: none;
+  }
+  
+  input.err { 
+    background: #fee2e2; border-color: var(--error); color: #b91c1c; 
+  }
+
+  /* Visual Structure Lines */
+  .div-box { 
+    border-left: 3px solid #1e293b; 
+    border-bottom: 3px solid #1e293b; 
+    padding: 0 12px; height: 40px; 
+    display: flex; align-items: center; 
+    font-size: 24px; font-weight: 700; 
+    margin-left: 4px;
+    background: rgba(255,255,255,0.5);
+    border-top-right-radius: 8px;
+  }
+  
+  .quo-box { 
+    border-left: 3px solid #1e293b; 
+    padding: 0 12px; height: 40px; 
+    display: flex; align-items: center; 
+    margin-left: 4px; margin-top: 4px; 
+    background: rgba(99, 102, 241, 0.05);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    min-width: 80px;
+  }
+  
+  .minus-sign { 
+    position: absolute; left: -30px; 
+    font-weight: 900; color: #64748b; 
+    font-size: 28px; line-height: 40px; 
+  }
+  
+  .bottom-line { 
+    position: absolute; bottom: 2px; 
+    height: 3px; background: #1e293b; 
+    border-radius: 2px;
+  }
+
+  /* Buttons */
+  .btns { display: flex; gap: 16px; margin-top: 10px; }
+  
+  .btn { 
+    padding: 14px 28px; border: none; border-radius: 12px; 
+    font-weight: 700; font-size: 16px; cursor: pointer; 
+    background: #f1f5f9; color: #475569; 
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 0 #cbd5e1;
+  }
+  
+  .btn:active { transform: translateY(4px); box-shadow: none; }
+  .btn:hover { background: #e2e8f0; }
+  
+  .btn-p { 
+    background: var(--primary); color: white; 
+    box-shadow: 0 4px 0 #3730a3;
+  }
+  
+  .btn-p:hover { background: var(--primary-dark); }
+  
+  .hidden { display: none; }
+  
+  @keyframes shake { 
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&#34;game-box&#34;&gt;
+  &lt;div class=&#34;header&#34;&gt;
+    &lt;div class=&#34;title&#34;&gt;
+      &lt;div class=&#34;icon-box&#34;&gt;➗&lt;/div&gt; 
+      &lt;span id=&#34;gt&#34;&gt;Бұрыштап бөлу&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;score&#34;&gt;⭐ &lt;span id=&#34;sc&#34;&gt;0&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div id=&#34;fb&#34; class=&#34;feedback&#34;&gt;
+    &lt;span&gt;💡&lt;/span&gt; &lt;span id=&#34;ft&#34;&gt;...&lt;/span&gt;
+  &lt;/div&gt;
+  
+  &lt;div class=&#34;board-container&#34;&gt;
+    &lt;div class=&#34;structure&#34;&gt;
+      &lt;div id=&#34;wa&#34; class=&#34;col&#34;&gt;&lt;/div&gt; &lt;!-- Work Area --&gt;
+      &lt;div class=&#34;col&#34;&gt;
+        &lt;div id=&#34;db&#34; class=&#34;div-box&#34;&gt;&lt;/div&gt; &lt;!-- Divisor --&gt;
+        &lt;div id=&#34;qb&#34; class=&#34;quo-box&#34;&gt;&lt;/div&gt; &lt;!-- Quotient --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&#34;btns&#34;&gt;
+    &lt;button id=&#34;nb&#34; class=&#34;btn&#34;&gt;🔄 Жаңа есеп&lt;/button&gt;
+    &lt;button id=&#34;nx&#34; class=&#34;btn btn-p hidden&#34;&gt;Келесі ➜&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+(function(){
+  const S={d:0,r:0,st:[],i:0,in:{},sc:0,ok:0}, 
+  E={w:g(&#39;wa&#39;),d:g(&#39;db&#39;),q:g(&#39;qb&#39;),f:g(&#39;fb&#39;),t:g(&#39;ft&#39;),s:g(&#39;sc&#39;),n:g(&#39;nb&#39;),x:g(&#39;nx&#39;),gt:g(&#39;gt&#39;)};
+  function g(i){return document.getElementById(i)}
+  
+  const calc=(d,r)=&gt;{
+    const s=d.toString(), z=[]; let k=&#34;&#34;, i=0;
+    while(parseInt(k||&#34;0&#34;)&lt;r &amp;&amp; i&lt;s.length) k&#43;=s[i&#43;&#43;];
+    let vI=0, cV=parseInt(k), rS=s.substring(i), vS=k;
+    
+    while(1){
+      const q=Math.floor(cV/r), p=q*r, m=cV-p;
+      z.push({t:&#39;Q&#39;,v:q,p:`${cV} ішінде ${r} неше рет бар?`});
+      const off=vS.length-p.toString().length;
+      z.push({t:&#39;M&#39;,v:p,i:vI&#43;off,p:`${q} * ${r} = ?`});
+      
+      if(rS.length&gt;0){
+        const n=rS[0]; rS=rS.substring(1);
+        const nS=m.toString()&#43;n; 
+        const nV=parseInt(nS);
+        const nI = (vI &#43; vS.length &#43; 1) - nS.length;
+        z.push({t:&#39;S&#39;,v:nV,s:nS,i:nI,p:`Қалдық (${m}), келесі (${n})`});
+        cV=nV; vS=nS; vI=nI;
+      } else {
+        const fI = (vI &#43; vS.length) - m.toString().length;
+        z.push({t:&#39;F&#39;,v:m,i:fI,p:&#34;Аяқталды&#34;,f:1});
+        break;
+      }
+    }
+    return z;
+  };
+
+  const init=()=&gt;{
+    const r=Math.floor(Math.random()*90)&#43;10, f=Math.floor(Math.random()*28)&#43;12;
+    S.d=r*f; S.r=r; S.st=calc(S.d,r); S.i=0; S.in={}; S.ok=0;
+    msg(&#39;&#39;,&#39;Бастайық! Бөліндіні тап.&#39;);
+    E.x.classList.add(&#39;hidden&#39;);
+    draw();
+  };
+
+  const check=(v,idx,len)=&gt;{
+    if(!/^\d*$/.test(v)) return;
+    S.in[idx]=v.slice(-1); 
+    
+    let nextFocus = null;
+    if(v &amp;&amp; idx &lt; len - 1) nextFocus = idx &#43; 1;
+    else nextFocus = idx;
+
+    draw(nextFocus);
+    
+    const st=S.st[S.i], sV=st.s||st.v.toString();
+    let txt=&#34;&#34;, full=1;
+    for(let k=0;k&lt;sV.length;k&#43;&#43;){ if(!S.in[k]) full=0; txt&#43;=S.in[k]; }
+    
+    if(full){
+      if(parseInt(txt)==st.v){
+        S.sc&#43;=10; E.s.innerText=S.sc; msg(&#39;s&#39;,&#39;Дұрыс! ✓&#39;);
+        if(S.i&#43;1&gt;=S.st.length){ S.ok=1; msg(&#39;s&#39;,&#39;Жарайсың! Есеп аяқталды.&#39;); E.x.classList.remove(&#39;hidden&#39;); draw(); }
+        else { setTimeout(()=&gt;{S.i&#43;&#43;; S.in={}; draw()},300); }
+      } else {
+        msg(&#39;e&#39;,`Қате! ${st.p}`);
+        setTimeout(()=&gt;{ 
+          document.querySelectorAll(&#39;input&#39;).forEach(x=&gt;{x.value=&#39;&#39;; x.classList.add(&#39;err&#39;)});
+          S.in={};
+        },600);
+      }
+    }
+  };
+
+  const handleKey = (e, idx, len) =&gt; {
+    if(e.key === &#39;Backspace&#39;) {
+        if(!S.in[idx] &amp;&amp; idx &gt; 0) {
+            e.preventDefault();
+            draw(idx - 1);
+        }
+    } else if (e.key === &#39;ArrowLeft&#39;) {
+        e.preventDefault();
+        if(idx &gt; 0) draw(idx - 1);
+    } else if (e.key === &#39;ArrowRight&#39;) {
+        e.preventDefault();
+        if(idx &lt; len - 1) draw(idx &#43; 1);
+    }
+  };
+
+  const msg=(t,m)=&gt;{
+    E.f.className=`feedback ${t==&#39;s&#39;?&#39;success&#39;:t==&#39;e&#39;?&#39;error&#39;:&#39;&#39;}`;
+    E.t.innerText=m||&#34;&#34;;
+    E.f.firstElementChild.innerText = t==&#39;s&#39;?&#39;🎉&#39;:t==&#39;e&#39;?&#39;❌&#39;:&#39;💡&#39;;
+  };
+
+  const el=(t,c,x)=&gt;{const e=document.createElement(t); if(c)e.className=c; if(x)e.innerText=x; return e;}
+  const sp=n=&gt;{const f=document.createDocumentFragment(); for(let i=0;i&lt;Math.max(0,n);i&#43;&#43;)f.append(el(&#39;div&#39;,&#39;c sp&#39;)); return f;}
+
+  const draw=(focusIdx = null)=&gt;{
+    E.w.innerHTML=&#39;&#39;; E.d.innerHTML=S.r; E.q.innerHTML=&#39;&#39;;
+    
+    const r1=el(&#39;div&#39;,&#39;row&#39;);
+    S.d.toString().split(&#39;&#39;).forEach(x=&gt;r1.append(el(&#39;div&#39;,&#39;c&#39;,x)));
+    E.w.append(r1);
+
+    S.st.slice(0, S.i&#43;(S.ok?1:0)).forEach(s=&gt;{
+      if(s.t==&#39;M&#39;){
+        const r=el(&#39;div&#39;,&#39;row&#39;); r.append(sp(s.i));
+        const m=el(&#39;div&#39;,&#39;minus-sign&#39;,&#39;-&#39;); m.style.left=`${s.i*40-25}px`; r.append(m);
+        s.v.toString().split(&#39;&#39;).forEach(x=&gt;r.append(el(&#39;div&#39;,&#39;c&#39;,x)));
+        const l=el(&#39;div&#39;,&#39;bottom-line&#39;); l.style.left=`${s.i*40}px`; l.style.width=`${s.v.toString().length*40}px`; r.append(l);
+        E.w.append(r);
+      } else if(s.t==&#39;S&#39;||s.t==&#39;F&#39;){
+        const r=el(&#39;div&#39;,&#39;row&#39;); r.append(sp(s.i));
+        (s.s||s.v.toString()).split(&#39;&#39;).forEach(x=&gt;r.append(el(&#39;div&#39;,`c ${s.t==&#39;F&#39;?&#39;ok&#39;:&#39;&#39;}`,x)));
+        E.w.append(r);
+      }
+    });
+
+    if(!S.ok){
+      const s=S.st[S.i];
+      if(s &amp;&amp; s.t!=&#39;Q&#39;){
+        const r=el(&#39;div&#39;,&#39;row&#39;); r.append(sp(s.i));
+        if(s.t==&#39;M&#39;){
+           const m=el(&#39;div&#39;,&#39;minus-sign&#39;,&#39;-&#39;); m.style.left=`${s.i*40-25}px`; r.append(m);
+        }
+        const v=s.s||s.v.toString();
+        for(let j=0; j&lt;v.length; j&#43;&#43;){
+          const i=el(&#39;input&#39;); i.id=`i-${j}`; i.value=S.in[j]||&#39;&#39;;
+          i.oninput=e=&gt;check(e.target.value,j,v.length);
+          i.onkeydown=e=&gt;handleKey(e,j,v.length);
+          const w=el(&#39;div&#39;,&#39;c&#39;); w.append(i); r.append(w);
+        }
+        E.w.append(r);
+      }
+    }
+
+    const qDigits = S.st.slice(0, S.i&#43;(S.ok?1:0)).filter(x=&gt;x.t==&#39;Q&#39;).map(x=&gt;x.v);
+    qDigits.forEach(d =&gt; {
+       const c = el(&#39;div&#39;, &#39;c&#39;, d); c.style.color = &#39;#4338ca&#39;;
+       E.q.append(c);
+    });
+
+    if(!S.ok &amp;&amp; S.st[S.i].t==&#39;Q&#39;){
+      const i=el(&#39;input&#39;); i.id=&#39;i-0&#39;; i.value=S.in[0]||&#39;&#39;;
+      i.oninput=e=&gt;check(e.target.value,0,1);
+      const w=el(&#39;div&#39;,&#39;c&#39;); w.append(i); E.q.append(w);
+    }
+
+    setTimeout(()=&gt;{
+        if(focusIdx !== null) {
+            const el = document.getElementById(`i-${focusIdx}`);
+            if(el) { el.focus(); return; }
+        }
+        const empty = document.querySelector(&#39;input[value=&#34;&#34;]&#39;);
+        if(empty) empty.focus();
+        else {
+            const first = document.getElementById(&#39;i-0&#39;);
+            if(first) first.focus();
+        }
+    }, 10);
+  };
+
+  E.n.onclick=init; E.x.onclick=init;
+  
+  if(window.elementSdk) window.elementSdk.init({
+    defaultConfig: {game_title:&#34;Бұрыштап бөлу&#34;},
+    onConfigChange: c=&gt;{ if(c.game_title) E.gt.innerText=c.game_title }
+  });
+
+  init();
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Оқушыларға арналған интерактивті құрал: екі таңбалы сандарды бұрыштап бөлу алгоритмін қадам бойынша үйрететін, торкөз дәптер стиліндегі қызықты жаттығу.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

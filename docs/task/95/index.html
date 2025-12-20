@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математикалық шыңға өрлеу | VisualMath</title>
+    <meta name="description" content="1-деңгей (Базалық білім): Оқушылар қарапайым алгебралық түрлендірулерді орындайды. Мұнда ұқсас қосылғыштарды біріктіру (мысалы, 5x &#43; 3x), коэффициенттерді дұрыс есептеу және әріптік өрнектерді ықшамдау дағдылары бекиді.
+
+2-деңгей (PISA және Өмір): Математикалық сауаттылыққа арналған мәтіндік есептер. Оқушылар айнымалыларды қолдана отырып, күнделікті өмірдегі жағдаяттарды шешеді: дүкендегі сауда есебін шығару, заттардың периметрін табу және шығындарды есептеу. Бұл бөлім математиканың практикалық маңызын көрсетеді.
+
+3-деңгей (Логика): Күрделірек ойлауды қажет ететін тапсырмалар. Мұнда дайын формулаға салу емес, заңдылықтарды байқау, тиімді есептеу тәсілдерін (ортақ көбейткішті жақша сыртына шығару) қолдану және стандартты емес логикалық сұрақтар қамтылған.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Математикалық шыңға өрлеу</span>
+            </div>
+            <a href="/lesson/11"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;MathQuest - Математикалық Ойын&lt;/title&gt;
+    &lt;!-- Tailwind CSS --&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap&#39;);
+        body { font-family: &#39;Inter&#39;, sans-serif; }
+        
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out; }
+        
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .animate-slide-up { animation: slideUp 0.5s ease-out; }
+
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(-5%); }
+            50% { transform: translateY(5%); }
+        }
+        .animate-bounce-slow { animation: bounce-slow 2s infinite; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen bg-gray-100 flex flex-col items-center pt-8 pb-4 px-4 font-sans&#34;&gt;
+
+    &lt;!-- Main Container --&gt;
+    &lt;div id=&#34;app&#34; class=&#34;w-full max-w-4xl&#34;&gt;
+        &lt;!-- Content will be injected here by JavaScript --&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- DATA ---
+        const level1Questions = [
+            { id: 1, question: &#34;8a · 7&#34;, options: [&#34;15a&#34;, &#34;56a&#34;, &#34;87a&#34;, &#34;56&#34;], correct: &#34;56a&#34;, hint: &#34;Сандарды көбейтіп, әріпті тіркеп жаз.&#34; },
+            { id: 2, question: &#34;5x &#43; 3x &#43; 70x&#34;, options: [&#34;78x&#34;, &#34;15x&#34;, &#34;78&#34;, &#34;8x&#34;], correct: &#34;78x&#34;, hint: &#34;Коэффициенттерді қос: 5 &#43; 3 &#43; 70.&#34; },
+            { id: 3, question: &#34;9 &#43; a &#43; 14&#34;, options: [&#34;23a&#34;, &#34;23 &#43; a&#34;, &#34;149a&#34;, &#34;9a &#43; 14&#34;], correct: &#34;23 &#43; a&#34;, hint: &#34;Тек сандарды бір-біріне қосуға болады.&#34; },
+            { id: 4, question: &#34;10x - 6x &#43; 2x&#34;, options: [&#34;6x&#34;, &#34;4x&#34;, &#34;2x&#34;, &#34;16x&#34;], correct: &#34;6x&#34;, hint: &#34;Ретімен орында: (10-6)&#43;2.&#34; }
+        ];
+
+        const level2Questions = [
+            { id: 5, type: &#34;scenario&#34;, icon: &#34;shopping&#34;, scenario: &#34;Айдос бағасы x теңге тұратын 5 дәптер, ал Нұрлан 3 дәптер алды. Кейін екеуі тағы 2 дәптерден қосып алды.&#34;, question: &#34;Барлығы қанша теңге жұмсады?&#34;, options: [&#34;10x&#34;, &#34;12x&#34;, &#34;8x&#34;, &#34;15x&#34;], correct: &#34;12x&#34;, explanation: &#34;Айдос: 5&#43;2=7, Нұрлан: 3&#43;2=5. Барлығы: 7x &#43; 5x = 12x.&#34; },
+            { id: 6, type: &#34;scenario&#34;, icon: &#34;calculator&#34;, scenario: &#34;Тіктөртбұрыш пішінді егістіктің ұзындығы 5a метр, ені 3a метр.&#34;, question: &#34;Егістіктің периметрін (P) табыңыз.&#34;, options: [&#34;8a&#34;, &#34;16a&#34;, &#34;15a²&#34;, &#34;30a&#34;], correct: &#34;16a&#34;, explanation: &#34;Периметр формуласы P = 2(a&#43;b). P = 2(5a &#43; 3a) = 2(8a) = 16a.&#34; },
+            { id: 7, type: &#34;scenario&#34;, icon: &#34;shopping&#34;, scenario: &#34;Дүкеннен бағасы k теңге болатын 18 балмұздақ және 12 шырын алдың. Кассада 3 балмұздақты кері қайтардың.&#34;, question: &#34;Қанша төлеу керек?&#34;, options: [&#34;30k&#34;, &#34;27k&#34;, &#34;33k&#34;, &#34;15k&#34;], correct: &#34;27k&#34;, explanation: &#34;Барлығы: 18k &#43; 12k = 30k. Қайтарды: -3k. Нәтиже: 30k - 3k = 27k.&#34; }
+        ];
+
+        const level3Questions = [
+            { id: 8, type: &#34;logic&#34;, icon: &#34;brain&#34;, question: &#34;Егер 3x &#43; 2y = 15 болса, 6x &#43; 4y &#43; 10 өрнегінің мәні неше?&#34;, options: [&#34;25&#34;, &#34;30&#34;, &#34;40&#34;, &#34;55&#34;], correct: &#34;40&#34;, explanation: &#34;6x&#43;4y = 2(3x&#43;2y). Демек, 2 * 15 &#43; 10 = 30 &#43; 10 = 40.&#34; },
+            { id: 9, type: &#34;logic&#34;, icon: &#34;brain&#34;, question: &#34;Тиімді тәсілмен есепте: 2025 · 84 &#43; 2025 · 16&#34;, options: [&#34;20250&#34;, &#34;202500&#34;, &#34;202584&#34;, &#34;100000&#34;], correct: &#34;202500&#34;, explanation: &#34;Ортақ көбейткішті шығарамыз: 2025(84&#43;16) = 2025 * 100 = 202500.&#34; },
+            { id: 10, type: &#34;logic&#34;, icon: &#34;brain&#34;, question: &#34;Заңдылықты тап: 100x - 99x &#43; 98x - 97x &#43; ... &#43; 2x - x. Егер x=5 болса, мәні қанша?&#34;, options: [&#34;50&#34;, &#34;250&#34;, &#34;100&#34;, &#34;500&#34;], correct: &#34;250&#34;, explanation: &#34;Әр жұптың айырмасы x. Барлығы 50 жұп бар. 50 * x = 50 * 5 = 250.&#34; }
+        ];
+
+        // --- ICONS (SVG Strings) ---
+        const icons = {
+            calculator: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;64&#34; height=&#34;64&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-indigo-600&#34;&gt;&lt;rect width=&#34;16&#34; height=&#34;20&#34; x=&#34;4&#34; y=&#34;2&#34; rx=&#34;2&#34;/&gt;&lt;line x1=&#34;8&#34; x2=&#34;16&#34; y1=&#34;6&#34; y2=&#34;6&#34;/&gt;&lt;line x1=&#34;16&#34; x2=&#34;16&#34; y1=&#34;14&#34; y2=&#34;18&#34;/&gt;&lt;path d=&#34;M16 10h.01&#34;/&gt;&lt;path d=&#34;M12 10h.01&#34;/&gt;&lt;path d=&#34;M8 10h.01&#34;/&gt;&lt;path d=&#34;M12 14h.01&#34;/&gt;&lt;path d=&#34;M8 14h.01&#34;/&gt;&lt;path d=&#34;M12 18h.01&#34;/&gt;&lt;path d=&#34;M8 18h.01&#34;/&gt;&lt;/svg&gt;`,
+            shopping: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;64&#34; height=&#34;64&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-blue-200&#34;&gt;&lt;path d=&#34;M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z&#34;/&gt;&lt;path d=&#34;M3 6h18&#34;/&gt;&lt;path d=&#34;M16 10a4 4 0 0 1-8 0&#34;/&gt;&lt;/svg&gt;`,
+            calculatorLight: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;64&#34; height=&#34;64&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-green-200&#34;&gt;&lt;rect width=&#34;16&#34; height=&#34;20&#34; x=&#34;4&#34; y=&#34;2&#34; rx=&#34;2&#34;/&gt;&lt;line x1=&#34;8&#34; x2=&#34;16&#34; y1=&#34;6&#34; y2=&#34;6&#34;/&gt;&lt;line x1=&#34;16&#34; x2=&#34;16&#34; y1=&#34;14&#34; y2=&#34;18&#34;/&gt;&lt;path d=&#34;M16 10h.01&#34;/&gt;&lt;path d=&#34;M12 10h.01&#34;/&gt;&lt;path d=&#34;M8 10h.01&#34;/&gt;&lt;path d=&#34;M12 14h.01&#34;/&gt;&lt;path d=&#34;M8 14h.01&#34;/&gt;&lt;path d=&#34;M12 18h.01&#34;/&gt;&lt;path d=&#34;M8 18h.01&#34;/&gt;&lt;/svg&gt;`,
+            brain: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;64&#34; height=&#34;64&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-red-200&#34;&gt;&lt;path d=&#34;M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z&#34;/&gt;&lt;path d=&#34;M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z&#34;/&gt;&lt;/svg&gt;`,
+            play: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;32&#34; height=&#34;32&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;currentColor&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;polygon points=&#34;5 3 19 12 5 21 5 3&#34;/&gt;&lt;/svg&gt;`,
+            check: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;32&#34; height=&#34;32&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M20 6 9 17l-5-5&#34;/&gt;&lt;/svg&gt;`,
+            x: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;32&#34; height=&#34;32&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M18 6 6 18&#34;/&gt;&lt;path d=&#34;m6 6 12 12&#34;/&gt;&lt;/svg&gt;`,
+            trophy: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;96&#34; height=&#34;96&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-yellow-600&#34;&gt;&lt;path d=&#34;M6 9H4.5a2.5 2.5 0 0 1 0-5H6&#34;/&gt;&lt;path d=&#34;M18 9h1.5a2.5 2.5 0 0 0 0-5H18&#34;/&gt;&lt;path d=&#34;M4 22h16&#34;/&gt;&lt;path d=&#34;M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22&#34;/&gt;&lt;path d=&#34;M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22&#34;/&gt;&lt;path d=&#34;M18 2H6v7a6 6 0 0 0 12 0V2Z&#34;/&gt;&lt;/svg&gt;`,
+            trophySmall: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M6 9H4.5a2.5 2.5 0 0 1 0-5H6&#34;/&gt;&lt;path d=&#34;M18 9h1.5a2.5 2.5 0 0 0 0-5H18&#34;/&gt;&lt;path d=&#34;M4 22h16&#34;/&gt;&lt;path d=&#34;M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22&#34;/&gt;&lt;path d=&#34;M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22&#34;/&gt;&lt;path d=&#34;M18 2H6v7a6 6 0 0 0 12 0V2Z&#34;/&gt;&lt;/svg&gt;`,
+            refresh: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;28&#34; height=&#34;28&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8&#34;/&gt;&lt;path d=&#34;M21 3v5h-5&#34;/&gt;&lt;path d=&#34;M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16&#34;/&gt;&lt;path d=&#34;M8 16H3v5&#34;/&gt;&lt;/svg&gt;`
+        };
+
+        // --- STATE ---
+        let gameState = &#39;welcome&#39;; // welcome, playing, result
+        let level = 1;
+        let score = 0;
+        let currentQuestionIndex = 0;
+        let feedback = null; // &#39;correct&#39;, &#39;incorrect&#39;, null
+        let selectedOption = null;
+
+        // --- APP CONTROLLER ---
+        const app = document.getElementById(&#39;app&#39;);
+
+        function init() {
+            render();
+        }
+
+        function getQuestionsForLevel() {
+            if (level === 1) return level1Questions;
+            if (level === 2) return level2Questions;
+            return level3Questions;
+        }
+
+        // --- ACTIONS ---
+        function startGame() {
+            gameState = &#39;playing&#39;;
+            level = 1;
+            score = 0;
+            currentQuestionIndex = 0;
+            feedback = null;
+            selectedOption = null;
+            render();
+        }
+
+        function handleOptionClick(option) {
+            if (feedback) return;
+
+            selectedOption = option;
+            const currentQ = getQuestionsForLevel()[currentQuestionIndex];
+
+            if (option === currentQ.correct) {
+                feedback = &#39;correct&#39;;
+                score &#43;= (level * 10);
+            } else {
+                feedback = &#39;incorrect&#39;;
+            }
+
+            render();
+
+            setTimeout(() =&gt; {
+                nextQuestion();
+            }, 2000);
+        }
+
+        function nextQuestion() {
+            const currentQuestions = getQuestionsForLevel();
+            feedback = null;
+            selectedOption = null;
+
+            if (currentQuestionIndex &#43; 1 &gt;= currentQuestions.length) {
+                if (level &lt; 3) {
+                    level&#43;&#43;;
+                    currentQuestionIndex = 0;
+                } else {
+                    gameState = &#39;result&#39;;
+                }
+            } else {
+                currentQuestionIndex&#43;&#43;;
+            }
+            render();
+        }
+
+        // --- RENDER FUNCTIONS ---
+        function render() {
+            app.innerHTML = &#39;&#39;; // Clear container
+
+            if (gameState === &#39;welcome&#39;) {
+                renderWelcome();
+            } else if (gameState === &#39;playing&#39;) {
+                renderGame();
+            } else if (gameState === &#39;result&#39;) {
+                renderResult();
+            }
+        }
+
+        function renderWelcome() {
+            app.innerHTML = `
+                &lt;div class=&#34;bg-white rounded-3xl shadow-2xl p-10 max-w-2xl w-full mx-auto text-center border-b-8 border-indigo-200 transform transition-all animate-fade-in&#34;&gt;
+                    &lt;div class=&#34;bg-indigo-100 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce-slow&#34;&gt;
+                        ${icons.calculator}
+                    &lt;/div&gt;
+                    &lt;h1 class=&#34;text-4xl md:text-5xl font-extrabold text-gray-800 mb-4&#34;&gt;Өрнектерді Ықшамдау&lt;/h1&gt;
+                    &lt;p class=&#34;text-xl text-gray-600 mb-10 leading-relaxed&#34;&gt;Математикалық шыңға өрлеу! &lt;br/&gt;PISA және логикалық есептерді шешіп, өз біліміңді сына.&lt;/p&gt;
+                    
+                    &lt;button onclick=&#34;startGame()&#34; class=&#34;w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-2xl py-6 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-xl hover:shadow-2xl active:translate-y-1&#34;&gt;
+                        ${icons.play}
+                        Ойынды Бастау
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        function renderGame() {
+            const currentQuestions = getQuestionsForLevel();
+            const currentQ = currentQuestions[currentQuestionIndex];
+            
+            // Header Styles based on level
+            let headerClass = level === 1 ? &#39;bg-blue-600&#39; : (level === 2 ? &#39;bg-purple-600&#39; : &#39;bg-orange-600&#39;);
+            let levelTitle = level === 1 ? &#39;1-Деңгей: Қызу (Warm Up)&#39; : (level === 2 ? &#39;2-Деңгей: Өмір (PISA)&#39; : &#39;3-Деңгей: Логика&#39;);
+            
+            // Icon logic for scenario questions
+            let scenarioIcon = &#39;&#39;;
+            if(currentQ.icon === &#39;shopping&#39;) scenarioIcon = icons.shopping;
+            if(currentQ.icon === &#39;calculator&#39;) scenarioIcon = icons.calculatorLight;
+            if(currentQ.icon === &#39;brain&#39;) scenarioIcon = icons.brain;
+
+            // Generate Options HTML
+            const optionsHtml = currentQ.options.map(option =&gt; {
+                let btnClass = &#34;bg-white hover:bg-gray-50 border-4 border-gray-200 text-gray-700 shadow-sm&#34;;
+                
+                if (selectedOption === option) {
+                    if (feedback === &#39;correct&#39;) {
+                        btnClass = &#34;bg-green-100 border-green-500 text-green-800 shadow-green-200&#34;;
+                    } else if (feedback === &#39;incorrect&#39;) {
+                        btnClass = &#34;bg-red-100 border-red-500 text-red-800 shadow-red-200&#34;;
+                    }
+                } else if (feedback === &#39;incorrect&#39; &amp;&amp; option === currentQ.correct) {
+                     btnClass = &#34;bg-green-50 border-green-300 text-green-600 opacity-70&#34;;
+                }
+
+                return `
+                    &lt;button 
+                        onclick=&#34;handleOptionClick(&#39;${option}&#39;)&#34; 
+                        ${feedback ? &#39;disabled&#39; : &#39;&#39;}
+                        class=&#34;py-8 px-6 rounded-2xl text-3xl md:text-4xl font-bold transition-all duration-200 transform hover:scale-[1.02] active:scale-95 shadow-md ${btnClass}&#34;
+                    &gt;
+                        ${option}
+                    &lt;/button&gt;
+                `;
+            }).join(&#39;&#39;);
+
+            // Feedback HTML
+            let feedbackHtml = &#39;&#39;;
+            if (feedback) {
+                const isCorrect = feedback === &#39;correct&#39;;
+                const colorClass = isCorrect ? &#39;bg-green-50 text-green-800&#39; : &#39;bg-red-50 text-red-800&#39;;
+                const iconBg = isCorrect ? &#39;bg-green-500&#39; : &#39;bg-red-500&#39;;
+                const icon = isCorrect ? icons.check : icons.x;
+                const title = isCorrect ? &#39;Дұрыс!&#39; : &#39;Қате!&#39;;
+                const msg = isCorrect ? &#39;Керемет, жалғастыр!&#39; : (currentQ.explanation || currentQ.hint);
+
+                feedbackHtml = `
+                    &lt;div class=&#34;p-6 ${colorClass} border-t border-gray-100 animate-slide-up&#34;&gt;
+                        &lt;div class=&#34;flex items-center gap-4&#34;&gt;
+                            &lt;div class=&#34;p-3 rounded-full ${iconBg} text-white shadow-lg&#34;&gt;
+                                ${icon}
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;h3 class=&#34;text-2xl font-bold&#34;&gt;${title}&lt;/h3&gt;
+                                &lt;p class=&#34;text-lg mt-2 font-medium opacity-90&#34;&gt;${msg}&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `;
+            }
+
+            // Progress Bar HTML
+            const progressHtml = `
+                &lt;div class=&#34;flex items-center justify-between mb-8 px-4&#34;&gt;
+                    &lt;div class=&#34;flex gap-3&#34;&gt;
+                        ${[1,2,3].map(l =&gt; `
+                            &lt;div class=&#34;w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-all
+                                ${level === l ? &#39;bg-indigo-600 text-white scale-110 shadow-lg&#39; : 
+                                  level &gt; l ? &#39;bg-green-500 text-white&#39; : &#39;bg-gray-200 text-gray-500&#39;}&#34;&gt;
+                                ${level &gt; l ? icons.check.replace(&#39;width=&#34;32&#34;&#39;, &#39;width=&#34;20&#34;&#39;).replace(&#39;height=&#34;32&#34;&#39;, &#39;height=&#34;20&#34;&#39;) : l}
+                            &lt;/div&gt;
+                        `).join(&#39;&#39;)}
+                    &lt;/div&gt;
+                    &lt;div class=&#34;flex items-center gap-2 bg-yellow-100 px-6 py-3 rounded-full text-yellow-800 font-bold shadow-sm text-xl&#34;&gt;
+                        ${icons.trophySmall}
+                        &lt;span&gt;${score}&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+
+            app.innerHTML = `
+                ${progressHtml}
+                &lt;div class=&#34;bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100 animate-fade-in&#34;&gt;
+                    &lt;!-- Header Area --&gt;
+                    &lt;div class=&#34;p-8 md:p-10 ${headerClass} text-white transition-colors duration-500&#34;&gt;
+                        &lt;div class=&#34;flex justify-between items-center mb-6 opacity-90&#34;&gt;
+                            &lt;span class=&#34;uppercase tracking-wider text-sm md:text-base font-bold bg-black/20 px-4 py-2 rounded-lg&#34;&gt;
+                                ${levelTitle}
+                            &lt;/span&gt;
+                            &lt;span class=&#34;text-lg font-bold bg-black/20 px-4 py-2 rounded-lg&#34;&gt;
+                                ${currentQuestionIndex &#43; 1} / ${currentQuestions.length}
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class=&#34;mt-8 text-center px-4&#34;&gt;
+                            ${scenarioIcon ? `&lt;div class=&#34;flex justify-center mb-6 transform scale-125&#34;&gt;${scenarioIcon}&lt;/div&gt;` : &#39;&#39;}
+                            ${currentQ.scenario ? `
+                                &lt;p class=&#34;text-xl md:text-3xl font-medium text-white/95 mb-8 bg-white/20 p-6 rounded-2xl text-left shadow-lg backdrop-blur-sm border border-white/10 leading-relaxed&#34;&gt;
+                                    ${currentQ.scenario}
+                                &lt;/p&gt;
+                            ` : &#39;&#39;}
+                            &lt;h2 class=&#34;text-5xl md:text-7xl font-extrabold leading-tight drop-shadow-md py-4 tracking-tight&#34;&gt;
+                                ${currentQ.question}
+                            &lt;/h2&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Options Area --&gt;
+                    &lt;div class=&#34;p-8 bg-gray-50&#34;&gt;
+                        &lt;div class=&#34;grid grid-cols-1 md:grid-cols-2 gap-6&#34;&gt;
+                            ${optionsHtml}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Feedback Area --&gt;
+                    ${feedbackHtml}
+                &lt;/div&gt;
+            `;
+        }
+
+        function renderResult() {
+            app.innerHTML = `
+                &lt;div class=&#34;bg-white rounded-3xl shadow-2xl p-10 max-w-2xl w-full mx-auto text-center relative overflow-hidden animate-slide-up&#34;&gt;
+                    &lt;!-- Confetti effect visualization (simple circles) --&gt;
+                    &lt;div class=&#34;absolute top-0 left-0 w-full h-full pointer-events-none opacity-20&#34;&gt;
+                         &lt;div class=&#34;absolute top-10 left-10 w-4 h-4 bg-red-500 rounded-full animate-pulse&#34;&gt;&lt;/div&gt;
+                         &lt;div class=&#34;absolute top-20 right-20 w-3 h-3 bg-yellow-500 rounded-full animate-pulse&#34;&gt;&lt;/div&gt;
+                         &lt;div class=&#34;absolute bottom-10 left-1/2 w-5 h-5 bg-blue-500 rounded-full animate-pulse&#34;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;mb-8 inline-block p-6 rounded-full bg-yellow-100 border-8 border-yellow-200 shadow-inner&#34;&gt;
+                        ${icons.trophy}
+                    &lt;/div&gt;
+                    
+                    &lt;h2 class=&#34;text-4xl md:text-5xl font-bold text-gray-800 mb-4&#34;&gt;Құттықтаймыз!&lt;/h2&gt;
+                    &lt;p class=&#34;text-xl text-gray-600 mb-8&#34;&gt;Сен барлық кезеңнен сүрінбей өттің.&lt;/p&gt;
+                    
+                    &lt;div class=&#34;bg-gray-50 rounded-2xl p-8 mb-10 border border-gray-100&#34;&gt;
+                        &lt;p class=&#34;text-lg text-gray-500 uppercase tracking-wide font-semibold mb-2&#34;&gt;Сіздің нәтижеңіз&lt;/p&gt;
+                        &lt;div class=&#34;text-7xl font-extrabold text-indigo-600&#34;&gt;${score}&lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;button onclick=&#34;startGame()&#34; class=&#34;w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-2xl py-6 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-md&#34;&gt;
+                        ${icons.refresh}
+                        Қайтадан ойнау
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        // Start App
+        init();
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">1-деңгей (Базалық білім): Оқушылар қарапайым алгебралық түрлендірулерді орындайды. Мұнда ұқсас қосылғыштарды біріктіру (мысалы, 5x + 3x), коэффициенттерді дұрыс есептеу және әріптік өрнектерді ықшамдау дағдылары бекиді.
+
+2-деңгей (PISA және Өмір): Математикалық сауаттылыққа арналған мәтіндік есептер. Оқушылар айнымалыларды қолдана отырып, күнделікті өмірдегі жағдаяттарды шешеді: дүкендегі сауда есебін шығару, заттардың периметрін табу және шығындарды есептеу. Бұл бөлім математиканың практикалық маңызын көрсетеді.
+
+3-деңгей (Логика): Күрделірек ойлауды қажет ететін тапсырмалар. Мұнда дайын формулаға салу емес, заңдылықтарды байқау, тиімді есептеу тәсілдерін (ортақ көбейткішті жақша сыртына шығару) қолдану және стандартты емес логикалық сұрақтар қамтылған.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

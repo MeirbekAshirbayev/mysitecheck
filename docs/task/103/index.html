@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ну Ормандағы Қазына | VisualMath</title>
+    <meta name="description" content="«Ну Ормандағы Қазына» интерактивті ойынының сипаттамасы
+
+Бұл ойын — оқушыларға «Санның дәрежесі» тақырыбын қызықты әрі тиімді жолмен меңгертуге арналған цифрлық тапсырма. Ойыншы ну орманға виртуалды саяхат жасап, көне қазына сандығын іздеуші рөлін атқарады.
+
+Ойынның негізгі мақсаты — жол бойында кездескен математикалық жұмбақтарды шешу арқылы картаны толықтыру. Тапсырмалар келесі ұғымдарды қамтиды:
+
+Натурал санның квадраты мен кубын есептеу;
+
+Дәреженің негізі мен көрсеткішін ажырату;
+
+Сандарды ондық разрядтық қосылғыштар түрінде жазу;
+
+Логикалық салыстыру тапсырмалары.
+
+Әрбір дұрыс жауап үшін оқушыға алтын монеталар беріліп, ынталандыру жүйесі іске қосылады. Егер жауап қате болса, жүйе дұрыс шешімнің түсіндірмесін ұсынып, қатемен жұмыс жасауға мүмкіндік береді. Бұл ойын математика сабағын түрлендіріп, оқушылардың пәнге деген қызығушылығын арттыруға бағытталған.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Ну Ормандағы Қазына</span>
+            </div>
+            <a href="/lesson/19"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Ну Ормандағы Қазына&lt;/title&gt;
+    &lt;!-- Tailwind CSS --&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;!-- Lucide Icons --&gt;
+    &lt;script src=&#34;https://unpkg.com/lucide@latest&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Nunito:wght@400;700;800&amp;display=swap&#39;);
+        
+        body {
+            font-family: &#39;Nunito&#39;, sans-serif;
+        }
+        
+        h1, h2, h3 {
+            font-family: &#39;Merriweather&#39;, serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(-5%); }
+            50% { transform: translateY(5%); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;bg-green-900 text-stone-100 min-h-screen relative overflow-x-hidden selection:bg-amber-500 selection:text-white&#34;&gt;
+
+    &lt;!-- Фондық элементтер --&gt;
+    &lt;div id=&#34;background-elements&#34; class=&#34;fixed inset-0 pointer-events-none opacity-10&#34;&gt;
+        &lt;!-- JS арқылы ағаштар қосылады --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- START SCREEN --&gt;
+    &lt;div id=&#34;start-screen&#34; class=&#34;min-h-screen flex flex-col items-center justify-center p-4 relative z-10 transition-opacity duration-500&#34;&gt;
+        &lt;div class=&#34;max-w-2xl w-full bg-stone-800 border-4 border-amber-700 p-8 rounded-xl shadow-2xl text-center bg-opacity-95&#34;&gt;
+            &lt;div class=&#34;flex justify-center mb-6&#34;&gt;
+                &lt;div class=&#34;bg-amber-600 p-6 rounded-full shadow-lg border-4 border-amber-800 bounce&#34;&gt;
+                    &lt;i data-lucide=&#34;map&#34; class=&#34;w-16 h-16 text-stone-900&#34;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;h1 class=&#34;text-4xl md:text-5xl font-bold mb-4 text-amber-500 drop-shadow-md tracking-wide&#34;&gt;
+                Қазына Іздеуші
+            &lt;/h1&gt;
+            &lt;p class=&#34;text-stone-300 text-xl mb-8 leading-relaxed&#34;&gt;
+                Ну орманның тереңінде көне сандық жатыр. &lt;br/&gt;
+                Оған жету үшін &lt;strong&gt;дәрежелер&lt;/strong&gt; туралы жұмбақтарды шешіп, картаны құрастыруың керек!
+            &lt;/p&gt;
+            
+            &lt;button id=&#34;start-btn&#34; class=&#34;group relative inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-stone-900 transition-all duration-200 bg-amber-500 rounded-lg hover:bg-amber-400 border-b-4 border-amber-700 active:border-b-0 active:mt-1 active:translate-y-1&#34;&gt;
+                &lt;i data-lucide=&#34;compass&#34; class=&#34;mr-3 w-6 h-6 group-hover:rotate-45 transition-transform&#34;&gt;&lt;/i&gt;
+                Іздеуді бастау
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- GAME SCREEN --&gt;
+    &lt;div id=&#34;game-screen&#34; class=&#34;min-h-screen flex-col items-center justify-start pt-10 p-4 relative z-10 hidden font-sans&#34;&gt;
+        
+        &lt;!-- Top Bar --&gt;
+        &lt;div class=&#34;w-full max-w-2xl flex justify-between items-center mb-8 bg-stone-800 p-4 rounded-xl border-2 border-stone-600 shadow-xl&#34;&gt;
+            &lt;div class=&#34;flex items-center gap-2&#34;&gt;
+                &lt;div class=&#34;bg-amber-500 p-2 rounded-lg text-stone-900&#34;&gt;
+                    &lt;i data-lucide=&#34;coins&#34; class=&#34;w-6 h-6&#34;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;p class=&#34;text-xs text-stone-400 uppercase&#34;&gt;Қазына&lt;/p&gt;
+                    &lt;p id=&#34;score-display&#34; class=&#34;font-bold text-xl text-amber-400&#34;&gt;0&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&#34;flex items-center gap-2&#34;&gt;
+                &lt;div class=&#34;text-right&#34;&gt;
+                    &lt;p class=&#34;text-xs text-stone-400 uppercase&#34;&gt;Жол&lt;/p&gt;
+                    &lt;p id=&#34;progress-text&#34; class=&#34;font-bold text-xl&#34;&gt;1 / 10&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;bg-blue-500 p-2 rounded-lg text-white&#34;&gt;
+                    &lt;i data-lucide=&#34;compass&#34; class=&#34;w-6 h-6&#34;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Main Card --&gt;
+        &lt;div class=&#34;max-w-2xl w-full relative&#34;&gt;
+            &lt;!-- Progress Bar --&gt;
+            &lt;div class=&#34;w-full bg-stone-700 h-3 rounded-full mb-6 overflow-hidden border border-stone-600&#34;&gt;
+                &lt;div id=&#34;progress-bar&#34; class=&#34;h-full bg-amber-500 transition-all duration-500&#34; style=&#34;width: 0%&#34;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;bg-stone-800 rounded-xl shadow-2xl overflow-hidden border-2 border-stone-600 fade-in&#34;&gt;
+                
+                &lt;!-- Question Header --&gt;
+                &lt;div class=&#34;p-8 pb-4 border-b border-stone-700 bg-stone-800/50&#34;&gt;
+                    &lt;span id=&#34;question-type&#34; class=&#34;inline-block px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-3 bg-blue-900/50 text-blue-300 border border-blue-700&#34;&gt;
+                        Ереже
+                    &lt;/span&gt;
+                    &lt;h2 id=&#34;question-text&#34; class=&#34;text-2xl md:text-3xl font-bold leading-tight text-white&#34;&gt;
+                        Сұрақ жүктелуде...
+                    &lt;/h2&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Options --&gt;
+                &lt;div id=&#34;options-container&#34; class=&#34;p-6 grid gap-4&#34;&gt;
+                    &lt;!-- Buttons will be injected here --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Feedback Area --&gt;
+                &lt;div id=&#34;feedback-area&#34; class=&#34;hidden p-6 border-t-2 flex flex-col md:flex-row justify-between items-center gap-4&#34;&gt;
+                    &lt;div class=&#34;flex gap-4 items-start w-full&#34;&gt;
+                        &lt;div id=&#34;feedback-icon-container&#34; class=&#34;p-3 rounded-full h-fit shrink-0 bg-green-600&#34;&gt;
+                            &lt;i id=&#34;feedback-icon&#34; data-lucide=&#34;gem&#34; class=&#34;w-6 h-6 text-white&#34;&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;h3 id=&#34;feedback-title&#34; class=&#34;font-bold text-lg mb-1 text-green-400&#34;&gt;
+                                Тамаша!
+                            &lt;/h3&gt;
+                            &lt;p id=&#34;feedback-text&#34; class=&#34;text-stone-300 leading-relaxed text-sm&#34;&gt;
+                                Түсіндірме мәтіні.
+                            &lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;button id=&#34;next-btn&#34; class=&#34;shrink-0 flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold transition-all shadow-lg hover:translate-x-1 active:translate-x-0&#34;&gt;
+                        &lt;span id=&#34;next-btn-text&#34;&gt;Келесі сұрақ&lt;/span&gt;
+                        &lt;i data-lucide=&#34;arrow-right&#34; class=&#34;w-5 h-5&#34;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- END SCREEN --&gt;
+    &lt;div id=&#34;end-screen&#34; class=&#34;min-h-screen flex flex-col items-center justify-center p-4 hidden&#34;&gt;
+        &lt;div class=&#34;max-w-md w-full bg-stone-800 border-4 border-amber-600 p-8 rounded-xl shadow-2xl text-center fade-in&#34;&gt;
+            &lt;div class=&#34;flex justify-center mb-6 text-amber-400&#34;&gt;
+                &lt;i id=&#34;end-icon&#34; data-lucide=&#34;gem&#34; class=&#34;w-20 h-20&#34;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;h2 id=&#34;end-title&#34; class=&#34;text-3xl font-bold mb-2 text-amber-500&#34;&gt;Аңыз Іздеуші!&lt;/h2&gt;
+            &lt;div class=&#34;text-5xl font-black text-white mb-4 drop-shadow-lg&#34;&gt;
+                &lt;span id=&#34;final-score&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;text-xl text-amber-300&#34;&gt;монета&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;p id=&#34;end-message&#34; class=&#34;text-stone-400 mb-8 font-sans&#34;&gt;
+                Хабарлама мәтіні.
+            &lt;/p&gt;
+
+            &lt;button id=&#34;restart-btn&#34; class=&#34;w-full flex items-center justify-center px-6 py-4 bg-green-700 hover:bg-green-600 text-white rounded-lg transition-colors font-bold text-lg border-b-4 border-green-900 active:border-0 active:mt-1&#34;&gt;
+                &lt;i data-lucide=&#34;rotate-ccw&#34; class=&#34;mr-2 w-5 h-5&#34;&gt;&lt;/i&gt;
+                Қайта бастау
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- ДЕРЕКТЕР (DATA) ---
+        const questions = [
+            {
+                id: 1,
+                type: &#39;concept&#39;,
+                question: &#34;9 × 9 × 9 × 9 көбейтіндісін дәреже түрінде көрсет:&#34;,
+                options: [&#34;9⁴&#34;, &#34;4⁹&#34;, &#34;36&#34;, &#34;9 × 4&#34;],
+                correct: 0,
+                explanation: &#34;9 саны 4 рет қайталанып көбейтілген, сондықтан негізі 9, көрсеткіші 4 болады.&#34;
+            },
+            {
+                id: 2,
+                type: &#39;calc&#39;,
+                question: &#34;4³ (төрттің кубы) нешеге тең?&#34;,
+                options: [&#34;12&#34;, &#34;64&#34;, &#34;16&#34;, &#34;43&#34;],
+                correct: 1,
+                explanation: &#34;4³ = 4 × 4 × 4 = 64. (Ал 4 × 3 = 12 — бұл қате!)&#34;
+            },
+            {
+                id: 3,
+                type: &#39;calc&#39;,
+                question: &#34;9² (тоғыздың квадраты) мәнін тап:&#34;,
+                options: [&#34;18&#34;, &#34;81&#34;, &#34;92&#34;, &#34;27&#34;],
+                correct: 1,
+                explanation: &#34;9² = 9 × 9 = 81.&#34;
+            },
+            {
+                id: 4,
+                type: &#39;term&#39;,
+                question: &#34;12⁵ өрнегіндегі &#39;5&#39; саны қалай аталады?&#34;,
+                options: [&#34;Негізі&#34;, &#34;Дәреже көрсеткіші&#34;, &#34;Бөлінгіш&#34;, &#34;Коэффициент&#34;],
+                correct: 1,
+                explanation: &#34;Дәреженің жоғарғы оң жағындағы сан — дәреже көрсеткіші.&#34;
+            },
+            {
+                id: 5,
+                type: &#39;logic&#39;,
+                question: &#34;Ең үлкен санды тап:&#34;,
+                options: [&#34;2³&#34;, &#34;3²&#34;, &#34;4²&#34;, &#34;1¹⁰&#34;],
+                correct: 2,
+                explanation: &#34;Есептеп көрейік: 2³=8, 3²=9, 4²=16, 1¹⁰=1. Ең үлкені — 16 (4²).&#34;
+            },
+            {
+                id: 6,
+                type: &#39;decimal&#39;,
+                question: &#34;5 × 10³ &#43; 2 × 10² &#43; 7 өрнегі қандай сан?&#34;,
+                options: [&#34;527&#34;, &#34;5027&#34;, &#34;5207&#34;, &#34;5270&#34;],
+                correct: 2,
+                explanation: &#34;5000 &#43; 200 &#43; 7 = 5207. (Ондықтар разряды жоқ, сондықтан 0 жазылады).&#34;
+            },
+            {
+                id: 7,
+                type: &#39;calc&#39;,
+                question: &#34;2⁵ (екінің бесінші дәрежесі) қанша?&#34;,
+                options: [&#34;10&#34;, &#34;32&#34;, &#34;25&#34;, &#34;16&#34;],
+                correct: 1,
+                explanation: &#34;2 × 2 × 2 × 2 × 2 = 32.&#34;
+            },
+            {
+                id: 8,
+                type: &#39;concept&#39;,
+                question: &#34;10⁵ санында неше нөл бар?&#34;,
+                options: [&#34;4&#34;, &#34;5&#34;, &#34;6&#34;, &#34;10&#34;],
+                correct: 1,
+                explanation: &#34;10-ның дәреже көрсеткіші нөлдер санын білдіреді (100 000).&#34;
+            },
+            {
+                id: 9,
+                type: &#39;calc&#39;,
+                question: &#34;Кез келген санның 1-ші дәрежесі неге тең?&#34;,
+                options: [&#34;1-ге&#34;, &#34;0-ге&#34;, &#34;Сол санның өзіне&#34;, &#34;10-ға&#34;],
+                correct: 2,
+                explanation: &#34;Мысалы: 15¹ = 15, 7¹ = 7.&#34;
+            },
+            {
+                id: 10,
+                type: &#39;hard&#39;,
+                question: &#34;Егер x = 2 болса, x⁴ &#43; 4 өрнегінің мәні қандай?&#34;,
+                options: [&#34;12&#34;, &#34;20&#34;, &#34;16&#34;, &#34;8&#34;],
+                correct: 1,
+                explanation: &#34;2⁴ = 16. Оған 4 қоссақ: 16 &#43; 4 = 20.&#34;
+            }
+        ];
+
+        // --- КҮЙ (STATE) ---
+        let state = {
+            currentQuestion: 0,
+            score: 0,
+            streak: 0,
+            hasAnswered: false,
+            feedback: null // &#39;correct&#39; or &#39;wrong&#39;
+        };
+
+        // --- DOM ЭЛЕМЕНТТЕРІ ---
+        const startScreen = document.getElementById(&#39;start-screen&#39;);
+        const gameScreen = document.getElementById(&#39;game-screen&#39;);
+        const endScreen = document.getElementById(&#39;end-screen&#39;);
+        
+        const startBtn = document.getElementById(&#39;start-btn&#39;);
+        const nextBtn = document.getElementById(&#39;next-btn&#39;);
+        const restartBtn = document.getElementById(&#39;restart-btn&#39;);
+        
+        const scoreDisplay = document.getElementById(&#39;score-display&#39;);
+        const progressText = document.getElementById(&#39;progress-text&#39;);
+        const progressBar = document.getElementById(&#39;progress-bar&#39;);
+        
+        const questionType = document.getElementById(&#39;question-type&#39;);
+        const questionText = document.getElementById(&#39;question-text&#39;);
+        const optionsContainer = document.getElementById(&#39;options-container&#39;);
+        
+        const feedbackArea = document.getElementById(&#39;feedback-area&#39;);
+        const feedbackTitle = document.getElementById(&#39;feedback-title&#39;);
+        const feedbackText = document.getElementById(&#39;feedback-text&#39;);
+        const feedbackIconContainer = document.getElementById(&#39;feedback-icon-container&#39;);
+        const feedbackIcon = document.getElementById(&#39;feedback-icon&#39;);
+
+        // --- ФУНКЦИЯЛАР ---
+
+        function initGame() {
+            // Фондық ағаштарды генерациялау
+            const bgContainer = document.getElementById(&#39;background-elements&#39;);
+            for (let i = 0; i &lt; 15; i&#43;&#43;) {
+                const tree = document.createElement(&#39;i&#39;);
+                tree.setAttribute(&#39;data-lucide&#39;, &#39;trees&#39;);
+                tree.className = &#39;absolute text-green-400&#39;;
+                tree.style.top = `${Math.random() * 100}%`;
+                tree.style.left = `${Math.random() * 100}%`;
+                tree.style.width = `${Math.random() * 100 &#43; 50}px`;
+                tree.style.height = tree.style.width;
+                tree.style.opacity = &#39;0.5&#39;;
+                bgContainer.appendChild(tree);
+            }
+            lucide.createIcons();
+        }
+
+        function startGame() {
+            state.currentQuestion = 0;
+            state.score = 0;
+            state.streak = 0;
+            state.hasAnswered = false;
+            
+            startScreen.classList.add(&#39;hidden&#39;);
+            endScreen.classList.add(&#39;hidden&#39;);
+            gameScreen.classList.remove(&#39;hidden&#39;);
+            gameScreen.classList.add(&#39;flex&#39;); // ensure flex display
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const currentQ = questions[state.currentQuestion];
+            state.hasAnswered = false;
+            
+            // UI Жаңарту
+            scoreDisplay.textContent = state.score;
+            progressText.textContent = `${state.currentQuestion &#43; 1} / ${questions.length}`;
+            progressBar.style.width = `${(state.currentQuestion / questions.length) * 100}%`;
+            
+            // Сұрақ типіне қарай стиль
+            let typeColorClass = &#39;&#39;;
+            let typeLabel = &#39;&#39;;
+            
+            if (currentQ.type === &#39;concept&#39;) {
+                typeColorClass = &#39;bg-blue-900/50 text-blue-300 border-blue-700&#39;;
+                typeLabel = &#39;Ереже&#39;;
+            } else if (currentQ.type === &#39;calc&#39;) {
+                typeColorClass = &#39;bg-amber-900/50 text-amber-300 border-amber-700&#39;;
+                typeLabel = &#39;Есептеу&#39;;
+            } else {
+                typeColorClass = &#39;bg-purple-900/50 text-purple-300 border-purple-700&#39;;
+                typeLabel = &#39;Логика&#39;;
+            }
+            
+            questionType.className = `inline-block px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-3 border ${typeColorClass}`;
+            questionType.textContent = typeLabel;
+            
+            questionText.textContent = currentQ.question;
+            
+            // Жауап нұсқаларын тазалау және қайта салу
+            optionsContainer.innerHTML = &#39;&#39;;
+            feedbackArea.classList.add(&#39;hidden&#39;);
+            
+            currentQ.options.forEach((option, index) =&gt; {
+                const btn = document.createElement(&#39;button&#39;);
+                btn.className = &#34;w-full p-5 rounded-lg text-left transition-all duration-200 font-bold text-lg flex justify-between items-center group bg-stone-700 hover:bg-stone-600 border-2 border-stone-600 text-stone-200&#34;;
+                
+                const spanContent = `
+                    &lt;span class=&#34;flex items-center gap-3&#34;&gt;
+                        &lt;span class=&#34;w-8 h-8 rounded-full bg-black/20 flex items-center justify-center text-sm opacity-70 group-hover:opacity-100&#34;&gt;
+                            ${String.fromCharCode(65 &#43; index)}
+                        &lt;/span&gt;
+                        ${option}
+                    &lt;/span&gt;
+                    &lt;i data-lucide=&#34;circle&#34; class=&#34;w-6 h-6 opacity-0 group-hover:opacity-50&#34;&gt;&lt;/i&gt;
+                `;
+                
+                btn.innerHTML = spanContent;
+                btn.onclick = () =&gt; handleAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+            
+            // Келесі сұрақ батырмасының мәтіні
+            const nextBtnText = document.getElementById(&#39;next-btn-text&#39;);
+            nextBtnText.textContent = (state.currentQuestion &lt; questions.length - 1) ? &#39;Келесі сұрақ&#39; : &#39;Нәтижелер&#39;;
+            
+            lucide.createIcons();
+        }
+
+        function handleAnswer(selectedIndex, selectedBtn) {
+            if (state.hasAnswered) return;
+            state.hasAnswered = true;
+            
+            const currentQ = questions[state.currentQuestion];
+            const isCorrect = selectedIndex === currentQ.correct;
+            const buttons = optionsContainer.querySelectorAll(&#39;button&#39;);
+            
+            // Батырмалар стилін өзгерту
+            buttons.forEach((btn, idx) =&gt; {
+                btn.disabled = true;
+                btn.classList.add(&#39;cursor-not-allowed&#39;);
+                
+                // Барлық батырмаларды сұрлау
+                if (idx !== selectedIndex) {
+                    btn.classList.add(&#39;opacity-40&#39;, &#39;grayscale&#39;);
+                }
+                
+                // Дұрыс жауапты әрқашан көрсету (үйрету үшін)
+                if (idx === currentQ.correct) {
+                    if (idx !== selectedIndex) {
+                         // Қате жауап берген жағдайда дұрыс жауапты ерекшелеу
+                         btn.className = &#34;w-full p-5 rounded-lg text-left font-bold text-lg flex justify-between items-center bg-green-900/50 border-2 border-dashed border-green-700 text-green-200 opacity-100&#34;;
+                         btn.innerHTML = btn.innerHTML.replace(&#39;circle&#39;, &#39;check-circle-2&#39;);
+                    }
+                }
+            });
+
+            // Таңдалған батырма стилі
+            if (isCorrect) {
+                state.score &#43;= 50 &#43; (state.streak * 10);
+                state.streak&#43;&#43;;
+                selectedBtn.className = &#34;w-full p-5 rounded-lg text-left font-bold text-lg flex justify-between items-center bg-green-700 border-2 border-green-500 text-white shadow-[0_0_15px_rgba(34,197,94,0.5)]&#34;;
+                selectedBtn.innerHTML = selectedBtn.innerHTML.replace(&#39;circle&#39;, &#39;check-circle-2&#39;).replace(&#39;opacity-0&#39;, &#39;text-green-300&#39;);
+            } else {
+                state.streak = 0;
+                // Қате таңдалған батырма сәл қалады, бірақ сұрланады (жоғарыдағы logic)
+            }
+
+            scoreDisplay.textContent = state.score;
+            showFeedback(isCorrect, currentQ.explanation);
+            lucide.createIcons();
+        }
+
+        function showFeedback(isCorrect, explanation) {
+            feedbackArea.classList.remove(&#39;hidden&#39;);
+            feedbackArea.className = `p-6 border-t-2 flex flex-col md:flex-row justify-between items-center gap-4 animate-in fade-in slide-in-from-bottom-2 ${isCorrect ? &#39;bg-green-900/40 border-green-600&#39; : &#39;bg-red-900/40 border-red-600&#39;}`;
+            
+            feedbackIconContainer.className = `p-3 rounded-full h-fit shrink-0 ${isCorrect ? &#39;bg-green-600&#39; : &#39;bg-red-600&#39;}`;
+            feedbackIcon.setAttribute(&#39;data-lucide&#39;, isCorrect ? &#39;gem&#39; : &#39;shovel&#39;);
+            
+            feedbackTitle.className = `font-bold text-lg mb-1 ${isCorrect ? &#39;text-green-400&#39; : &#39;text-red-400&#39;}`;
+            feedbackTitle.textContent = isCorrect ? &#39;Тамаша! Қазына табылды!&#39; : &#39;Қап! Қате жол!&#39;;
+            
+            feedbackText.textContent = explanation;
+            
+            lucide.createIcons();
+        }
+
+        function nextQuestion() {
+            if (state.currentQuestion &lt; questions.length - 1) {
+                state.currentQuestion&#43;&#43;;
+                renderQuestion();
+            } else {
+                endGame();
+            }
+        }
+
+        function endGame() {
+            gameScreen.classList.remove(&#39;flex&#39;);
+            gameScreen.classList.add(&#39;hidden&#39;);
+            endScreen.classList.remove(&#39;hidden&#39;);
+            endScreen.classList.add(&#39;flex&#39;);
+            
+            const maxScoreEst = questions.length * 50; 
+            const percentage = (state.score / maxScoreEst) * 100;
+            
+            const endIcon = document.getElementById(&#39;end-icon&#39;);
+            const endTitle = document.getElementById(&#39;end-title&#39;);
+            const endMessage = document.getElementById(&#39;end-message&#39;);
+            const finalScoreEl = document.getElementById(&#39;final-score&#39;);
+            
+            finalScoreEl.textContent = state.score;
+
+            if (percentage &gt; 120) {
+                endTitle.textContent = &#34;Аңыз Іздеуші!&#34;;
+                endMessage.textContent = &#34;Сен барлық қазынаны таптың! Орман сенің біліміңе таң қалды.&#34;;
+                endIcon.setAttribute(&#39;data-lucide&#39;, &#39;gem&#39;);
+                endIcon.classList.add(&#39;text-amber-400&#39;);
+            } else if (state.score &gt; 300) {
+                endTitle.textContent = &#34;Тәжірибелі Саяхатшы&#34;;
+                endMessage.textContent = &#34;Жақсы нәтиже! Сандықты таптың, бірақ кейбір монеталар түсіп қалды.&#34;;
+                endIcon.setAttribute(&#39;data-lucide&#39;, &#39;coins&#39;);
+                endIcon.classList.add(&#39;text-yellow-400&#39;);
+            } else {
+                endTitle.textContent = &#34;Адасқан Жолаушы&#34;;
+                endMessage.textContent = &#34;Орман тым қалың болды. Картаны қайта қарап шығу керек.&#34;;
+                endIcon.setAttribute(&#39;data-lucide&#39;, &#39;skull&#39;);
+                endIcon.classList.add(&#39;text-stone-400&#39;);
+            }
+            lucide.createIcons();
+        }
+
+        // --- EVENTS ---
+        startBtn.addEventListener(&#39;click&#39;, startGame);
+        nextBtn.addEventListener(&#39;click&#39;, nextQuestion);
+        restartBtn.addEventListener(&#39;click&#39;, startGame);
+
+        // --- INIT ---
+        window.addEventListener(&#39;load&#39;, initGame);
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">«Ну Ормандағы Қазына» интерактивті ойынының сипаттамасы
+
+Бұл ойын — оқушыларға «Санның дәрежесі» тақырыбын қызықты әрі тиімді жолмен меңгертуге арналған цифрлық тапсырма. Ойыншы ну орманға виртуалды саяхат жасап, көне қазына сандығын іздеуші рөлін атқарады.
+
+Ойынның негізгі мақсаты — жол бойында кездескен математикалық жұмбақтарды шешу арқылы картаны толықтыру. Тапсырмалар келесі ұғымдарды қамтиды:
+
+Натурал санның квадраты мен кубын есептеу;
+
+Дәреженің негізі мен көрсеткішін ажырату;
+
+Сандарды ондық разрядтық қосылғыштар түрінде жазу;
+
+Логикалық салыстыру тапсырмалары.
+
+Әрбір дұрыс жауап үшін оқушыға алтын монеталар беріліп, ынталандыру жүйесі іске қосылады. Егер жауап қате болса, жүйе дұрыс шешімнің түсіндірмесін ұсынып, қатемен жұмыс жасауға мүмкіндік береді. Бұл ойын математика сабағын түрлендіріп, оқушылардың пәнге деген қызығушылығын арттыруға бағытталған.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

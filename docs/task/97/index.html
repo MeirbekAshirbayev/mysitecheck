@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формулалар Әлемі | VisualMath</title>
+    <meta name="description" content="Бастаушы (Үй және Бақша): Мұнда оқушылар периметр (P) мен аудан (S) формулаларын қолданып, кілем төсеу немесе қоршау ұзындығын есептеу сияқты өмірлік мысалдарды шығарады.
+
+Саяхатшы (Жол және Сауда): Жылдамдық, уақыт, жол (s=v∙t) және заттың жалпы құнын анықтауға арналған логикалық есептер беріледі.
+
+Құрылысшы (Көлем): Қораптар мен бассейндер мысалында көлем (V) формулалары бекітіледі.
+
+Артықшылықтары:
+
+Әр сұраққа визуалды көмекші суреттер (сызбалар) қосылған.
+
+Жауап берген соң жүйе бірден дұрыс-бұрыстығын тексеріп, есептің толық түсіндірмесін көрсетеді.
+
+Ойын соңында жинаған ұпайы мен пайыздық көрсеткіші шығады.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Формулалар Әлемі</span>
+            </div>
+            <a href="/lesson/13"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Формулалар Әлемі&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap&#39;);
+        body {
+            font-family: &#39;Nunito&#39;, sans-serif;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;bg-gradient-to-br from-indigo-50 to-blue-100 min-h-screen text-gray-800&#34;&gt;
+
+    &lt;div id=&#34;app&#34; class=&#34;min-h-screen flex flex-col items-center justify-center p-4&#34;&gt;
+        &lt;!-- Content will be injected here by JavaScript --&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- Icons (Inline SVGs to replace Lucide-React) ---
+        const icons = {
+            play: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;polygon points=&#34;5 3 19 12 5 21 5 3&#34;/&gt;&lt;/svg&gt;`,
+            check: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M22 11.08V12a10 10 0 1 1-5.93-9.14&#34;/&gt;&lt;polyline points=&#34;22 4 12 14.01 9 11.01&#34;/&gt;&lt;/svg&gt;`,
+            x: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34;/&gt;&lt;line x1=&#34;15&#34; y1=&#34;9&#34; x2=&#34;9&#34; y2=&#34;15&#34;/&gt;&lt;line x1=&#34;9&#34; y1=&#34;9&#34; x2=&#34;15&#34; y2=&#34;15&#34;/&gt;&lt;/svg&gt;`,
+            arrowRight: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;line x1=&#34;5&#34; y1=&#34;12&#34; x2=&#34;19&#34; y2=&#34;12&#34;/&gt;&lt;polyline points=&#34;12 5 19 12 12 19&#34;/&gt;&lt;/svg&gt;`,
+            trophy: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M6 9H4.5a2.5 2.5 0 0 1 0-5H6&#34;/&gt;&lt;path d=&#34;M18 9h1.5a2.5 2.5 0 0 0 0-5H18&#34;/&gt;&lt;path d=&#34;M4 22h16&#34;/&gt;&lt;path d=&#34;M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22&#34;/&gt;&lt;path d=&#34;M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22&#34;/&gt;&lt;path d=&#34;M18 2H6v7a6 6 0 0 0 12 0V2Z&#34;/&gt;&lt;/svg&gt;`,
+            home: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z&#34;/&gt;&lt;polyline points=&#34;9 22 9 12 15 12 15 22&#34;/&gt;&lt;/svg&gt;`,
+            truck: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;rect x=&#34;1&#34; y=&#34;3&#34; width=&#34;15&#34; height=&#34;13&#34;/&gt;&lt;polygon points=&#34;16 8 20 8 23 11 23 16 16 16 16 8&#34;/&gt;&lt;circle cx=&#34;5.5&#34; cy=&#34;18.5&#34; r=&#34;2.5&#34;/&gt;&lt;circle cx=&#34;18.5&#34; cy=&#34;18.5&#34; r=&#34;2.5&#34;/&gt;&lt;/svg&gt;`,
+            box: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z&#34;/&gt;&lt;polyline points=&#34;3.27 6.96 12 12.01 20.73 6.96&#34;/&gt;&lt;line x1=&#34;12&#34; y1=&#34;22.08&#34; x2=&#34;12&#34; y2=&#34;12&#34;/&gt;&lt;/svg&gt;`,
+            calculator: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;rect x=&#34;4&#34; y=&#34;2&#34; width=&#34;16&#34; height=&#34;20&#34; rx=&#34;2&#34;/&gt;&lt;line x1=&#34;8&#34; y1=&#34;6&#34; x2=&#34;16&#34; y2=&#34;6&#34;/&gt;&lt;line x1=&#34;16&#34; y1=&#34;14&#34; x2=&#34;16&#34; y2=&#34;18&#34;/&gt;&lt;path d=&#34;M16 10h.01&#34;/&gt;&lt;path d=&#34;M12 10h.01&#34;/&gt;&lt;path d=&#34;M8 10h.01&#34;/&gt;&lt;path d=&#34;M12 14h.01&#34;/&gt;&lt;path d=&#34;M8 14h.01&#34;/&gt;&lt;path d=&#34;M12 18h.01&#34;/&gt;&lt;path d=&#34;M8 18h.01&#34;/&gt;&lt;/svg&gt;`,
+            refresh: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M21.5 2v6h-6&#34;/&gt;&lt;path d=&#34;M2.5 22v-6h6&#34;/&gt;&lt;path d=&#34;M2 11.5a10 10 0 0 1 18.8-4.3L21.5 8&#34;/&gt;&lt;path d=&#34;M22 12.5a10 10 0 0 1-18.8 4.2L2.5 16&#34;/&gt;&lt;/svg&gt;`,
+            eye: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z&#34;/&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;3&#34;/&gt;&lt;/svg&gt;`,
+            eyeOff: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24&#34;/&gt;&lt;line x1=&#34;1&#34; y1=&#34;1&#34; x2=&#34;23&#34; y2=&#34;23&#34;/&gt;&lt;/svg&gt;`,
+            train: `&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;rect x=&#34;4&#34; y=&#34;3&#34; width=&#34;16&#34; height=&#34;16&#34; rx=&#34;2&#34;/&gt;&lt;path d=&#34;M4 11h16&#34;/&gt;&lt;path d=&#34;M12 3v8&#34;/&gt;&lt;path d=&#34;m8 19-2 3&#34;/&gt;&lt;path d=&#34;m18 22-2-3&#34;/&gt;&lt;circle cx=&#34;8&#34; cy=&#34;15&#34; r=&#34;2&#34;/&gt;&lt;circle cx=&#34;16&#34; cy=&#34;15&#34; r=&#34;2&#34;/&gt;&lt;/svg&gt;`
+        };
+
+        // --- Data ---
+        const levels = [
+            {
+                id: 1,
+                name: &#34;Бастаушы: Үй және Бақша&#34;,
+                icon: icons.home,
+                description: &#34;Периметр және Аудан формулаларын қолдану&#34;,
+                colorClass: &#34;bg-green-100 border-green-500 text-green-700&#34;,
+                dotClass: &#34;bg-green-500&#34;,
+                questions: [
+                    {
+                        id: 1,
+                        question: &#34;Асқар өз бөлмесіне жаңа кілем төсегісі келді. Бөлменің ұзындығы 5 метр, ал ені 4 метр. Кілемнің ауданы қандай болуы керек?&#34;,
+                        formula: &#34;S = a · b&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                    &lt;div class=&#34;relative w-48 h-32 bg-orange-100 border-4 border-orange-400 rounded flex items-center justify-center&#34;&gt;
+                                        &lt;span class=&#34;text-orange-800 font-bold opacity-50 text-xl&#34;&gt;Кілем&lt;/span&gt;
+                                        &lt;div class=&#34;absolute -top-6 w-full text-center font-bold text-gray-600&#34;&gt;5 м&lt;/div&gt;
+                                        &lt;div class=&#34;absolute -left-8 h-full flex items-center font-bold text-gray-600&#34;&gt;4 м&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;9 м²&#34;, value: 9 },
+                            { id: &#39;b&#39;, text: &#34;18 м²&#34;, value: 18 },
+                            { id: &#39;c&#39;, text: &#34;20 м²&#34;, value: 20 },
+                            { id: &#39;d&#39;, text: &#34;25 м²&#34;, value: 25 }
+                        ],
+                        correct: &#39;c&#39;,
+                        explanation: &#34;Ауданды табу үшін ұзындығын еніне көбейтеміз: 5 м · 4 м = 20 м².&#34;
+                    },
+                    {
+                        id: 2,
+                        question: &#34;Мектеп жанындағы футбол алаңының қоршауын жаңарту керек. Алаңның ұзындығы 90 метр, ені 60 метр. Қоршаудың ұзындығы (периметрі) қанша?&#34;,
+                        formula: &#34;P = 2 · (a &#43; b)&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                    &lt;div class=&#34;relative w-64 h-40 bg-green-500 border-4 border-white rounded-lg flex items-center justify-center shadow-lg&#34;&gt;
+                                        &lt;div class=&#34;w-full h-0.5 bg-white/50 absolute top-1/2&#34;&gt;&lt;/div&gt;
+                                        &lt;div class=&#34;h-full w-0.5 bg-white/50 absolute left-1/2&#34;&gt;&lt;/div&gt;
+                                        &lt;div class=&#34;w-16 h-16 border-2 border-white/50 rounded-full absolute&#34;&gt;&lt;/div&gt;
+                                        &lt;div class=&#34;absolute -bottom-6 w-full text-center font-bold text-gray-600&#34;&gt;90 м&lt;/div&gt;
+                                        &lt;div class=&#34;absolute -right-8 h-full flex items-center font-bold text-gray-600&#34;&gt;60 м&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;150 м&#34;, value: 150 },
+                            { id: &#39;b&#39;, text: &#34;300 м&#34;, value: 300 },
+                            { id: &#39;c&#39;, text: &#34;5400 м&#34;, value: 5400 },
+                            { id: &#39;d&#39;, text: &#34;450 м&#34;, value: 450 }
+                        ],
+                        correct: &#39;b&#39;,
+                        explanation: &#34;Периметр формуласы бойынша: P = 2 · (90 &#43; 60) = 2 · 150 = 300 метр.&#34;
+                    },
+                    {
+                        id: 3,
+                        question: &#34;Шаршы пішінді гүлзардың бір қабырғасы 8 метр. Осы гүлзарды толық қоршап шығу үшін неше метр қоршау керек?&#34;,
+                        formula: &#34;P = 4 · a&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                    &lt;div class=&#34;relative w-32 h-32 bg-pink-100 border-4 border-pink-400 rounded-lg flex flex-wrap items-center justify-center p-2 gap-1&#34;&gt;
+                                         &lt;div class=&#34;w-full text-center absolute -top-6 font-bold text-gray-600&#34;&gt;8 м&lt;/div&gt;
+                                         &lt;div class=&#34;absolute -left-6 h-full flex items-center font-bold text-gray-600&#34;&gt;?&lt;/div&gt;
+                                         &lt;div class=&#34;w-4 h-4 bg-pink-400 rounded-full m-1&#34;&gt;&lt;/div&gt;
+                                         &lt;div class=&#34;w-4 h-4 bg-pink-400 rounded-full m-1&#34;&gt;&lt;/div&gt;
+                                         &lt;div class=&#34;w-4 h-4 bg-pink-400 rounded-full m-1&#34;&gt;&lt;/div&gt;
+                                         &lt;div class=&#34;w-4 h-4 bg-pink-400 rounded-full m-1&#34;&gt;&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;32 м&#34;, value: 32 },
+                            { id: &#39;b&#39;, text: &#34;16 м&#34;, value: 16 },
+                            { id: &#39;c&#39;, text: &#34;64 м&#34;, value: 64 },
+                            { id: &#39;d&#39;, text: &#34;24 м&#34;, value: 24 }
+                        ],
+                        correct: &#39;a&#39;,
+                        explanation: &#34;Шаршының барлық қабырғасы тең. P = 4 · 8 = 32 метр.&#34;
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: &#34;Саяхатшы: Жол және Сауда&#34;,
+                icon: icons.truck,
+                description: &#34;Жол, Уақыт, Жылдамдық және Құн&#34;,
+                colorClass: &#34;bg-blue-100 border-blue-500 text-blue-700&#34;,
+                dotClass: &#34;bg-blue-500&#34;,
+                questions: [
+                    {
+                        id: 1,
+                        question: &#34;Отбасы көлікпен Астанаға сапарға шықты. Олар 80 км/сағ жылдамдықпен 4 сағат жүрді. Олар қанша жол жүрді?&#34;,
+                        formula: &#34;s = v · t&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                    &lt;div class=&#34;flex flex-col items-center w-full max-w-sm&#34;&gt;
+                                        &lt;div class=&#34;flex justify-between w-full text-sm font-bold text-gray-500 mb-1&#34;&gt;
+                                            &lt;span&gt;Үй&lt;/span&gt;
+                                            &lt;span&gt;4 сағат, 80 км/сағ&lt;/span&gt;
+                                            &lt;span&gt;Астана&lt;/span&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class=&#34;w-full h-2 bg-gray-300 rounded relative&#34;&gt;
+                                            &lt;div class=&#34;absolute -top-3 left-1/2 transform -translate-x-1/2 text-blue-600&#34;&gt;
+                                                ${icons.truck}
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;240 км&#34;, value: 240 },
+                            { id: &#39;b&#39;, text: &#34;320 км&#34;, value: 320 },
+                            { id: &#39;c&#39;, text: &#34;20 км&#34;, value: 20 },
+                            { id: &#39;d&#39;, text: &#34;84 км&#34;, value: 84 }
+                        ],
+                        correct: &#39;b&#39;,
+                        explanation: &#34;Жолды табу үшін жылдамдықты уақытқа көбейтеміз: s = 80 · 4 = 320 км.&#34;
+                    },
+                    {
+                        id: 2,
+                        question: &#34;Дүкенде 1 дәптердің бағасы 150 теңге тұрады. Айжанға 6 дәптер керек. Ол қанша ақша төлеуі керек?&#34;,
+                        formula: &#34;C = a · n&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6 gap-4&#34;&gt;
+                                    &lt;div class=&#34;bg-yellow-100 p-4 rounded-lg flex flex-col items-center border border-yellow-300&#34;&gt;
+                                        &lt;span class=&#34;text-3xl font-bold text-yellow-600&#34;&gt;150₸&lt;/span&gt;
+                                        &lt;span class=&#34;text-xs text-gray-500&#34;&gt;1 дәптер&lt;/span&gt;
+                                    &lt;/div&gt;
+                                    &lt;span class=&#34;text-2xl font-bold text-gray-400&#34;&gt;×&lt;/span&gt;
+                                    &lt;div class=&#34;bg-blue-100 p-4 rounded-lg flex flex-col items-center border border-blue-300&#34;&gt;
+                                        &lt;span class=&#34;text-3xl font-bold text-blue-600&#34;&gt;6&lt;/span&gt;
+                                        &lt;span class=&#34;text-xs text-gray-500&#34;&gt;дана&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;750 тг&#34;, value: 750 },
+                            { id: &#39;b&#39;, text: &#34;156 тг&#34;, value: 156 },
+                            { id: &#39;c&#39;, text: &#34;900 тг&#34;, value: 900 },
+                            { id: &#39;d&#39;, text: &#34;600 тг&#34;, value: 600 }
+                        ],
+                        correct: &#39;c&#39;,
+                        explanation: &#34;Құнды есептеу үшін бағаны санға көбейтеміз: 150 · 6 = 900 теңге.&#34;
+                    },
+                    {
+                        id: 3,
+                        question: &#34;Пойыз 450 км жолды 5 сағатта жүріп өтті. Пойыздың жылдамдығы қандай болды?&#34;,
+                        formula: &#34;v = s : t&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                    &lt;div class=&#34;bg-gray-100 p-6 rounded-full border-4 border-gray-300 text-indigo-600&#34;&gt;
+                                        ${icons.train}
+                                    &lt;/div&gt;
+                                    &lt;div class=&#34;ml-6 space-y-2&#34;&gt;
+                                        &lt;div class=&#34;bg-blue-50 px-3 py-1 rounded text-sm text-blue-800 font-medium&#34;&gt;Жол: 450 км&lt;/div&gt;
+                                        &lt;div class=&#34;bg-purple-50 px-3 py-1 rounded text-sm text-purple-800 font-medium&#34;&gt;Уақыт: 5 сағат&lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;90 км/сағ&#34;, value: 90 },
+                            { id: &#39;b&#39;, text: &#34;80 км/сағ&#34;, value: 80 },
+                            { id: &#39;c&#39;, text: &#34;50 км/сағ&#34;, value: 50 },
+                            { id: &#39;d&#39;, text: &#34;2250 км/сағ&#34;, value: 2250 }
+                        ],
+                        correct: &#39;a&#39;,
+                        explanation: &#34;Жылдамдықты табу үшін жолды уақытқа бөлеміз: 450 : 5 = 90 км/сағ.&#34;
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: &#34;Құрылысшы: Көлем&#34;,
+                icon: icons.box,
+                description: &#34;Көлем формулаларын қолдану&#34;,
+                colorClass: &#34;bg-purple-100 border-purple-500 text-purple-700&#34;,
+                dotClass: &#34;bg-purple-500&#34;,
+                questions: [
+                    {
+                        id: 1,
+                        question: &#34;Сыйлық қорабының ұзындығы 10 см, ені 5 см, биіктігі 4 см. Қораптың көлемі қандай?&#34;,
+                        formula: &#34;V = a · b · c&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                   &lt;svg width=&#34;260&#34; height=&#34;160&#34; viewBox=&#34;0 0 260 160&#34; class=&#34;drop-shadow-lg&#34;&gt;
+                                      &lt;!-- Артқы көрінбейтін қырлары (пунктир) --&gt;
+                                      &lt;path d=&#34;M50 120 L100 70 L220 70&#34; fill=&#34;none&#34; stroke=&#34;#A78BFA&#34; stroke-width=&#34;2&#34; stroke-dasharray=&#34;5,5&#34; /&gt;
+                                      &lt;path d=&#34;M100 70 L100 120&#34; fill=&#34;none&#34; stroke=&#34;#A78BFA&#34; stroke-width=&#34;2&#34; stroke-dasharray=&#34;5,5&#34; /&gt;
+                                      
+                                      &lt;!-- Алдыңғы жағы (Front) --&gt;
+                                      &lt;rect x=&#34;50&#34; y=&#34;100&#34; width=&#34;120&#34; height=&#34;40&#34; fill=&#34;#E9D5FF&#34; stroke=&#34;#7C3AED&#34; stroke-width=&#34;2&#34; /&gt;
+                                      
+                                      &lt;!-- Жоғарғы жағы (Top) --&gt;
+                                      &lt;polygon points=&#34;50,100 100,70 220,70 170,100&#34; fill=&#34;#C4B5FD&#34; stroke=&#34;#7C3AED&#34; stroke-width=&#34;2&#34; /&gt;
+                                      
+                                      &lt;!-- Оң жағы (Right Side) --&gt;
+                                      &lt;polygon points=&#34;170,100 220,70 220,110 170,140&#34; fill=&#34;#8B5CF6&#34; stroke=&#34;#7C3AED&#34; stroke-width=&#34;2&#34; /&gt;
+                                      
+                                      &lt;!-- Өлшемдер жазуы --&gt;
+                                      &lt;text x=&#34;110&#34; y=&#34;155&#34; fill=&#34;#4B5563&#34; font-size=&#34;14&#34; font-weight=&#34;bold&#34; text-anchor=&#34;middle&#34;&gt;10 см (ұзындығы)&lt;/text&gt;
+                                      &lt;text x=&#34;200&#34; y=&#34;60&#34; fill=&#34;#4B5563&#34; font-size=&#34;14&#34; font-weight=&#34;bold&#34; text-anchor=&#34;start&#34;&gt;5 см (ені)&lt;/text&gt;
+                                      &lt;text x=&#34;35&#34; y=&#34;130&#34; fill=&#34;#4B5563&#34; font-size=&#34;14&#34; font-weight=&#34;bold&#34; text-anchor=&#34;end&#34;&gt;4 см&lt;/text&gt;
+                                   &lt;/svg&gt;
+                                 &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;19 см³&#34;, value: 19 },
+                            { id: &#39;b&#39;, text: &#34;200 см³&#34;, value: 200 },
+                            { id: &#39;c&#39;, text: &#34;100 см³&#34;, value: 100 },
+                            { id: &#39;d&#39;, text: &#34;2000 см³&#34;, value: 2000 }
+                        ],
+                        correct: &#39;b&#39;,
+                        explanation: &#34;Параллелепипедтің көлемі: V = 10 · 5 · 4 = 200 см³.&#34;
+                    },
+                    {
+                        id: 2,
+                        question: &#34;Текше (куб) пішінді аквариумның бір қыры 30 см. Осы аквариумның көлемі қанша?&#34;,
+                        formula: &#34;V = a³ (a · a · a)&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                   &lt;svg width=&#34;240&#34; height=&#34;200&#34; viewBox=&#34;0 0 240 200&#34; class=&#34;drop-shadow-lg&#34;&gt;
+                                      &lt;defs&gt;
+                                        &lt;linearGradient id=&#34;waterGradient&#34; x1=&#34;0%&#34; y1=&#34;0%&#34; x2=&#34;0%&#34; y2=&#34;100%&#34;&gt;
+                                          &lt;stop offset=&#34;0%&#34; style=&#34;stop-color:#93C5FD; stop-opacity:0.4&#34; /&gt;
+                                          &lt;stop offset=&#34;100%&#34; style=&#34;stop-color:#3B82F6; stop-opacity:0.6&#34; /&gt;
+                                        &lt;/linearGradient&gt;
+                                      &lt;/defs&gt;
+                                      
+                                      &lt;!-- Hidden Lines --&gt;
+                                      &lt;path d=&#34;M60 160 L100 120 L180 120&#34; fill=&#34;none&#34; stroke=&#34;#93C5FD&#34; stroke-width=&#34;2&#34; stroke-dasharray=&#34;5,5&#34; /&gt;
+                                      &lt;path d=&#34;M100 120 L100 60&#34; fill=&#34;none&#34; stroke=&#34;#93C5FD&#34; stroke-width=&#34;2&#34; stroke-dasharray=&#34;5,5&#34; /&gt;
+                                      
+                                      &lt;!-- Front Face --&gt;
+                                      &lt;rect x=&#34;60&#34; y=&#34;80&#34; width=&#34;80&#34; height=&#34;80&#34; fill=&#34;url(#waterGradient)&#34; stroke=&#34;#2563EB&#34; stroke-width=&#34;2&#34; /&gt;
+                                      
+                                      &lt;!-- Top Face --&gt;
+                                      &lt;polygon points=&#34;60,80 100,40 180,40 140,80&#34; fill=&#34;#BFDBFE&#34; fill-opacity=&#34;0.4&#34; stroke=&#34;#2563EB&#34; stroke-width=&#34;2&#34; /&gt;
+                                      
+                                      &lt;!-- Right Face --&gt;
+                                      &lt;polygon points=&#34;140,80 180,40 180,120 140,160&#34; fill=&#34;url(#waterGradient)&#34; stroke=&#34;#2563EB&#34; stroke-width=&#34;2&#34; /&gt;
+                                      
+                                      &lt;!-- Fish --&gt;
+                                      &lt;text x=&#34;105&#34; y=&#34;110&#34; font-size=&#34;24&#34; class=&#34;animate-bounce-slow&#34;&gt;🐟&lt;/text&gt;
+                                      
+                                      &lt;!-- Dimensions --&gt;
+                                      &lt;text x=&#34;100&#34; y=&#34;175&#34; fill=&#34;#4B5563&#34; font-size=&#34;14&#34; font-weight=&#34;bold&#34; text-anchor=&#34;middle&#34;&gt;30 см&lt;/text&gt;
+                                      &lt;text x=&#34;190&#34; y=&#34;90&#34; fill=&#34;#4B5563&#34; font-size=&#34;14&#34; font-weight=&#34;bold&#34;&gt;30 см&lt;/text&gt;
+                                      &lt;text x=&#34;35&#34; y=&#34;120&#34; fill=&#34;#4B5563&#34; font-size=&#34;14&#34; font-weight=&#34;bold&#34;&gt;30 см&lt;/text&gt;
+                                   &lt;/svg&gt;
+                                &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;90 см³&#34;, value: 90 },
+                            { id: &#39;b&#39;, text: &#34;900 см³&#34;, value: 900 },
+                            { id: &#39;c&#39;, text: &#34;2700 см³&#34;, value: 2700 },
+                            { id: &#39;d&#39;, text: &#34;27000 см³&#34;, value: 27000 }
+                        ],
+                        correct: &#39;d&#39;,
+                        explanation: &#34;Кубтың көлемі: V = 30 · 30 · 30 = 27000 см³.&#34;
+                    },
+                    {
+                        id: 3,
+                        question: &#34;Бассейннің көлемі 1200 м³. Егер ұзындығы 20 м, ені 10 м болса, бассейннің тереңдігі (биіктігі) қанша?&#34;,
+                        formula: &#34;c = V : (a · b)&#34;,
+                        visual: `&lt;div class=&#34;flex justify-center items-center py-6&#34;&gt;
+                                   &lt;div class=&#34;relative w-48 h-24 bg-cyan-100 border-b-4 border-r-4 border-l-4 border-cyan-500 rounded-b-lg overflow-hidden&#34;&gt;
+                                     &lt;div class=&#34;absolute w-full h-full bg-cyan-300 opacity-50 top-4 animate-pulse&#34;&gt;&lt;/div&gt;
+                                     &lt;div class=&#34;absolute top-2 left-2 text-xs font-bold text-cyan-800&#34;&gt;S = 20м x 10м&lt;/div&gt;
+                                     &lt;div class=&#34;absolute bottom-2 right-2 text-sm font-bold text-blue-900&#34;&gt;V = 1200 м³&lt;/div&gt;
+                                     &lt;div class=&#34;absolute right-0 top-0 h-full w-4 border-l border-dashed border-gray-400 flex items-center justify-center&#34;&gt;
+                                       &lt;span class=&#34;text-lg font-bold text-red-500&#34;&gt;?&lt;/span&gt;
+                                     &lt;/div&gt;
+                                   &lt;/div&gt;
+                                 &lt;/div&gt;`,
+                        options: [
+                            { id: &#39;a&#39;, text: &#34;6 м&#34;, value: 6 },
+                            { id: &#39;b&#39;, text: &#34;12 м&#34;, value: 12 },
+                            { id: &#39;c&#39;, text: &#34;60 м&#34;, value: 60 },
+                            { id: &#39;d&#39;, text: &#34;4 м&#34;, value: 4 }
+                        ],
+                        correct: &#39;a&#39;,
+                        explanation: &#34;Алдымен табан ауданын табамыз (20·10=200). Сосын көлемді ауданға бөлеміз: 1200 : 200 = 6 м.&#34;
+                    }
+                ]
+            }
+        ];
+
+        // --- State ---
+        let state = {
+            gameState: &#39;start&#39;, // start, playing, result
+            currentLevel: 0,
+            currentQuestion: 0,
+            score: 0,
+            showFeedback: false,
+            isCorrect: false,
+            selectedOption: null,
+            showVisual: false
+        };
+
+        const app = document.getElementById(&#39;app&#39;);
+
+        // --- Render Functions ---
+
+        function render() {
+            app.innerHTML = &#39;&#39;;
+            if (state.gameState === &#39;start&#39;) {
+                renderStartScreen();
+            } else if (state.gameState === &#39;playing&#39;) {
+                renderGameScreen();
+            } else if (state.gameState === &#39;result&#39;) {
+                renderResultScreen();
+            }
+        }
+
+        function renderStartScreen() {
+            const container = document.createElement(&#39;div&#39;);
+            container.className = &#34;bg-white rounded-2xl shadow-xl p-8 max-w-lg w-full text-center border-4 border-indigo-200 animate-fade-in&#34;;
+            
+            let levelsHtml = levels.map(level =&gt; `
+                &lt;div class=&#34;flex items-center bg-gray-50 p-4 rounded-lg mb-4&#34;&gt;
+                    &lt;div class=&#34;p-2 bg-indigo-100 rounded-full text-indigo-600 mr-4&#34;&gt;
+                        ${level.icon}
+                    &lt;/div&gt;
+                    &lt;div class=&#34;text-left&#34;&gt;
+                        &lt;h3 class=&#34;font-bold text-gray-800&#34;&gt;${level.name}&lt;/h3&gt;
+                        &lt;p class=&#34;text-sm text-gray-500&#34;&gt;${level.description}&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `).join(&#39;&#39;);
+
+            container.innerHTML = `
+                &lt;div class=&#34;flex justify-center mb-6&#34;&gt;
+                    &lt;div class=&#34;text-indigo-600 w-20 h-20&#34;&gt;${icons.calculator}&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h1 class=&#34;text-4xl font-bold text-gray-800 mb-4&#34;&gt;Формулалар Әлемі&lt;/h1&gt;
+                &lt;p class=&#34;text-gray-600 mb-8 text-lg&#34;&gt;
+                    Периметр, Аудан, Көлем және Жол формулаларын меңгеруге арналған интерактивті саяхатқа қош келдіңіз!
+                &lt;/p&gt;
+                
+                &lt;div class=&#34;mb-8&#34;&gt;
+                    ${levelsHtml}
+                &lt;/div&gt;
+
+                &lt;button id=&#34;start-btn&#34; class=&#34;w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-xl transition transform hover:scale-105 flex items-center justify-center text-xl shadow-lg&#34;&gt;
+                    &lt;span class=&#34;mr-2&#34;&gt;${icons.play}&lt;/span&gt; Бастау
+                &lt;/button&gt;
+            `;
+
+            app.appendChild(container);
+            document.getElementById(&#39;start-btn&#39;).addEventListener(&#39;click&#39;, startGame);
+        }
+
+        function renderGameScreen() {
+            const currentLevelData = levels[state.currentLevel];
+            const questionData = currentLevelData.questions[state.currentQuestion];
+
+            const container = document.createElement(&#39;div&#39;);
+            container.className = &#34;w-full max-w-2xl flex flex-col items-center animate-fade-in&#34;;
+
+            // Header Info
+            const header = document.createElement(&#39;div&#39;);
+            header.className = &#34;w-full bg-white rounded-xl shadow-md p-4 mb-6 flex justify-between items-center&#34;;
+            header.innerHTML = `
+                &lt;div class=&#34;flex items-center&#34;&gt;
+                    &lt;div class=&#34;p-2 rounded-lg mr-3 ${currentLevelData.colorClass.split(&#39; &#39;)[0]} ${currentLevelData.colorClass.split(&#39; &#39;)[2]}&#34;&gt;
+                        ${currentLevelData.icon}
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;h2 class=&#34;font-bold text-gray-800 text-sm md:text-base&#34;&gt;${currentLevelData.name}&lt;/h2&gt;
+                        &lt;div class=&#34;text-xs text-gray-500&#34;&gt;
+                            Сұрақ ${state.currentQuestion &#43; 1} / ${currentLevelData.questions.length}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;bg-indigo-100 text-indigo-800 font-bold px-4 py-2 rounded-lg&#34;&gt;
+                    Ұпай: ${state.score}
+                &lt;/div&gt;
+            `;
+
+            // Question Card
+            const card = document.createElement(&#39;div&#39;);
+            card.className = &#34;w-full bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200&#34;;
+
+            let visualHtml = &#39;&#39;;
+            if (questionData.visual) {
+                if (!state.showVisual) {
+                    visualHtml = `
+                        &lt;button id=&#34;show-visual-btn&#34; class=&#34;flex items-center justify-center w-full py-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-medium rounded-xl border-2 border-dashed border-indigo-200 transition-colors mb-6&#34;&gt;
+                            &lt;span class=&#34;w-5 h-5 mr-2&#34;&gt;${icons.eye}&lt;/span&gt;
+                            Көмекші суретті көрсету
+                        &lt;/button&gt;
+                    `;
+                } else {
+                    visualHtml = `
+                        &lt;div class=&#34;relative bg-gray-50 rounded-xl border border-gray-100 p-4 animate-fade-in mb-6&#34;&gt;
+                            &lt;button id=&#34;hide-visual-btn&#34; class=&#34;absolute top-2 right-2 p-1 text-gray-400 hover:text-gray-600 bg-white rounded-full shadow-sm&#34; title=&#34;Суретті жасыру&#34;&gt;
+                                &lt;div class=&#34;w-5 h-5&#34;&gt;${icons.eyeOff}&lt;/div&gt;
+                            &lt;/button&gt;
+                            ${questionData.visual}
+                        &lt;/div&gt;
+                    `;
+                }
+            }
+
+            let optionsHtml = questionData.options.map(option =&gt; {
+                let btnClass = &#34;p-4 rounded-xl border-2 text-left transition-all duration-200 font-medium text-lg w-full &#34;;
+                
+                if (state.showFeedback) {
+                    if (option.id === questionData.correct) {
+                        btnClass &#43;= &#34;bg-green-100 border-green-500 text-green-800&#34;;
+                    } else if (option.id === state.selectedOption) {
+                        btnClass &#43;= &#34;bg-red-100 border-red-500 text-red-800&#34;;
+                    } else {
+                        btnClass &#43;= &#34;bg-gray-50 border-gray-200 text-gray-400&#34;;
+                    }
+                } else {
+                    btnClass &#43;= &#34;bg-white border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 text-gray-700 cursor-pointer shadow-sm hover:shadow-md&#34;;
+                }
+
+                return `
+                    &lt;button class=&#34;option-btn ${btnClass}&#34; data-id=&#34;${option.id}&#34; ${state.showFeedback ? &#39;disabled&#39; : &#39;&#39;}&gt;
+                        ${option.text}
+                    &lt;/button&gt;
+                `;
+            }).join(&#39;&#39;);
+
+            let feedbackHtml = &#39;&#39;;
+            if (state.showFeedback) {
+                const icon = state.isCorrect 
+                    ? `&lt;div class=&#34;w-8 h-8 text-green-500 mr-3 flex-shrink-0&#34;&gt;${icons.check}&lt;/div&gt;`
+                    : `&lt;div class=&#34;w-8 h-8 text-red-500 mr-3 flex-shrink-0&#34;&gt;${icons.x}&lt;/div&gt;`;
+                
+                const titleColor = state.isCorrect ? &#39;text-green-800&#39; : &#39;text-red-800&#39;;
+                const titleText = state.isCorrect ? &#34;Дұрыс!&#34; : &#34;Қате!&#34;;
+                const btnText = (state.currentLevel === levels.length - 1 &amp;&amp; state.currentQuestion === levels[state.currentLevel].questions.length - 1) 
+                    ? &#34;Нәтижені көру&#34; 
+                    : &#34;Келесі&#34;;
+
+                feedbackHtml = `
+                    &lt;div class=&#34;p-6 border-t ${state.isCorrect ? &#39;bg-green-50&#39; : &#39;bg-red-50&#39;} animate-fade-in&#34;&gt;
+                        &lt;div class=&#34;flex items-start mb-4&#34;&gt;
+                            ${icon}
+                            &lt;div&gt;
+                                &lt;h4 class=&#34;text-lg font-bold mb-1 ${titleColor}&#34;&gt;${titleText}&lt;/h4&gt;
+                                &lt;p class=&#34;text-gray-700&#34;&gt;
+                                    &lt;span class=&#34;font-semibold block mb-1&#34;&gt;Формула: ${questionData.formula}&lt;/span&gt;
+                                    ${questionData.explanation}
+                                &lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&#34;flex justify-end&#34;&gt;
+                            &lt;button id=&#34;next-btn&#34; class=&#34;bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg flex items-center transition shadow-lg&#34;&gt;
+                                ${btnText} &lt;span class=&#34;ml-2 w-5 h-5&#34;&gt;${icons.arrowRight}&lt;/span&gt;
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `;
+            }
+
+            card.innerHTML = `
+                &lt;div class=&#34;p-6 md:p-8&#34;&gt;
+                    &lt;div class=&#34;mb-6&#34;&gt;
+                        &lt;span class=&#34;inline-block bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide&#34;&gt;
+                            Есеп №${state.currentLevel * 3 &#43; state.currentQuestion &#43; 1}
+                        &lt;/span&gt;
+                        &lt;h3 class=&#34;text-xl md:text-2xl font-bold text-gray-800 leading-snug mb-4&#34;&gt;
+                            ${questionData.question}
+                        &lt;/h3&gt;
+                        ${visualHtml}
+                    &lt;/div&gt;
+                    &lt;div class=&#34;grid grid-cols-1 md:grid-cols-2 gap-4&#34;&gt;
+                        ${optionsHtml}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                ${feedbackHtml}
+            `;
+
+            // Progress Dots
+            const progress = document.createElement(&#39;div&#39;);
+            progress.className = &#34;flex mt-8 space-x-2&#34;;
+            let dotsHtml = &#39;&#39;;
+            
+            levels.forEach((lvl, lvlIdx) =&gt; {
+                dotsHtml &#43;= `&lt;div class=&#34;flex space-x-1 mx-2&#34;&gt;`;
+                lvl.questions.forEach((_, qIdx) =&gt; {
+                    const globalIdx = levels.slice(0, lvlIdx).reduce((a, b) =&gt; a &#43; b.questions.length, 0) &#43; qIdx;
+                    const currentGlobal = levels.slice(0, state.currentLevel).reduce((a, b) =&gt; a &#43; b.questions.length, 0) &#43; state.currentQuestion;
+                    
+                    let dotClass = &#34;w-3 h-3 rounded-full &#34;;
+                    if (globalIdx &lt; currentGlobal) dotClass &#43;= &#34;bg-green-500&#34;;
+                    else if (globalIdx === currentGlobal) dotClass &#43;= &#34;bg-indigo-600 scale-125&#34;;
+                    else dotClass &#43;= &#34;bg-gray-300&#34;;
+
+                    dotsHtml &#43;= `&lt;div class=&#34;${dotClass}&#34;&gt;&lt;/div&gt;`;
+                });
+                dotsHtml &#43;= `&lt;/div&gt;`;
+            });
+            progress.innerHTML = dotsHtml;
+
+            container.appendChild(header);
+            container.appendChild(card);
+            container.appendChild(progress);
+            app.appendChild(container);
+
+            // Add Event Listeners
+            document.querySelectorAll(&#39;.option-btn&#39;).forEach(btn =&gt; {
+                btn.addEventListener(&#39;click&#39;, (e) =&gt; handleAnswer(e.target.dataset.id));
+            });
+
+            if (document.getElementById(&#39;show-visual-btn&#39;)) {
+                document.getElementById(&#39;show-visual-btn&#39;).addEventListener(&#39;click&#39;, () =&gt; {
+                    state.showVisual = true;
+                    render();
+                });
+            }
+            if (document.getElementById(&#39;hide-visual-btn&#39;)) {
+                document.getElementById(&#39;hide-visual-btn&#39;).addEventListener(&#39;click&#39;, () =&gt; {
+                    state.showVisual = false;
+                    render();
+                });
+            }
+            if (document.getElementById(&#39;next-btn&#39;)) {
+                document.getElementById(&#39;next-btn&#39;).addEventListener(&#39;click&#39;, handleNext);
+            }
+        }
+
+        function renderResultScreen() {
+            const totalQuestions = levels.reduce((acc, lvl) =&gt; acc &#43; lvl.questions.length, 0);
+            const maxScore = totalQuestions * 10;
+            const percentage = Math.round((state.score / maxScore) * 100);
+
+            const container = document.createElement(&#39;div&#39;);
+            container.className = &#34;bg-white rounded-2xl shadow-xl p-8 max-w-lg w-full text-center border-4 border-indigo-200 animate-fade-in&#34;;
+            
+            container.innerHTML = `
+                &lt;div class=&#34;flex justify-center mb-6 text-yellow-400&#34;&gt;
+                    &lt;div class=&#34;w-24 h-24&#34;&gt;${icons.trophy}&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;h2 class=&#34;text-3xl font-bold text-gray-800 mb-2&#34;&gt;Құттықтаймыз!&lt;/h2&gt;
+                &lt;p class=&#34;text-gray-600 mb-6&#34;&gt;Сіз барлық деңгейден өттіңіз.&lt;/p&gt;
+                
+                &lt;div class=&#34;bg-indigo-50 rounded-xl p-6 mb-8&#34;&gt;
+                    &lt;div class=&#34;text-5xl font-bold text-indigo-600 mb-2&#34;&gt;${state.score} / ${maxScore}&lt;/div&gt;
+                    &lt;div class=&#34;text-gray-500&#34;&gt;Сіздің нәтижеңіз: ${percentage}%&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&#34;text-left text-gray-700 space-y-2 mb-8 bg-gray-50 p-4 rounded-lg&#34;&gt;
+                    &lt;p class=&#34;font-bold border-b pb-2&#34;&gt;Меңгерген формулаларыңыз:&lt;/p&gt;
+                    &lt;p&gt;✅ P = 2(a&#43;b) және S = a·b&lt;/p&gt;
+                    &lt;p&gt;✅ s = v·t және C = a·n&lt;/p&gt;
+                    &lt;p&gt;✅ V = a·b·c және V = a³&lt;/p&gt;
+                &lt;/div&gt;
+
+                &lt;button id=&#34;restart-btn&#34; class=&#34;w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg flex items-center justify-center transition&#34;&gt;
+                    &lt;span class=&#34;mr-2 w-5 h-5&#34;&gt;${icons.refresh}&lt;/span&gt; Қайта ойнау
+                &lt;/button&gt;
+            `;
+
+            app.appendChild(container);
+            document.getElementById(&#39;restart-btn&#39;).addEventListener(&#39;click&#39;, startGame);
+        }
+
+        // --- Logic ---
+
+        function startGame() {
+            state.gameState = &#39;playing&#39;;
+            state.currentLevel = 0;
+            state.currentQuestion = 0;
+            state.score = 0;
+            state.showFeedback = false;
+            state.showVisual = false;
+            render();
+        }
+
+        function handleAnswer(optionId) {
+            if (state.showFeedback) return;
+            
+            const currentQ = levels[state.currentLevel].questions[state.currentQuestion];
+            const correct = optionId === currentQ.correct;
+            
+            state.selectedOption = optionId;
+            state.isCorrect = correct;
+            state.showFeedback = true;
+            
+            if (correct) {
+                state.score &#43;= 10;
+            }
+            render();
+        }
+
+        function handleNext() {
+            state.showFeedback = false;
+            state.selectedOption = null;
+            state.showVisual = false;
+            
+            const currentLevelData = levels[state.currentLevel];
+            
+            if (state.currentQuestion &lt; currentLevelData.questions.length - 1) {
+                state.currentQuestion&#43;&#43;;
+            } else {
+                if (state.currentLevel &lt; levels.length - 1) {
+                    state.currentLevel&#43;&#43;;
+                    state.currentQuestion = 0;
+                } else {
+                    state.gameState = &#39;result&#39;;
+                }
+            }
+            render();
+        }
+
+        // Initial Render
+        render();
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Бастаушы (Үй және Бақша): Мұнда оқушылар периметр (P) мен аудан (S) формулаларын қолданып, кілем төсеу немесе қоршау ұзындығын есептеу сияқты өмірлік мысалдарды шығарады.
+
+Саяхатшы (Жол және Сауда): Жылдамдық, уақыт, жол (s=v∙t) және заттың жалпы құнын анықтауға арналған логикалық есептер беріледі.
+
+Құрылысшы (Көлем): Қораптар мен бассейндер мысалында көлем (V) формулалары бекітіледі.
+
+Артықшылықтары:
+
+Әр сұраққа визуалды көмекші суреттер (сызбалар) қосылған.
+
+Жауап берген соң жүйе бірден дұрыс-бұрыстығын тексеріп, есептің толық түсіндірмесін көрсетеді.
+
+Ойын соңында жинаған ұпайы мен пайыздық көрсеткіші шығады.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

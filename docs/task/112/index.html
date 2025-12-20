@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сиқырлы Бөлшектер Зертханасы | VisualMath</title>
+    <meta name="description" content="Сипаттама:
+Бұл интерактивті қосымша 5-сынып оқушыларына жай бөлшектің негізгі қасиетін (5.1.2.14, 5.1.2.15) терең түсінуге мүмкіндік береді. Қосымша екі негізгі режимнен тұрады:
+
+Зерттеу: Оқушылар бөлшектің алымы мен бөлімін көбейткенде оның мәні (боялған үлесі) өзгермейтінін анимациялық диаграмма арқылы көзбен көріп, ережені саналы түрде ұғынады.
+
+Жаттығу: Бөлшекті қысқарту және жаңа бөлімге келтіру есептерін ойын форматында орындап, алған білімдерін бекітеді.
+
+Көрнекілік пен тәжірибені ұштастырған бұл тапсырма күрделі тақырыпты қарапайым әрі қызықты етіп түсіндіреді.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Сиқырлы Бөлшектер Зертханасы</span>
+            </div>
+            <a href="/lesson/24"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Сиқырлы Бөлшектер Зертханасы&lt;/title&gt;
+    &lt;!-- Tailwind CSS --&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;!-- Lucide Icons --&gt;
+    &lt;script src=&#34;https://unpkg.com/lucide@latest&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap&#39;);
+        
+        body {
+            font-family: &#39;Nunito&#39;, sans-serif;
+        }
+
+        /* Animation utilities */
+        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+        .animate-pulse-once { animation: pulseOnce 1s ease-in-out; }
+        .animate-shake { animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseOnce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4 text-slate-800&#34;&gt;
+
+    &lt;div class=&#34;max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden&#34;&gt;
+        &lt;!-- Header --&gt;
+        &lt;header class=&#34;bg-indigo-600 p-6 text-white text-center&#34;&gt;
+            &lt;h1 class=&#34;text-3xl font-bold mb-2&#34;&gt;✨ Сиқырлы Бөлшектер Зертханасы ✨&lt;/h1&gt;
+            &lt;p class=&#34;text-indigo-100&#34;&gt;Жай бөлшектің негізгі қасиетін зерттейік!&lt;/p&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Navigation --&gt;
+        &lt;div class=&#34;flex border-b border-gray-200&#34;&gt;
+            &lt;button onclick=&#34;switchTab(&#39;explore&#39;)&#34; id=&#34;tab-explore&#34; class=&#34;flex-1 py-4 text-lg font-semibold flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 border-b-4 border-indigo-600 transition-colors&#34;&gt;
+                &lt;i data-lucide=&#34;search&#34; class=&#34;w-6 h-6&#34;&gt;&lt;/i&gt;
+                Зерттеу (Түсіну)
+            &lt;/button&gt;
+            &lt;button onclick=&#34;switchTab(&#39;practice&#39;)&#34; id=&#34;tab-practice&#34; class=&#34;flex-1 py-4 text-lg font-semibold flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors&#34;&gt;
+                &lt;i data-lucide=&#34;calculator&#34; class=&#34;w-6 h-6&#34;&gt;&lt;/i&gt;
+                Жаттығу (Қолдану)
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Content Area --&gt;
+        &lt;div class=&#34;p-6&#34; id=&#34;app-content&#34;&gt;
+            &lt;!-- Content will be injected here by JavaScript --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- JavaScript Application Logic --&gt;
+    &lt;script&gt;
+        // --- State Management ---
+        const state = {
+            activeTab: &#39;explore&#39;,
+            explore: {
+                baseNum: 1,
+                baseDenom: 2,
+                multiplier: 1
+            },
+            practice: {
+                level: 1,
+                score: 0,
+                question: null,
+                userAnswer: &#39;&#39;,
+                feedback: null // &#39;correct&#39;, &#39;wrong&#39;, null
+            }
+        };
+
+        // --- Pie Chart Generator (SVG) ---
+        function generatePieChartHTML(numerator, denominator, colorClass = &#34;text-blue-500&#34;, highlight = false) {
+            const radius = 50;
+            const center = 50;
+            const fillColor = colorClass === &#34;text-blue-500&#34; ? &#34;#3b82f6&#34; : &#34;#22c55e&#34;; // Blue or Green
+            
+            // Generate lines
+            let linesSVG = &#39;&#39;;
+            for (let i = 0; i &lt; denominator; i&#43;&#43;) {
+                const angle = (i / denominator) * 2 * Math.PI - Math.PI / 2;
+                const x = center &#43; radius * Math.cos(angle);
+                const y = center &#43; radius * Math.sin(angle);
+                linesSVG &#43;= `&lt;line x1=&#34;${center}&#34; y1=&#34;${center}&#34; x2=&#34;${x}&#34; y2=&#34;${y}&#34; stroke=&#34;white&#34; stroke-width=&#34;2&#34; /&gt;`;
+            }
+
+            // Generate Path
+            let pathData = &#39;&#39;;
+            if (denominator === 1 || numerator === denominator) {
+                // Full circle
+                pathData = `M ${center} ${center - radius} A ${radius} ${radius} 0 1 1 ${center} ${center &#43; radius} A ${radius} ${radius} 0 1 1 ${center} ${center - radius}`;
+            } else {
+                const endAngle = (numerator / denominator) * 2 * Math.PI - Math.PI / 2;
+                const largeArcFlag = numerator / denominator &gt; 0.5 ? 1 : 0;
+                const endX = center &#43; radius * Math.cos(endAngle);
+                const endY = center &#43; radius * Math.sin(endAngle);
+                pathData = `M ${center} ${center} L ${center} ${center - radius} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
+            }
+
+            return `
+                &lt;div class=&#34;relative w-40 h-40 transition-all duration-500 ${highlight ? &#39;scale-110&#39; : &#39;&#39;}&#34;&gt;
+                    &lt;svg viewBox=&#34;0 0 100 100&#34; class=&#34;w-full h-full drop-shadow-lg&#34;&gt;
+                        &lt;circle cx=&#34;50&#34; cy=&#34;50&#34; r=&#34;50&#34; fill=&#34;#e2e8f0&#34; /&gt;
+                        &lt;path d=&#34;${pathData}&#34; fill=&#34;${fillColor}&#34; class=&#34;transition-all duration-500 ease-in-out&#34; /&gt;
+                        ${linesSVG}
+                        &lt;circle cx=&#34;50&#34; cy=&#34;50&#34; r=&#34;48&#34; fill=&#34;none&#34; stroke=&#34;#64748b&#34; stroke-width=&#34;2&#34; /&gt;
+                    &lt;/svg&gt;
+                    &lt;div class=&#34;absolute inset-0 flex items-center justify-center pointer-events-none&#34;&gt;
+                        &lt;div class=&#34;bg-white/90 px-2 py-1 rounded-lg shadow font-bold text-xl flex flex-col items-center leading-none backdrop-blur-sm&#34;&gt;
+                            &lt;span&gt;${numerator}&lt;/span&gt;
+                            &lt;span class=&#34;w-full h-0.5 bg-black my-0.5&#34;&gt;&lt;/span&gt;
+                            &lt;span&gt;${denominator}&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        // --- Render Functions ---
+
+        function render() {
+            const contentDiv = document.getElementById(&#39;app-content&#39;);
+            contentDiv.innerHTML = &#39;&#39;; // Clear content
+
+            if (state.activeTab === &#39;explore&#39;) {
+                renderExplore(contentDiv);
+            } else {
+                renderPractice(contentDiv);
+            }
+            
+            // Re-initialize icons
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function switchTab(tab) {
+            state.activeTab = tab;
+            
+            // Update Tab Styles
+            const t1 = document.getElementById(&#39;tab-explore&#39;);
+            const t2 = document.getElementById(&#39;tab-practice&#39;);
+            
+            if (tab === &#39;explore&#39;) {
+                t1.className = &#34;flex-1 py-4 text-lg font-semibold flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 border-b-4 border-indigo-600 transition-colors&#34;;
+                t2.className = &#34;flex-1 py-4 text-lg font-semibold flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors&#34;;
+            } else {
+                t1.className = &#34;flex-1 py-4 text-lg font-semibold flex items-center justify-center gap-2 text-gray-500 hover:bg-gray-50 transition-colors&#34;;
+                t2.className = &#34;flex-1 py-4 text-lg font-semibold flex items-center justify-center gap-2 bg-green-50 text-green-600 border-b-4 border-green-600 transition-colors&#34;;
+            }
+
+            render();
+        }
+
+        // --- EXPLORE MODE ---
+
+        function updateExploreState(key, value) {
+            if (key === &#39;baseNum&#39;) state.explore.baseNum = Math.max(1, parseInt(value) || 1);
+            if (key === &#39;baseDenom&#39;) state.explore.baseDenom = Math.max(2, parseInt(value) || 2);
+            if (key === &#39;multiplier&#39;) state.explore.multiplier = parseInt(value);
+            
+            // Constraints
+            if (key === &#39;baseNum&#39; &amp;&amp; state.explore.baseNum &gt;= state.explore.baseDenom) {
+                // Keep numerator smaller than denominator for visual simplicity in this demo
+                // Or allow improper fractions but user needs to be careful. Let&#39;s cap it.
+            }
+            if (key === &#39;baseDenom&#39; &amp;&amp; state.explore.baseDenom &lt;= state.explore.baseNum) {
+                state.explore.baseDenom = state.explore.baseNum &#43; 1;
+            }
+
+            render();
+        }
+
+        function renderExplore(container) {
+            const { baseNum, baseDenom, multiplier } = state.explore;
+            const currentNum = baseNum * multiplier;
+            const currentDenom = baseDenom * multiplier;
+
+            const html = `
+                &lt;div class=&#34;flex flex-col items-center space-y-8 animate-fade-in&#34;&gt;
+                    &lt;div class=&#34;bg-blue-50 p-6 rounded-2xl w-full border border-blue-100&#34;&gt;
+                        &lt;h2 class=&#34;text-xl font-bold text-blue-800 mb-4 text-center&#34;&gt;Ереже:&lt;/h2&gt;
+                        &lt;p class=&#34;text-lg text-center text-blue-900 leading-relaxed&#34;&gt;
+                            Егер бөлшектің &lt;span class=&#34;font-bold text-red-500&#34;&gt;алымын&lt;/span&gt; да, &lt;span class=&#34;font-bold text-red-500&#34;&gt;бөлімін&lt;/span&gt; де бірдей натурал санға &lt;br/&gt;
+                            &lt;span class=&#34;font-bold underline decoration-wavy decoration-indigo-400&#34;&gt;көбейтсек&lt;/span&gt; немесе &lt;span class=&#34;font-bold underline decoration-wavy decoration-indigo-400&#34;&gt;бөлсек&lt;/span&gt;, онда бөлшектің мәні &lt;span class=&#34;font-bold bg-yellow-200 px-1 rounded&#34;&gt;өзгермейді&lt;/span&gt;.
+                        &lt;/p&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;flex flex-col md:flex-row items-center justify-center gap-12 w-full py-8&#34;&gt;
+                        &lt;!-- Left Side --&gt;
+                        &lt;div class=&#34;flex flex-col items-center gap-4&#34;&gt;
+                            &lt;span class=&#34;text-gray-500 font-semibold uppercase tracking-wider&#34;&gt;Бастапқы бөлшек&lt;/span&gt;
+                            &lt;div class=&#34;flex items-center gap-4 bg-gray-100 p-4 rounded-xl&#34;&gt;
+                                &lt;div class=&#34;flex flex-col items-center font-bold text-3xl&#34;&gt;
+                                    &lt;input type=&#34;number&#34; value=&#34;${baseNum}&#34; onchange=&#34;updateExploreState(&#39;baseNum&#39;, this.value)&#34; 
+                                        class=&#34;w-16 text-center border-2 border-indigo-200 rounded-lg p-1 focus:border-indigo-500 outline-none&#34;&gt;
+                                    &lt;div class=&#34;w-16 h-1 bg-black my-2&#34;&gt;&lt;/div&gt;
+                                    &lt;input type=&#34;number&#34; value=&#34;${baseDenom}&#34; onchange=&#34;updateExploreState(&#39;baseDenom&#39;, this.value)&#34;
+                                        class=&#34;w-16 text-center border-2 border-indigo-200 rounded-lg p-1 focus:border-indigo-500 outline-none&#34;&gt;
+                                &lt;/div&gt;
+                                ${generatePieChartHTML(baseNum, baseDenom, &#34;text-blue-500&#34;)}
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Center: Multiplier --&gt;
+                        &lt;div class=&#34;flex flex-col items-center gap-4 z-10&#34;&gt;
+                            &lt;i data-lucide=&#34;arrow-right&#34; class=&#34;w-12 h-12 text-indigo-400 hidden md:block&#34;&gt;&lt;/i&gt;
+                            &lt;div class=&#34;bg-white p-4 rounded-xl shadow-lg border border-indigo-100 flex flex-col gap-2&#34;&gt;
+                                &lt;p class=&#34;text-center font-bold text-indigo-900 mb-2&#34;&gt;Көбейткішті таңда:&lt;/p&gt;
+                                &lt;div class=&#34;flex gap-2&#34;&gt;
+                                    ${[1,2,3,4,5].map(m =&gt; `
+                                        &lt;button onclick=&#34;updateExploreState(&#39;multiplier&#39;, ${m})&#34;
+                                            class=&#34;w-10 h-10 rounded-full font-bold text-lg transition-all ${multiplier === m ? &#39;bg-indigo-600 text-white scale-110 shadow-lg ring-4 ring-indigo-200&#39; : &#39;bg-indigo-100 text-indigo-600 hover:bg-indigo-200&#39;}&#34;&gt;
+                                            x${m}
+                                        &lt;/button&gt;
+                                    `).join(&#39;&#39;)}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Right Side: Result --&gt;
+                        &lt;div class=&#34;flex flex-col items-center gap-4&#34;&gt;
+                            &lt;span class=&#34;text-gray-500 font-semibold uppercase tracking-wider&#34;&gt;Нәтиже&lt;/span&gt;
+                            &lt;div class=&#34;flex flex-col items-center gap-6 bg-yellow-50 p-6 rounded-xl border border-yellow-200 relative overflow-hidden&#34;&gt;
+                                ${multiplier &gt; 1 ? &#39;&lt;div class=&#34;absolute top-2 right-2 text-xs font-bold text-orange-500 animate-pulse&#34;&gt;Көбейтілді!&lt;/div&gt;&#39; : &#39;&#39;}
+                                
+                                ${generatePieChartHTML(currentNum, currentDenom, &#34;text-green-500&#34;, multiplier &gt; 1)}
+                                
+                                &lt;!-- Horizontal Equation --&gt;
+                                &lt;div class=&#34;flex items-center justify-center text-indigo-900 bg-white/60 p-3 rounded-xl backdrop-blur-sm border border-yellow-100 shadow-sm&#34;&gt;
+                                    &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                        &lt;span class=&#34;text-2xl font-bold leading-none&#34;&gt;${baseNum}&lt;/span&gt;
+                                        &lt;div class=&#34;w-full h-0.5 bg-indigo-900 my-1&#34;&gt;&lt;/div&gt;
+                                        &lt;span class=&#34;text-2xl font-bold leading-none&#34;&gt;${baseDenom}&lt;/span&gt;
+                                    &lt;/div&gt;
+                                    &lt;span class=&#34;mx-3 text-2xl font-bold text-indigo-400&#34;&gt;=&lt;/span&gt;
+                                    &lt;div class=&#34;flex flex-col items-center ${multiplier &gt; 1 ? &#39;animate-pulse-once&#39; : &#39;&#39;}&#34;&gt;
+                                        &lt;span class=&#34;text-2xl font-bold leading-none whitespace-nowrap&#34;&gt;${baseNum} &lt;span class=&#34;text-orange-500 text-lg&#34;&gt;×${multiplier}&lt;/span&gt;&lt;/span&gt;
+                                        &lt;div class=&#34;w-full h-0.5 bg-indigo-900 my-1&#34;&gt;&lt;/div&gt;
+                                        &lt;span class=&#34;text-2xl font-bold leading-none whitespace-nowrap&#34;&gt;${baseDenom} &lt;span class=&#34;text-orange-500 text-lg&#34;&gt;×${multiplier}&lt;/span&gt;&lt;/span&gt;
+                                    &lt;/div&gt;
+                                    &lt;span class=&#34;mx-3 text-2xl font-bold text-indigo-400&#34;&gt;=&lt;/span&gt;
+                                    &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                        &lt;span class=&#34;text-2xl font-bold leading-none&#34;&gt;${currentNum}&lt;/span&gt;
+                                        &lt;div class=&#34;w-full h-0.5 bg-indigo-900 my-1&#34;&gt;&lt;/div&gt;
+                                        &lt;span class=&#34;text-2xl font-bold leading-none&#34;&gt;${currentDenom}&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+            container.innerHTML = html;
+        }
+
+        // --- PRACTICE MODE ---
+
+        function initPractice() {
+            if (!state.practice.question) generateQuestion();
+        }
+
+        function generateQuestion() {
+            const level = state.practice.level;
+            let q = {};
+
+            if (level === 1) {
+                // Expand
+                const baseN = Math.floor(Math.random() * 5) &#43; 1;
+                const baseD = baseN &#43; Math.floor(Math.random() * 4) &#43; 1;
+                const factor = Math.floor(Math.random() * 4) &#43; 2;
+                q = {
+                    type: &#39;expand&#39;,
+                    n1: baseN, d1: baseD,
+                    n2: &#39;?&#39;, d2: baseD * factor,
+                    correct: baseN * factor,
+                    factor: factor
+                };
+            } else {
+                // Simplify
+                const simpleN = Math.floor(Math.random() * 6) &#43; 1;
+                const simpleD = simpleN &#43; Math.floor(Math.random() * 5) &#43; 1;
+                const factor = Math.floor(Math.random() * 4) &#43; 2;
+                q = {
+                    type: &#39;simplify&#39;,
+                    n1: simpleN * factor, d1: simpleD * factor,
+                    n2: &#39;?&#39;, d2: simpleD,
+                    correct: simpleN,
+                    factor: factor
+                };
+            }
+            state.practice.question = q;
+            state.practice.userAnswer = &#39;&#39;;
+            state.practice.feedback = null;
+            render();
+        }
+
+        function setLevel(l) {
+            state.practice.level = l;
+            generateQuestion();
+        }
+
+        function checkAnswer() {
+            const val = parseInt(state.practice.userAnswer);
+            if (val === state.practice.question.correct) {
+                state.practice.feedback = &#39;correct&#39;;
+                state.practice.score &#43;= 10;
+            } else {
+                state.practice.feedback = &#39;wrong&#39;;
+            }
+            render();
+        }
+
+        function updateAnswer(val) {
+            state.practice.userAnswer = val;
+            // No full render on every keystroke to prevent focus loss, 
+            // but for button state we might need it. 
+            // For Vanilla, let&#39;s just update the button disabled state directly
+            const btn = document.getElementById(&#39;checkBtn&#39;);
+            if(btn) btn.disabled = !val;
+        }
+
+        function renderPractice(container) {
+            initPractice();
+            const { level, score, question, feedback, userAnswer } = state.practice;
+            
+            // Helper to render input or number
+            const renderInput = () =&gt; `
+                &lt;input type=&#34;number&#34; id=&#34;practiceInput&#34; 
+                    value=&#34;${userAnswer}&#34; 
+                    oninput=&#34;updateAnswer(this.value)&#34;
+                    placeholder=&#34;?&#34;
+                    class=&#34;w-24 h-20 text-4xl text-center border-4 rounded-xl outline-none transition-colors font-bold ${feedback === &#39;wrong&#39; ? &#39;border-red-400 bg-red-50 text-red-900&#39; : &#39;border-indigo-400 focus:border-indigo-600 bg-white&#39;}&#34;
+                &gt;
+            `;
+
+            const html = `
+                &lt;div class=&#34;flex flex-col items-center max-w-2xl mx-auto&#34;&gt;
+                    &lt;!-- Levels --&gt;
+                    &lt;div class=&#34;flex gap-4 mb-8&#34;&gt;
+                        &lt;button onclick=&#34;setLevel(1)&#34; class=&#34;px-4 py-2 rounded-full text-sm font-bold ${level === 1 ? &#39;bg-blue-600 text-white shadow-lg&#39; : &#39;bg-gray-200 text-gray-600&#39;}&#34;&gt;1-Деңгей: Бөлімді келтіру&lt;/button&gt;
+                        &lt;button onclick=&#34;setLevel(2)&#34; class=&#34;px-4 py-2 rounded-full text-sm font-bold ${level === 2 ? &#39;bg-purple-600 text-white shadow-lg&#39; : &#39;bg-gray-200 text-gray-600&#39;}&#34;&gt;2-Деңгей: Қысқарту&lt;/button&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Score --&gt;
+                    &lt;div class=&#34;absolute top-6 right-6 bg-yellow-100 px-4 py-2 rounded-lg font-bold text-yellow-800 border border-yellow-300&#34;&gt;
+                        Ұпай: ${score}
+                    &lt;/div&gt;
+
+                    &lt;!-- Card --&gt;
+                    &lt;div class=&#34;bg-white p-8 rounded-3xl shadow-xl border-2 border-indigo-100 w-full text-center relative overflow-hidden&#34;&gt;
+                        ${feedback === &#39;correct&#39; ? `
+                            &lt;div class=&#34;absolute inset-0 bg-green-100/90 flex flex-col items-center justify-center z-20 animate-fade-in&#34;&gt;
+                                &lt;i data-lucide=&#34;check&#34; class=&#34;w-16 h-16 text-green-600 mb-2&#34;&gt;&lt;/i&gt;
+                                &lt;h3 class=&#34;text-3xl font-bold text-green-700&#34;&gt;Жарайсың!&lt;/h3&gt;
+                                &lt;p class=&#34;text-green-800 mb-4&#34;&gt;Дұрыс жауап!&lt;/p&gt;
+                                &lt;button onclick=&#34;generateQuestion()&#34; class=&#34;bg-green-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-green-700 transition flex items-center gap-2&#34;&gt;
+                                    Келесі есеп &lt;i data-lucide=&#34;arrow-right&#34;&gt;&lt;/i&gt;
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        ` : &#39;&#39;}
+
+                        &lt;h3 class=&#34;text-xl text-gray-600 mb-6 font-medium&#34;&gt;
+                            ${question.type === &#39;expand&#39; ? &#39;Бөлшекті жаңа бөлімге келтір:&#39; : &#39;Бөлшекті қысқарт (сұрақты белгінің орнына сан қой):&#39;}
+                        &lt;/h3&gt;
+
+                        &lt;div class=&#34;flex items-center justify-center gap-6 md:gap-12 mb-8&#34;&gt;
+                            &lt;!-- Left Fraction --&gt;
+                            &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                &lt;span class=&#34;text-5xl font-bold text-indigo-900&#34;&gt;${question.n1}&lt;/span&gt;
+                                &lt;div class=&#34;w-24 h-1.5 bg-indigo-900 my-2 rounded-full&#34;&gt;&lt;/div&gt;
+                                &lt;span class=&#34;text-5xl font-bold text-indigo-900&#34;&gt;${question.d1}&lt;/span&gt;
+                            &lt;/div&gt;
+
+                            &lt;div class=&#34;text-4xl text-gray-400 font-bold&#34;&gt;=&lt;/div&gt;
+
+                            &lt;!-- Right Fraction --&gt;
+                            &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                ${question.n2 === &#39;?&#39; ? renderInput() : `&lt;span class=&#34;text-5xl font-bold text-indigo-900&#34;&gt;${question.n2}&lt;/span&gt;`}
+                                &lt;div class=&#34;w-24 h-1.5 bg-indigo-900 my-2 rounded-full&#34;&gt;&lt;/div&gt;
+                                ${question.d2 === &#39;?&#39; ? &#39;&lt;div class=&#34;w-24 h-16 border-2 flex items-center justify-center&#34;&gt;?&lt;/div&gt;&#39; : `&lt;span class=&#34;text-5xl font-bold text-indigo-900&#34;&gt;${question.d2}&lt;/span&gt;`}
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        ${feedback === &#39;wrong&#39; ? `
+                            &lt;div class=&#34;mb-4 text-red-600 font-medium flex items-center justify-center gap-2 animate-shake&#34;&gt;
+                                &lt;i data-lucide=&#34;x&#34; class=&#34;w-5 h-5&#34;&gt;&lt;/i&gt; Қате! Қайтадан ойланып көр. 
+                                ${question.type === &#39;expand&#39; 
+                                    ? `(Көмек: ${question.d1}-ді нешеге көбейткенде ${question.d2} шығады?)` 
+                                    : `(Көмек: ${question.d1}-ді нешеге бөлгенде ${question.d2} шығады?)`}
+                            &lt;/div&gt;
+                        ` : &#39;&#39;}
+
+                        &lt;button id=&#34;checkBtn&#34; onclick=&#34;checkAnswer()&#34; disabled class=&#34;w-full bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white text-xl font-bold py-4 rounded-xl transition-all shadow-lg transform active:scale-95 disabled:scale-100 disabled:shadow-none&#34;&gt;
+                            Тексеру
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&#34;mt-8 text-gray-500 text-sm&#34;&gt;
+                        Бұл тапсырма 5.1.2.${level === 1 ? &#39;15&#39; : &#39;14&#39;} оқу мақсатына арналған.
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+            container.innerHTML = html;
+            
+            // Re-focus input if it exists and we haven&#39;t answered correctly yet
+            const inp = document.getElementById(&#39;practiceInput&#39;);
+            if(inp &amp;&amp; !feedback) {
+                inp.focus();
+                // Ensure cursor is at end
+                const len = inp.value.length;
+                inp.setSelectionRange(len, len);
+            }
+            
+            // Update button state based on initial render value
+            const btn = document.getElementById(&#39;checkBtn&#39;);
+            if(btn &amp;&amp; userAnswer) btn.disabled = false;
+        }
+
+        // Initialize
+        document.addEventListener(&#39;DOMContentLoaded&#39;, () =&gt; {
+            render();
+        });
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Сипаттама:
+Бұл интерактивті қосымша 5-сынып оқушыларына жай бөлшектің негізгі қасиетін (5.1.2.14, 5.1.2.15) терең түсінуге мүмкіндік береді. Қосымша екі негізгі режимнен тұрады:
+
+Зерттеу: Оқушылар бөлшектің алымы мен бөлімін көбейткенде оның мәні (боялған үлесі) өзгермейтінін анимациялық диаграмма арқылы көзбен көріп, ережені саналы түрде ұғынады.
+
+Жаттығу: Бөлшекті қысқарту және жаңа бөлімге келтіру есептерін ойын форматында орындап, алған білімдерін бекітеді.
+
+Көрнекілік пен тәжірибені ұштастырған бұл тапсырма күрделі тақырыпты қарапайым әрі қызықты етіп түсіндіреді.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

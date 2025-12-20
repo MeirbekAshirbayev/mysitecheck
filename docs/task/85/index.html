@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ғарышқа саяхат | VisualMath</title>
+    <meta name="description" content="«Ғарыштық Саяхат» – бұл координаталық сәуле тақырыбын меңгеруге арналған интеллектуалды ойын. Мұндағы координаталық сәуле – жай ғана сызба емес, зымыранның (ракетаның) ұшу траекториясы.Бұл ойында сен Капитан рөлін атқарасың және математикалық біліміңді қолдана отырып, зымыранды қажетті ғаламшарларға қондыруың керек. Ойын үш деңгейден тұрады, әр деңгей координаталық сәуленің маңызды қасиеттерін үйретеді:Ұшыру алаңы (Координатаны табу):Саған белгілі бір сан (координата) беріледі. Сенің мақсатың – сәуле бойынан сол санды тауып, зымыранды дәл сол нүктеге жылжыту. Бұл кезең нүктенің координатасын дұрыс анықтауға үйретеді.Отын есебі (Қашықтықты анықтау):Зымыран бір нүктеден екінші нүктеге ұшуы үшін қанша бірлік отын (қашықтық) керектігін есептеуің қажет. Бұл үшін сен үлкен координатадан кіші координатаны азайту арқылы екі нүктенің арақашықтығын табасың (Мысалы: 8-ден 3-ке жету үшін: $8 - 3 = 5$ бірлік).Құпия траектория (Логикалық есептеу):Мұнда зымыранның бағыты беріледі (мысалы: &#34;3-тен бастап оңға 4 қадам, сосын солға 2 қадам&#34;). Сен соңғы нүктені ойша есептеп, жауабын енгізуің керек. Бұл координаталық сәуледегі қосу (оңға жылжу) және азайту (солға жылжу) амалдарын бекітеді.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Ғарышқа саяхат</span>
+            </div>
+            <a href="/lesson/3"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Ғарыштық Саяхат - Координаталық сәуле&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;link href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&amp;display=swap&#39;);
+        
+        body {
+            font-family: &#39;Nunito&#39;, sans-serif;
+            background-color: #0f172a; /* Dark Space Blue */
+            color: white;
+            user-select: none;
+        }
+
+        /* Custom Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none; 
+            background: transparent; 
+        }
+        
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #facc15; /* Yellow-400 */
+            cursor: pointer;
+            margin-top: -10px; 
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #475569;
+            border-radius: 2px;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .game-card {
+            backdrop-filter: blur(10px);
+            background: rgba(30, 41, 59, 0.8);
+        }
+        
+        /* Fade in animation for hint */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 relative py-10 overflow-y-auto&#34;&gt;
+
+    &lt;!-- Background Stars (Generated by JS) --&gt;
+    &lt;div id=&#34;star-field&#34; class=&#34;absolute inset-0 z-0 pointer-events-none fixed&#34;&gt;&lt;/div&gt;
+
+    &lt;!-- Game Container --&gt;
+    &lt;div class=&#34;w-full max-w-4xl game-card rounded-3xl shadow-2xl p-6 md:p-8 relative border border-slate-600 z-10 mx-4 my-auto&#34;&gt;
+        
+        &lt;!-- Header --&gt;
+        &lt;div class=&#34;flex justify-between items-center mb-6 border-b border-slate-700 pb-4&#34;&gt;
+            &lt;div class=&#34;flex items-center gap-3&#34;&gt;
+                &lt;div class=&#34;bg-indigo-600 p-2 rounded-lg&#34;&gt;
+                    &lt;i class=&#34;fas fa-rocket text-2xl text-white&#34;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h1 class=&#34;text-xl md:text-2xl font-black text-indigo-300 uppercase tracking-wider&#34;&gt;
+                        Ғарыштық Саяхат
+                    &lt;/h1&gt;
+                    &lt;p class=&#34;text-slate-400 text-xs font-bold&#34;&gt;Координаталық сәуле&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&#34;flex gap-4 text-sm md:text-base&#34;&gt;
+                &lt;div class=&#34;text-center&#34;&gt;
+                    &lt;span class=&#34;block text-slate-500 text-xs uppercase&#34;&gt;Деңгей&lt;/span&gt;
+                    &lt;span id=&#34;level-display&#34; class=&#34;font-bold text-yellow-400 text-xl&#34;&gt;1&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;text-center&#34;&gt;
+                    &lt;span class=&#34;block text-slate-500 text-xs uppercase&#34;&gt;Тапсырма&lt;/span&gt;
+                    &lt;span id=&#34;task-display&#34; class=&#34;font-bold text-blue-400 text-xl&#34;&gt;1/3&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;text-center&#34;&gt;
+                    &lt;span class=&#34;block text-slate-500 text-xs uppercase&#34;&gt;Ұпай&lt;/span&gt;
+                    &lt;span id=&#34;score-display&#34; class=&#34;font-bold text-green-400 text-xl&#34;&gt;0&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Main Game Area --&gt;
+        &lt;div id=&#34;game-content&#34; class=&#34;relative&#34;&gt;
+            
+            &lt;!-- Mission Info --&gt;
+            &lt;div class=&#34;bg-indigo-900/50 border border-indigo-500/30 rounded-xl p-4 mb-6&#34;&gt;
+                &lt;h3 id=&#34;mission-title&#34; class=&#34;text-indigo-300 font-bold mb-1 flex items-center gap-2&#34;&gt;
+                    &lt;i class=&#34;fas fa-map-marker-alt&#34;&gt;&lt;/i&gt; Миссия:
+                &lt;/h3&gt;
+                &lt;p id=&#34;mission-text&#34; class=&#34;text-lg md:text-xl font-medium text-white mb-3&#34;&gt;
+                    Тапсырма жүктелуде...
+                &lt;/p&gt;
+                
+                &lt;!-- Collapsible Hint Section --&gt;
+                &lt;div&gt;
+                    &lt;button id=&#34;hint-btn&#34; onclick=&#34;toggleHint()&#34; class=&#34;flex items-center gap-2 text-sm font-bold text-yellow-400 bg-yellow-900/30 hover:bg-yellow-900/50 px-4 py-2 rounded-lg transition-all border border-yellow-700/40&#34;&gt;
+                        &lt;i class=&#34;far fa-lightbulb&#34;&gt;&lt;/i&gt; &lt;span&gt;Кеңес алу&lt;/span&gt;
+                    &lt;/button&gt;
+                    
+                    &lt;div id=&#34;hint-container&#34; class=&#34;hidden mt-3 text-yellow-100 bg-slate-800/80 p-3 rounded-lg border border-yellow-500/20 fade-in&#34;&gt;
+                        &lt;div class=&#34;flex items-start gap-3&#34;&gt;
+                            &lt;i class=&#34;fas fa-info-circle text-yellow-500 mt-1&#34;&gt;&lt;/i&gt;
+                            &lt;span id=&#34;mission-hint&#34; class=&#34;text-sm md:text-base&#34;&gt;Кеңес...&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Canvas Visualization --&gt;
+            &lt;div class=&#34;bg-slate-900 rounded-xl overflow-hidden shadow-inner border border-slate-700 relative mb-6&#34;&gt;
+                &lt;canvas id=&#34;gameCanvas&#34; width=&#34;800&#34; height=&#34;250&#34; class=&#34;w-full h-auto block&#34;&gt;&lt;/canvas&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Controls Area --&gt;
+            &lt;div class=&#34;bg-slate-800/80 p-5 rounded-xl border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-6&#34;&gt;
+                
+                &lt;!-- Input Type A: Slider (Level 1) --&gt;
+                &lt;div id=&#34;control-move&#34; class=&#34;w-full hidden&#34;&gt;
+                    &lt;label class=&#34;flex justify-between text-sm font-medium text-slate-300 mb-3&#34;&gt;
+                        &lt;span&gt;Зымыранды жылжыт:&lt;/span&gt;
+                        &lt;span id=&#34;rocket-pos-val&#34; class=&#34;text-xl font-bold text-yellow-400 bg-slate-700 px-3 py-1 rounded&#34;&gt;0&lt;/span&gt;
+                    &lt;/label&gt;
+                    &lt;input type=&#34;range&#34; id=&#34;rocket-slider&#34; min=&#34;0&#34; max=&#34;12&#34; value=&#34;0&#34; step=&#34;1&#34; class=&#34;w-full&#34; autocomplete=&#34;off&#34;&gt;
+                    &lt;div class=&#34;flex justify-between text-xs text-slate-500 mt-2 px-1 font-mono&#34;&gt;
+                        &lt;span&gt;0&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;|&lt;/span&gt;&lt;span&gt;12&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Input Type B: Number Input (Level 2 &amp; 3) --&gt;
+                &lt;div id=&#34;control-input&#34; class=&#34;w-full hidden&#34;&gt;
+                    &lt;label class=&#34;block text-sm font-medium text-slate-300 mb-2&#34;&gt;
+                        Жауабыңызды енгізіңіз:
+                    &lt;/label&gt;
+                    &lt;div class=&#34;flex items-center gap-2&#34;&gt;
+                        &lt;!-- Autocomplete off added here --&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;user-answer&#34; placeholder=&#34;?&#34; autocomplete=&#34;off&#34;
+                            class=&#34;w-full bg-slate-900 border-2 border-slate-600 rounded-lg px-4 py-3 text-white text-xl focus:outline-none focus:border-indigo-500 transition placeholder-slate-600 text-center&#34;&gt;
+                        &lt;span class=&#34;text-slate-500 font-bold whitespace-nowrap&#34;&gt;бірлік&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Action Button --&gt;
+                &lt;button id=&#34;check-btn&#34; onclick=&#34;checkAnswer()&#34; class=&#34;w-full md:w-auto min-w-[160px] bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-indigo-600/30 transition transform active:scale-95 flex items-center justify-center gap-2&#34;&gt;
+                    &lt;span&gt;Тексеру&lt;/span&gt; &lt;i class=&#34;fas fa-check&#34;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+                 &lt;button id=&#34;next-btn&#34; onclick=&#34;nextTask()&#34; class=&#34;hidden w-full md:w-auto min-w-[160px] bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg shadow-green-600/30 transition transform active:scale-95 animate-pulse flex items-center justify-center gap-2&#34;&gt;
+                    &lt;span&gt;Келесі&lt;/span&gt; &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;!-- Start Overlay --&gt;
+        &lt;div id=&#34;start-overlay&#34; class=&#34;absolute inset-0 bg-slate-900/95 z-50 rounded-3xl flex flex-col items-center justify-center text-center p-8&#34;&gt;
+            &lt;div class=&#34;w-24 h-24 bg-indigo-600 rounded-full flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(79,70,229,0.5)] animate-bounce&#34;&gt;
+                &lt;i class=&#34;fas fa-rocket text-5xl text-white&#34;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;h2 class=&#34;text-4xl font-black text-white mb-4&#34;&gt;Дайынсың ба, капитан?&lt;/h2&gt;
+            &lt;p class=&#34;text-slate-300 mb-8 text-lg max-w-md&#34;&gt;
+                Координаталық сәуле бойынша есептер шығарып, ғаламшарларға саяхат жасаңыз.
+            &lt;/p&gt;
+            &lt;div class=&#34;grid grid-cols-3 gap-4 mb-8 text-sm w-full max-w-lg&#34;&gt;
+                &lt;div class=&#34;bg-slate-800 p-3 rounded border border-slate-700&#34;&gt;1. Нүктені тап&lt;/div&gt;
+                &lt;div class=&#34;bg-slate-800 p-3 rounded border border-slate-700&#34;&gt;2. Қашықтық&lt;/div&gt;
+                &lt;div class=&#34;bg-slate-800 p-3 rounded border border-slate-700&#34;&gt;3. Логика&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;button onclick=&#34;startGame()&#34; class=&#34;bg-green-500 hover:bg-green-600 text-white text-xl font-bold py-4 px-12 rounded-full shadow-lg transition transform hover:scale-105 border-b-4 border-green-700&#34;&gt;
+                Ойынды бастау
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- End Overlay --&gt;
+        &lt;div id=&#34;end-overlay&#34; class=&#34;hidden absolute inset-0 bg-slate-900/95 z-50 rounded-3xl flex flex-col items-center justify-center text-center p-8&#34;&gt;
+            &lt;i class=&#34;fas fa-trophy text-6xl text-yellow-400 mb-6 drop-shadow-[0_0_15px_rgba(250,204,21,0.5)]&#34;&gt;&lt;/i&gt;
+            &lt;h2 class=&#34;text-4xl font-black text-white mb-2&#34;&gt;Миссия аяқталды!&lt;/h2&gt;
+            &lt;p class=&#34;text-xl text-indigo-300 mb-8&#34;&gt;Сіз барлық кедергілерден өттіңіз.&lt;/p&gt;
+            
+            &lt;div class=&#34;bg-slate-800 px-8 py-4 rounded-xl border border-slate-700 mb-8&#34;&gt;
+                &lt;span class=&#34;text-slate-400 text-xs uppercase tracking-wider block mb-1&#34;&gt;Жалпы ұпай&lt;/span&gt;
+                &lt;span id=&#34;final-score&#34; class=&#34;text-5xl font-bold text-white&#34;&gt;0&lt;/span&gt;
+            &lt;/div&gt;
+
+            &lt;button onclick=&#34;location.reload()&#34; class=&#34;bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg transition flex items-center gap-2&#34;&gt;
+                &lt;i class=&#34;fas fa-redo&#34;&gt;&lt;/i&gt; Қайтадан ойнау
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Feedback Toast --&gt;
+        &lt;div id=&#34;feedback-msg&#34; class=&#34;absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-0 transition-all duration-300 z-40 bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-2xl shadow-2xl scale-50&#34;&gt;
+            &lt;span id=&#34;feedback-icon&#34; class=&#34;text-4xl mr-2&#34;&gt;&lt;/span&gt;
+            &lt;span id=&#34;feedback-text&#34; class=&#34;text-2xl font-bold text-white drop-shadow-md&#34;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- GAME CONFIG ---
+        const TASKS_PER_LEVEL = 3;
+        const TOTAL_LEVELS = 3;
+        
+        // --- STATE VARIABLES ---
+        let level = 1;
+        let task = 1;
+        let score = 0;
+        let rocketPos = 0;
+        let currentMission = {};
+        
+        // --- CANVAS SETUP ---
+        const canvas = document.getElementById(&#39;gameCanvas&#39;);
+        const ctx = canvas.getContext(&#39;2d&#39;);
+        const UNIT_PIXELS = 50; // Distance between ticks
+        const RAY_START_X = 50;
+        const RAY_Y = 180;
+
+        // --- INIT &amp; UTILS ---
+        
+        // Generate Star Background
+        function createStars() {
+            const container = document.getElementById(&#39;star-field&#39;);
+            for(let i=0; i&lt;50; i&#43;&#43;) {
+                const star = document.createElement(&#39;div&#39;);
+                star.className = &#39;star&#39;;
+                star.style.left = Math.random() * 100 &#43; &#39;%&#39;;
+                star.style.top = Math.random() * 100 &#43; &#39;%&#39;;
+                const size = Math.random() * 3 &#43; 1;
+                star.style.width = size &#43; &#39;px&#39;;
+                star.style.height = size &#43; &#39;px&#39;;
+                star.style.animationDuration = (Math.random() * 3 &#43; 2) &#43; &#39;s&#39;;
+                container.appendChild(star);
+            }
+        }
+        createStars();
+
+        function startGame() {
+            document.getElementById(&#39;start-overlay&#39;).classList.add(&#39;hidden&#39;);
+            score = 0;
+            level = 1;
+            task = 1;
+            updateUI();
+            generateMission();
+            
+            // Slider Event Listener
+            document.getElementById(&#39;rocket-slider&#39;).addEventListener(&#39;input&#39;, (e) =&gt; {
+                rocketPos = parseInt(e.target.value);
+                document.getElementById(&#39;rocket-pos-val&#39;).innerText = rocketPos;
+                draw();
+            });
+        }
+
+        function toggleHint() {
+            const container = document.getElementById(&#39;hint-container&#39;);
+            if (container.classList.contains(&#39;hidden&#39;)) {
+                container.classList.remove(&#39;hidden&#39;);
+            } else {
+                container.classList.add(&#39;hidden&#39;);
+            }
+        }
+
+        // --- GAME LOGIC ---
+
+        function generateMission() {
+            // Reset state for new mission
+            document.getElementById(&#39;user-answer&#39;).value = &#39;&#39;;
+            document.getElementById(&#39;check-btn&#39;).classList.remove(&#39;hidden&#39;);
+            document.getElementById(&#39;next-btn&#39;).classList.add(&#39;hidden&#39;);
+            
+            // Hide hint by default for new task
+            document.getElementById(&#39;hint-container&#39;).classList.add(&#39;hidden&#39;);
+            
+            // Logic based on level
+            if (level === 1) {
+                // Task: Find coordinate
+                const target = Math.floor(Math.random() * 9) &#43; 2; // 2 to 10
+                rocketPos = 0;
+                document.getElementById(&#39;rocket-slider&#39;).value = 0;
+                document.getElementById(&#39;rocket-pos-val&#39;).innerText = 0;
+                
+                currentMission = {
+                    type: &#39;move&#39;,
+                    target: target,
+                    title: &#34;1-деңгей: Ұшыру алаңы&#34;,
+                    text: `Зымыранды координатасы ${target} болатын ғаламшарға қондыр.`,
+                    hint: `Координаталық сәуледе ${target} санын ізде.`
+                };
+                
+                showControl(&#39;move&#39;);
+            } 
+            else if (level === 2) {
+                // Task: Calculate distance
+                let start, end;
+                do {
+                    start = Math.floor(Math.random() * 4) &#43; 1;
+                    end = Math.floor(Math.random() * 6) &#43; 6; 
+                } while (start === end);
+                
+                rocketPos = start;
+                
+                currentMission = {
+                    type: &#39;calc&#39;,
+                    target: end, // For visualization
+                    answer: end - start,
+                    title: &#34;2-деңгей: Отын есебі&#34;,
+                    text: `Зымыран ${start} нүктесінде. ${end} нүктесіне жету үшін неше бірлік ұшу керек?`,
+                    hint: `Формула: Соңғы нүкте (${end}) - Бастапқы нүкте (${start}) = ?`
+                };
+                
+                showControl(&#39;input&#39;);
+            } 
+            else if (level === 3) {
+                // Task: Logic / Trajectory
+                const start = Math.floor(Math.random() * 3) &#43; 3;
+                const right = Math.floor(Math.random() * 4) &#43; 2;
+                const left = Math.floor(Math.random() * 2) &#43; 1;
+                const final = start &#43; right - left;
+                
+                rocketPos = start;
+                
+                currentMission = {
+                    type: &#39;logic&#39;,
+                    target: null, // Hidden
+                    answer: final,
+                    title: &#34;3-деңгей: Құпия траектория&#34;,
+                    text: `Зымыран ${start}-тен оңға ${right} бірлік, сосын солға ${left} бірлік ұшты. Қазір қайда?`,
+                    hint: `Есептеу: ${start} &#43; ${right} (оңға) - ${left} (солға) = ?`
+                };
+                
+                showControl(&#39;input&#39;);
+            }
+
+            updateUI();
+            draw();
+        }
+
+        function showControl(type) {
+            document.getElementById(&#39;control-move&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;control-input&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(`control-${type}`).classList.remove(&#39;hidden&#39;);
+        }
+
+        function checkAnswer() {
+            let correct = false;
+            
+            if (currentMission.type === &#39;move&#39;) {
+                if (rocketPos === currentMission.target) correct = true;
+            } else {
+                const val = parseInt(document.getElementById(&#39;user-answer&#39;).value);
+                if (val === currentMission.answer) correct = true;
+            }
+
+            if (correct) {
+                score &#43;= 10;
+                showFeedback(true);
+                document.getElementById(&#39;score-display&#39;).innerText = score;
+                document.getElementById(&#39;check-btn&#39;).classList.add(&#39;hidden&#39;);
+                document.getElementById(&#39;next-btn&#39;).classList.remove(&#39;hidden&#39;);
+                
+                // If logic level, show the rocket at final position now
+                if (currentMission.type === &#39;logic&#39;) {
+                    rocketPos = currentMission.answer;
+                    draw();
+                }
+            } else {
+                showFeedback(false);
+            }
+        }
+
+        function nextTask() {
+            if (task &lt; TASKS_PER_LEVEL) {
+                task&#43;&#43;;
+                generateMission();
+            } else {
+                // Level Complete
+                if (level &lt; TOTAL_LEVELS) {
+                    level&#43;&#43;;
+                    task = 1;
+                    showLevelUpAnim();
+                    setTimeout(generateMission, 1500);
+                } else {
+                    gameOver();
+                }
+            }
+        }
+
+        function showFeedback(isCorrect) {
+            const el = document.getElementById(&#39;feedback-msg&#39;);
+            const icon = document.getElementById(&#39;feedback-icon&#39;);
+            const text = document.getElementById(&#39;feedback-text&#39;);
+            
+            // Base classes for visible state
+            let baseClasses = &#34;absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 backdrop-blur-md px-8 py-4 rounded-2xl shadow-2xl transition-all duration-300 opacity-100 scale-110&#34;;
+            
+            if (isCorrect) {
+                el.className = baseClasses &#43; &#34; bg-green-500/90 border border-green-400&#34;;
+                icon.innerHTML = &#34;🎉&#34;;
+                text.innerText = &#34;ДҰРЫС!&#34;;
+            } else {
+                el.className = baseClasses &#43; &#34; bg-red-500/90 border border-red-400&#34;;
+                icon.innerHTML = &#34;❌&#34;;
+                text.innerText = &#34;ҚАТЕ!&#34;;
+            }
+
+            setTimeout(() =&gt; {
+                // Explicitly set hidden state classes
+                el.className = &#34;absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 px-8 py-4 rounded-2xl shadow-2xl transition-all duration-300 opacity-0 scale-50 pointer-events-none&#34;;
+            }, 1000);
+        }
+
+        function showLevelUpAnim() {
+             const el = document.getElementById(&#39;feedback-msg&#39;);
+             
+             // Show state: Level Up Yellow Style
+             el.className = &#34;absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 bg-yellow-500/90 backdrop-blur-md border border-yellow-400 px-10 py-6 rounded-2xl shadow-2xl transition-all duration-500 opacity-100 scale-125&#34;;
+             
+             document.getElementById(&#39;feedback-icon&#39;).innerHTML = &#34;🚀&#34;;
+             document.getElementById(&#39;feedback-text&#39;).innerText = `${level}-ДЕҢГЕЙ!`;
+             
+             setTimeout(() =&gt; {
+                // Hide state: Force opacity 0 and scale down
+                el.className = &#34;absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 bg-yellow-500/90 backdrop-blur-md border border-yellow-400 px-10 py-6 rounded-2xl shadow-2xl transition-all duration-500 opacity-0 scale-50 pointer-events-none&#34;;
+            }, 1400);
+        }
+
+        function updateUI() {
+            document.getElementById(&#39;level-display&#39;).innerText = level;
+            document.getElementById(&#39;task-display&#39;).innerText = `${task}/${TASKS_PER_LEVEL}`;
+            document.getElementById(&#39;mission-title&#39;).innerHTML = `&lt;i class=&#34;fas fa-map-marker-alt&#34;&gt;&lt;/i&gt; ${currentMission.title}`;
+            document.getElementById(&#39;mission-text&#39;).innerText = currentMission.text;
+            document.getElementById(&#39;mission-hint&#39;).innerText = currentMission.hint;
+        }
+
+        function gameOver() {
+            document.getElementById(&#39;end-overlay&#39;).classList.remove(&#39;hidden&#39;);
+            document.getElementById(&#39;final-score&#39;).innerText = score;
+            saveToServer(score, level);
+        }
+
+        // --- DRAWING ---
+
+        function draw() {
+            // Clear
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw Ray
+            ctx.beginPath();
+            ctx.moveTo(RAY_START_X, RAY_Y);
+            ctx.lineTo(canvas.width - 30, RAY_Y);
+            ctx.strokeStyle = &#34;#cbd5e1&#34;; // slate-300
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Arrow
+            ctx.beginPath();
+            ctx.moveTo(canvas.width - 40, RAY_Y - 8);
+            ctx.lineTo(canvas.width - 25, RAY_Y);
+            ctx.lineTo(canvas.width - 40, RAY_Y &#43; 8);
+            ctx.stroke();
+            
+            ctx.fillStyle = &#34;#cbd5e1&#34;;
+            ctx.font = &#34;16px Arial&#34;;
+            ctx.fillText(&#34;x&#34;, canvas.width - 20, RAY_Y &#43; 5);
+
+            // Ticks &amp; Numbers
+            for (let i = 0; i &lt;= 12; i&#43;&#43;) {
+                const x = RAY_START_X &#43; i * UNIT_PIXELS;
+                
+                ctx.beginPath();
+                ctx.moveTo(x, RAY_Y - 5);
+                ctx.lineTo(x, RAY_Y &#43; 5);
+                ctx.strokeStyle = &#34;#cbd5e1&#34;;
+                ctx.stroke();
+
+                ctx.fillStyle = &#34;#94a3b8&#34;; // slate-400
+                ctx.font = &#34;14px Nunito&#34;;
+                ctx.textAlign = &#34;center&#34;;
+                ctx.fillText(i, x, RAY_Y &#43; 25);
+
+                if (i === 0) {
+                    ctx.fillStyle = &#34;#facc15&#34;; // yellow
+                    ctx.font = &#34;bold 14px Nunito&#34;;
+                    ctx.fillText(&#34;O&#34;, x, RAY_Y - 15);
+                }
+            }
+
+            // Draw Target Planet (if exists and not hidden logic mode)
+            if (currentMission.target !== null &amp;&amp; currentMission.type !== &#39;logic&#39;) {
+                 const tx = RAY_START_X &#43; currentMission.target * UNIT_PIXELS;
+                 drawPlanet(tx, RAY_Y - 40);
+            }
+
+            // Draw Rocket
+            const rx = RAY_START_X &#43; rocketPos * UNIT_PIXELS;
+            drawRocket(rx, RAY_Y - 40);
+        }
+
+        function drawRocket(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Flame (animated slightly)
+            ctx.fillStyle = `rgba(249, 115, 22, ${Math.random() * 0.4 &#43; 0.6})`; // Orange
+            ctx.beginPath();
+            ctx.moveTo(-5, 25);
+            ctx.lineTo(0, 35 &#43; Math.random()*5);
+            ctx.lineTo(5, 25);
+            ctx.fill();
+
+            // Body
+            ctx.fillStyle = &#34;#f43f5e&#34;; // Rose-500
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 12, 30, 0, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Window
+            ctx.fillStyle = &#34;#bae6fd&#34;; // Sky-200
+            ctx.beginPath();
+            ctx.arc(0, -5, 6, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Fins
+            ctx.fillStyle = &#34;#be123c&#34;; // Rose-700
+            ctx.beginPath();
+            ctx.moveTo(-12, 15);
+            ctx.lineTo(-20, 30);
+            ctx.lineTo(-5, 20);
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.moveTo(12, 15);
+            ctx.lineTo(20, 30);
+            ctx.lineTo(5, 20);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function drawPlanet(x, y) {
+            ctx.fillStyle = &#34;#10b981&#34;; // Emerald-500
+            ctx.beginPath();
+            ctx.arc(x, y, 14, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.strokeStyle = &#34;#6ee7b7&#34;; // Emerald-300
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.ellipse(x, y, 20, 6, 0.2, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        // --- BACKEND CONNECTION ---
+
+        function saveToServer(finalScore, finalLevel) {
+            // Мұнда серверге сақтау логикасы болады
+            // Қате шықпауы үшін try-catch ішіне алдым
+            try {
+                fetch(&#39;/api/save&#39;, {
+                    method: &#39;POST&#39;,
+                    headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },
+                    body: JSON.stringify({
+                        score: finalScore,
+                        level_reached: finalLevel
+                    })
+                })
+                .then(res =&gt; {
+                    if(res.ok) console.log(&#34;Нәтиже сақталды&#34;);
+                })
+                .catch(err =&gt; console.log(&#34;Сервер қосылмаған (Демо режим)&#34;));
+            } catch (e) {
+                console.log(&#34;Offline mode&#34;);
+            }
+        }
+
+        // Initial Draw
+        window.onload = function() {
+             draw();
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">«Ғарыштық Саяхат» – бұл координаталық сәуле тақырыбын меңгеруге арналған интеллектуалды ойын. Мұндағы координаталық сәуле – жай ғана сызба емес, зымыранның (ракетаның) ұшу траекториясы.Бұл ойында сен Капитан рөлін атқарасың және математикалық біліміңді қолдана отырып, зымыранды қажетті ғаламшарларға қондыруың керек. Ойын үш деңгейден тұрады, әр деңгей координаталық сәуленің маңызды қасиеттерін үйретеді:Ұшыру алаңы (Координатаны табу):Саған белгілі бір сан (координата) беріледі. Сенің мақсатың – сәуле бойынан сол санды тауып, зымыранды дәл сол нүктеге жылжыту. Бұл кезең нүктенің координатасын дұрыс анықтауға үйретеді.Отын есебі (Қашықтықты анықтау):Зымыран бір нүктеден екінші нүктеге ұшуы үшін қанша бірлік отын (қашықтық) керектігін есептеуің қажет. Бұл үшін сен үлкен координатадан кіші координатаны азайту арқылы екі нүктенің арақашықтығын табасың (Мысалы: 8-ден 3-ке жету үшін: $8 - 3 = 5$ бірлік).Құпия траектория (Логикалық есептеу):Мұнда зымыранның бағыты беріледі (мысалы: "3-тен бастап оңға 4 қадам, сосын солға 2 қадам"). Сен соңғы нүктені ойша есептеп, жауабын енгізуің керек. Бұл координаталық сәуледегі қосу (оңға жылжу) және азайту (солға жылжу) амалдарын бекітеді.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

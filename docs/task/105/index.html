@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математикалық Қазына | VisualMath</title>
+    <meta name="description" content="Бұл файл – «Математикалық Қазына» атты интерактивті веб-ойынның коды. Ойын оқушылардың ЕҮОБ, ЕКОЕ және өзара жай сандар тақырыптарын меңгеру деңгейін тексеруге арналған.
+
+Негізгі ерекшеліктері:
+• Үш ойын режимі: ЕҮОБ, ЕКОЕ және «Өзара жай сандар ма?» сұрағы.
+• Ынталандыру жүйесі: Дұрыс жауапқа ұпай беріліп, анимация (конфетти) көрсетіледі.
+• Кері байланыс: Қате жауап болған жағдайда дұрыс шешімі мен ережесі түсіндіріледі.
+• Дизайн: Tailwind CSS арқылы жасалған заманауи әрі мобильді құрылғыға бейімделген интерфейс.
+
+Мұғалімдер үшін сабақта қолдануға дайын, жеңіл әрі қызықты құрал.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Математикалық Қазына</span>
+            </div>
+            <a href="/lesson/21"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Математикалық Қазына&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;link href=&#34;https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&amp;display=swap&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;style&gt;
+        body {
+            font-family: &#39;Nunito&#39;, sans-serif;
+            background-color: #f0fdf4;
+            background-image: radial-gradient(#dcfce7 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .card-bounce {
+            animation: bounce-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+        @keyframes bounce-in {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f2d74e;
+            animation: fall 2s linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen flex flex-col items-center justify-center p-4&#34;&gt;
+
+    &lt;!-- Header --&gt;
+    &lt;header class=&#34;text-center mb-8&#34;&gt;
+        &lt;h1 class=&#34;text-4xl md:text-5xl font-black text-green-700 mb-2 drop-shadow-sm&#34;&gt;Математикалық Қазына 🏆&lt;/h1&gt;
+        &lt;p class=&#34;text-lg text-green-600 font-bold&#34;&gt;Жинаған ұпайыңыз: &lt;span id=&#34;score&#34; class=&#34;text-orange-500 text-2xl&#34;&gt;0&lt;/span&gt;&lt;/p&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Main Game Container --&gt;
+    &lt;div class=&#34;bg-white rounded-3xl shadow-xl w-full max-w-lg overflow-hidden border-4 border-green-200 card-bounce&#34;&gt;
+        
+        &lt;!-- Navigation Tabs --&gt;
+        &lt;div class=&#34;flex border-b-2 border-green-100&#34;&gt;
+            &lt;button onclick=&#34;setMode(&#39;gcd&#39;)&#34; id=&#34;tab-gcd&#34; class=&#34;flex-1 py-4 font-bold text-green-700 bg-green-50 hover:bg-green-100 transition-colors active-tab&#34;&gt;ЕҮОБ (GCD)&lt;/button&gt;
+            &lt;button onclick=&#34;setMode(&#39;lcm&#39;)&#34; id=&#34;tab-lcm&#34; class=&#34;flex-1 py-4 font-bold text-gray-500 hover:bg-green-50 transition-colors&#34;&gt;ЕКОЕ (LCM)&lt;/button&gt;
+            &lt;button onclick=&#34;setMode(&#39;coprime&#39;)&#34; id=&#34;tab-coprime&#34; class=&#34;flex-1 py-4 font-bold text-gray-500 hover:bg-green-50 transition-colors&#34;&gt;Өзара Жай&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Game Area --&gt;
+        &lt;div class=&#34;p-8 text-center relative&#34;&gt;
+            &lt;div id=&#34;game-icon&#34; class=&#34;text-6xl mb-4 animate-bounce&#34;&gt;🔐&lt;/div&gt;
+            
+            &lt;h2 id=&#34;question-text&#34; class=&#34;text-2xl font-bold text-gray-800 mb-6&#34;&gt;Сұрақ жүктелуде...&lt;/h2&gt;
+
+            &lt;div class=&#34;flex justify-center items-center gap-4 mb-8&#34;&gt;
+                &lt;div class=&#34;bg-blue-100 p-4 rounded-xl shadow-inner min-w-[80px]&#34;&gt;
+                    &lt;span id=&#34;num1&#34; class=&#34;text-4xl font-black text-blue-600&#34;&gt;?&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;span class=&#34;text-2xl font-bold text-gray-400&#34;&gt;&amp;&lt;/span&gt;
+                &lt;div class=&#34;bg-purple-100 p-4 rounded-xl shadow-inner min-w-[80px]&#34;&gt;
+                    &lt;span id=&#34;num2&#34; class=&#34;text-4xl font-black text-purple-600&#34;&gt;?&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Input Area for GCD/LCM --&gt;
+            &lt;div id=&#34;input-area&#34; class=&#34;mb-6&#34;&gt;
+                &lt;input type=&#34;number&#34; id=&#34;user-answer&#34; placeholder=&#34;Жауабы...&#34; 
+                    class=&#34;w-full text-center text-2xl p-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 transition-all&#34;&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Buttons for Coprime Mode (Hidden by default) --&gt;
+            &lt;div id=&#34;coprime-buttons&#34; class=&#34;hidden flex gap-4 mb-6&#34;&gt;
+                &lt;button id=&#34;btn-coprime-yes&#34; onclick=&#34;checkCoprime(true)&#34; class=&#34;flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-transform transform active:scale-95&#34;&gt;
+                    Иә
+                &lt;/button&gt;
+                &lt;button id=&#34;btn-coprime-no&#34; onclick=&#34;checkCoprime(false)&#34; class=&#34;flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-transform transform active:scale-95&#34;&gt;
+                    Жоқ
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Action Button for GCD/LCM --&gt;
+            &lt;button id=&#34;submit-btn&#34; onclick=&#34;checkAnswer()&#34; 
+                class=&#34;w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-bold py-4 rounded-xl shadow-lg transform transition-all active:scale-95 text-xl&#34;&gt;
+                Тексеру!
+            &lt;/button&gt;
+
+            &lt;!-- Explanation &amp; Next Button (Hidden initially) --&gt;
+            &lt;div id=&#34;result-area&#34; class=&#34;hidden mt-6 bg-yellow-50 p-4 rounded-xl border-2 border-yellow-200 fade-in text-left&#34;&gt;
+                &lt;h3 id=&#34;result-title&#34; class=&#34;text-xl font-bold mb-2 text-center&#34;&gt;&lt;/h3&gt;
+                &lt;p id=&#34;result-explanation&#34; class=&#34;text-gray-700 text-lg leading-relaxed mb-4&#34;&gt;&lt;/p&gt;
+                &lt;button onclick=&#34;nextProblem()&#34; class=&#34;w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl shadow-md transition-transform transform active:scale-95&#34;&gt;
+                    Келесі тапсырма ➡️
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Feedback Message (Small text below input) --&gt;
+            &lt;div id=&#34;feedback&#34; class=&#34;mt-4 text-lg font-bold min-h-[1.5rem]&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Explanation Box --&gt;
+    &lt;div class=&#34;mt-8 max-w-lg text-center bg-white/80 p-4 rounded-xl backdrop-blur-sm&#34;&gt;
+        &lt;p id=&#34;rule-text&#34; class=&#34;text-gray-600 text-sm&#34;&gt;
+            Ең үлкен ортақ бөлгішті (ЕҮОБ) табыңыз.
+        &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // State
+        let score = 0;
+        let currentMode = &#39;gcd&#39;; // &#39;gcd&#39;, &#39;lcm&#39;, &#39;coprime&#39;
+        let numberA = 0;
+        let numberB = 0;
+        let currentAnswer = 0; // For GCD/LCM
+        let isCurrentCoprime = false; // For Coprime mode
+        let isQuestionActive = true; // To prevent double submission
+
+        // Elements
+        const scoreEl = document.getElementById(&#39;score&#39;);
+        const num1El = document.getElementById(&#39;num1&#39;);
+        const num2El = document.getElementById(&#39;num2&#39;);
+        const inputArea = document.getElementById(&#39;input-area&#39;);
+        const coprimeBtns = document.getElementById(&#39;coprime-buttons&#39;);
+        const submitBtn = document.getElementById(&#39;submit-btn&#39;);
+        const questionText = document.getElementById(&#39;question-text&#39;);
+        const gameIcon = document.getElementById(&#39;game-icon&#39;);
+        const feedbackEl = document.getElementById(&#39;feedback&#39;);
+        const userAnswerInput = document.getElementById(&#39;user-answer&#39;);
+        const ruleText = document.getElementById(&#39;rule-text&#39;);
+        
+        const resultArea = document.getElementById(&#39;result-area&#39;);
+        const resultTitle = document.getElementById(&#39;result-title&#39;);
+        const resultExplanation = document.getElementById(&#39;result-explanation&#39;);
+        const btnCoprimeYes = document.getElementById(&#39;btn-coprime-yes&#39;);
+        const btnCoprimeNo = document.getElementById(&#39;btn-coprime-no&#39;);
+
+        // Math Utilities
+        const gcd = (a, b) =&gt; b === 0 ? a : gcd(b, a % b);
+        const lcm = (a, b) =&gt; (a * b) / gcd(a, b);
+        const getRandom = (min, max) =&gt; Math.floor(Math.random() * (max - min &#43; 1)) &#43; min;
+
+        // Init
+        window.onload = () =&gt; {
+            setMode(&#39;gcd&#39;);
+        };
+
+        function setMode(mode) {
+            currentMode = mode;
+            
+            // UI Update Tabs
+            document.querySelectorAll(&#39;button[id^=&#34;tab-&#34;]&#39;).forEach(btn =&gt; {
+                btn.classList.remove(&#39;bg-green-50&#39;, &#39;text-green-700&#39;, &#39;border-b-4&#39;, &#39;border-green-500&#39;);
+                btn.classList.add(&#39;text-gray-500&#39;);
+            });
+            const activeTab = document.getElementById(`tab-${mode}`);
+            activeTab.classList.add(&#39;bg-green-50&#39;, &#39;text-green-700&#39;);
+            activeTab.classList.remove(&#39;text-gray-500&#39;);
+
+            // Mode Logic Text
+            if (mode === &#39;gcd&#39;) {
+                gameIcon.textContent = &#39;🔐&#39;;
+                questionText.textContent = &#39;Сандардың ЕҮОБ-ын табыңыз:&#39;;
+                ruleText.textContent = &#39;Ереже: Ең үлкен ортақ бөлгіш - берілген сандар бөлінетін ең үлкен сан.&#39;;
+            } else if (mode === &#39;lcm&#39;) {
+                gameIcon.textContent = &#39;🌉&#39;;
+                questionText.textContent = &#39;Сандардың ЕКОЕ-сін табыңыз:&#39;;
+                ruleText.textContent = &#39;Ереже: Ең кіші ортақ еселік - берілген сандарға қалдықсыз бөлінетін ең кіші сан.&#39;;
+            } else if (mode === &#39;coprime&#39;) {
+                gameIcon.textContent = &#39;🤝&#39;;
+                questionText.textContent = &#39;Бұл сандар өзара жай сандар ма?&#39;;
+                ruleText.textContent = &#39;Ереже: Егер сандардың 1-ден басқа ортақ бөлгіші болмаса, олар өзара жай сандар.&#39;;
+            }
+
+            nextProblem(); // Generate first problem
+        }
+
+        function nextProblem() {
+            // Reset UI for new question
+            isQuestionActive = true;
+            feedbackEl.textContent = &#39;&#39;;
+            resultArea.classList.add(&#39;hidden&#39;);
+            userAnswerInput.value = &#39;&#39;;
+            userAnswerInput.disabled = false;
+            
+            // Reset buttons visibility based on mode
+            if (currentMode === &#39;gcd&#39; || currentMode === &#39;lcm&#39;) {
+                inputArea.classList.remove(&#39;hidden&#39;);
+                submitBtn.classList.remove(&#39;hidden&#39;);
+                coprimeBtns.classList.add(&#39;hidden&#39;);
+            } else {
+                inputArea.classList.add(&#39;hidden&#39;);
+                submitBtn.classList.add(&#39;hidden&#39;);
+                coprimeBtns.classList.remove(&#39;hidden&#39;);
+                btnCoprimeYes.disabled = false;
+                btnCoprimeNo.disabled = false;
+                btnCoprimeYes.classList.remove(&#39;opacity-50&#39;, &#39;cursor-not-allowed&#39;);
+                btnCoprimeNo.classList.remove(&#39;opacity-50&#39;, &#39;cursor-not-allowed&#39;);
+            }
+
+            // Generate Numbers
+            if (currentMode === &#39;gcd&#39;) {
+                let factor = getRandom(2, 12);
+                numberA = factor * getRandom(1, 5);
+                numberB = factor * getRandom(1, 6);
+                if(numberA === numberB) numberB &#43;= factor;
+                currentAnswer = gcd(numberA, numberB);
+            } else if (currentMode === &#39;lcm&#39;) {
+                numberA = getRandom(2, 10); // Smaller numbers for LCM
+                numberB = getRandom(2, 10);
+                if(numberA === numberB) numberB&#43;&#43;;
+                currentAnswer = lcm(numberA, numberB);
+            } else if (currentMode === &#39;coprime&#39;) {
+                numberA = getRandom(4, 25);
+                numberB = getRandom(4, 25);
+                if(numberA === numberB) numberB&#43;&#43;;
+                if (Math.random() &gt; 0.5) {
+                    let common = getRandom(2, 5);
+                    numberA = numberA * common;
+                    numberB = numberB * common;
+                }
+                isCurrentCoprime = gcd(numberA, numberB) === 1;
+            }
+
+            num1El.textContent = numberA;
+            num2El.textContent = numberB;
+            
+            num1El.parentElement.classList.remove(&#39;shake&#39;);
+            num2El.parentElement.classList.remove(&#39;shake&#39;);
+        }
+
+        function checkAnswer() {
+            if (!isQuestionActive) return;
+
+            const userVal = parseInt(userAnswerInput.value);
+            if (isNaN(userVal)) {
+                feedbackEl.textContent = &#39;Сан енгізіңіз!&#39;;
+                feedbackEl.className = &#39;mt-4 text-orange-500 font-bold&#39;;
+                return;
+            }
+
+            const isCorrect = (userVal === currentAnswer);
+            processResult(isCorrect, userVal, currentAnswer);
+        }
+
+        function checkCoprime(userChoice) {
+            if (!isQuestionActive) return;
+            const isCorrect = (userChoice === isCurrentCoprime);
+            processResult(isCorrect, userChoice, isCurrentCoprime);
+        }
+
+        function processResult(isCorrect, userAns, correctAns) {
+            isQuestionActive = false;
+            
+            // UI Changes for End State
+            if (currentMode === &#39;gcd&#39; || currentMode === &#39;lcm&#39;) {
+                submitBtn.classList.add(&#39;hidden&#39;);
+                userAnswerInput.disabled = true;
+            } else {
+                btnCoprimeYes.disabled = true;
+                btnCoprimeNo.disabled = true;
+                btnCoprimeYes.classList.add(&#39;opacity-50&#39;, &#39;cursor-not-allowed&#39;);
+                btnCoprimeNo.classList.add(&#39;opacity-50&#39;, &#39;cursor-not-allowed&#39;);
+            }
+
+            if (isCorrect) {
+                score &#43;= 10;
+                scoreEl.textContent = score;
+                resultTitle.textContent = &#34;Тамаша! Жауабың дұрыс! 🎉&#34;;
+                resultTitle.className = &#34;text-xl font-bold mb-2 text-center text-green-600&#34;;
+                createConfetti();
+            } else {
+                resultTitle.textContent = &#34;Қате жауап...&#34;;
+                resultTitle.className = &#34;text-xl font-bold mb-2 text-center text-red-500&#34;;
+                
+                // Shake effect
+                const container = document.querySelector(&#39;.bg-white&#39;);
+                container.classList.remove(&#39;card-bounce&#39;);
+                void container.offsetWidth; 
+                container.classList.add(&#39;shake&#39;);
+            }
+
+            // Generate Explanation
+            let explanation = &#34;&#34;;
+            const commonDivisor = gcd(numberA, numberB);
+
+            if (currentMode === &#39;gcd&#39;) {
+                explanation = `&lt;strong&gt;Дұрыс жауап: ${currentAnswer}&lt;/strong&gt;&lt;br&gt;&lt;br&gt;`;
+                explanation &#43;= `${numberA} және ${numberB} сандарының ең үлкен ортақ бөлгіші - &lt;b&gt;${currentAnswer}&lt;/b&gt;. &lt;br&gt;Себебі екі сан да ${currentAnswer}-ге қалдықсыз бөлінеді және бұдан үлкен ортақ бөлгіш жоқ.`;
+            } else if (currentMode === &#39;lcm&#39;) {
+                explanation = `&lt;strong&gt;Дұрыс жауап: ${currentAnswer}&lt;/strong&gt;&lt;br&gt;&lt;br&gt;`;
+                explanation &#43;= `${numberA} және ${numberB} сандарының ең кіші ортақ еселігі - &lt;b&gt;${currentAnswer}&lt;/b&gt;. &lt;br&gt;Себебі ${currentAnswer} саны ${numberA}-ге де, ${numberB}-ға да бөлінеді.`;
+                // Add calculation hint
+                explanation &#43;= `&lt;br&gt;&lt;span class=&#34;text-sm text-gray-500&#34;&gt;Формула: (${numberA} × ${numberB}) / ЕҮОБ(${commonDivisor}) = ${currentAnswer}&lt;/span&gt;`;
+            } else if (currentMode === &#39;coprime&#39;) {
+                const isCoprime = correctAns; // boolean
+                explanation = `&lt;strong&gt;Дұрыс жауап: ${isCoprime ? &#34;Иә (Өзара жай)&#34; : &#34;Жоқ&#34;}&lt;/strong&gt;&lt;br&gt;&lt;br&gt;`;
+                if (isCoprime) {
+                    explanation &#43;= `Бұл сандардың 1-ден басқа ортақ бөлгіші жоқ, сондықтан олар &lt;b&gt;өзара жай&lt;/b&gt; сандар.`;
+                } else {
+                    explanation &#43;= `Бұл сандар өзара жай ЕМЕС, себебі олардың &lt;b&gt;${commonDivisor}&lt;/b&gt; деген ортақ бөлгіші бар.`;
+                }
+            }
+
+            resultExplanation.innerHTML = explanation;
+            resultArea.classList.remove(&#39;hidden&#39;);
+        }
+
+        // Enter key support
+        userAnswerInput.addEventListener(&#39;keypress&#39;, function (e) {
+            if (e.key === &#39;Enter&#39;) {
+                checkAnswer();
+            }
+        });
+
+        // Confetti Effect
+        function createConfetti() {
+            const colors = [&#39;#ef4444&#39;, &#39;#22c55e&#39;, &#39;#3b82f6&#39;, &#39;#facc15&#39;, &#39;#a855f7&#39;];
+            for (let i = 0; i &lt; 30; i&#43;&#43;) {
+                const confetti = document.createElement(&#39;div&#39;);
+                confetti.classList.add(&#39;confetti&#39;);
+                confetti.style.left = Math.random() * 100 &#43; &#39;vw&#39;;
+                confetti.style.top = &#39;-10px&#39;;
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 2 &#43; 1) &#43; &#39;s&#39;;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() =&gt; confetti.remove(), 3000);
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Бұл файл – «Математикалық Қазына» атты интерактивті веб-ойынның коды. Ойын оқушылардың ЕҮОБ, ЕКОЕ және өзара жай сандар тақырыптарын меңгеру деңгейін тексеруге арналған.
+
+Негізгі ерекшеліктері:
+• Үш ойын режимі: ЕҮОБ, ЕКОЕ және «Өзара жай сандар ма?» сұрағы.
+• Ынталандыру жүйесі: Дұрыс жауапқа ұпай беріліп, анимация (конфетти) көрсетіледі.
+• Кері байланыс: Қате жауап болған жағдайда дұрыс шешімі мен ережесі түсіндіріледі.
+• Дизайн: Tailwind CSS арқылы жасалған заманауи әрі мобильді құрылғыға бейімделген интерфейс.
+
+Мұғалімдер үшін сабақта қолдануға дайын, жеңіл әрі қызықты құрал.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

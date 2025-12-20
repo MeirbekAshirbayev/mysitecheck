@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сандар Сыры Ойыны | VisualMath</title>
+    <meta name="description" content="Бұл – 5-сынып оқушыларына арналған 10 сұрақтық интерактивті жаттығу. Ойын арқылы оқушылар көбейтіндінің, қосындының және айырманың бөлінгіштік қасиеттерін қызықты түрде бекітеді.
+
+Ерекшеліктері:
+✅ Қарапайым ережелер мен логикалық сұрақтар;
+✅ Әр жауаптан кейін қатені түсіндіретін кері байланыс;
+✅ Оқушыны жалықтырмайтын көрнекі дизайн;
+✅ Сабақты қорытындылауға немесе сергіту сәтіне таптырмас құрал.
+
+Сілтемені ашып, біліміңді сынап көр!">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Сандар Сыры Ойыны</span>
+            </div>
+            <a href="/lesson/17"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Сандар сыры: Бөлінгіштіктің сиқырлы әлемі&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: &#39;Comic Sans MS&#39;, &#39;Verdana&#39;, sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 700px; /* Контейнер сәл кеңейтілді */
+            padding: 30px;
+            text-align: center;
+            border: 4px solid #4A90E2;
+        }
+        h1 {
+            color: #4A90E2;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            height: 20px; /* Прогресс бар сәл қалыңдады */
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #7ED321;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .question-box {
+            background-color: #f0f8ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            font-size: 1.5em; /* Сұрақ шрифті үлкейді */
+            color: #333;
+            line-height: 1.4;
+        }
+        .math-expr {
+            font-weight: bold;
+            font-size: 1.3em; /* Формулалар үлкейді */
+            color: #D0021B;
+            display: block;
+            margin: 15px 0;
+        }
+        .options {
+            display: grid;
+            gap: 15px;
+        }
+        .btn {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 20px; /* Батырма іші кеңейді */
+            border-radius: 15px;
+            font-size: 1.6em; /* ЖАУАП ӘРІПТЕРІ ҮЛКЕЙТІЛДІ */
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+            font-family: inherit;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .feedback {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.3em; /* Түсіндірме мәтіні үлкейді */
+            display: none;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+        .feedback.wrong {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+        .next-btn {
+            background-color: #F5A623;
+            margin-top: 25px;
+            display: none;
+            width: 100%; /* Батырманы толық еніне создық */
+            font-size: 1.8em; /* &#34;Келесі&#34; сөзі өте үлкен болды */
+            animation: pulse 1.5s infinite;
+        }
+        .next-btn:hover {
+            background-color: #D48806;
+            animation: none;
+        }
+        .result-screen {
+            display: none;
+        }
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            background-color: #4A90E2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4em;
+            margin: 30px auto;
+            border: 6px solid #F5A623;
+        }
+        .restart-btn {
+            background-color: #7ED321;
+            font-size: 1.5em;
+        }
+        .restart-btn:hover {
+            background-color: #5C9E14;
+        }
+        
+        /* Animation */
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(245, 166, 35, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); }
+        }
+        .anim {
+            animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&#34;container&#34;&gt;
+    &lt;div id=&#34;game-screen&#34;&gt;
+        &lt;h1&gt;🔍 Сандар Ізшісі&lt;/h1&gt;
+        &lt;div class=&#34;progress-bar&#34;&gt;
+            &lt;div class=&#34;progress&#34; id=&#34;progress&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div id=&#34;question-container&#34; class=&#34;anim&#34;&gt;
+            &lt;!-- Question will appear here --&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&#34;feedback&#34; class=&#34;feedback&#34;&gt;&lt;/div&gt;
+        &lt;!-- Келесі сұрақ батырмасы --&gt;
+        &lt;button id=&#34;next-btn&#34; class=&#34;btn next-btn&#34; onclick=&#34;nextQuestion()&#34;&gt;Келесі сұрақ ➡️&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&#34;result-screen&#34; class=&#34;result-screen anim&#34;&gt;
+        &lt;h1&gt;Ойын Аяқталды! 🎉&lt;/h1&gt;
+        &lt;p style=&#34;font-size: 1.5em;&#34;&gt;Сіздің нәтижеңіз:&lt;/p&gt;
+        &lt;div class=&#34;score-circle&#34; id=&#34;final-score&#34;&gt;0/10&lt;/div&gt;
+        &lt;p id=&#34;result-message&#34; style=&#34;font-size: 1.4em; margin-bottom: 30px;&#34;&gt;&lt;/p&gt;
+        &lt;button class=&#34;btn restart-btn&#34; onclick=&#34;restartGame()&#34;&gt;Қайта ойнау 🔄&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    const questions = [
+        {
+            text: &#34;Көбейтіндінің бөлінгіштігін тексер: &lt;span class=&#39;math-expr&#39;&gt;25 \u22C5 17&lt;/span&gt; көбейтіндісі 5-ке бөліне ме?&#34;,
+            options: [&#34;Иә, бөлінеді&#34;, &#34;Жоқ, бөлінбейді&#34;, &#34;Білмеймін&#34;],
+            correct: 0,
+            explanation: &#34;✅ Дұрыс! 25 саны 5-ке бөлінетіндіктен (25 : 5 = 5), бүкіл көбейтінді де 5-ке бөлінеді.&#34;
+        },
+        {
+            text: &#34;Қосындының бөлінгіштігі: &lt;span class=&#39;math-expr&#39;&gt;12 &#43; 18&lt;/span&gt; қосындысы 6-ға бөліне ме?&#34;,
+            options: [&#34;Иә, бөлінеді&#34;, &#34;Жоқ, бөлінбейді&#34;],
+            correct: 0,
+            explanation: &#34;✅ Керемет! 12 де 6-ға бөлінеді, 18 де 6-ға бөлінеді. Демек, қосынды да бөлінеді.&#34;
+        },
+        {
+            text: &#34;Қателікті тап! &lt;span class=&#39;math-expr&#39;&gt;20 &#43; 4&lt;/span&gt; қосындысы 5-ке бөліне ме?&#34;,
+            options: [&#34;Иә&#34;, &#34;Жоқ&#34;],
+            correct: 1,
+            explanation: &#34;⛔️ Дұрыс жауап: Жоқ. 20 саны 5-ке бөлінеді, бірақ 4 саны 5-ке бөлінбейді. Екеуі де бөлінуі керек еді.&#34;
+        },
+        {
+            text: &#34;Айырманың қасиеті: &lt;span class=&#39;math-expr&#39;&gt;88 - 33&lt;/span&gt; айырмасы 11-ге бөліне ме?&#34;,
+            options: [&#34;Иә&#34;, &#34;Жоқ&#34;],
+            correct: 0,
+            explanation: &#34;✅ Дұрыс! 88 де, 33 те 11-ге бөлінеді. Сондықтан айырма да бөлінеді.&#34;
+        },
+        {
+            text: &#34;Сиқырлы қорап: Бір қорапта 100 кәмпит бар (5-ке бөлінеді). Осындай &lt;span class=&#39;math-expr&#39;&gt;7 қораптағы&lt;/span&gt; кәмпиттер саны 5-ке бөліне ме?&#34;,
+            options: [&#34;Әрине, бөлінеді&#34;, &#34;Жоқ&#34;, &#34;Санап көру керек&#34;],
+            correct: 0,
+            explanation: &#34;✅ Дұрыс! Бір қорап бөлінсе, 7 қорап та бөлінеді (Көбейтінді қасиеті).&#34;
+        },
+        {
+            text: &#34;Логикалық сұрақ: Сыныпта 24 ұл және 13 қыз бар. Оларды 4 топқа тең бөлуге бола ма?&#34;,
+            options: [&#34;Болады&#34;, &#34;Болмайды&#34;],
+            correct: 1,
+            explanation: &#34;⛔️ Болмайды. 24 (ұл) 4-ке бөлінеді, бірақ 13 (қыз) 4-ке бөлінбейді. Сондықтан жалпы қосынды бөлінбейді.&#34;
+        },
+        {
+            text: &#34;&lt;span class=&#39;math-expr&#39;&gt;x&lt;/span&gt;-ті тап! Егер &lt;span class=&#39;math-expr&#39;&gt;15 &#43; x&lt;/span&gt; қосындысы 5-ке бөлінсе, &lt;span class=&#39;math-expr&#39;&gt;x&lt;/span&gt; қандай сан болуы мүмкін?&#34;,
+            options: [&#34;7&#34;, &#34;10&#34;, &#34;4&#34;, &#34;12&#34;],
+            correct: 1,
+            explanation: &#34;✅ Дұрыс! 15 саны 5-ке бөлінеді. Қосынды бөлінуі үшін &lt;span class=&#39;math-expr&#39;&gt;x&lt;/span&gt; те 5-ке бөлінетін сан (10) болуы керек.&#34;
+        },
+        {
+            text: &#34;Көбейтінді және әріптер: &lt;span class=&#39;math-expr&#39;&gt;19 \u22C5 a&lt;/span&gt; өрнегі 19-ға бөліне ме?&#34;,
+            options: [&#34;Иә, әрқашан бөлінеді&#34;, &#34;Тек a=1 болса&#34;, &#34;Жоқ&#34;],
+            correct: 0,
+            explanation: &#34;✅ Дұрыс! Көбейткіштердің біреуі (19) 19-ға бөлініп тұр, демек &lt;span class=&#39;math-expr&#39;&gt;a&lt;/span&gt; қандай сан болса да, нәтиже бөлінеді.&#34;
+        },
+        {
+            text: &#34;Тұзақ сұрақ! 3 саны 5-ке бөлінбейді. 7 саны да 5-ке бөлінбейді. Ал &lt;span class=&#39;math-expr&#39;&gt;3 &#43; 7&lt;/span&gt; қосындысы 5-ке бөліне ме?&#34;,
+            options: [&#34;Бөлінбейді&#34;, &#34;Бөлінеді&#34;],
+            correct: 1,
+            explanation: &#34;😲 Күтпеген жағдай! Ереже бойынша кепілдік жоқ, БІРАҚ есептеп көрсек: 3&#43;7=10. Ал 10 саны 5-ке бөлінеді! Кейде екі &#39;тентек&#39; сан қосылып, &#39;тәртіпті&#39; сан шығуы мүмкін.&#34;
+        },
+        {
+            text: &#34;Қорытынды тест: Қай өрнек 9-ға бөлінбейді?&#34;,
+            options: [&#34;18 &#43; 27&#34;, &#34;9 \u22C5 100&#34;, &#34;36 - 9&#34;, &#34;10 &#43; 18&#34;],
+            correct: 3,
+            explanation: &#34;✅ Дұрыс! 18 тоғызға бөлінеді, бірақ 10 тоғызға бөлінбейді. Сондықтан 10&#43;18 тоғызға бөлінбейді.&#34;
+        }
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const q = questions[currentQuestion];
+        const container = document.getElementById(&#34;question-container&#34;);
+        
+        let html = `&lt;div class=&#34;question-box&#34;&gt;${q.text}&lt;/div&gt;&lt;div class=&#34;options&#34;&gt;`;
+        
+        q.options.forEach((opt, index) =&gt; {
+            html &#43;= `&lt;button class=&#34;btn&#34; onclick=&#34;checkAnswer(${index}, this)&#34;&gt;${opt}&lt;/button&gt;`;
+        });
+        
+        html &#43;= `&lt;/div&gt;`;
+        container.innerHTML = html;
+        
+        // Reset feedback
+        document.getElementById(&#34;feedback&#34;).style.display = &#34;none&#34;;
+        document.getElementById(&#34;feedback&#34;).className = &#34;feedback&#34;;
+        document.getElementById(&#34;next-btn&#34;).style.display = &#34;none&#34;;
+        
+        // Update progress
+        document.getElementById(&#34;progress&#34;).style.width = `${((currentQuestion) / questions.length) * 100}%`;
+    }
+
+    function checkAnswer(selectedIndex, btnElement) {
+        // Disable all buttons
+        const buttons = document.querySelectorAll(&#34;.options .btn&#34;);
+        buttons.forEach(btn =&gt; btn.disabled = true);
+
+        const q = questions[currentQuestion];
+        const feedback = document.getElementById(&#34;feedback&#34;);
+        
+        if (selectedIndex === q.correct) {
+            score&#43;&#43;;
+            btnElement.style.backgroundColor = &#34;#7ED321&#34;; // Green
+            feedback.innerHTML = q.explanation;
+            feedback.className = &#34;feedback correct&#34;;
+        } else {
+            btnElement.style.backgroundColor = &#34;#D0021B&#34;; // Red
+            feedback.innerHTML = q.explanation;
+            feedback.className = &#34;feedback wrong&#34;;
+            // Highlight correct answer
+            buttons[q.correct].style.backgroundColor = &#34;#7ED321&#34;;
+        }
+        
+        feedback.style.display = &#34;block&#34;;
+        document.getElementById(&#34;next-btn&#34;).style.display = &#34;inline-block&#34;;
+    }
+
+    function nextQuestion() {
+        currentQuestion&#43;&#43;;
+        if (currentQuestion &lt; questions.length) {
+            loadQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.getElementById(&#34;game-screen&#34;).style.display = &#34;none&#34;;
+        document.getElementById(&#34;result-screen&#34;).style.display = &#34;block&#34;;
+        document.getElementById(&#34;final-score&#34;).innerText = `${score}/${questions.length}`;
+        
+        let msg = &#34;&#34;;
+        if (score === 10) msg = &#34;Керемет! Сіз нағыз математиксіз! 🏆&#34;;
+        else if (score &gt;= 7) msg = &#34;Жақсы нәтиже! Тақырыпты жақсы түсіндіңіз. 👍&#34;;
+        else msg = &#34;Тағы да қайталап көрейік! Сіздің қолыңыздан келеді! 💪&#34;;
+        
+        document.getElementById(&#34;result-message&#34;).innerText = msg;
+    }
+
+    function restartGame() {
+        currentQuestion = 0;
+        score = 0;
+        document.getElementById(&#34;result-screen&#34;).style.display = &#34;none&#34;;
+        document.getElementById(&#34;game-screen&#34;).style.display = &#34;block&#34;;
+        loadQuestion();
+    }
+
+    // Start game
+    loadQuestion();
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Бұл – 5-сынып оқушыларына арналған 10 сұрақтық интерактивті жаттығу. Ойын арқылы оқушылар көбейтіндінің, қосындының және айырманың бөлінгіштік қасиеттерін қызықты түрде бекітеді.
+
+Ерекшеліктері:
+✅ Қарапайым ережелер мен логикалық сұрақтар;
+✅ Әр жауаптан кейін қатені түсіндіретін кері байланыс;
+✅ Оқушыны жалықтырмайтын көрнекі дизайн;
+✅ Сабақты қорытындылауға немесе сергіту сәтіне таптырмас құрал.
+
+Сілтемені ашып, біліміңді сынап көр!</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

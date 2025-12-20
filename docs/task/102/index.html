@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математикалық Метеориттер | VisualMath</title>
+    <meta name="description" content="&#34;Математикалық Метеориттер&#34; — бұл натурал сандардың бөлінгіштік белгілерін (2, 3, 5, 9, 10) бекітуге арналған интерактивті ойын.
+
+Тапсырманың мазмұны:
+Оқушы ғарыш кеңістігінде ұшып жүрген сандар ағынына тап болады. Экранда ағымдағы ереже көрсетіледі (мысалы, &#34;3-ке бөлінетін сандар&#34;). Оқушының міндеті — осы ережеге сәйкес келетін сандарды ғана таңдау.
+
+Орындау тәсілі:
+Ойыншы дұрыс сандарды тінтуірмен басуы немесе сенсорлы экранда саусақпен сырғыту (свайп) арқылы жинауы керек.
+
+Ережелер:
+
+Дұрыс жауап ұпай қосады.
+
+Қате жауап &#34;өмірді&#34; азайтады.
+
+Әр 50 ұпай сайын деңгей көтеріліп, бөлінгіштік ережесі өзгереді.
+
+3 пен 9-ға бөлінгіштікті тексеру қиынырақ болғандықтан, ол деңгейлерде сандардың түсу жылдамдығы бәсеңдейді.
+
+Бұл тапсырма оқушылардың математикалық логикасын және шешім қабылдау жылдамдығын дамытады.">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Математикалық Метеориттер</span>
+            </div>
+            <a href="/lesson/18"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Математикалық Метеориттер&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Press&#43;Start&#43;2P&amp;family=Roboto:wght@400;700&amp;display=swap&#39;);
+
+        body {
+            font-family: &#39;Roboto&#39;, sans-serif;
+            overflow: hidden;
+            background-color: #0f172a;
+            color: white;
+            touch-action: none; /* Маңызды: экранды жылжытуды блоктайды */
+        }
+
+        .pixel-font {
+            font-family: &#39;Press Start 2P&#39;, cursive;
+        }
+
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+            touch-action: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .meteor {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-family: &#39;Press Start 2P&#39;, cursive;
+            cursor: pointer;
+            transition: transform 0.1s;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            user-select: none;
+            z-index: 10;
+        }
+
+        .meteor:active {
+            transform: scale(0.9);
+        }
+
+        .meteor-tail {
+            position: absolute;
+            top: -20px;
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to top, rgba(255,255,255,0.5), transparent);
+        }
+
+        /* Particle effects */
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: explode 0.6s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .hud-text {
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        /* Modals */
+        .modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            backdrop-filter: blur(5px);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+            border: 4px solid #1d4ed8;
+            color: white;
+            padding: 15px 30px;
+            font-family: &#39;Press Start 2P&#39;, cursive;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s;
+            text-transform: uppercase;
+            box-shadow: 0 6px 0 #1e40af;
+        }
+
+        .btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #1e40af;
+        }
+
+        .btn-secondary {
+            background: #4b5563;
+            border-color: #374151;
+            box-shadow: 0 6px 0 #1f2937;
+            font-size: 12px;
+            padding: 10px 20px;
+        }
+        
+        .btn-secondary:active {
+            box-shadow: 0 2px 0 #1f2937;
+        }
+
+        .correct-anim {
+            color: #4ade80 !important;
+            transform: scale(1.5);
+            text-shadow: 0 0 20px #4ade80;
+        }
+        
+        .wrong-anim {
+            color: #ef4444 !important;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id=&#34;game-container&#34;&gt;
+    &lt;!-- Background Stars (Generated by JS) --&gt;
+    
+    &lt;!-- Game Elements Area --&gt;
+    &lt;div id=&#34;game-area&#34; class=&#34;w-full h-full absolute top-0 left-0&#34;&gt;&lt;/div&gt;
+
+    &lt;!-- UI HUD --&gt;
+    &lt;div id=&#34;ui-layer&#34; class=&#34;flex flex-col justify-between p-4&#34;&gt;
+        &lt;div class=&#34;flex justify-between items-start w-full&#34;&gt;
+            &lt;div class=&#34;text-left&#34;&gt;
+                &lt;div class=&#34;pixel-font text-yellow-400 text-sm mb-2&#34;&gt;ҰПАЙ: &lt;span id=&#34;score&#34;&gt;0&lt;/span&gt;&lt;/div&gt;
+                &lt;div class=&#34;pixel-font text-red-400 text-sm&#34;&gt;ӨМІР: &lt;span id=&#34;lives&#34;&gt;❤❤❤&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            
+            &lt;button onclick=&#34;togglePause()&#34; class=&#34;pointer-events-auto bg-slate-700 hover:bg-slate-600 text-white p-2 rounded border-2 border-slate-500&#34;&gt;
+                ❚❚
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Current Mission Display --&gt;
+        &lt;div class=&#34;absolute top-16 left-0 w-full text-center pointer-events-none&#34;&gt;
+            &lt;div class=&#34;inline-block bg-slate-800/80 border-2 border-blue-500 rounded-lg px-6 py-3 backdrop-blur-sm&#34;&gt;
+                &lt;div class=&#34;text-gray-400 text-xs uppercase tracking-widest mb-1&#34;&gt;Ағымдағы тапсырма&lt;/div&gt;
+                &lt;div id=&#34;mission-text&#34; class=&#34;text-2xl md:text-3xl font-bold text-white pixel-font text-shadow&#34;&gt;
+                    ...
+                &lt;/div&gt;
+                &lt;div id=&#34;mission-hint&#34; class=&#34;text-blue-300 text-sm mt-1 font-mono&#34;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Bottom Controls for Mobile (Optional visual anchor) --&gt;
+        &lt;div class=&#34;w-full text-center pb-4 opacity-50 text-xs&#34;&gt;
+            Мақсатты сандарды бас немесе үстінен жүргіз!
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Start Screen --&gt;
+    &lt;div id=&#34;start-screen&#34; class=&#34;modal&#34;&gt;
+        &lt;h1 class=&#34;pixel-font text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-8 text-center leading-tight tracking-wider&#34;&gt;
+            МАТЕМАТИКАЛЫҚ&lt;br&gt;МЕТЕОРИТТЕР
+        &lt;/h1&gt;
+        &lt;div class=&#34;bg-slate-800 p-6 rounded-lg border-2 border-slate-600 max-w-2xl text-center mb-8 mx-4&#34;&gt;
+            &lt;p class=&#34;mb-4 text-2xl font-bold text-white&#34;&gt;Ғарыш кемесіне жанармай керек!&lt;/p&gt;
+            &lt;p class=&#34;text-gray-300 text-lg mb-6&#34;&gt;Берілген ережеге сәйкес келетін сандарды жинап, ұпай жина.&lt;/p&gt;
+            &lt;div class=&#34;grid grid-cols-2 gap-4 text-left text-base bg-slate-900 p-5 rounded border border-slate-700&#34;&gt;
+                &lt;div class=&#34;text-green-400 font-bold&#34;&gt;2-ге бөлінеді:&lt;/div&gt; &lt;div&gt;0, 2, 4, 6, 8-ге аяқталса&lt;/div&gt;
+                &lt;div class=&#34;text-green-400 font-bold&#34;&gt;5-ке бөлінеді:&lt;/div&gt; &lt;div&gt;0 немесе 5-ке аяқталса&lt;/div&gt;
+                &lt;div class=&#34;text-green-400 font-bold&#34;&gt;10-ға бөлінеді:&lt;/div&gt; &lt;div&gt;0-ге аяқталса&lt;/div&gt;
+                &lt;div class=&#34;text-green-400 font-bold&#34;&gt;3-ке бөлінеді:&lt;/div&gt; &lt;div&gt;Цифрларының қосындысы 3-ке бөлінсе&lt;/div&gt;
+                &lt;div class=&#34;text-green-400 font-bold&#34;&gt;9-ға бөлінеді:&lt;/div&gt; &lt;div&gt;Цифрларының қосындысы 9-ға бөлінсе&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;btn text-xl px-8 py-4&#34; onclick=&#34;startGame()&#34;&gt;ОЙЫНДЫ БАСТАУ&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Game Over Screen --&gt;
+    &lt;div id=&#34;game-over-screen&#34; class=&#34;modal hidden&#34;&gt;
+        &lt;h2 class=&#34;pixel-font text-red-500 text-4xl mb-4&#34;&gt;ОЙЫН АЯҚТАЛДЫ&lt;/h2&gt;
+        &lt;p class=&#34;text-xl mb-6&#34;&gt;Сіздің нәтижеңіз: &lt;span id=&#34;final-score&#34; class=&#34;text-yellow-400 font-bold&#34;&gt;0&lt;/span&gt;&lt;/p&gt;
+        &lt;div class=&#34;flex gap-4&#34;&gt;
+            &lt;button class=&#34;btn&#34; onclick=&#34;resetGame()&#34;&gt;ҚАЙТА ОЙНАУ&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Pause Screen --&gt;
+    &lt;div id=&#34;pause-screen&#34; class=&#34;modal hidden&#34;&gt;
+        &lt;h2 class=&#34;pixel-font text-white text-3xl mb-8&#34;&gt;ҮЗІЛІС&lt;/h2&gt;
+        &lt;button class=&#34;btn&#34; onclick=&#34;togglePause()&#34;&gt;ЖАЛҒАСТЫРУ&lt;/button&gt;
+        &lt;button class=&#34;btn btn-secondary mt-4&#34; onclick=&#34;location.reload()&#34;&gt;ШЫҒУ&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Level Up Notification --&gt;
+    &lt;div id=&#34;level-up&#34; class=&#34;absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden z-40 text-center&#34;&gt;
+        &lt;h3 class=&#34;pixel-font text-yellow-300 text-3xl animate-bounce&#34;&gt;КЕРЕМЕТ!&lt;/h3&gt;
+        &lt;p class=&#34;text-white text-xl&#34;&gt;Келесі деңгей!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // Game State
+    const state = {
+        isPlaying: false,
+        isPaused: false,
+        score: 0,
+        lives: 3,
+        level: 1,
+        spawnRate: 2000,
+        fallSpeed: 2, // pixels per frame approx
+        currentDivisor: 2,
+        meteors: [],
+        lastTime: 0,
+        spawnTimer: 0,
+        isMouseDown: false // For drag interaction
+    };
+
+    const canvas = document.getElementById(&#39;game-container&#39;);
+    const gameArea = document.getElementById(&#39;game-area&#39;);
+    
+    // Divisors to cycle through: 2, 5, 10, 3, 9, and then random
+    const levels = [
+        { divisor: 2, hint: &#34;Жұп сандар (соңы 0,2,4,6,8)&#34; },
+        { divisor: 5, hint: &#34;Соңы 0 немесе 5&#34; },
+        { divisor: 10, hint: &#34;Соңы 0&#34; },
+        { divisor: 3, hint: &#34;Цифрлардың қосындысы 3-ке бөлінеді&#34; },
+        { divisor: 9, hint: &#34;Цифрлардың қосындысы 9-ға бөлінеді&#34; },
+        { divisor: &#39;mixed&#39;, hint: &#34;Назар аудар! Ереже өзгереді!&#34; }
+    ];
+
+    // Audio Context (Synthesized sounds to avoid external assets)
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx = new AudioContext();
+
+    function playSound(type) {
+        if (audioCtx.state === &#39;suspended&#39;) audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+
+        if (type === &#39;good&#39;) {
+            osc.type = &#39;sine&#39;;
+            osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime &#43; 0.1);
+            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime &#43; 0.1);
+            osc.start();
+            osc.stop(audioCtx.currentTime &#43; 0.1);
+        } else if (type === &#39;bad&#39;) {
+            osc.type = &#39;sawtooth&#39;;
+            osc.frequency.setValueAtTime(150, audioCtx.currentTime);
+            osc.frequency.linearRampToValueAtTime(50, audioCtx.currentTime &#43; 0.2);
+            gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime &#43; 0.2);
+            osc.start();
+            osc.stop(audioCtx.currentTime &#43; 0.2);
+        } else if (type === &#39;levelup&#39;) {
+            osc.type = &#39;square&#39;;
+            osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+            osc.frequency.setValueAtTime(600, audioCtx.currentTime &#43; 0.1);
+            osc.frequency.setValueAtTime(1000, audioCtx.currentTime &#43; 0.2);
+            gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime &#43; 0.5);
+            osc.start();
+            osc.stop(audioCtx.currentTime &#43; 0.5);
+        }
+    }
+
+    // Initialization
+    function init() {
+        createStars();
+        setupInputHandlers();
+        document.getElementById(&#39;start-screen&#39;).classList.remove(&#39;hidden&#39;);
+        document.getElementById(&#39;game-over-screen&#39;).classList.add(&#39;hidden&#39;);
+        document.getElementById(&#39;pause-screen&#39;).classList.add(&#39;hidden&#39;);
+    }
+
+    function setupInputHandlers() {
+        // Global input handling for swipe/drag support
+        const container = document.getElementById(&#39;game-container&#39;);
+        
+        // Mouse Drag
+        container.addEventListener(&#39;mousedown&#39;, () =&gt; state.isMouseDown = true);
+        container.addEventListener(&#39;mouseup&#39;, () =&gt; state.isMouseDown = false);
+        container.addEventListener(&#39;mouseleave&#39;, () =&gt; state.isMouseDown = false);
+        container.addEventListener(&#39;mousemove&#39;, (e) =&gt; {
+            if (state.isMouseDown) checkCollision(e.clientX, e.clientY);
+        });
+
+        // Touch Swipe
+        container.addEventListener(&#39;touchmove&#39;, (e) =&gt; {
+            e.preventDefault(); // Prevent scrolling
+            for (let i = 0; i &lt; e.touches.length; i&#43;&#43;) {
+                const touch = e.touches[i];
+                checkCollision(touch.clientX, touch.clientY);
+            }
+        }, { passive: false });
+    }
+
+    // Check if point x,y is inside any active meteor
+    function checkCollision(x, y) {
+        state.meteors.forEach(m =&gt; {
+            if (!m.active) return;
+            const rect = m.el.getBoundingClientRect();
+            // Expanded hit box for easier interaction
+            const padding = 10;
+            if (x &gt;= rect.left - padding &amp;&amp; x &lt;= rect.right &#43; padding &amp;&amp; 
+                y &gt;= rect.top - padding &amp;&amp; y &lt;= rect.bottom &#43; padding) {
+                handleInteraction(null, m);
+            }
+        });
+    }
+
+    function createStars() {
+        for(let i=0; i&lt;50; i&#43;&#43;) {
+            const star = document.createElement(&#39;div&#39;);
+            star.className = &#39;star&#39;;
+            star.style.left = Math.random() * 100 &#43; &#39;%&#39;;
+            star.style.top = Math.random() * 100 &#43; &#39;%&#39;;
+            const size = Math.random() * 3 &#43; 1;
+            star.style.width = size &#43; &#39;px&#39;;
+            star.style.height = size &#43; &#39;px&#39;;
+            star.style.animationDuration = (Math.random() * 3 &#43; 2) &#43; &#39;s&#39;;
+            canvas.insertBefore(star, canvas.firstChild);
+        }
+    }
+
+    function startGame() {
+        state.isPlaying = true;
+        state.score = 0;
+        state.lives = 3;
+        state.level = 0;
+        state.meteors = [];
+        state.spawnRate = 2000;
+        state.fallSpeed = 1.5; // Start slow
+        gameArea.innerHTML = &#39;&#39;; // Clear board
+        updateHUD();
+        setMission(0);
+        
+        document.getElementById(&#39;start-screen&#39;).classList.add(&#39;hidden&#39;);
+        document.getElementById(&#39;game-over-screen&#39;).classList.add(&#39;hidden&#39;);
+        
+        requestAnimationFrame(gameLoop);
+    }
+
+    function resetGame() {
+        startGame();
+    }
+
+    function togglePause() {
+        if (!state.isPlaying) return;
+        state.isPaused = !state.isPaused;
+        const pauseScreen = document.getElementById(&#39;pause-screen&#39;);
+        if (state.isPaused) {
+            pauseScreen.classList.remove(&#39;hidden&#39;);
+        } else {
+            pauseScreen.classList.add(&#39;hidden&#39;);
+            state.lastTime = performance.now(); // Reset time to prevent huge jump
+            requestAnimationFrame(gameLoop);
+        }
+    }
+
+    function setMission(levelIndex) {
+        if (levelIndex &gt;= levels.length) levelIndex = levels.length - 1; // Cap at mixed
+        
+        const config = levels[levelIndex];
+        
+        if (config.divisor === &#39;mixed&#39;) {
+            // Pick a random rule for mixed mode
+            const randomDivs = [2, 3, 5, 9, 10];
+            state.currentDivisor = randomDivs[Math.floor(Math.random() * randomDivs.length)];
+            document.getElementById(&#39;mission-text&#39;).innerHTML = `&lt;span class=&#34;text-purple-400&#34;&gt;${state.currentDivisor}&lt;/span&gt;-ге бөлінетін сандар!`;
+            document.getElementById(&#39;mission-hint&#39;).innerText = &#34;Тез ойлан!&#34;;
+        } else {
+            state.currentDivisor = config.divisor;
+            document.getElementById(&#39;mission-text&#39;).innerText = `${state.currentDivisor}-ге бөлінетін сандар!`;
+            document.getElementById(&#39;mission-hint&#39;).innerText = config.hint;
+        }
+
+        // Difficulty scaling
+        let baseSpeed = 1.5 &#43; (levelIndex * 0.5);
+        
+        // 3 және 9 сандарына бөлінгішті тексеру қиынырақ болғандықтан, жылдамдықты 1.5 есе азайтамыз
+        if (state.currentDivisor === 3 || state.currentDivisor === 9) {
+            baseSpeed = baseSpeed / 1.5;
+        }
+
+        state.fallSpeed = baseSpeed;
+        state.spawnRate = Math.max(800, 2000 - (levelIndex * 300));
+    }
+
+    function generateNumber(targetDivisor) {
+        // 50% chance to spawn a correct number, 50% random
+        const wantCorrect = Math.random() &gt; 0.5;
+        let num;
+        
+        if (wantCorrect) {
+            // Generate a correct number
+            const multiplier = Math.floor(Math.random() * 30) &#43; 1; // 1 to 30
+            num = targetDivisor * multiplier;
+        } else {
+            // Generate a likely incorrect number
+            num = Math.floor(Math.random() * 300) &#43; 1;
+            // Retry once if we accidentally got a correct one
+            if (num % targetDivisor === 0) {
+                num = Math.floor(Math.random() * 300) &#43; 1;
+            }
+        }
+        return num;
+    }
+
+    function spawnMeteor() {
+        const num = generateNumber(state.currentDivisor);
+        const meteor = document.createElement(&#39;div&#39;);
+        
+        // Visuals - Increased size slightly for easier touch
+        const size = Math.random() * 20 &#43; 80; // 80-100px (was 60-80)
+        const colors = [&#39;bg-slate-700&#39;, &#39;bg-gray-600&#39;, &#39;bg-zinc-700&#39;];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        meteor.className = `meteor ${randomColor} text-white border-2 border-slate-400`;
+        meteor.style.width = size &#43; &#39;px&#39;;
+        meteor.style.height = size &#43; &#39;px&#39;;
+        meteor.style.left = Math.random() * (window.innerWidth - size) &#43; &#39;px&#39;;
+        meteor.style.top = &#39;-100px&#39;;
+        meteor.style.fontSize = &#39;24px&#39;; // Larger font
+        meteor.innerText = num;
+        
+        // Add tail
+        const tail = document.createElement(&#39;div&#39;);
+        tail.className = &#39;meteor-tail&#39;;
+        meteor.appendChild(tail);
+
+        // Data
+        const meteorObj = {
+            el: meteor,
+            value: num,
+            y: -100,
+            speed: state.fallSpeed &#43; (Math.random() * 0.5), // variance
+            active: true
+        };
+
+        // Direct Click/Tap Events (still needed for simple taps)
+        meteor.addEventListener(&#39;mousedown&#39;, (e) =&gt; handleInteraction(e, meteorObj));
+        meteor.addEventListener(&#39;touchstart&#39;, (e) =&gt; {
+            // e.preventDefault(); // Removed to allow container touchmove to work better in some cases, 
+            // but we handle touchmove globally now.
+            handleInteraction(e, meteorObj);
+        });
+
+        gameArea.appendChild(meteor);
+        state.meteors.push(meteorObj);
+    }
+
+    function handleInteraction(e, meteorObj) {
+        if (!state.isPlaying || state.isPaused || !meteorObj.active) return;
+        
+        // e might be null if called from swipe/drag logic
+        if(e &amp;&amp; e.type === &#39;touchstart&#39;) e.preventDefault();
+
+        meteorObj.active = false;
+        const rect = meteorObj.el.getBoundingClientRect();
+        
+        // Check correctness
+        if (meteorObj.value % state.currentDivisor === 0) {
+            // Correct!
+            state.score &#43;= 10;
+            playSound(&#39;good&#39;);
+            createExplosion(rect.left &#43; rect.width/2, rect.top &#43; rect.height/2, &#39;#4ade80&#39;);
+            meteorObj.el.classList.add(&#39;correct-anim&#39;);
+            
+            // Check Level Up
+            if (state.score &gt; 0 &amp;&amp; state.score % 50 === 0) {
+                levelUp();
+            }
+        } else {
+            // Wrong!
+            state.lives--;
+            playSound(&#39;bad&#39;);
+            meteorObj.el.classList.add(&#39;wrong-anim&#39;);
+            meteorObj.el.style.backgroundColor = &#39;#ef4444&#39;;
+        }
+
+        updateHUD();
+        
+        // Remove after animation
+        setTimeout(() =&gt; {
+            if (meteorObj.el &amp;&amp; meteorObj.el.parentNode) {
+                meteorObj.el.parentNode.removeChild(meteorObj.el);
+            }
+            state.meteors = state.meteors.filter(m =&gt; m !== meteorObj);
+            
+            if (state.lives &lt;= 0) gameOver();
+        }, 300);
+    }
+
+    function createExplosion(x, y, color) {
+        for (let i = 0; i &lt; 8; i&#43;&#43;) {
+            const particle = document.createElement(&#39;div&#39;);
+            particle.className = &#39;particle&#39;;
+            particle.style.backgroundColor = color;
+            particle.style.left = x &#43; &#39;px&#39;;
+            particle.style.top = y &#43; &#39;px&#39;;
+            
+            const angle = (i / 8) * Math.PI * 2;
+            const velocity = 100;
+            particle.style.setProperty(&#39;--tx&#39;, Math.cos(angle) * velocity &#43; &#39;px&#39;);
+            particle.style.setProperty(&#39;--ty&#39;, Math.sin(angle) * velocity &#43; &#39;px&#39;);
+            
+            gameArea.appendChild(particle);
+            setTimeout(() =&gt; particle.remove(), 600);
+        }
+    }
+
+    function levelUp() {
+        state.level&#43;&#43;;
+        playSound(&#39;levelup&#39;);
+        
+        const notify = document.getElementById(&#39;level-up&#39;);
+        notify.classList.remove(&#39;hidden&#39;);
+        setTimeout(() =&gt; notify.classList.add(&#39;hidden&#39;), 2000);
+
+        setMission(state.level);
+    }
+
+    function updateHUD() {
+        document.getElementById(&#39;score&#39;).innerText = state.score;
+        let hearts = &#39;&#39;;
+        for(let i=0; i&lt;state.lives; i&#43;&#43;) hearts &#43;= &#39;❤&#39;;
+        document.getElementById(&#39;lives&#39;).innerText = hearts;
+    }
+
+    function gameOver() {
+        state.isPlaying = false;
+        document.getElementById(&#39;final-score&#39;).innerText = state.score;
+        document.getElementById(&#39;game-over-screen&#39;).classList.remove(&#39;hidden&#39;);
+    }
+
+    function gameLoop(timestamp) {
+        if (!state.isPlaying || state.isPaused) return;
+
+        const deltaTime = timestamp - state.lastTime;
+        state.lastTime = timestamp;
+
+        // Spawn logic
+        state.spawnTimer &#43;= deltaTime;
+        if (state.spawnTimer &gt; state.spawnRate) {
+            spawnMeteor();
+            state.spawnTimer = 0;
+        }
+
+        // Update Meteors
+        state.meteors.forEach((m, index) =&gt; {
+            if (!m.active) return;
+            
+            m.y &#43;= m.speed * (deltaTime / 16); // Normalize to 60fps
+            m.el.style.transform = `translateY(${m.y}px)`;
+
+            // Check if off screen
+            if (m.y &gt; window.innerHeight) {
+                // If it was a correct number and we missed it, lose a life?
+                // Let&#39;s keep it friendly: Only lose life if you CLICK wrong, 
+                // or maybe punish missing correct ones? 
+                // Decision: For this age group, only punish wrong clicks. 
+                // Missing a correct one is just a missed opportunity.
+                
+                m.active = false;
+                if(m.el.parentNode) m.el.parentNode.removeChild(m.el);
+                state.meteors.splice(index, 1);
+            }
+        });
+
+        requestAnimationFrame(gameLoop);
+    }
+
+    // Initial setup
+    init();
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">"Математикалық Метеориттер" — бұл натурал сандардың бөлінгіштік белгілерін (2, 3, 5, 9, 10) бекітуге арналған интерактивті ойын.
+
+Тапсырманың мазмұны:
+Оқушы ғарыш кеңістігінде ұшып жүрген сандар ағынына тап болады. Экранда ағымдағы ереже көрсетіледі (мысалы, "3-ке бөлінетін сандар"). Оқушының міндеті — осы ережеге сәйкес келетін сандарды ғана таңдау.
+
+Орындау тәсілі:
+Ойыншы дұрыс сандарды тінтуірмен басуы немесе сенсорлы экранда саусақпен сырғыту (свайп) арқылы жинауы керек.
+
+Ережелер:
+
+Дұрыс жауап ұпай қосады.
+
+Қате жауап "өмірді" азайтады.
+
+Әр 50 ұпай сайын деңгей көтеріліп, бөлінгіштік ережесі өзгереді.
+
+3 пен 9-ға бөлінгіштікті тексеру қиынырақ болғандықтан, ол деңгейлерде сандардың түсу жылдамдығы бәсеңдейді.
+
+Бұл тапсырма оқушылардың математикалық логикасын және шешім қабылдау жылдамдығын дамытады.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+

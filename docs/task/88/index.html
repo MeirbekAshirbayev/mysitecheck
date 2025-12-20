@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Суасты Миссиясы (Қос теңсіздік) | VisualMath</title>
+    <meta name="description" content="«Суасты Миссиясы»
+Бұл ойында сен — Капитансың! Сенің мақсатың — қос теңсіздік ережесін сақтап, кемені қауіпсіз басқару. Ол үшін мына 3 тапсырманы орындау керек:
+
+1. Сүңгуірді басқар (Шекараны сақта) Саған екі сан беріледі (мысалы, 20 &lt; x &lt; 60).
+
+Сүңгуірді осы екі санның ортасына қой.
+
+Ескерту: Қызыл сызықтарға (шеткі сандарға) тиюге болмайды!
+
+2. Балық аулау (Сандарды таңда) Судағы сандардың ішінен тек керектісін тап.
+
+Мысалы: егер 4 &lt; x &lt; 9 болса, сен тек 5, 6, 7, 8 сандарын ғана жинайсың.
+
+Шеткі 4 пен 9 сандарын алуға болмайды!
+
+3. Құпия сандық (Кодты тап) Сандықты ашу үшін екі санның арасында неше сан бар екенін сана.
+
+Мысалы: 10 мен 13 арасында (11, 12) екі сан бар. Код: 2.
+
+Алға, Капитан! Тереңдікке сүңгі!">
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Суасты Миссиясы (Қос теңсіздік)</span>
+            </div>
+            <a href="/lesson/4"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Суасты Миссиясы - Қос теңсіздік&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;link href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&amp;display=swap&#39;);
+        
+        body {
+            font-family: &#39;Fredoka&#39;, sans-serif;
+            background-color: #001e3c;
+            /* ТҮЗЕТУ: &#39;auto&#39; орнына &#39;scroll&#39; қолданылды. 
+               Бұл скролл орнын тұрақты сақтайды және жыпылықтауды жояды. */
+            overflow-y: scroll; 
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        /* Bubbles Animation */
+        #bubbles-container {
+            /* ТҮЗЕТУ: Көпіршіктер шекарадан шыққанда скролл тудырмауы үшін */
+            overflow: hidden; 
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: rise infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% { bottom: -10px; transform: translateX(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { bottom: 100vh; transform: translateX(-20px); opacity: 0; }
+        }
+
+        /* Game Container Styles */
+        .glass-panel {
+            background: rgba(13, 37, 63, 0.9); /* Slightly darker for better text contrast */
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(66, 153, 225, 0.3);
+            box-shadow: 0 0 20px rgba(66, 153, 225, 0.2);
+        }
+
+        /* Custom Range Slider */
+        input[type=range][orient=vertical] {
+            writing-mode: bt-lr; /* IE */
+            -webkit-appearance: slider-vertical; /* WebKit */
+            width: 8px;
+            height: 100%;
+            padding: 0 5px;
+        }
+
+        /* Number Bubble Selection */
+        .num-bubble {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .num-bubble:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+        .num-bubble.selected {
+            background-color: #facc15; /* Yellow */
+            color: #000;
+            border-color: #f59e0b;
+            transform: scale(1.15);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.6);
+        }
+
+        /* Submarine Float Animation */
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;min-h-screen flex items-center justify-center relative bg-gradient-to-b from-sky-900 to-slate-900 text-white py-6&#34;&gt;
+
+    &lt;!-- Background Bubbles --&gt;
+    &lt;div id=&#34;bubbles-container&#34; class=&#34;absolute inset-0 pointer-events-none z-0 fixed&#34;&gt;&lt;/div&gt;
+
+    &lt;!-- Main Game Wrapper --&gt;
+    &lt;!-- Changed h-[90vh] to min-h... and flex layout for responsiveness --&gt;
+    &lt;div class=&#34;w-full max-w-5xl min-h-[90vh] md:h-auto flex flex-col md:flex-row gap-4 p-4 z-10 relative&#34;&gt;
+        
+        &lt;!-- Left Panel: Info &amp; Controls --&gt;
+        &lt;!-- Adjusted width and flexibility --&gt;
+        &lt;div class=&#34;w-full md:w-1/3 flex flex-col gap-4 shrink-0&#34;&gt;
+            &lt;!-- Header Card --&gt;
+            &lt;div class=&#34;glass-panel rounded-2xl p-4 md:p-6 text-center&#34;&gt;
+                &lt;div class=&#34;flex items-center justify-center gap-3 mb-2&#34;&gt;
+                    &lt;div class=&#34;bg-sky-500 p-2 rounded-full shadow-lg shadow-sky-500/50&#34;&gt;
+                        &lt;i class=&#34;fas fa-water text-2xl text-white&#34;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;h1 class=&#34;text-xl md:text-2xl font-bold text-white uppercase&#34;&gt;Суасты Миссиясы&lt;/h1&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;flex justify-between text-sm font-semibold text-white bg-slate-800/50 rounded-lg p-2 mt-2 border border-slate-600&#34;&gt;
+                    &lt;div&gt;
+                        &lt;span class=&#34;block text-xs text-slate-200 opacity-90&#34;&gt;Деңгей&lt;/span&gt;
+                        &lt;span id=&#34;level-display&#34; class=&#34;text-yellow-300 text-lg font-bold&#34;&gt;1&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;span class=&#34;block text-xs text-slate-200 opacity-90&#34;&gt;Ұпай&lt;/span&gt;
+                        &lt;span id=&#34;score-display&#34; class=&#34;text-green-300 text-lg font-bold&#34;&gt;0&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Instruction Card --&gt;
+            &lt;div class=&#34;glass-panel rounded-2xl p-4 md:p-6 flex-1 flex flex-col justify-center relative overflow-hidden&#34;&gt;
+                &lt;div class=&#34;absolute top-0 right-0 p-4 opacity-10 pointer-events-none&#34;&gt;
+                    &lt;i class=&#34;fas fa-ship text-6xl md:text-8xl text-white&#34;&gt;&lt;/i&gt;
+                &lt;/div&gt;
+                
+                &lt;h2 class=&#34;text-lg md:text-xl font-bold text-yellow-300 mb-2 md:mb-3&#34; id=&#34;task-title&#34;&gt;Тапсырма&lt;/h2&gt;
+                &lt;p class=&#34;text-base md:text-lg leading-relaxed mb-4 text-white font-medium&#34; id=&#34;task-desc&#34;&gt;
+                    Жүктелуде...
+                &lt;/p&gt;
+                
+                &lt;!-- Mathematical Representation --&gt;
+                &lt;div class=&#34;bg-slate-900/80 rounded-xl p-3 md:p-4 text-center border border-sky-500/50 mb-4 shadow-inner&#34;&gt;
+                    &lt;span id=&#34;math-expression&#34; class=&#34;text-2xl md:text-3xl font-mono font-bold text-sky-300 tracking-wider&#34;&gt;
+                        ...
+                    &lt;/span&gt;
+                &lt;/div&gt;
+
+                &lt;div id=&#34;feedback-area&#34; class=&#34;hidden text-center font-bold p-3 rounded-lg mb-4 text-sm md:text-base&#34;&gt;&lt;/div&gt;
+
+                &lt;div class=&#34;mt-auto&#34;&gt;
+                    &lt;button id=&#34;action-btn&#34; onclick=&#34;checkAnswer()&#34; class=&#34;w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-bold py-3 md:py-4 px-6 rounded-xl shadow-lg shadow-yellow-500/20 transition transform active:scale-95 text-lg flex items-center justify-center gap-2&#34;&gt;
+                        &lt;span&gt;Тексеру&lt;/span&gt; &lt;i class=&#34;fas fa-check-circle&#34;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                    &lt;button id=&#34;next-btn&#34; onclick=&#34;nextLevel()&#34; class=&#34;hidden w-full bg-green-500 hover:bg-green-400 text-white font-bold py-3 md:py-4 px-6 rounded-xl shadow-lg shadow-green-500/20 transition transform active:scale-95 text-lg flex items-center justify-center gap-2 animate-pulse&#34;&gt;
+                        &lt;span&gt;Келесі&lt;/span&gt; &lt;i class=&#34;fas fa-arrow-right&#34;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Right Panel: Visual Playground --&gt;
+        &lt;!-- Added min-h-[400px] to ensure it has height on mobile --&gt;
+        &lt;div class=&#34;w-full md:w-2/3 glass-panel rounded-2xl p-4 relative flex flex-col items-center justify-center overflow-hidden min-h-[400px] md:min-h-auto&#34;&gt;
+            
+            &lt;!-- MODE 1: Submarine Slider (Depth Control) --&gt;
+            &lt;div id=&#34;mode-slider&#34; class=&#34;w-full h-full flex flex-row items-stretch justify-center gap-4 md:gap-8 hidden absolute inset-0 p-4&#34;&gt;
+                &lt;!-- Ruler / Sea --&gt;
+                &lt;div class=&#34;relative w-full max-w-[300px] h-full bg-gradient-to-b from-sky-800/30 to-slate-900/80 rounded-xl border border-sky-700/30 overflow-hidden&#34; id=&#34;sea-container&#34;&gt;
+                    
+                    &lt;!-- Danger Zone Top --&gt;
+                    &lt;div id=&#34;danger-top&#34; class=&#34;absolute top-0 w-full bg-red-500/30 border-b-2 border-red-500/70 flex items-center justify-center transition-all duration-500&#34;&gt;
+                        &lt;span class=&#34;text-white font-bold uppercase text-[10px] md:text-sm tracking-widest drop-shadow-md&#34;&gt;&lt;i class=&#34;fas fa-skull-crossbones&#34;&gt;&lt;/i&gt; Қауіпті&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Safe Zone (Middle) --&gt;
+                    &lt;div id=&#34;safe-zone&#34; class=&#34;absolute w-full bg-green-500/20 border-y-2 border-green-400/70 flex items-center justify-center transition-all duration-500&#34;&gt;
+                        &lt;span class=&#34;text-white font-bold uppercase text-[10px] md:text-sm tracking-widest opacity-90 drop-shadow-md&#34;&gt;Қауіпсіз жол&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Danger Zone Bottom --&gt;
+                    &lt;div id=&#34;danger-bottom&#34; class=&#34;absolute bottom-0 w-full bg-red-500/30 border-t-2 border-red-500/70 flex items-center justify-center transition-all duration-500&#34;&gt;
+                         &lt;span class=&#34;text-white font-bold uppercase text-[10px] md:text-sm tracking-widest drop-shadow-md&#34;&gt;&lt;i class=&#34;fas fa-skull-crossbones&#34;&gt;&lt;/i&gt; Қауіпті&lt;/span&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Submarine --&gt;
+                    &lt;div id=&#34;submarine&#34; class=&#34;absolute left-1/2 transform -translate-x-1/2 transition-all duration-300 ease-out z-10 text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]&#34;&gt;
+                        &lt;div class=&#34;relative&#34;&gt;
+                            &lt;i class=&#34;fas fa-submarine text-4xl md:text-6xl flip-x&#34;&gt;&lt;/i&gt;
+                            &lt;!-- Updated size and positioning for the label --&gt;
+                            &lt;div class=&#34;absolute -right-10 md:-right-12 -top-2 bg-slate-800 text-white text-lg md:text-2xl px-2 py-1 rounded-lg border-2 border-slate-600 font-mono font-bold shadow-md z-20&#34; id=&#34;sub-depth-label&#34;&gt;0&lt;/div&gt;
+                            &lt;!-- Propeller Animation --&gt;
+                            &lt;div class=&#34;absolute -left-1 top-4 w-2 h-6 bg-white/20 blur-sm animate-pulse&#34;&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Grid Lines --&gt;
+                    &lt;div class=&#34;absolute inset-0 z-0 opacity-20&#34; style=&#34;background-image: linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px); background-size: 100% 10%;&#34;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Slider Control --&gt;
+                &lt;div class=&#34;h-full flex flex-col items-center justify-center py-4&#34;&gt;
+                    &lt;input type=&#34;range&#34; id=&#34;depth-slider&#34; min=&#34;0&#34; max=&#34;100&#34; value=&#34;0&#34; orient=&#34;vertical&#34; class=&#34;h-full appearance-none bg-slate-700 w-6 md:w-4 rounded-full outline-none slider-thumb-custom cursor-pointer opacity-80 hover:opacity-100 transition shadow-inner&#34;&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- MODE 2: Fish Selection (Number Set) --&gt;
+            &lt;div id=&#34;mode-selection&#34; class=&#34;w-full h-full flex flex-col items-center justify-center hidden p-2&#34;&gt;
+                &lt;div class=&#34;grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 p-2 w-full max-w-2xl overflow-y-auto max-h-full&#34; id=&#34;fish-grid&#34;&gt;
+                    &lt;!-- Fish will be generated here --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- MODE 3: Code Entry (Count) --&gt;
+            &lt;div id=&#34;mode-code&#34; class=&#34;w-full h-full flex flex-col items-center justify-center hidden&#34;&gt;
+                &lt;div class=&#34;bg-slate-800/90 p-6 md:p-8 rounded-3xl border-2 border-yellow-500/50 shadow-2xl text-center w-full max-w-sm relative mx-4&#34;&gt;
+                    &lt;div class=&#34;absolute -top-6 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-slate-900 p-3 rounded-full border-4 border-slate-800&#34;&gt;
+                        &lt;i class=&#34;fas fa-lock text-2xl&#34;&gt;&lt;/i&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class=&#34;text-lg md:text-xl text-yellow-100 mt-4 mb-6 font-bold&#34;&gt;Құпия сандықты ашу үшін кодты енгіз&lt;/h3&gt;
+                    &lt;p class=&#34;text-white mb-2 text-sm font-medium&#34;&gt;Осы аралықта неше натурал сан бар?&lt;/p&gt;
+                    
+                    &lt;div class=&#34;flex items-center justify-center gap-4 mb-6&#34;&gt;
+                        &lt;button onclick=&#34;adjustCode(-1)&#34; class=&#34;w-12 h-12 bg-slate-700 rounded-xl hover:bg-slate-600 text-2xl font-bold transition flex-shrink-0 text-white&#34;&gt;-&lt;/button&gt;
+                        &lt;input type=&#34;number&#34; id=&#34;code-input&#34; value=&#34;0&#34; readonly class=&#34;w-20 md:w-24 h-16 bg-black text-green-400 text-3xl md:text-4xl font-mono text-center rounded-xl border border-slate-500 focus:outline-none focus:border-green-500 font-bold&#34;&gt;
+                        &lt;button onclick=&#34;adjustCode(1)&#34; class=&#34;w-12 h-12 bg-slate-700 rounded-xl hover:bg-slate-600 text-2xl font-bold transition flex-shrink-0 text-white&#34;&gt;&#43;&lt;/button&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class=&#34;text-sm text-yellow-200 italic bg-slate-900/50 p-2 rounded&#34;&gt;Мысалы: 3 &lt; x &lt; 6 болса, сандар: 4, 5. Жауабы: 2&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Intro Overlay --&gt;
+    &lt;div id=&#34;intro-overlay&#34; class=&#34;absolute inset-0 bg-slate-900/95 z-50 flex flex-col items-center justify-center text-center p-8 fixed&#34;&gt;
+        &lt;div class=&#34;w-24 h-24 md:w-32 md:h-32 bg-sky-600 rounded-full flex items-center justify-center mb-6 shadow-[0_0_50px_rgba(2,132,199,0.5)] float-anim&#34;&gt;
+            &lt;i class=&#34;fas fa-water text-5xl md:text-6xl text-white&#34;&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;h1 class=&#34;text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300 mb-4 drop-shadow-sm filter&#34;&gt;Суасты Миссиясы&lt;/h1&gt;
+        &lt;p class=&#34;text-white text-lg md:text-xl mb-10 max-w-xl font-medium&#34;&gt;
+            Капитан! Біздің суасты сүңгуірімізге көмек керек. Қос теңсіздіктерді шешіп, кедергілерден өтіңіз.
+        &lt;/p&gt;
+        &lt;button onclick=&#34;startGame()&#34; class=&#34;bg-yellow-500 hover:bg-yellow-400 text-slate-900 text-xl md:text-2xl font-bold py-3 md:py-4 px-8 md:px-12 rounded-full shadow-xl transition transform hover:scale-105&#34;&gt;
+            Бастау
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Win Overlay --&gt;
+    &lt;div id=&#34;win-overlay&#34; class=&#34;hidden absolute inset-0 bg-slate-900/95 z-50 flex flex-col items-center justify-center text-center p-8 fixed&#34;&gt;
+        &lt;i class=&#34;fas fa-trophy text-6xl md:text-7xl text-yellow-400 mb-6 drop-shadow-[0_0_30px_rgba(250,204,21,0.6)]&#34;&gt;&lt;/i&gt;
+        &lt;h2 class=&#34;text-3xl md:text-4xl font-black text-white mb-4&#34;&gt;Миссия Аяқталды!&lt;/h2&gt;
+        &lt;p class=&#34;text-white text-lg md:text-xl mb-8&#34;&gt;Сіз нағыз теңсіздіктер шеберісіз!&lt;/p&gt;
+        &lt;div class=&#34;bg-slate-800 px-8 py-4 rounded-xl border border-slate-700 mb-8&#34;&gt;
+            &lt;span class=&#34;text-slate-300 uppercase text-xs tracking-widest font-bold&#34;&gt;Жалпы ұпай&lt;/span&gt;
+            &lt;div class=&#34;text-4xl md:text-5xl font-bold text-white mt-2&#34; id=&#34;final-score&#34;&gt;0&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button onclick=&#34;location.reload()&#34; class=&#34;bg-sky-600 hover:bg-sky-500 text-white font-bold py-3 px-8 rounded-lg transition flex items-center gap-2&#34;&gt;
+            &lt;i class=&#34;fas fa-redo&#34;&gt;&lt;/i&gt; Қайта ойнау
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- Game Config &amp; State ---
+        const LEVELS = [
+            { type: &#39;slider&#39;, min: 20, max: 60, desc: &#34;Сүңгуірді қауіпсіз тереңдікке түсір.&#34; },
+            { type: &#39;slider&#39;, min: 40, max: 80, desc: &#34;Терең үңгір! Көрсетілген аралықта бол.&#34; },
+            { type: &#39;selection&#39;, min: 4, max: 9, desc: &#34;Қос теңсіздікке жататын барлық балықтарды тап.&#34; },
+            { type: &#39;selection&#39;, min: 12, max: 18, desc: &#34;Мына аралықтағы барлық сандарды белгіле.&#34; },
+            { type: &#39;code&#39;, min: 2, max: 6, desc: &#34;Сандықты ашу үшін: Аралықта неше натурал сан бар?&#34; }, // 3,4,5 -&gt; 3
+            { type: &#39;code&#39;, min: 10, max: 17, desc: &#34;Кодты тап: Аралықта неше сан бар?&#34; } // 11..16 -&gt; 6
+        ];
+
+        let currentLevelIdx = 0;
+        let score = 0;
+        let currentTask = {};
+        
+        // --- Init ---
+        function createBubbles() {
+            const container = document.getElementById(&#39;bubbles-container&#39;);
+            for(let i=0; i&lt;20; i&#43;&#43;) {
+                const b = document.createElement(&#39;div&#39;);
+                b.className = &#39;bubble&#39;;
+                b.style.left = Math.random() * 100 &#43; &#39;%&#39;;
+                b.style.width = (Math.random() * 20 &#43; 10) &#43; &#39;px&#39;;
+                b.style.height = b.style.width;
+                b.style.animationDuration = (Math.random() * 5 &#43; 5) &#43; &#39;s&#39;;
+                b.style.animationDelay = (Math.random() * 5) &#43; &#39;s&#39;;
+                container.appendChild(b);
+            }
+        }
+        createBubbles();
+
+        function startGame() {
+            document.getElementById(&#39;intro-overlay&#39;).classList.add(&#39;hidden&#39;);
+            loadLevel(0);
+        }
+
+        // --- Level Logic ---
+        function loadLevel(idx) {
+            currentLevelIdx = idx;
+            const levelConfig = LEVELS[idx];
+            
+            // Randomize range slightly to make replay fun
+            const offset = Math.floor(Math.random() * 5); 
+            const a = levelConfig.min &#43; offset;
+            const b = levelConfig.max &#43; offset;
+
+            currentTask = {
+                type: levelConfig.type,
+                a: a,
+                b: b,
+                desc: levelConfig.desc
+            };
+
+            // UI Updates
+            document.getElementById(&#39;level-display&#39;).innerText = idx &#43; 1;
+            document.getElementById(&#39;task-desc&#39;).innerText = currentTask.desc;
+            document.getElementById(&#39;math-expression&#39;).innerHTML = `${a} &lt; &lt;span class=&#34;text-white&#34;&gt;x&lt;/span&gt; &lt; ${b}`;
+            
+            // Reset Controls
+            document.getElementById(&#39;action-btn&#39;).classList.remove(&#39;hidden&#39;);
+            document.getElementById(&#39;next-btn&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;feedback-area&#39;).classList.add(&#39;hidden&#39;);
+            
+            // Hide all modes first
+            document.getElementById(&#39;mode-slider&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;mode-selection&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;mode-code&#39;).classList.add(&#39;hidden&#39;);
+
+            // Setup specific mode
+            if (currentTask.type === &#39;slider&#39;) setupSliderMode();
+            else if (currentTask.type === &#39;selection&#39;) setupSelectionMode();
+            else if (currentTask.type === &#39;code&#39;) setupCodeMode();
+        }
+
+        function setupSliderMode() {
+            const container = document.getElementById(&#39;mode-slider&#39;);
+            container.classList.remove(&#39;hidden&#39;);
+            
+            const slider = document.getElementById(&#39;depth-slider&#39;);
+            const seaHeight = document.getElementById(&#39;sea-container&#39;).clientHeight;
+            
+            // Set slider context (0 to 100 scale for simplicity of UI)
+            slider.value = 0; 
+            updateSubmarinePos(0);
+            
+            // Visualize Safe Zone
+            const topPercent = currentTask.a; // e.g., 20% from top
+            const bottomPercent = currentTask.b; // e.g., 60% from top (so bottom is 40%)
+            const heightPercent = currentTask.b - currentTask.a;
+
+            const safeZone = document.getElementById(&#39;safe-zone&#39;);
+            const dangerTop = document.getElementById(&#39;danger-top&#39;);
+            const dangerBottom = document.getElementById(&#39;danger-bottom&#39;);
+
+            // Invert logic for visual &#34;Depth&#34;: 0 is top, 100 is bottom.
+            // But CSS &#34;top&#34; works perfectly for depth.
+            safeZone.style.top = currentTask.a &#43; &#39;%&#39;;
+            safeZone.style.height = heightPercent &#43; &#39;%&#39;;
+            
+            dangerTop.style.height = currentTask.a &#43; &#39;%&#39;;
+            dangerBottom.style.height = (100 - currentTask.b) &#43; &#39;%&#39;;
+            
+            // Slider listener
+            slider.oninput = (e) =&gt; updateSubmarinePos(e.target.value);
+        }
+
+        function updateSubmarinePos(val) {
+            const sub = document.getElementById(&#39;submarine&#39;);
+            const label = document.getElementById(&#39;sub-depth-label&#39;);
+            // Clamp visual to container
+            sub.style.top = val &#43; &#39;%&#39;;
+            label.innerText = val &#43; &#39;m&#39;;
+        }
+
+        function setupSelectionMode() {
+            const container = document.getElementById(&#39;mode-selection&#39;);
+            container.classList.remove(&#39;hidden&#39;);
+            const grid = document.getElementById(&#39;fish-grid&#39;);
+            grid.innerHTML = &#39;&#39;;
+
+            // Generate numbers: some inside range, some outside
+            // Range (a, b). Valid are a&#43;1 ... b-1
+            const validNumbers = [];
+            for (let i = currentTask.a &#43; 1; i &lt; currentTask.b; i&#43;&#43;) validNumbers.push(i);
+            
+            const distractors = [
+                currentTask.a, // Boundary (wrong)
+                currentTask.b, // Boundary (wrong)
+                currentTask.a - Math.floor(Math.random()*3 &#43; 1),
+                currentTask.b &#43; Math.floor(Math.random()*3 &#43; 1)
+            ];
+
+            let pool = [...validNumbers, ...distractors];
+            pool = pool.sort(() =&gt; Math.random() - 0.5); // Shuffle
+
+            pool.forEach(num =&gt; {
+                const btn = document.createElement(&#39;div&#39;);
+                btn.className = &#34;num-bubble bg-sky-800 border-2 border-sky-600 rounded-full w-16 h-16 md:w-24 md:h-24 flex items-center justify-center text-xl md:text-2xl font-bold text-white shadow-lg relative shrink-0 cursor-pointer hover:scale-105 transition-transform&#34;;
+                btn.innerHTML = `
+                    &lt;i class=&#34;fas fa-fish absolute text-3xl md:text-4xl text-sky-400 opacity-20&#34;&gt;&lt;/i&gt;
+                    &lt;span class=&#34;z-10&#34;&gt;${num}&lt;/span&gt;
+                `;
+                btn.onclick = () =&gt; btn.classList.toggle(&#39;selected&#39;);
+                btn.dataset.value = num;
+                grid.appendChild(btn);
+            });
+        }
+
+        function setupCodeMode() {
+            const container = document.getElementById(&#39;mode-code&#39;);
+            container.classList.remove(&#39;hidden&#39;);
+            document.getElementById(&#39;code-input&#39;).value = 0;
+        }
+
+        function adjustCode(amount) {
+            const input = document.getElementById(&#39;code-input&#39;);
+            let val = parseInt(input.value) &#43; amount;
+            if(val &lt; 0) val = 0;
+            input.value = val;
+        }
+
+        // --- Checking Logic ---
+        function checkAnswer() {
+            let correct = false;
+            let msg = &#34;&#34;;
+
+            if (currentTask.type === &#39;slider&#39;) {
+                const val = parseInt(document.getElementById(&#39;depth-slider&#39;).value);
+                // Strict inequality: a &lt; val &lt; b
+                if (val &gt; currentTask.a &amp;&amp; val &lt; currentTask.b) {
+                    correct = true;
+                    msg = &#34;Керемет! Сүңгуір қауіпсіз аймақта.&#34;;
+                } else if (val === currentTask.a || val === currentTask.b) {
+                    msg = &#34;Абайла! Шекараға тиіп тұрсың (қатаң теңсіздік)!&#34;;
+                } else {
+                    msg = &#34;Сүңгуірге қауіп төнді!&#34;;
+                }
+            } 
+            else if (currentTask.type === &#39;selection&#39;) {
+                const selected = Array.from(document.querySelectorAll(&#39;.num-bubble.selected&#39;));
+                const selectedVals = selected.map(el =&gt; parseInt(el.dataset.value));
+                
+                const actualValid = [];
+                for(let i = currentTask.a &#43; 1; i &lt; currentTask.b; i&#43;&#43;) actualValid.push(i);
+                
+                // Check if selected match exactly valid
+                const isAllCorrect = selectedVals.every(v =&gt; actualValid.includes(v));
+                const isAllFound = actualValid.every(v =&gt; selectedVals.includes(v));
+
+                if (isAllCorrect &amp;&amp; isAllFound &amp;&amp; selectedVals.length &gt; 0) {
+                    correct = true;
+                    msg = &#34;Жарайсың! Барлық балықтар дұрыс табылды.&#34;;
+                } else {
+                    msg = &#34;Қате! Аралықтағы сандарды мұқият тексер.&#34;;
+                    // Highlight errors visually? Let&#39;s keep it simple.
+                }
+            }
+            else if (currentTask.type === &#39;code&#39;) {
+                const userCount = parseInt(document.getElementById(&#39;code-input&#39;).value);
+                // Count of integers between a and b exclusive is (b - a - 1)
+                const correctCount = currentTask.b - currentTask.a - 1;
+                
+                if (userCount === correctCount) {
+                    correct = true;
+                    msg = &#34;Код дұрыс! Сандық ашылды.&#34;;
+                } else {
+                    msg = `Қате. ${currentTask.a} мен ${currentTask.b} арасында неше сан бар екенін сана.`;
+                }
+            }
+
+            const feedback = document.getElementById(&#39;feedback-area&#39;);
+            feedback.classList.remove(&#39;hidden&#39;);
+            feedback.innerText = msg;
+            
+            if (correct) {
+                feedback.className = &#34;bg-green-500/20 text-green-300 border border-green-500/50 p-3 rounded-lg mb-4 block&#34;;
+                score &#43;= 10;
+                document.getElementById(&#39;score-display&#39;).innerText = score;
+                document.getElementById(&#39;action-btn&#39;).classList.add(&#39;hidden&#39;);
+                document.getElementById(&#39;next-btn&#39;).classList.remove(&#39;hidden&#39;);
+                // Play sound or visual effect here
+            } else {
+                feedback.className = &#34;bg-red-500/20 text-red-300 border border-red-500/50 p-3 rounded-lg mb-4 block&#34;;
+            }
+        }
+
+        function nextLevel() {
+            if (currentLevelIdx &lt; LEVELS.length - 1) {
+                loadLevel(currentLevelIdx &#43; 1);
+            } else {
+                // Win
+                document.getElementById(&#39;win-overlay&#39;).classList.remove(&#39;hidden&#39;);
+                document.getElementById(&#39;final-score&#39;).innerText = score;
+                saveToServer(score, LEVELS.length);
+            }
+        }
+
+        // --- Mock Server Save ---
+        function saveToServer(finalScore, total) {
+            console.log(`Saving score: ${finalScore}/${total}`);
+            // Fetch logic would go here
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">«Суасты Миссиясы»
+Бұл ойында сен — Капитансың! Сенің мақсатың — қос теңсіздік ережесін сақтап, кемені қауіпсіз басқару. Ол үшін мына 3 тапсырманы орындау керек:
+
+1. Сүңгуірді басқар (Шекараны сақта) Саған екі сан беріледі (мысалы, 20 < x < 60).
+
+Сүңгуірді осы екі санның ортасына қой.
+
+Ескерту: Қызыл сызықтарға (шеткі сандарға) тиюге болмайды!
+
+2. Балық аулау (Сандарды таңда) Судағы сандардың ішінен тек керектісін тап.
+
+Мысалы: егер 4 < x < 9 болса, сен тек 5, 6, 7, 8 сандарын ғана жинайсың.
+
+Шеткі 4 пен 9 сандарын алуға болмайды!
+
+3. Құпия сандық (Кодты тап) Сандықты ашу үшін екі санның арасында неше сан бар екенін сана.
+
+Мысалы: 10 мен 13 арасында (11, 12) екі сан бар. Код: 2.
+
+Алға, Капитан! Тереңдікке сүңгі!</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
