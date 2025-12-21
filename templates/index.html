@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisualMath - Математиканы оңай үйрен</title>
+    <meta name="description"
+        content="VisualMath — 5-11 сынып оқушыларына арналған тегін математика платформасы. Интерактивті сабақтар мен тапсырмалар.">
+
+    <!-- Google AdSense Verification -->
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="gradient-bg text-white p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{{ path "/" }}" class="text-2xl font-bold flex items-center gap-2">
+                <span class="text-3xl">📐</span>
+                <span>VisualMath</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 px-4">
+        <div class="container mx-auto text-center max-w-4xl">
+            <div class="animate-float text-6xl mb-6">🎓</div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Математиканы<br>
+                <span class="text-yellow-300">оңай үйрен!</span>
+            </h1>
+            <p class="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+                5-11 сынып оқушыларына арналған тегін интерактивті сабақтар мен қызықты тапсырмалар
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-12">
+
+        <!-- Intro Text -->
+        <div class="max-w-3xl mx-auto mb-12 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Сыныпты таңдаңыз</h2>
+            <p class="text-gray-600 text-lg">
+                Өз сыныбыңызды таңдап, математика әлеміне саяхат жасаңыз!
+            </p>
+        </div>
+
+        <!-- Grade Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {{ range .Grades }}
+            <a href="{{ path "/grade/" }}{{ . }}"
+                class="card-hover block p-8 bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-purple-400 text-center group">
+                <div
+                    class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="text-2xl font-bold text-white">{{ . }}</span>
+                </div>
+                <span class="text-gray-600 font-medium group-hover:text-purple-600 transition-colors">Сынып</span>
+            </a>
+            {{ else }}
+            <p class="col-span-4 text-center text-gray-400 py-12">Әзірге мазмұн жоқ.</p>
+            {{ end }}
+        </div>
+
+        <!-- Features Section -->
+        <div class="mt-20 max-w-5xl mx-auto">
+            <h3 class="text-2xl font-bold text-gray-800 text-center mb-10">Неге VisualMath?</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center card-hover">
+                    <div class="text-4xl mb-4">🎮</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Интерактивті</h4>
+                    <p class="text-gray-600 text-sm">Қызықты тапсырмалар арқылы оқу</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center card-hover">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Ыңғайлы</h4>
+                    <p class="text-gray-600 text-sm">Кез-келген құрылғыда жұмыс істейді</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg text-center card-hover">
+                    <div class="text-4xl mb-4">🆓</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Тегін</h4>
+                    <p class="text-gray-600 text-sm">Барлығы тегін қолжетімді</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- AdSense Display Ad -->
+    <div class="container mx-auto px-4 py-6">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+            data-ad-slot="YYYYYYYYYY" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="{{ path "/privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="{{ path "/terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
