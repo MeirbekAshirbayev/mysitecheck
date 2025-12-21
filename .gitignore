@@ -10,12 +10,3 @@
 !COPYRIGHT.md
 !.gitignore
 
-# Allow source code for development
-!cmd/
-!cmd/**
-!internal/
-!internal/**
-!templates/
-!templates/**
-!go.mod
-!go.sum
