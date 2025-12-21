@@ -150,8 +150,23 @@ func BuildSite(outputDir string, basePath string) error {
 		return fmt.Errorf("failed to generate sitemap: %v", err)
 	}
 
+	// 8. Robots.txt
+	fmt.Println("Generating robots.txt...")
+	if err := generateRobotsTxt(outputDir); err != nil {
+		return fmt.Errorf("failed to generate robots.txt: %v", err)
+	}
+
 	fmt.Println("Build Complete!")
 	return nil
+}
+
+func generateRobotsTxt(outputDir string) error {
+	content := `User-agent: *
+Allow: /
+
+Sitemap: https://meirbekashirbayev.github.io/sitemap.xml
+`
+	return os.WriteFile(filepath.Join(outputDir, "robots.txt"), []byte(content), 0644)
 }
 
 func generateSitemap(outputDir string, paths []string) error {

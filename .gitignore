@@ -1,7 +1,6 @@
 # Ignore everything
 *
 
-
 # But not these files/folders
 !docs/
 !docs/**
@@ -9,4 +8,3 @@
 !LICENSE
 !COPYRIGHT.md
 !.gitignore
-

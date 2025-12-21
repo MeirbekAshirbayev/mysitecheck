@@ -7,6 +7,8 @@
     <title>VisualMath - Математиканы оңай үйрен</title>
     <meta name="description"
         content="VisualMath — 5-11 сынып оқушыларына арналған тегін математика платформасы. Интерактивті сабақтар мен тапсырмалар.">
+    <meta name="keywords"
+        content="математика, geometry, algebra, visual math, интерактивті сабақтар, онлайн оқу, ҰБТ, мектеп, есептер">
 
     <!-- Google AdSense Verification -->
     <meta name="google-adsense-account" content="ca-pub-9724842226086594">
@@ -68,7 +70,7 @@
     <!-- Navbar -->
     <nav class="gradient-bg text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="{{ path "/" }}" class="text-2xl font-bold flex items-center gap-2">
+            <a href="{{ path " /" }}" class="text-2xl font-bold flex items-center gap-2">
                 <span class="text-3xl">📐</span>
                 <span>VisualMath</span>
             </a>
@@ -103,7 +105,7 @@
         <!-- Grade Cards -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {{ range .Grades }}
-            <a href="{{ path "/grade/" }}{{ . }}"
+            <a href="{{ path " /grade/" }}{{ . }}"
                 class="card-hover block p-8 bg-white rounded-2xl shadow-lg border-2 border-transparent hover:border-purple-400 text-center group">
                 <div
                     class="w-16 h-16 mx-auto mb-4 rounded-full gradient-bg flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -153,9 +155,9 @@
             <div class="text-2xl mb-4">📐 VisualMath</div>
             <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
             <div class="space-x-6">
-                <a href="{{ path "/privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                <a href="{{ path " /privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
                     саясаты</a>
-                <a href="{{ path "/terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                <a href="{{ path " /terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
                     шарттары</a>
             </div>
         </div>
@@ -163,4 +165,3 @@
 </body>
 
 </html>
-

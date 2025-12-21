@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Lesson.Title }} | VisualMath</title>
     <meta name="description" content="{{ .Lesson.Description }}">
+    <meta name="keywords"
+        content="{{ .Lesson.Title }}, математика, {{ .Lesson.Grade }} сынып, сабақ, презентация, есептер">
 
     <!-- Google AdSense Verification -->
     <meta name="google-adsense-account" content="ca-pub-9724842226086594">
@@ -57,11 +59,11 @@
     <!-- Navbar -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="{{ path "/" }}" class="text-2xl font-bold flex items-center gap-2 text-purple-600">
+            <a href="{{ path " /" }}" class="text-2xl font-bold flex items-center gap-2 text-purple-600">
                 <span class="text-3xl">📐</span>
                 <span>VisualMath</span>
             </a>
-            <a href="{{ path "/grade/" }}{{ .Lesson.Grade }}"
+            <a href="{{ path " /grade/" }}{{ .Lesson.Grade }}"
                 class="flex items-center gap-2 gradient-bg text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
                 <span>←</span>
                 <span class="hidden sm:inline">{{ .Lesson.Grade }}-Сыныпқа</span>
@@ -127,7 +129,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {{ range .Lesson.Tasks }}
-                <a href="{{ path "/task/" }}{{ .ID }}" target="_blank"
+                <a href="{{ path " /task/" }}{{ .ID }}" target="_blank"
                     class="card-hover block bg-white p-6 rounded-2xl shadow-md border-2 border-transparent hover:border-purple-400">
                     <div class="flex items-center gap-4">
                         <div
@@ -161,9 +163,9 @@
             <div class="text-2xl mb-4">📐 VisualMath</div>
             <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
             <div class="space-x-6">
-                <a href="{{ path "/privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                <a href="{{ path " /privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
                     саясаты</a>
-                <a href="{{ path "/terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                <a href="{{ path " /terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
                     шарттары</a>
             </div>
         </div>
@@ -171,4 +173,3 @@
 </body>
 
 </html>
-

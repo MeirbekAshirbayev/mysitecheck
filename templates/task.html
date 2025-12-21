@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Task.Title }} | VisualMath</title>
     <meta name="description" content="{{ .Task.Description }}">
+    <meta name="keywords" content="{{ .Task.Title }}, математика, есеп, тапсырма, visual math">
 
     <!-- Google AdSense Verification -->
     <meta name="google-adsense-account" content="ca-pub-9724842226086594">
@@ -94,7 +95,7 @@
                 <span class="text-2xl">🎮</span>
                 <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">{{ .Task.Title }}</span>
             </div>
-            <a href="{{ path "/lesson/" }}{{ .Task.LessonID }}"
+            <a href="{{ path " /lesson/" }}{{ .Task.LessonID }}"
                 class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
                 <span>←</span>
                 <span class="hidden sm:inline">Сабаққа оралу</span>
@@ -200,9 +201,9 @@
             <div class="text-2xl mb-4">📐 VisualMath</div>
             <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
             <div class="space-x-6">
-                <a href="{{ path "/privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                <a href="{{ path " /privacy" }}" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
                     саясаты</a>
-                <a href="{{ path "/terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                <a href="{{ path " /terms" }}" class="text-gray-400 hover:text-white transition-colors">Пайдалану
                     шарттары</a>
             </div>
         </div>
@@ -210,4 +211,3 @@
 </body>
 
 </html>
-
