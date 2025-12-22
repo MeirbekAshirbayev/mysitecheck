@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аралас сандар (Тест) | VisualMath</title>
+    <meta name="description" content="Тақырыбы: Аралас сандар әлемі – Интерактивті ойын
+
+Сипаттама:
+Бұл – аралас сандар мен бұрыс бөлшектерді түрлендіру тақырыбын бекітуге арналған интерактивті веб-қосымша. Ойын 10 кезеңнен тұрады, оқушылар есептерді пицца, алма, шырын сияқты өмірлік мысалдар арқылы шығарады.
+
+Ерекшеліктері:
+• Көрнекі анимациялар мен түрлі-түсті дизайн.
+• Жауапты автоматты тексеру және қатемен жұмыс (түсіндірмесі бар).
+• Оқушы жетістігін жұлдызшамен бағалау жүйесі.
+
+Бұл ресурс сабақты қызықты өткізуге және оқушылардың функционалдық сауаттылығын арттыруға өте қолайлы.">
+    <meta name="keywords" content="Аралас сандар (Тест), математика, есеп, тапсырма, visual math">
+
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Аралас сандар (Тест) | VisualMath">
+    <meta property="og:description" content="Тақырыбы: Аралас сандар әлемі – Интерактивті ойын
+
+Сипаттама:
+Бұл – аралас сандар мен бұрыс бөлшектерді түрлендіру тақырыбын бекітуге арналған интерактивті веб-қосымша. Ойын 10 кезеңнен тұрады, оқушылар есептерді пицца, алма, шырын сияқты өмірлік мысалдар арқылы шығарады.
+
+Ерекшеліктері:
+• Көрнекі анимациялар мен түрлі-түсті дизайн.
+• Жауапты автоматты тексеру және қатемен жұмыс (түсіндірмесі бар).
+• Оқушы жетістігін жұлдызшамен бағалау жүйесі.
+
+Бұл ресурс сабақты қызықты өткізуге және оқушылардың функционалдық сауаттылығын арттыруға өте қолайлы.">
+
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "Аралас сандар (Тест)",
+      "description": "Тақырыбы: Аралас сандар әлемі – Интерактивті ойын\r\n\r\nСипаттама:\r\nБұл – аралас сандар мен бұрыс бөлшектерді түрлендіру тақырыбын бекітуге арналған интерактивті веб-қосымша. Ойын 10 кезеңнен тұрады, оқушылар есептерді пицца, алма, шырын сияқты өмірлік мысалдар арқылы шығарады.\r\n\r\nЕрекшеліктері:\r\n• Көрнекі анимациялар мен түрлі-түсті дизайн.\r\n• Жауапты автоматты тексеру және қатемен жұмыс (түсіндірмесі бар).\r\n• Оқушы жетістігін жұлдызшамен бағалау жүйесі.\r\n\r\nБұл ресурс сабақты қызықты өткізуге және оқушылардың функционалдық сауаттылығын арттыруға өте қолайлы.",
+      "inLanguage": "kk",
+      "educationalUse": "Assignment"
+    }
+    </script>
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Аралас сандар (Тест)</span>
+            </div>
+            <a href="/lesson/26"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Аралас сандар: Өмірлік есептер&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;link href=&#34;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css&#34; rel=&#34;stylesheet&#34;&gt;
+    &lt;style&gt;
+        @import url(&#39;https://fonts.googleapis.com/css2?family=Comic&#43;Neue:wght@400;700&amp;display=swap&#39;);
+        body {
+            font-family: &#39;Comic Neue&#39;, cursive, sans-serif;
+            background-color: #f0f9ff;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .animate-bounce-short {
+            animation: bounce 0.5s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        
+        /* Бөлшектерге арналған стиль */
+        .fraction-container {
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            margin: 0 4px;
+        }
+        .whole-number {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-right: 4px;
+        }
+        .fraction {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.85em;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .numerator {
+            border-bottom: 2px solid currentColor;
+            padding: 0 2px;
+            width: 100%;
+            text-align: center;
+        }
+        .denominator {
+            padding: 0 2px;
+            width: 100%;
+            text-align: center;
+        }
+        /* Тек бөлшек (бүтін бөліксіз) */
+        .fraction-only {
+            font-size: 1.2em;
+        }
+        
+        /* Пицца стилі */
+        .pizza-slice {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #d97706; /* қыртысы */
+            position: relative;
+            background: conic-gradient(
+                #fcd34d 0deg 90deg, 
+                #fbbf24 90deg 92deg,
+                #fcd34d 92deg 180deg,
+                #fbbf24 180deg 182deg,
+                #fcd34d 182deg 270deg,
+                #fbbf24 270deg 272deg,
+                #fcd34d 272deg 360deg
+            );
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .pizza-slice::after {
+            content: &#39;&#39;;
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            right: 15%;
+            bottom: 15%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ef4444 10%, transparent 10%),
+                        radial-gradient(circle, #ef4444 10%, transparent 10%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.6;
+        }
+
+        .pizza-3-slice {
+            background: conic-gradient(
+                #fcd34d 0deg 270deg, 
+                transparent 270deg 360deg
+            );
+            border-right-color: transparent; 
+            border-bottom-color: transparent;
+            /* Rotate to make the missing part look nicer */
+            transform: rotate(-45deg); 
+        }
+        
+        /* Шырын топтау */
+        .juice-group {
+            display: flex;
+            background: rgba(255, 166, 0, 0.2);
+            border: 2px dashed orange;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 0 5px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;bg-blue-50 min-h-screen flex items-center justify-center p-4&#34;&gt;
+
+    &lt;!-- Басты контейнер --&gt;
+    &lt;div id=&#34;app&#34; class=&#34;max-w-3xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-blue-400&#34;&gt;
+        
+        &lt;!-- Ойын басы (Start Screen) --&gt;
+        &lt;div id=&#34;start-screen&#34; class=&#34;p-8 text-center space-y-6&#34;&gt;
+            &lt;h1 class=&#34;text-4xl font-bold text-blue-600 mb-4&#34;&gt;Аралас сандар әлемі 🌍&lt;/h1&gt;
+            &lt;div class=&#34;flex justify-center mb-6&#34;&gt;
+                &lt;span class=&#34;text-6xl animate-bounce-short&#34;&gt;🍕&lt;/span&gt;
+                &lt;span class=&#34;text-6xl animate-bounce-short delay-100&#34;&gt;🍫&lt;/span&gt;
+                &lt;span class=&#34;text-6xl animate-bounce-short delay-200&#34;&gt;🥤&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;p class=&#34;text-xl text-gray-600&#34;&gt;Оқушылар! Бүгін біз сандарды түрлендіруді және өмірде қолдануды үйренеміз.&lt;/p&gt;
+            &lt;div class=&#34;bg-yellow-100 p-4 rounded-xl text-lg text-yellow-800 font-bold border-2 border-yellow-300 inline-block&#34;&gt;
+                Бөлшектер енді оқулықтағыдай әдемі жазылады! 
+                &lt;span class=&#34;fraction-container&#34;&gt;&lt;span class=&#34;whole-number&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;fraction&#34;&gt;&lt;span class=&#34;numerator&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;denominator&#34;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;br&gt;
+            &lt;button onclick=&#34;startGame()&#34; class=&#34;bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full text-2xl transition shadow-lg transform active:scale-95 mt-4&#34;&gt;
+                Бастау! 🚀
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Ойын экраны (Game Screen) --&gt;
+        &lt;div id=&#34;game-screen&#34; class=&#34;hidden&#34;&gt;
+            &lt;!-- Прогресс --&gt;
+            &lt;div class=&#34;bg-blue-100 p-4 flex justify-between items-center border-b-2 border-blue-200&#34;&gt;
+                &lt;span class=&#34;font-bold text-blue-700 text-lg&#34;&gt;Кезең: &lt;span id=&#34;level-display&#34;&gt;1&lt;/span&gt;/10&lt;/span&gt;
+                &lt;div class=&#34;flex space-x-1&#34; id=&#34;stars-container&#34;&gt;
+                    &lt;!-- Жұлдыздар осы жерге түседі --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&#34;p-6&#34;&gt;
+                &lt;!-- Сұрақ пен визуализация --&gt;
+                &lt;div id=&#34;question-container&#34; class=&#34;space-y-6&#34;&gt;
+                    &lt;!-- Мазмұны JS арқылы өзгереді --&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Жауап беру аймағы --&gt;
+                &lt;div id=&#34;feedback-area&#34; class=&#34;mt-6 hidden p-4 rounded-xl text-center text-lg font-bold&#34;&gt;&lt;/div&gt;
+                
+                &lt;button id=&#34;next-btn&#34; onclick=&#34;nextLevel()&#34; class=&#34;hidden w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-xl transition&#34;&gt;
+                    Келесі сұрақ ➡️
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Нәтиже экраны (Result Screen) --&gt;
+        &lt;div id=&#34;result-screen&#34; class=&#34;hidden p-8 text-center space-y-6&#34;&gt;
+            &lt;h2 class=&#34;text-3xl font-bold text-purple-600&#34;&gt;Керемет нәтиже! 🎉&lt;/h2&gt;
+            &lt;div class=&#34;text-8xl mb-4&#34;&gt;🏆&lt;/div&gt;
+            &lt;p class=&#34;text-xl text-gray-700&#34;&gt;Сіз аралас сандарды бұрыс бөлшекке айналдыруды меңгердіңіз!&lt;/p&gt;
+            &lt;div id=&#34;final-score&#34; class=&#34;text-2xl font-bold text-green-600 my-4&#34;&gt;&lt;/div&gt;
+            &lt;button onclick=&#34;location.reload()&#34; class=&#34;bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg&#34;&gt;
+                Қайтадан ойнау 🔄
+            &lt;/button&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Бөлшекті HTML форматына айналдыратын көмекші функция
+        function makeFraction(whole, num, den) {
+            let html = &#39;&lt;span class=&#34;fraction-container&#34;&gt;&#39;;
+            if (whole) {
+                html &#43;= `&lt;span class=&#34;whole-number&#34;&gt;${whole}&lt;/span&gt;`;
+            }
+            html &#43;= `&lt;span class=&#34;fraction ${!whole ? &#39;fraction-only&#39; : &#39;&#39;}&#34;&gt;&lt;span class=&#34;numerator&#34;&gt;${num}&lt;/span&gt;&lt;span class=&#34;denominator&#34;&gt;${den}&lt;/span&gt;&lt;/span&gt;`;
+            html &#43;= &#39;&lt;/span&gt;&#39;;
+            return html;
+        }
+
+        // Деректер базасы (Сұрақтар)
+        const levels = [
+            {
+                id: 1,
+                title: &#34;Достарға арналған алмалар 🍎&#34;,
+                description: `Бізде 5 алма бар. Оны 2 досымызға тең бөліп беруіміз керек. Әр балаға қанша алмадан тиеді?`,
+                visual: `
+                    &lt;div class=&#34;flex justify-center space-x-2 mb-4&#34;&gt;
+                        &lt;span class=&#34;text-4xl&#34;&gt;🍎&lt;/span&gt;&lt;span class=&#34;text-4xl&#34;&gt;🍎&lt;/span&gt;
+                        &lt;span class=&#34;text-4xl border-l-2 border-r-2 border-dashed px-2 border-gray-400&#34;&gt;🍎&lt;/span&gt;
+                        &lt;span class=&#34;text-4xl&#34;&gt;🍎&lt;/span&gt;&lt;span class=&#34;text-4xl&#34;&gt;🍎&lt;/span&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: &#34;2 алма&#34;, isCorrect: false },
+                    { text: makeFraction(2, 1, 2) &#43; &#34; (Екі бүтін екіден бір)&#34;, isCorrect: true },
+                    { text: &#34;3 алма&#34;, isCorrect: false },
+                    { text: makeFraction(null, 5, 2) &#43; &#34; (Бұл дұрыс, бірақ аралас сан емес)&#34;, isCorrect: false }
+                ],
+                explanation: `Дұрыс! 5-ті 2-ге бөлсек: ${makeFraction(2, 1, 2)} шығады.`
+            },
+            {
+                id: 2,
+                title: &#34;Пицца кеші 🍕&#34;,
+                description: &#34;Үстелде 7 тілім пицца қалды. Егер бір бүтін пицца 4 тілімнен тұрса, бізде қанша пицца бар?&#34;,
+                visual: `
+                    &lt;div class=&#34;flex flex-col items-center gap-4 mb-4&#34;&gt;
+                        &lt;div class=&#34;flex items-end gap-6&#34;&gt;
+                            &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                &lt;div class=&#34;pizza-slice&#34;&gt;&lt;/div&gt;
+                                &lt;span class=&#34;text-sm font-bold mt-2 text-orange-700&#34;&gt;1 бүтін (4/4)&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                &lt;div class=&#34;pizza-slice pizza-3-slice&#34;&gt;&lt;/div&gt;
+                                &lt;span class=&#34;text-sm font-bold mt-2 text-orange-700&#34;&gt;3 тілім (3/4)&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&#34;text-gray-500 text-sm italic&#34;&gt;Барлығы 7 тілім&lt;/div&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: makeFraction(1, 1, 4), isCorrect: false },
+                    { text: makeFraction(1, 3, 4), isCorrect: true },
+                    { text: makeFraction(2, 1, 4), isCorrect: false },
+                    { text: makeFraction(null, 7, 2), isCorrect: false }
+                ],
+                explanation: `Тамаша! 1 толық пицца және тағы 3 тілім. Жауабы: ${makeFraction(1, 3, 4)}.`
+            },
+            {
+                id: 3,
+                title: &#34;Спорт марафоны 🏃‍♂️&#34;,
+                description: &#34;Әли 3 толық айналым және соңғы айналымның жартысын жүгірді. Оны аралас сан түрінде көрсет.&#34;,
+                visual: `
+                    &lt;div class=&#34;flex justify-center text-3xl mb-2&#34;&gt;
+                         🔄 🔄 🔄 🏁(1/2)
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: makeFraction(3, 1, 4), isCorrect: false },
+                    { text: makeFraction(3, 1, 2), isCorrect: true },
+                    { text: makeFraction(4, 1, 2), isCorrect: false },
+                    { text: makeFraction(2, 1, 2), isCorrect: false }
+                ],
+                explanation: `Жарайсың! 3 бүтін және жартысы: ${makeFraction(3, 1, 2)}.`
+            },
+            {
+                id: 4,
+                title: &#34;Кино уақыты 🎬&#34;,
+                description: &#34;Кино 90 минутқа созылды (60 мин &#43; 30 мин). Бұл сағатпен қанша болады?&#34;,
+                visual: `&lt;div class=&#34;text-center text-4xl mb-4&#34;&gt;⏰ 90 мин&lt;/div&gt;`,
+                options: [
+                    { text: makeFraction(1, 1, 4) &#43; &#34; сағат&#34;, isCorrect: false },
+                    { text: makeFraction(1, 1, 2) &#43; &#34; сағат&#34;, isCorrect: true },
+                    { text: makeFraction(2, 1, 2) &#43; &#34; сағат&#34;, isCorrect: false },
+                    { text: &#34;2 сағат&#34;, isCorrect: false }
+                ],
+                explanation: `Дөп бастың! 60 мин = 1 сағат, 30 мин = жарты сағат. Жауабы: ${makeFraction(1, 1, 2)} сағат.`
+            },
+            {
+                id: 5,
+                title: &#34;Шоколад бөлу (Аралас -&gt; Бұрыс) 🍫&#34;,
+                description: `Анасы ${makeFraction(2, 1, 2)} шоколад сатып алды. Егер әр бүтін шоколадты қақ ортасынан бөлсек, барлығы неше жарты бөлік болады?`,
+                visual: `
+                    &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                        &lt;div class=&#34;flex items-center space-x-4 mb-2&#34;&gt;
+                            &lt;div class=&#34;w-16 h-8 bg-amber-700 rounded border-2 border-white text-white text-xs flex items-center justify-center&#34;&gt;1&lt;/div&gt;
+                            &lt;div class=&#34;w-16 h-8 bg-amber-700 rounded border-2 border-white text-white text-xs flex items-center justify-center&#34;&gt;2&lt;/div&gt;
+                            &lt;div class=&#34;w-8 h-8 bg-amber-700 rounded border-2 border-white text-white text-xs flex items-center justify-center&#34;&gt;1/2&lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&#34;text-2xl text-gray-400&#34;&gt;⬇️ Бөліктерге бөлеміз ⬇️&lt;/div&gt;
+                        &lt;div class=&#34;flex items-center space-x-1 mt-2&#34;&gt;
+                            &lt;div class=&#34;w-8 h-8 bg-amber-600 rounded text-white text-xs flex items-center justify-center&#34;&gt;1/2&lt;/div&gt;
+                            &lt;div class=&#34;w-8 h-8 bg-amber-600 rounded text-white text-xs flex items-center justify-center&#34;&gt;1/2&lt;/div&gt;
+                            &lt;div class=&#34;w-8 h-8 bg-amber-600 rounded text-white text-xs flex items-center justify-center&#34;&gt;1/2&lt;/div&gt;
+                            &lt;div class=&#34;w-8 h-8 bg-amber-600 rounded text-white text-xs flex items-center justify-center&#34;&gt;1/2&lt;/div&gt;
+                            &lt;div class=&#34;w-8 h-8 bg-amber-600 rounded text-white text-xs flex items-center justify-center&#34;&gt;1/2&lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: makeFraction(null, 5, 2), isCorrect: true },
+                    { text: makeFraction(null, 4, 2), isCorrect: false },
+                    { text: makeFraction(null, 3, 2), isCorrect: false },
+                    { text: makeFraction(null, 6, 2), isCorrect: false }
+                ],
+                explanation: `Тамаша! Формула: (2 × 2) &#43; 1 = 5. Жауабы: ${makeFraction(null, 5, 2)}.`
+            },
+            {
+                id: 6,
+                title: &#34;Шырын құю (Бұрыс -&gt; Аралас) 🥤&#34;,
+                description: `Бізде 14 кішкентай стақан шырын бар. Егер 3 кішкентай стақан бір үлкен құмыраны толтырса, барлығы неше толық құмыра шығады және неше стақан артылып қалады?`,
+                visual: `
+                    &lt;div class=&#34;text-center mb-4&#34;&gt;
+                        &lt;div class=&#34;inline-block bg-orange-100 px-4 py-2 rounded-lg border border-orange-300 mb-2&#34;&gt;
+                             14 стақанды 3-ке топтаймыз
+                        &lt;/div&gt;
+                        &lt;div class=&#34;flex flex-wrap justify-center gap-2 items-center text-xl&#34;&gt;
+                            &lt;div class=&#34;juice-group&#34;&gt;🥤🥤🥤&lt;/div&gt;
+                            &lt;div class=&#34;juice-group&#34;&gt;🥤🥤🥤&lt;/div&gt;
+                            &lt;div class=&#34;juice-group&#34;&gt;🥤🥤🥤&lt;/div&gt;
+                            &lt;div class=&#34;juice-group&#34;&gt;🥤🥤🥤&lt;/div&gt;
+                            &lt;div class=&#34;bg-gray-100 p-2 rounded border border-gray-300&#34;&gt;🥤🥤&lt;/div&gt;
+                        &lt;/div&gt;
+                         &lt;div class=&#34;text-xs text-gray-400 mt-1&#34;&gt;4 топ (құмыра) &#43; 2 қалдық&lt;/div&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: makeFraction(5, 1, 3), isCorrect: false },
+                    { text: makeFraction(4, 2, 3), isCorrect: true },
+                    { text: makeFraction(4, 1, 3), isCorrect: false },
+                    { text: makeFraction(3, 2, 3), isCorrect: false }
+                ],
+                explanation: `Керемет! 14-ті 3-ке бөлсек, 4 бүтін (толық құмыра) шығады және 2 стақан артылып қалады. Жауабы: ${makeFraction(4, 2, 3)}.`
+            },
+            {
+                id: 7,
+                title: &#34;Апельсиндер (Бұрыс -&gt; Аралас) 🍊&#34;,
+                description: `Себетте 9 жарты апельсин бар. Бұл неше бүтін апельсин болады?`,
+                visual: `
+                    &lt;div class=&#34;flex flex-wrap justify-center gap-2 mb-4 text-4xl text-orange-500&#34;&gt;
+                        &lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;
+                        &lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;&lt;span&gt;🍊&lt;/span&gt;
+                        &lt;div class=&#34;w-full text-sm text-gray-500 mt-2 text-center&#34;&gt;(Барлығы жартылар)&lt;/div&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: makeFraction(3, 1, 2), isCorrect: false },
+                    { text: makeFraction(4, 1, 2), isCorrect: true },
+                    { text: makeFraction(5, 1, 2), isCorrect: false },
+                    { text: makeFraction(4, 1, 4), isCorrect: false }
+                ],
+                explanation: `Дұрыс! 9-ды 2-ге бөлсек, 4 бүтін шығады және 1 жарты қалады. Жауабы: ${makeFraction(4, 1, 2)}.`
+            },
+            {
+                id: 8,
+                title: &#34;Жіп қию (Аралас -&gt; Бұрыс) 🧶&#34;,
+                description: `Бізде ұзындығы ${makeFraction(3, 1, 4)} метр жіп бар. Егер оны ${makeFraction(null, 1, 4)} метрлік кішкентай бөліктерге қисақ, барлығы неше бөлік шығады?`,
+                visual: `
+                    &lt;div class=&#34;w-full bg-gray-200 h-8 rounded-full relative mb-6 mt-4 border-2 border-gray-400&#34;&gt;
+                        &lt;div class=&#34;absolute top-0 left-0 bg-blue-400 h-full rounded-l-full&#34; style=&#34;width: 81%&#34;&gt;&lt;/div&gt;
+                        &lt;div class=&#34;absolute -top-6 left-0 text-xs font-bold&#34;&gt;0&lt;/div&gt;
+                        &lt;div class=&#34;absolute -top-6 left-1/4 text-xs font-bold&#34;&gt;1м&lt;/div&gt;
+                        &lt;div class=&#34;absolute -top-6 left-2/4 text-xs font-bold&#34;&gt;2м&lt;/div&gt;
+                        &lt;div class=&#34;absolute -top-6 left-3/4 text-xs font-bold&#34;&gt;3м&lt;/div&gt;
+                        
+                        &lt;!-- Dashed lines for quarters --&gt;
+                        &lt;div class=&#34;absolute top-0 bottom-0 border-r border-dashed border-gray-600&#34; style=&#34;left: 6.25%&#34;&gt;&lt;/div&gt;
+                        &lt;div class=&#34;absolute top-0 bottom-0 border-r border-dashed border-gray-600&#34; style=&#34;left: 12.5%&#34;&gt;&lt;/div&gt;
+                        &lt;div class=&#34;absolute top-0 bottom-0 border-r border-dashed border-gray-600&#34; style=&#34;left: 18.75%&#34;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: &#34;13 бөлік&#34;, isCorrect: true },
+                    { text: &#34;12 бөлік&#34;, isCorrect: false },
+                    { text: &#34;11 бөлік&#34;, isCorrect: false },
+                    { text: &#34;7 бөлік&#34;, isCorrect: false }
+                ],
+                explanation: `Тамаша! Формула: (3 × 4) &#43; 1 = 13. Барлығы 13 кішкентай бөлік шығады.`
+            },
+            {
+                id: 9,
+                title: &#34;Демалыс күндері (Бұрыс -&gt; Аралас) 🗓️&#34;,
+                description: `Демалыс 10 күнге созылды. Бір аптада 7 күн бар. Демалыс неше аптаға созылды?`,
+                visual: `
+                    &lt;div class=&#34;text-8xl text-center mb-4 text-blue-300&#34;&gt;📅&lt;/div&gt;
+                `,
+                options: [
+                    { text: makeFraction(1, 2, 7), isCorrect: false },
+                    { text: makeFraction(1, 3, 7), isCorrect: true },
+                    { text: makeFraction(2, 1, 7), isCorrect: false },
+                    { text: &#34;2 апта&#34;, isCorrect: false }
+                ],
+                explanation: `Дұрыс! 10 күн = 7 күн (1 апта) &#43; 3 күн. Жауабы: ${makeFraction(1, 3, 7)} апта.`
+            },
+            {
+                id: 10,
+                title: &#34;Торт кесу (Аралас -&gt; Бұрыс) 🎂&#34;,
+                description: `Дастарханда ${makeFraction(2, 3, 8)} торт бар. Егер әр торт 8 тілімнен тұрса, барлығы неше тілім торт бар?`,
+                visual: `
+                    &lt;div class=&#34;flex justify-center gap-4 text-6xl mb-4&#34;&gt;
+                        &lt;span&gt;🎂&lt;/span&gt;&lt;span&gt;🎂&lt;/span&gt;&lt;span class=&#34;text-4xl opacity-50&#34;&gt;🍰&lt;/span&gt;
+                    &lt;/div&gt;
+                `,
+                options: [
+                    { text: &#34;16 тілім&#34;, isCorrect: false },
+                    { text: &#34;19 тілім&#34;, isCorrect: true },
+                    { text: &#34;21 тілім&#34;, isCorrect: false },
+                    { text: &#34;11 тілім&#34;, isCorrect: false }
+                ],
+                explanation: `Керемет! Формула: (2 × 8) &#43; 3 = 19. Барлығы 19 тілім торт.`
+            }
+        ];
+
+        let currentLevel = 0;
+        let score = 0;
+
+        function startGame() {
+            document.getElementById(&#39;start-screen&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;game-screen&#39;).classList.remove(&#39;hidden&#39;);
+            loadLevel();
+        }
+
+        function loadLevel() {
+            const level = levels[currentLevel];
+            document.getElementById(&#39;level-display&#39;).innerText = level.id;
+            
+            // Render Stars
+            const starsContainer = document.getElementById(&#39;stars-container&#39;);
+            starsContainer.innerHTML = &#39;&#39;;
+            for(let i=0; i&lt;levels.length; i&#43;&#43;) {
+                if(i &lt; score) {
+                    starsContainer.innerHTML &#43;= &#39;&lt;span class=&#34;text-yellow-400 text-xl&#34;&gt;★&lt;/span&gt;&#39;;
+                } else {
+                    starsContainer.innerHTML &#43;= &#39;&lt;span class=&#34;text-gray-300 text-xl&#34;&gt;★&lt;/span&gt;&#39;;
+                }
+            }
+
+            // HTML for options
+            let optionsHtml = &#39;&#39;;
+            level.options.forEach((opt, index) =&gt; {
+                optionsHtml &#43;= `
+                    &lt;button onclick=&#34;checkAnswer(${index})&#34; class=&#34;option-btn w-full bg-white border-2 border-blue-200 hover:bg-blue-50 hover:border-blue-400 text-gray-700 font-bold py-4 px-4 rounded-xl transition mb-3 text-left shadow-sm flex items-center&#34;&gt;
+                        &lt;span class=&#34;mr-3 text-blue-500 font-bold text-xl&#34;&gt;${String.fromCharCode(65&#43;index)})&lt;/span&gt;
+                        &lt;span class=&#34;text-lg&#34;&gt;${opt.text}&lt;/span&gt;
+                    &lt;/button&gt;
+                `;
+            });
+
+            const content = `
+                &lt;div class=&#34;bg-white rounded-xl&#34;&gt;
+                    &lt;h3 class=&#34;text-2xl font-bold text-blue-600 mb-2&#34;&gt;${level.title}&lt;/h3&gt;
+                    &lt;div class=&#34;bg-gray-50 p-4 rounded-xl border border-gray-200 mb-4 min-h-[150px] flex flex-col items-center justify-center&#34;&gt;
+                        ${level.visual}
+                    &lt;/div&gt;
+                    &lt;p class=&#34;text-lg text-gray-800 mb-6 font-medium leading-relaxed&#34;&gt;${level.description}&lt;/p&gt;
+                    &lt;div class=&#34;grid grid-cols-1 md:grid-cols-2 gap-4&#34;&gt;
+                        ${optionsHtml}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+            
+            document.getElementById(&#39;question-container&#39;).innerHTML = content;
+            document.getElementById(&#39;feedback-area&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;next-btn&#39;).classList.add(&#39;hidden&#39;);
+            
+            // Enable buttons
+            const buttons = document.querySelectorAll(&#39;.option-btn&#39;);
+            buttons.forEach(btn =&gt; btn.disabled = false);
+        }
+
+        function checkAnswer(selectedIndex) {
+            const level = levels[currentLevel];
+            const buttons = document.querySelectorAll(&#39;.option-btn&#39;);
+            const feedbackEl = document.getElementById(&#39;feedback-area&#39;);
+            const nextBtn = document.getElementById(&#39;next-btn&#39;);
+
+            // Disable all buttons
+            buttons.forEach(btn =&gt; btn.disabled = true);
+
+            if (level.options[selectedIndex].isCorrect) {
+                // Correct
+                score&#43;&#43;;
+                buttons[selectedIndex].classList.remove(&#39;bg-white&#39;, &#39;hover:bg-blue-50&#39;);
+                buttons[selectedIndex].classList.add(&#39;bg-green-100&#39;, &#39;border-green-500&#39;, &#39;text-green-900&#39;);
+                feedbackEl.innerHTML = `&lt;span class=&#34;text-green-600 text-3xl&#34;&gt;✅&lt;/span&gt;&lt;br&gt;${level.explanation}`;
+                feedbackEl.className = &#34;mt-6 p-4 rounded-xl text-center bg-green-50 border border-green-200 block&#34;;
+            } else {
+                // Incorrect
+                buttons[selectedIndex].classList.remove(&#39;bg-white&#39;, &#39;hover:bg-blue-50&#39;);
+                buttons[selectedIndex].classList.add(&#39;bg-red-100&#39;, &#39;border-red-500&#39;, &#39;text-red-900&#39;);
+                
+                // Highlight correct answer
+                level.options.forEach((opt, idx) =&gt; {
+                    if (opt.isCorrect) {
+                        buttons[idx].classList.remove(&#39;bg-white&#39;);
+                        buttons[idx].classList.add(&#39;bg-green-100&#39;, &#39;border-green-500&#39;);
+                    }
+                });
+
+                feedbackEl.innerHTML = `&lt;span class=&#34;text-red-500 text-3xl&#34;&gt;❌&lt;/span&gt;&lt;br&gt;Қателік кетті. Дұрыс жауап басқа еді. &lt;br&gt;&lt;span class=&#34;text-sm text-gray-600&#34;&gt;${level.explanation}&lt;/span&gt;`;
+                feedbackEl.className = &#34;mt-6 p-4 rounded-xl text-center bg-red-50 border border-red-200 block&#34;;
+            }
+
+            nextBtn.classList.remove(&#39;hidden&#39;);
+        }
+
+        function nextLevel() {
+            currentLevel&#43;&#43;;
+            if (currentLevel &lt; levels.length) {
+                loadLevel();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById(&#39;game-screen&#39;).classList.add(&#39;hidden&#39;);
+            document.getElementById(&#39;result-screen&#39;).classList.remove(&#39;hidden&#39;);
+            
+            const finalScoreEl = document.getElementById(&#39;final-score&#39;);
+            if (score === levels.length) {
+                finalScoreEl.innerHTML = `Керемет! ${score}/${levels.length} &lt;br&gt; Сіз аралас сандардың шеберісіз! 🌟`;
+            } else if (score &gt;= levels.length / 2) {
+                finalScoreEl.innerHTML = `Жақсы! ${score}/${levels.length} &lt;br&gt; Әлі де дайындалу керек! 👍`;
+            } else {
+                finalScoreEl.innerHTML = `Тырысқаныңыз жақсы! ${score}/${levels.length} &lt;br&gt; Тақырыпты қайталау керек! 📚`;
+            }
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Тақырыбы: Аралас сандар әлемі – Интерактивті ойын
+
+Сипаттама:
+Бұл – аралас сандар мен бұрыс бөлшектерді түрлендіру тақырыбын бекітуге арналған интерактивті веб-қосымша. Ойын 10 кезеңнен тұрады, оқушылар есептерді пицца, алма, шырын сияқты өмірлік мысалдар арқылы шығарады.
+
+Ерекшеліктері:
+• Көрнекі анимациялар мен түрлі-түсті дизайн.
+• Жауапты автоматты тексеру және қатемен жұмыс (түсіндірмесі бар).
+• Оқушы жетістігін жұлдызшамен бағалау жүйесі.
+
+Бұл ресурс сабақты қызықты өткізуге және оқушылардың функционалдық сауаттылығын арттыруға өте қолайлы.</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
