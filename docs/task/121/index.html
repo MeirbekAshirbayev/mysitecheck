@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аралас сандар тренажер | VisualMath</title>
+    <meta name="description" content="Сәлем, жас зерттеуші! Алдыңда тұрған бұл тапсырма — сенің шығармашылық әлеуетіңді ашатын ерекше мүмкіндік. Бұл жұмыс арқылы сен тек жаңа мәліметтер алып қана қоймай, алған біліміңді нақты іс жүзінде қолдануды үйренесің.
+
+Бұл тапсырма несімен маңызды?
+
+Зерттеу: Сен нағыз ізденуші секілді мәселенің мәніне үңілесің.
+
+Талдау: Ақпаратты іріктеп, ең маңыздысын таңдайсың.
+
+Шығармашылық: Өз идеяларыңды батыл қосып, ерекше шешімдер ұсынасың.
+
+Әр қадамды мұқият орындап, өз ойыңды еркін білдіруден қорықпа. Сенің көзқарасың өте маңызды! Іске сәт, саған сенеміз! 🚀">
+    <meta name="keywords" content="Аралас сандар тренажер, математика, есеп, тапсырма, visual math">
+
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Аралас сандар тренажер | VisualMath">
+    <meta property="og:description" content="Сәлем, жас зерттеуші! Алдыңда тұрған бұл тапсырма — сенің шығармашылық әлеуетіңді ашатын ерекше мүмкіндік. Бұл жұмыс арқылы сен тек жаңа мәліметтер алып қана қоймай, алған біліміңді нақты іс жүзінде қолдануды үйренесің.
+
+Бұл тапсырма несімен маңызды?
+
+Зерттеу: Сен нағыз ізденуші секілді мәселенің мәніне үңілесің.
+
+Талдау: Ақпаратты іріктеп, ең маңыздысын таңдайсың.
+
+Шығармашылық: Өз идеяларыңды батыл қосып, ерекше шешімдер ұсынасың.
+
+Әр қадамды мұқият орындап, өз ойыңды еркін білдіруден қорықпа. Сенің көзқарасың өте маңызды! Іске сәт, саған сенеміз! 🚀">
+
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "Аралас сандар тренажер",
+      "description": "Сәлем, жас зерттеуші! Алдыңда тұрған бұл тапсырма — сенің шығармашылық әлеуетіңді ашатын ерекше мүмкіндік. Бұл жұмыс арқылы сен тек жаңа мәліметтер алып қана қоймай, алған біліміңді нақты іс жүзінде қолдануды үйренесің.\r\n\r\nБұл тапсырма несімен маңызды?\r\n\r\nЗерттеу: Сен нағыз ізденуші секілді мәселенің мәніне үңілесің.\r\n\r\nТалдау: Ақпаратты іріктеп, ең маңыздысын таңдайсың.\r\n\r\nШығармашылық: Өз идеяларыңды батыл қосып, ерекше шешімдер ұсынасың.\r\n\r\nӘр қадамды мұқият орындап, өз ойыңды еркін білдіруден қорықпа. Сенің көзқарасың өте маңызды! Іске сәт, саған сенеміз! 🚀",
+      "inLanguage": "kk",
+      "educationalUse": "Assignment"
+    }
+    </script>
+
+    
+    <meta name="google-adsense-account" content="ca-pub-9724842226086594">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9724842226086594"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .task-content iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 70vh;
+            min-height: 450px;
+            border: none;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border-radius: 16px;
+            background: white;
+        }
+
+         
+        #fullscreenWrapper:fullscreen {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #fullscreenWrapper:fullscreen iframe {
+            height: 90vh;
+            width: 100%;
+            max-width: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    
+    <nav class="gradient-bg text-white p-3 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">🎮</span>
+                <span class="font-bold text-lg truncate max-w-[200px] sm:max-w-none">Аралас сандар тренажер</span>
+            </div>
+            <a href="/lesson/31"
+                class="flex items-center gap-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors text-sm font-medium">
+                <span>←</span>
+                <span class="hidden sm:inline">Сабаққа оралу</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow task-content">
+
+        
+        <div id="fullscreenWrapper" class="w-full flex flex-col items-center">
+            <iframe id="taskIframe" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;kk&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Аралас сандар тренажеры&lt;/title&gt;
+    &lt;script src=&#34;https://cdn.tailwindcss.com&#34;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        /* Сандық енгізу өрістерінің стрелкаларын алып тастау */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        .fraction-line {
+            height: 2px;
+            background-color: #334155;
+            width: 100%;
+            border-radius: 999px;
+        }
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&#34;bg-slate-50 min-h-screen font-sans text-slate-800 p-4 md:p-8&#34;&gt;
+
+    &lt;div class=&#34;max-w-3xl mx-auto&#34;&gt;
+        &lt;!-- Header --&gt;
+        &lt;header class=&#34;flex justify-between items-center mb-8 bg-white p-4 rounded-2xl shadow-sm border border-slate-200&#34;&gt;
+            &lt;div class=&#34;flex items-center gap-3&#34;&gt;
+                &lt;div class=&#34;bg-blue-600 p-2 rounded-lg text-white&#34;&gt;
+                    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M4 19.5A2.5 2.5 0 0 1 6.5 17H20&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;h1 class=&#34;text-xl font-bold text-slate-900 leading-tight&#34;&gt;Математика 5-сынып&lt;/h1&gt;
+                    &lt;p class=&#34;text-sm text-slate-500&#34;&gt;Аралас сандармен жұмыс&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div id=&#34;stats-area&#34; class=&#34;hidden flex items-center gap-4&#34;&gt;
+                &lt;div class=&#34;text-right&#34;&gt;
+                    &lt;p class=&#34;text-[10px] text-slate-500 font-bold uppercase tracking-wider&#34;&gt;Ұпай&lt;/p&gt;
+                    &lt;p id=&#34;score-display&#34; class=&#34;text-xl font-bold text-blue-600 leading-none&#34;&gt;0&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;h-10 w-px bg-slate-200&#34;&gt;&lt;/div&gt;
+                &lt;!-- Жақсартылған &#34;Шығу&#34; батырмасы --&gt;
+                &lt;button onclick=&#34;showView(&#39;menu&#39;)&#34; class=&#34;bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2 rounded-xl font-bold text-sm transition-all border border-slate-200 flex items-center gap-2&#34;&gt;
+                    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;16&#34; height=&#34;16&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4&#34;&gt;&lt;/path&gt;&lt;polyline points=&#34;16 17 21 12 16 7&#34;&gt;&lt;/polyline&gt;&lt;line x1=&#34;21&#34; y1=&#34;12&#34; x2=&#34;9&#34; y2=&#34;12&#34;&gt;&lt;/line&gt;&lt;/svg&gt;
+                    Шығу
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Menu View --&gt;
+        &lt;div id=&#34;view-menu&#34; class=&#34;view active&#34;&gt;
+            &lt;div class=&#34;bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center&#34;&gt;
+                &lt;h2 class=&#34;text-2xl font-bold mb-4 text-slate-900&#34;&gt;Дайынсың ба?&lt;/h2&gt;
+                &lt;p class=&#34;text-slate-600 mb-8 leading-relaxed&#34;&gt;Бұл тренажерде тек оң сандармен жұмыс істейміз. Деңгейді таңдап, есептерді шығар!&lt;/p&gt;
+                
+                &lt;div class=&#34;grid md:grid-cols-3 gap-4&#34;&gt;
+                    &lt;button onclick=&#34;startPractice(1)&#34; class=&#34;group p-6 bg-green-50 hover:bg-green-100 border border-green-200 rounded-2xl transition-all shadow-sm&#34;&gt;
+                        &lt;div class=&#34;w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg shadow-md&#34;&gt;1&lt;/div&gt;
+                        &lt;h3 class=&#34;font-bold text-green-900 text-lg&#34;&gt;Оңай&lt;/h3&gt;
+                        &lt;p class=&#34;text-xs text-green-700 mt-2 italic font-medium&#34;&gt;Бөлімдері бірдей&lt;/p&gt;
+                    &lt;/button&gt;
+                    &lt;button onclick=&#34;startPractice(2)&#34; class=&#34;group p-6 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-2xl transition-all shadow-sm&#34;&gt;
+                        &lt;div class=&#34;w-12 h-12 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg shadow-md&#34;&gt;2&lt;/div&gt;
+                        &lt;h3 class=&#34;font-bold text-blue-900 text-lg&#34;&gt;Орташа&lt;/h3&gt;
+                        &lt;p class=&#34;text-xs text-blue-700 mt-2 italic font-medium&#34;&gt;Бөлімдері әртүрлі&lt;/p&gt;
+                    &lt;/button&gt;
+                    &lt;button onclick=&#34;startPractice(3)&#34; class=&#34;group p-6 bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-2xl transition-all shadow-sm&#34;&gt;
+                        &lt;div class=&#34;w-12 h-12 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg shadow-md&#34;&gt;3&lt;/div&gt;
+                        &lt;h3 class=&#34;font-bold text-purple-900 text-lg&#34;&gt;Күрделі&lt;/h3&gt;
+                        &lt;p class=&#34;text-xs text-purple-700 mt-2 italic font-medium&#34;&gt;Қарыз алу есептері&lt;/p&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;button onclick=&#34;showView(&#39;theory&#39;)&#34; class=&#34;mt-8 flex items-center gap-2 mx-auto text-blue-600 font-bold hover:bg-blue-50 px-8 py-4 rounded-full transition-all border border-blue-100&#34;&gt;
+                    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;20&#34; height=&#34;20&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34;&gt;&lt;/circle&gt;&lt;path d=&#34;M12 16v-4&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M12 8h.01&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+                    Теориялық нұсқаулықты қарау
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Theory View --&gt;
+        &lt;div id=&#34;view-theory&#34; class=&#34;view&#34;&gt;
+            &lt;div class=&#34;bg-white p-8 rounded-3xl shadow-sm border border-slate-200&#34;&gt;
+                &lt;h2 class=&#34;text-2xl font-bold mb-6 text-blue-700 border-b pb-4&#34;&gt;Маңызды ережелер&lt;/h2&gt;
+                &lt;div class=&#34;space-y-8&#34;&gt;
+                    &lt;section class=&#34;bg-slate-50 p-6 rounded-2xl border border-slate-100&#34;&gt;
+                        &lt;h3 class=&#34;font-bold text-lg mb-3 flex items-center gap-2 text-slate-900&#34;&gt;
+                            &lt;div class=&#34;w-6 h-6 bg-blue-100 text-blue-600 rounded-md flex items-center justify-center text-sm font-bold&#34;&gt;1&lt;/div&gt;
+                            Қарыз алу (Азайту)
+                        &lt;/h3&gt;
+                        &lt;p class=&#34;text-slate-700 mb-4 italic leading-relaxed&#34;&gt;Егер азайғыштың бөлшегі азайтқыштан кіші болса, бүтін бөліктен 1-ді аламыз:&lt;/p&gt;
+                        
+                        &lt;div class=&#34;flex flex-col items-center gap-4 bg-white p-6 rounded-xl border border-blue-50 shadow-sm&#34;&gt;
+                            &lt;div class=&#34;flex items-center gap-6 text-2xl font-bold text-slate-700&#34;&gt;
+                                &lt;span class=&#34;text-3xl&#34;&gt;5&lt;/span&gt;
+                                &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;text-blue-400&#34;&gt;&lt;path d=&#34;M5 12h14&#34;&gt;&lt;/path&gt;&lt;path d=&#34;m12 5 7 7-7 7&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+                                &lt;div class=&#34;flex items-center gap-1&#34;&gt;
+                                    &lt;span class=&#34;text-3xl&#34;&gt;4&lt;/span&gt;
+                                    &lt;div class=&#34;flex flex-col items-center&#34;&gt;
+                                        &lt;span class=&#34;text-xl border-b-2 border-slate-800 px-1 leading-none&#34;&gt;3&lt;/span&gt;
+                                        &lt;span class=&#34;text-xl px-1 leading-none&#34;&gt;3&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&#34;w-full h-px bg-slate-100 my-2&#34;&gt;&lt;/div&gt;
+                            &lt;div class=&#34;flex flex-wrap items-center justify-center gap-3 text-xl font-bold&#34;&gt;
+                                &lt;span class=&#34;bg-yellow-100 px-3 py-1 rounded-lg&#34;&gt;5&lt;/span&gt;
+                                &lt;span class=&#34;text-blue-500&#34;&gt;−&lt;/span&gt;
+                                &lt;div class=&#34;flex items-center gap-1&#34;&gt;2&lt;div class=&#34;flex flex-col items-center&#34;&gt;&lt;span class=&#34;text-base border-b border-black&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;text-base&#34;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+                                &lt;span class=&#34;text-slate-400 font-light&#34;&gt;=&lt;/span&gt;
+                                &lt;div class=&#34;flex items-center gap-1&#34;&gt;4&lt;div class=&#34;flex flex-col items-center&#34;&gt;&lt;span class=&#34;text-base border-b border-black&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;text-base&#34;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+                                &lt;span class=&#34;text-blue-500&#34;&gt;−&lt;/span&gt;
+                                &lt;div class=&#34;flex items-center gap-1&#34;&gt;2&lt;div class=&#34;flex flex-col items-center&#34;&gt;&lt;span class=&#34;text-base border-b border-black&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;text-base&#34;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+                                &lt;span class=&#34;text-green-600&#34;&gt;=&lt;/span&gt;
+                                &lt;div class=&#34;flex items-center gap-1&#34;&gt;2&lt;div class=&#34;flex flex-col items-center&#34;&gt;&lt;span class=&#34;text-base border-b border-black&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;text-base&#34;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/section&gt;
+
+                    &lt;div class=&#34;bg-blue-600 text-white p-6 rounded-2xl flex items-start gap-4 shadow-lg shadow-blue-100&#34;&gt;
+                        &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; class=&#34;shrink-0 mt-1&#34;&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34;&gt;&lt;/circle&gt;&lt;line x1=&#34;12&#34; y1=&#34;8&#34; x2=&#34;12&#34; y2=&#34;12&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;12&#34; y1=&#34;16&#34; x2=&#34;12.01&#34; y2=&#34;16&#34;&gt;&lt;/line&gt;&lt;/svg&gt;
+                        &lt;div&gt;
+                            &lt;h4 class=&#34;font-bold text-lg&#34;&gt;Есіңде сақта!&lt;/h4&gt;
+                            &lt;p class=&#34;opacity-90 text-sm mt-1 italic leading-relaxed&#34;&gt;Біз тек үлкен аралас саннан кіші санды азайтамыз. Теріс нәтиже шықпайды!&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button onclick=&#34;showView(&#39;menu&#39;)&#34; class=&#34;mt-8 w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg active:scale-[0.98]&#34;&gt;
+                    Түсіндім, тапсырмаға көшемін
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Practice View --&gt;
+        &lt;div id=&#34;view-practice&#34; class=&#34;view&#34;&gt;
+            &lt;div class=&#34;bg-white p-8 rounded-3xl shadow-sm border border-slate-200&#34;&gt;
+                &lt;div class=&#34;flex justify-between items-center mb-10&#34;&gt;
+                    &lt;span id=&#34;level-label&#34; class=&#34;px-4 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-bold uppercase tracking-wider&#34;&gt;Деңгей: 1&lt;/span&gt;
+                    &lt;div class=&#34;flex items-center gap-2 text-slate-400 text-sm font-medium&#34;&gt;
+                        &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;16&#34; height=&#34;16&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M6 9H4.5a2.5 2.5 0 0 1 0-5H6&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M18 9h1.5a2.5 2.5 0 0 0 0-5H18&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M4 22h16&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M18 2H6v7a6 6 0 0 0 12 0V2Z&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+                        Орындалғаны: &lt;span id=&#34;solved-display&#34; class=&#34;text-slate-700 font-bold&#34;&gt;0&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&#34;flex flex-col items-center justify-center space-y-10&#34;&gt;
+                    &lt;!-- Question Display --&gt;
+                    &lt;div id=&#34;question-container&#34; class=&#34;flex flex-wrap items-center justify-center gap-6 text-4xl font-bold text-slate-700&#34;&gt;
+                        &lt;!-- Динамикалық түрде толтырылады --&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Feedback Area --&gt;
+                    &lt;div id=&#34;feedback-area&#34; class=&#34;hidden w-full max-w-md animate-in fade-in slide-in-from-bottom-2&#34;&gt;
+                        &lt;!-- Кері байланыс хабарламасы --&gt;
+                    &lt;/div&gt;
+
+                    &lt;!-- Actions --&gt;
+                    &lt;div class=&#34;flex gap-4 w-full max-w-md&#34;&gt;
+                        &lt;button id=&#34;check-btn&#34; onclick=&#34;checkAnswer()&#34; class=&#34;flex-1 bg-blue-600 text-white py-4 rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 active:scale-95&#34;&gt;
+                            Тексеру
+                        &lt;/button&gt;
+                        &lt;button id=&#34;next-btn&#34; onclick=&#34;nextQuestion()&#34; class=&#34;hidden flex-1 bg-slate-900 text-white py-4 rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all flex items-center justify-center gap-2 active:scale-95&#34;&gt;
+                            Келесі есеп
+                            &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;20&#34; height=&#34;20&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;m9 18 6-6-6-6&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+                        &lt;/button&gt;
+                        &lt;button onclick=&#34;generateQuestion()&#34; class=&#34;p-4 bg-slate-100 text-slate-600 rounded-2xl hover:bg-slate-200 transition-all&#34; title=&#34;Басқа есеп&#34;&gt;
+                            &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M3 3v5h5&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16&#34;&gt;&lt;/path&gt;&lt;path d=&#34;M16 16h5v5&#34;&gt;&lt;/path&gt;&lt;/svg&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;footer class=&#34;mt-12 text-center text-slate-400 text-xs font-medium uppercase tracking-widest&#34;&gt;
+            &lt;p&gt;© 2024 Математика тренажеры • Vanilla JS Edition&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // State
+        let state = {
+            view: &#39;menu&#39;,
+            level: 1,
+            score: 0,
+            solved: 0,
+            currentQuestion: null
+        };
+
+        // DOM Elements
+        const views = {
+            menu: document.getElementById(&#39;view-menu&#39;),
+            theory: document.getElementById(&#39;view-theory&#39;),
+            practice: document.getElementById(&#39;view-practice&#39;)
+        };
+        const statsArea = document.getElementById(&#39;stats-area&#39;);
+        const scoreDisplay = document.getElementById(&#39;score-display&#39;);
+        const solvedDisplay = document.getElementById(&#39;solved-display&#39;);
+        const levelLabel = document.getElementById(&#39;level-label&#39;);
+        const qContainer = document.getElementById(&#39;question-container&#39;);
+        const feedbackArea = document.getElementById(&#39;feedback-area&#39;);
+        const checkBtn = document.getElementById(&#39;check-btn&#39;);
+        const nextBtn = document.getElementById(&#39;next-btn&#39;);
+
+        // Logic
+        function showView(viewName) {
+            state.view = viewName;
+            Object.keys(views).forEach(v =&gt; {
+                views[v].classList.remove(&#39;active&#39;);
+            });
+            views[viewName].classList.add(&#39;active&#39;);
+
+            if (viewName === &#39;practice&#39;) {
+                statsArea.classList.remove(&#39;hidden&#39;);
+            } else {
+                statsArea.classList.add(&#39;hidden&#39;);
+            }
+        }
+
+        function startPractice(level) {
+            state.level = level;
+            state.score = 0;
+            state.solved = 0;
+            updateStats();
+            levelLabel.textContent = `Деңгей: ${level === 1 ? &#39;Оңай&#39; : level === 2 ? &#39;Орта&#39; : &#39;Күрделі&#39;}`;
+            showView(&#39;practice&#39;);
+            generateQuestion();
+        }
+
+        function generateQuestion() {
+            const op = Math.random() &gt; 0.5 ? &#39;&#43;&#39; : &#39;-&#39;;
+            let q = {};
+            const lvl = state.level;
+
+            if (lvl === 1) {
+                const den = Math.floor(Math.random() * 5) &#43; 2;
+                let w1 = Math.floor(Math.random() * 5) &#43; 1;
+                let w2 = Math.floor(Math.random() * 4) &#43; 1;
+                let n1, n2;
+                if (op === &#39;&#43;&#39;) {
+                    n1 = Math.floor(Math.random() * (den - 1)) &#43; 1;
+                    n2 = Math.floor(Math.random() * (den - n1)) || 1;
+                } else {
+                    if (w1 &lt;= w2) w1 = w2 &#43; Math.floor(Math.random() * 3) &#43; 1;
+                    n1 = Math.floor(Math.random() * (den - 1)) &#43; 1;
+                    n2 = Math.floor(Math.random() * n1) || 0;
+                }
+                q = { w1, n1, d1: den, w2, n2, d2: den, op };
+            } else if (lvl === 2) {
+                const d1 = [2, 3, 4, 5, 6][Math.floor(Math.random() * 5)];
+                const d2 = [2, 3, 4, 5, 6].filter(d =&gt; d !== d1)[Math.floor(Math.random() * 4)];
+                let w1 = Math.floor(Math.random() * 5) &#43; 4;
+                let w2 = Math.floor(Math.random() * 3) &#43; 1;
+                q = { w1, n1: 1, d1, w2, n2: 1, d2, op };
+            } else {
+                const den = Math.floor(Math.random() * 6) &#43; 4;
+                const w1 = Math.floor(Math.random() * 5) &#43; 5;
+                const w2 = Math.floor(Math.random() * 3) &#43; 1;
+                const n2 = Math.floor(Math.random() * (den - 2)) &#43; 2;
+                const n1 = Math.floor(Math.random() * (n2 - 1)) &#43; 1;
+                q = { w1, n1, d1: den, w2, n2, d2: den, op: &#39;-&#39; };
+            }
+
+            state.currentQuestion = q;
+            renderQuestion();
+            resetUI();
+        }
+
+        function renderQuestion() {
+            const q = state.currentQuestion;
+            qContainer.innerHTML = `
+                ${renderFraction(q.w1, q.n1, q.d1)}
+                &lt;span class=&#34;text-blue-500 font-bold&#34;&gt;${q.op}&lt;/span&gt;
+                ${renderFraction(q.w2, q.n2, q.d2)}
+                &lt;span class=&#34;text-slate-400&#34;&gt;=&lt;/span&gt;
+                &lt;div class=&#34;flex items-center space-x-2 bg-slate-50 p-4 rounded-2xl border border-dashed border-slate-300&#34;&gt;
+                    &lt;input id=&#34;ans-w&#34; type=&#34;number&#34; placeholder=&#34;?&#34; class=&#34;w-20 h-20 text-center border-2 border-slate-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none text-3xl font-bold&#34;&gt;
+                    &lt;div class=&#34;flex flex-col items-center space-y-1&#34;&gt;
+                        &lt;input id=&#34;ans-n&#34; type=&#34;number&#34; placeholder=&#34;n&#34; class=&#34;w-16 h-12 text-center border-2 border-slate-200 rounded-lg focus:border-blue-500 outline-none text-xl font-bold&#34;&gt;
+                        &lt;div class=&#34;fraction-line bg-slate-400&#34;&gt;&lt;/div&gt;
+                        &lt;input id=&#34;ans-d&#34; type=&#34;number&#34; placeholder=&#34;d&#34; class=&#34;w-16 h-12 text-center border-2 border-slate-200 rounded-lg focus:border-blue-500 outline-none text-xl font-bold&#34;&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `;
+        }
+
+        function renderFraction(w, n, d) {
+            return `
+                &lt;div class=&#34;flex items-center gap-1&#34;&gt;
+                    ${w &gt; 0 ? `&lt;span&gt;${w}&lt;/span&gt;` : &#39;&#39;}
+                    ${n &gt; 0 ? `
+                    &lt;div class=&#34;flex flex-col items-center border-l-2 border-slate-200 pl-2&#34;&gt;
+                        &lt;span class=&#34;text-3xl border-b-2 border-slate-700 px-1 leading-none&#34;&gt;${n}&lt;/span&gt;
+                        &lt;span class=&#34;text-3xl px-1 leading-none&#34;&gt;${d}&lt;/span&gt;
+                    &lt;/div&gt;` : &#39;&#39;}
+                &lt;/div&gt;
+            `;
+        }
+
+        function checkAnswer() {
+            const q = state.currentQuestion;
+            const w = parseInt(document.getElementById(&#39;ans-w&#39;).value) || 0;
+            const n = parseInt(document.getElementById(&#39;ans-n&#39;).value) || 0;
+            const d = parseInt(document.getElementById(&#39;ans-d&#39;).value) || 1;
+
+            const correctVal = q.op === &#39;&#43;&#39; ? (q.w1 &#43; q.n1/q.d1) &#43; (q.w2 &#43; q.n2/q.d2) : (q.w1 &#43; q.n1/q.d1) - (q.w2 &#43; q.n2/q.d2);
+            const userVal = w &#43; n/d;
+
+            if (Math.abs(correctVal - userVal) &lt; 0.0001) {
+                showFeedback(true);
+                state.score &#43;= 10;
+                state.solved &#43;= 1;
+                updateStats();
+                checkBtn.classList.add(&#39;hidden&#39;);
+                nextBtn.classList.remove(&#39;hidden&#39;);
+            } else {
+                showFeedback(false);
+            }
+        }
+
+        function showFeedback(isCorrect) {
+            feedbackArea.innerHTML = isCorrect ? `
+                &lt;div class=&#34;flex items-center gap-3 p-4 rounded-2xl bg-green-50 text-green-700 border border-green-200 shadow-sm&#34;&gt;
+                    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;path d=&#34;M22 11.08V12a10 10 0 1 1-5.93-9.14&#34;&gt;&lt;/path&gt;&lt;polyline points=&#34;22 4 12 14.01 9 11.01&#34;&gt;&lt;/polyline&gt;&lt;/svg&gt;
+                    &lt;p class=&#34;font-bold&#34;&gt;Керемет! Жауабың дұрыс.&lt;/p&gt;
+                &lt;/div&gt;
+            ` : `
+                &lt;div class=&#34;flex items-center gap-3 p-4 rounded-2xl bg-red-50 text-red-700 border border-red-200 shadow-sm&#34;&gt;
+                    &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; width=&#34;24&#34; height=&#34;24&#34; viewBox=&#34;0 0 24 24&#34; fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-width=&#34;2&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34;&gt;&lt;circle cx=&#34;12&#34; cy=&#34;12&#34; r=&#34;10&#34;&gt;&lt;/circle&gt;&lt;line x1=&#34;12&#34; y1=&#34;8&#34; x2=&#34;12&#34; y2=&#34;12&#34;&gt;&lt;/line&gt;&lt;line x1=&#34;12&#34; y1=&#34;16&#34; x2=&#34;12.01&#34; y2=&#34;16&#34;&gt;&lt;/line&gt;&lt;/svg&gt;
+                    &lt;p class=&#34;font-bold&#34;&gt;Қателік бар. Қайтадан тексер немесе теорияны оқы.&lt;/p&gt;
+                &lt;/div&gt;
+            `;
+            feedbackArea.classList.remove(&#39;hidden&#39;);
+        }
+
+        function nextQuestion() {
+            generateQuestion();
+        }
+
+        function resetUI() {
+            feedbackArea.classList.add(&#39;hidden&#39;);
+            checkBtn.classList.remove(&#39;hidden&#39;);
+            nextBtn.classList.add(&#39;hidden&#39;);
+        }
+
+        function updateStats() {
+            scoreDisplay.textContent = state.score;
+            solvedDisplay.textContent = state.solved;
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+
+            
+            <div class="mt-6 flex gap-4">
+                
+                <button id="openFsBtn" onclick="openFullscreen()"
+                    class="btn-primary flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                    <span>Толық экран</span>
+                </button>
+
+                
+                <button id="closeFsBtn" onclick="closeFullscreen()"
+                    class="hidden btn-danger flex items-center gap-2 text-white px-6 py-3 rounded-xl font-semibold shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    <span>Кішірейту</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var elem = document.getElementById("fullscreenWrapper");
+            var openBtn = document.getElementById("openFsBtn");
+            var closeBtn = document.getElementById("closeFsBtn");
+
+            function openFullscreen() {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            function closeFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+
+            function updateButtons() {
+                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+                    openBtn.classList.add("hidden");
+                    closeBtn.classList.remove("hidden");
+                } else {
+                    openBtn.classList.remove("hidden");
+                    closeBtn.classList.add("hidden");
+                }
+            }
+
+            document.addEventListener("fullscreenchange", updateButtons);
+            document.addEventListener("webkitfullscreenchange", updateButtons);
+            document.addEventListener("msfullscreenchange", updateButtons);
+        </script>
+
+        
+        
+        <div class="bg-white p-6 rounded-2xl w-full mt-8 shadow-lg border border-purple-100 max-w-4xl mx-auto">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl">📋</span>
+                <h3 class="text-xl font-bold text-gray-800">Тапсырма сипаттамасы</h3>
+            </div>
+            <div class="text-gray-700 leading-relaxed whitespace-pre-wrap">Сәлем, жас зерттеуші! Алдыңда тұрған бұл тапсырма — сенің шығармашылық әлеуетіңді ашатын ерекше мүмкіндік. Бұл жұмыс арқылы сен тек жаңа мәліметтер алып қана қоймай, алған біліміңді нақты іс жүзінде қолдануды үйренесің.
+
+Бұл тапсырма несімен маңызды?
+
+Зерттеу: Сен нағыз ізденуші секілді мәселенің мәніне үңілесің.
+
+Талдау: Ақпаратты іріктеп, ең маңыздысын таңдайсың.
+
+Шығармашылық: Өз идеяларыңды батыл қосып, ерекше шешімдер ұсынасың.
+
+Әр қадамды мұқият орындап, өз ойыңды еркін білдіруден қорықпа. Сенің көзқарасың өте маңызды! Іске сәт, саған сенеміз! 🚀</div>
+        </div>
+        
+
+        
+        <div class="w-full max-w-4xl mx-auto my-8 px-4">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9724842226086594"
+                data-ad-slot="WWWWWWWWWW" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-auto relative z-10">
+        <div class="container mx-auto text-center">
+            <div class="text-2xl mb-4">📐 VisualMath</div>
+            <p class="text-gray-400 mb-4">&copy; 2024 VisualMath. Барлық құқықтар қорғалған.</p>
+            <div class="space-x-6">
+                <a href="/privacy" class="text-gray-400 hover:text-white transition-colors">Құпиялылық
+                    саясаты</a>
+                <a href="/terms" class="text-gray-400 hover:text-white transition-colors">Пайдалану
+                    шарттары</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
