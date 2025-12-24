@@ -41,6 +41,8 @@ func RenderToFile(path string, tmplName string, data interface{}, funcMap templa
 // BuildSite generates the static site in the outputDir
 // Set basePath to "/mysitecheck" for GitHub Pages or "/" for root deployment
 func BuildSite(outputDir string, basePath string) error {
+	const domain = "https://meirbekashirbayev.github.io"
+
 	// 1. Clean/Create Dir
 	if err := os.RemoveAll(outputDir); err != nil {
 		return fmt.Errorf("failed to clear output dir: %v", err)
@@ -99,6 +101,20 @@ func BuildSite(outputDir string, basePath string) error {
 		}
 	}
 
+	// 4.1 AMP Lessons
+	fmt.Println("Building AMP Lessons...")
+	for _, l := range allLessons {
+		ampPath := filepath.Join(outputDir, fmt.Sprintf("lesson/%d/amp.html", l.ID))
+		canonicalURL := fmt.Sprintf("%s/lesson/%d", domain, l.ID)
+		ampData := map[string]interface{}{
+			"Lesson":       l,
+			"CanonicalURL": canonicalURL,
+		}
+		if err := RenderToFile(ampPath, "amp_lesson.html", ampData, funcMap); err != nil {
+			return fmt.Errorf("failed to render AMP lesson %d: %v", l.ID, err)
+		}
+	}
+
 	// 5. Tasks
 	fmt.Println("Building Tasks...")
 	var allTasks []models.Task
@@ -135,6 +151,11 @@ func BuildSite(outputDir string, basePath string) error {
 	// Lessons
 	for _, l := range allLessons {
 		sitemapURLs = append(sitemapURLs, fmt.Sprintf("/lesson/%d", l.ID))
+	}
+
+	// AMP Lessons
+	for _, l := range allLessons {
+		sitemapURLs = append(sitemapURLs, fmt.Sprintf("/lesson/%d/amp.html", l.ID))
 	}
 
 	// Tasks
